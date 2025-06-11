@@ -1,0 +1,56 @@
+html, body {
+    padding:0px;
+    margin:0px;
+    background:var(--p-surface-100) !important;
+    color:var(--p-surface-600) !important;
+    font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+.p-button-label {
+  font-weight: 300 !important;
+}
+
+.p-multiselect-overlay {
+  max-width: 60vw;
+}
+/* For secondary buttons */
+.secondary {
+    background-color: var(--p-surface-300);
+    border-color: var(--p-surface-300) !important;
+    color: var(--p-surface-900) !important;
+  }
+  .secondary:hover {
+    background-color: var(--p-surface-400) !important;
+  }
+
+  /* For the Symbol component */
+  .my-app-dark .invert {
+    filter:invert();
+  }
+  .symbol {
+    height:1.5rem;
+    width:auto;
+    display: inline-block;
+    vertical-align: middle;
+    padding:2px;
+  }
+  .text-color-overlay-svg {
+    color:var(--p-surface-800)
+  }
+ .router-link {
+    text-decoration: none;
+    width:min-content;
+  }
