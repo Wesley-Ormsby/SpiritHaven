@@ -11,6 +11,8 @@ import FloatLabel from 'primevue/floatlabel'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Button from 'primevue/button';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 
 import {
   Save,
@@ -36,6 +38,8 @@ import DeleteArticleDialog from './DeleteArticleDialog.vue'
 import ArticlePropertiesDialog from './ArticlePropertiesDialog.vue'
 import CenterDisplaySVG from './svgs/CenterDisplaySVG.vue'
 import { ADVESARIES, BOARDS, CARD_ARTS, INVERTABLE_SYMBOLS, LARGE_COMPONENTS_ARTS, SCENARIOS, SPIRITS, SYMBOL_DATA } from '@/scripts/data'
+
+const toast = useToast();
 
 const textarea = useTemplateRef('textarea')
 const forground = useTemplateRef('forground')
@@ -101,6 +105,9 @@ async function saveContent() {
     .from('articles')
     .update({ content: articleData.value.content })
     .eq('id', articleData.value.id)
+  if(!error) {
+    toast.add({ severity: 'success', summary: 'Saved', life: 2200 });
+  }
   saving.value = false
   unsavedChanges.value = false
 }
@@ -658,6 +665,7 @@ function insertText(text: string) {
       v-model="changePropertiesDialogVisable"
       :is-new-article="false"
     ></ArticlePropertiesDialog>
+    <Toast/>
   </div>
 </template>
 <style scoped>

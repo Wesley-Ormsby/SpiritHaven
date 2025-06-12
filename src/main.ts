@@ -3,6 +3,7 @@ import { definePreset } from '@primeuix/themes'
 import Aura from '@primeuix/themes/aura'
 import Tooltip from 'primevue/tooltip'
 import FocusTrap from 'primevue/focustrap';
+import ToastService from 'primevue/toastservice';
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -133,6 +134,7 @@ app.use(PrimeVue, {
 })
 
 app.use(router)
+app.use(ToastService);
 app.directive('tooltip', Tooltip)
 app.directive('focustrap', FocusTrap);
 app.mount('#app')
