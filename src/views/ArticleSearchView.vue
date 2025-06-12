@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Button } from 'primevue'
-import {ref, computed, useTemplateRef, onMounted,watch } from 'vue'
+import { ref, computed, useTemplateRef, onMounted, watch } from 'vue'
 import {
   Search,
   ChevronLeft,
@@ -9,7 +9,7 @@ import {
   ChevronsRight,
   ListFilter,
   ArrowDownWideNarrow,
-  X
+  X,
 } from 'lucide-vue-next'
 import { supabase, userData } from '@/scripts/auth'
 import type { ArticleData, UserData } from '@/scripts/types'
@@ -106,7 +106,7 @@ const filteredArticles = computed(() => {
   let sortedArticles = allArticles.value
     .filter((article) => {
       let title = article.title.toLowerCase()
-      if(author.value && article.user != author.value) {
+      if (author.value && article.user != author.value) {
         return false
       }
       for (var term of query) {
@@ -154,18 +154,17 @@ function search(key: string, value: string) {
 
 async function setupData() {
   // reset variables
-input.value = ''
-allArticles.value = []
-p.value = 1
-q.value = ""
-tags.value = []
-author.value = ""
-sortDirection.value = 'descending'
-sortBy.value = 'recently updated'
-filterDialogVisable.value = false
-selectedTab.value = 'all articles'
-loading.value = true
-
+  input.value = ''
+  allArticles.value = []
+  p.value = 1
+  q.value = ''
+  tags.value = []
+  author.value = ''
+  sortDirection.value = 'descending'
+  sortBy.value = 'recently updated'
+  filterDialogVisable.value = false
+  selectedTab.value = 'all articles'
+  loading.value = true
 
   let params = new URLSearchParams(document.location.search)
   let query = params.get('q')
@@ -197,32 +196,31 @@ loading.value = true
   }
   let tagsParam = params.get('tags')
   if (tagsParam != null) {
-    for(var tag of tagsParam.split(",")) {
-      if(TAGS.includes(tag.toLowerCase())) {
+    for (var tag of tagsParam.split(',')) {
+      if (TAGS.includes(tag.toLowerCase())) {
         tags.value.push(tag.toLowerCase())
       }
     }
   }
   let authorParam = params.get('author')
   if (authorParam != null) {
-    let {data, error} = await supabase.from("Users").select()
-    if(!error) {
+    let { data, error } = await supabase.from('Users').select()
+    if (!error) {
       allUsers.value = data as UserData[]
     }
-    for(let user of allUsers.value) {
-      if(user.id = authorParam) {
+    for (let user of allUsers.value) {
+      if ((user.id = authorParam)) {
         author.value = authorParam
         break
       }
     }
   }
-
   const { data, error } =
     selectedTab.value == 'your articles'
-      ? userData.value
+      ? userData.value != null
         ? await supabase.from('articles').select().eq('id', userData.value.id)
-        : {data:[],error:false}
-      : await supabase.from('articles').select()
+        : { data: [], error: false }
+      : await supabase.from('articles').select().not('access', 'eq', 'unlisted')
   if (!error) {
     allArticles.value = data
   }
@@ -263,8 +261,10 @@ loading.value = true
         <Button size="small" label="Sort" aria-controls="order_menu" @click="openSortMenu"
           ><template #icon> <ArrowDownWideNarrow></ArrowDownWideNarrow> </template
         ></Button>
-        <RouterLink to="/search/article"><Button label="Reset" size="small" variant="outlined"><template #icon> <X></X> </template
-          ></Button></RouterLink>
+        <RouterLink to="/search/article"
+          ><Button label="Reset" size="small" variant="outlined"
+            ><template #icon> <X></X> </template></Button
+        ></RouterLink>
         <Menu ref="sortMenu" id="order_menu" :model="sortOptions" :popup="true">
           <template #item="{ item, props }">
             <label v-if="item.category == 'sortBy'" @click="search('sort', item.label as string)">
@@ -285,14 +285,8 @@ loading.value = true
     </div>
     <div class="article-container">
       <!-- REMEMBER SKELLETONS -->
-      <ArticleCard
-        v-if="loading"
-        v-for="_ in rowsPerPage"
-        :article="null"
-      ></ArticleCard>
-      <h2 v-else-if="filteredArticles.length < 1">
-        No Results Found for Query
-      </h2>
+      <ArticleCard v-if="loading" v-for="_ in rowsPerPage" :article="null"></ArticleCard>
+      <h2 v-else-if="filteredArticles.length < 1">No Results Found for Query</h2>
       <div v-else-if="pageError" class="centered-column">
         <h2>Page {{ p }} is out of the page range</h2>
         <Button @click="changePage(1)">Go to page 1</Button>
@@ -321,7 +315,12 @@ loading.value = true
   </div>
   <Footer></Footer>
 
-  <ArticleFilterDialog v-model="filterDialogVisable" :q="q" :id="author" :tags="tags"></ArticleFilterDialog>
+  <ArticleFilterDialog
+    v-model="filterDialogVisable"
+    :q="q"
+    :id="author"
+    :tags="tags"
+  ></ArticleFilterDialog>
 </template>
 
 <style lang="css" scoped>

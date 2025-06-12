@@ -7,7 +7,6 @@ import { useRoute } from 'vue-router'
 import router from '../router'
 import Button from 'primevue/button'
 import { SPIRITS } from '@/scripts/data'
-import NewArticleDialog from '@/components/ArticlePropertiesDialog.vue'
 import { UserRoundCog, Plus } from 'lucide-vue-next'
 import ProfileSettingsDialog from '@/components/ProfileSettingsDialog.vue'
 import ArticlePropertiesDialog from '@/components/ArticlePropertiesDialog.vue'
@@ -32,6 +31,17 @@ onMounted(loadArticles)
 const profileSettingsVisable = ref(false)
 const newArticleDialogVisible = ref(false)
 const articles = ref<ArticleData[] | null>(null)
+// Filter for unlisted
+const filteredArticles  = computed(()=>{
+  if(articles.value) {
+    if(isMyPage.value) {
+      return articles.value
+    } else {
+      return articles.value.filter((art)=>art.access != "unlisted")
+    }
+  } 
+  return []
+})
 
 const isMyPage = computed(() => userData.value != null && userData.value.id == profileData.value.id)
 
@@ -42,6 +52,7 @@ async function loadArticles() {
 </script>
 
 <template>
+  <div class="page-content">
   <div class="hero">
     <div class="username">{{ profileData.username }}</div>
     <div class="description">{{ profileData.description }}</div>
@@ -59,22 +70,31 @@ async function loadArticles() {
   </div>
   <div class="articles">
     <ArticleCard
-    v-if="articles"
-    v-for="article in articles"
+    v-if="articles && articles.length"
+    v-for="article in filteredArticles"
     :article="article"
   />
+  <div v-else-if="articles != null && articles.length == 0">
+    <div class="empty-articles">
+      <h2>{{isMyPage ? 'Get started!': 'No Articles'}}</h2>
+      <Button v-if="isMyPage" @click="newArticleDialogVisible = true">Make an Article</Button></div>
+  </div>
   <ArticleCard
     v-else
     v-for="_ in 7"
     :article="null"
   />
   </div>
+</div>
   
   <ProfileSettingsDialog v-model="profileSettingsVisable"></ProfileSettingsDialog>
   <ArticlePropertiesDialog v-model="newArticleDialogVisible" :is-new-article="true"></ArticlePropertiesDialog>
 </template>
 
 <style scoped>
+.page-content {
+  min-height: calc(100vh - 600px);
+}
 .hero {
   margin-top:60px;
   display: flex;
@@ -147,6 +167,14 @@ async function loadArticles() {
   align-items:stretch;
   justify-content: center;
   gap:10px;
+}
+
+.empty-articles {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:200px;
 }
 @media only screen and (max-width: 1280px) {
   .hero-image {

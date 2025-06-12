@@ -3,12 +3,21 @@ import InputText from 'primevue/inputtext'
 import InputGroup from 'primevue/inputgroup'
 import InputGroupAddon from 'primevue/inputgroupaddon'
 import { Button } from 'primevue'
-import { onBeforeMount, ref, computed } from 'vue'
+import { onBeforeMount, ref, computed, watch} from 'vue'
 import { Search, ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
 import type { UserData } from '@/scripts/types'
 import UserCard from '@/components/UserCard.vue'
 import Footer from '@/components/Footer.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+watch(
+  () => route.fullPath,
+  async (newId, oldId) => {
+    setupData()
+  },
+)
 
 const input = ref('')
 const allUsers = ref<UserData[]>([])
@@ -40,12 +49,16 @@ const pageUsers = computed(() => {
 
 const pageError = computed(() => p.value < 1 || p.value > pages.value)
 
-onBeforeMount(async () => {
+onBeforeMount(setupData)
+
+async function setupData() {
+  input.value = ""
+  p.value = 1
+  q.value = ''
   const { data, error } = await supabase.from('Users').select()
   if (!error) {
     allUsers.value = data
   }
-
   let params = new URLSearchParams(document.location.search)
   let query = params.get('q')
   if (query != null) {
@@ -56,7 +69,7 @@ onBeforeMount(async () => {
   if (page != null && /^\d+$/.test(page)) {
     p.value = Number(page)
   }
-})
+}
 
 function changePage(newPage: number) {
   var searchParams = new URLSearchParams(window.location.search)

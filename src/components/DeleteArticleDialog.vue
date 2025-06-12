@@ -9,7 +9,7 @@ import router from '../router'
 const model = defineModel<boolean>({ required: true })
 const props = defineProps<{ article: ArticleData }>()
 async function deleteArticle() {
-  const { data, error } = await supabase.from('articles').delete().eq('id', props.article.id)
+  const { data, error } = await supabase.from('articles').delete().eq('id', props.article.id).select()
   router.push({ name: 'profile', params: { id: props.article.user } })
 }
 </script>

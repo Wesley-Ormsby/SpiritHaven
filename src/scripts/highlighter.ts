@@ -11,7 +11,6 @@ const symbolNamesWithOr = ALL_SYMBOLS.map((symbol: string) =>
 ).join('|')
 const symbolRegex = `\\{\\{\\s*(${symbolNamesWithOr})\\s*\\}\\}`
 const symbolScanRegex = RegExp(symbolRegex)
-console.log(symbolScanRegex)
 const allNamesWithOr = Object.keys(CARD_ARTS).concat(Object.keys(LARGE_COMPONENTS_ARTS))
   .map((symbol: string) => symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'))
   .join('|')
