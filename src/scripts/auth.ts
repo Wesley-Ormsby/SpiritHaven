@@ -5,7 +5,6 @@ import type { UserData } from './types'
 
 export const user = ref<User | null>(null)
 export const userData = ref<UserData | null>(null)
-console.log(import.meta.env.VITE_API_URL)
 export const supabase = createClient(
   import.meta.env.VITE_API_URL,
   import.meta.env.VITE_API_KEY,
@@ -14,6 +13,9 @@ export const supabase = createClient(
 export async function signInWithDiscord() {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'discord',
+    options: {
+      redirectTo: import.meta.env.VITE_API_REDIRECT  // or whatever your local URL is
+    }
   })
 }
 
