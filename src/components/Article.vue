@@ -90,9 +90,11 @@ function hideTooltip() {
     <div class="article">
       <div class="title">{{ articleData.title }}</div>
       <div class="flex-row">
-        <span class="user-span" @click="router.push({ name: 'profile', params: { id: profileData.id } })">
+        <RouterLink :to="{ name: 'profile', params: { id: profileData.id } }">
+        <span class="user-span">
         <SpiritAvatar :spirit="profileData.spirit" class="user-avatar"></SpiritAvatar>
          {{ profileData.username }}</span>
+        </RouterLink>
         <span>|</span><span>Last Changes {{ updatedDate }}</span>
       </div>
       <div class="flex-row wrap">
@@ -180,6 +182,9 @@ function hideTooltip() {
   border-radius: 3px;
   padding: 5px;
   overflow-x: scroll;
+}
+::v-deep(pre code) {
+  padding: 0px;
 }
 ::v-deep(table),
 ::v-deep(th),
