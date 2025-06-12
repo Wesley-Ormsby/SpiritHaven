@@ -25,3 +25,5 @@ export const articleData = ref<ArticleData>({
 })
 export const notFoundPage = ref<string>("")
 export const allUsers = ref<UserData[]>([])
+export const preLoading = ref(false)
+export const userData = ref<UserData | null>(null)

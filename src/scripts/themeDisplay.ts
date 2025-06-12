@@ -1,7 +1,8 @@
-import { userData,user,supabase } from './auth'
+import { supabase } from './auth'
 import type { Display, Element } from './types'
 import { ref,onMounted } from 'vue'
 import { updatePreset } from '@primeuix/themes'
+import { userData } from './globalStore'
 
 export const display = ref<Display>('system')
 export const theme = ref<Element>('a')
@@ -145,4 +146,3 @@ function setFavicon(primaryColour: string) {
 
   link.href = url;
 }
-setFavicon("var(--p-primary-500)")

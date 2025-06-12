@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { supabase, userData } from '@/scripts/auth'
+import { supabase } from '@/scripts/auth'
 import type { ArticleData } from '@/scripts/types'
-import { articleData, notFoundPage, profileData } from '@/scripts/globalStore'
+import { articleData, notFoundPage, profileData, userData } from '@/scripts/globalStore'
 import { watch, computed, ref, onMounted, onUnmounted } from 'vue'
 import { SquareSplitHorizontal, Eye, Pencil } from 'lucide-vue-next'
 import router from '../router'

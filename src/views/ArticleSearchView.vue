@@ -11,7 +11,7 @@ import {
   ArrowDownWideNarrow,
   X,
 } from 'lucide-vue-next'
-import { supabase, userData } from '@/scripts/auth'
+import { supabase } from '@/scripts/auth'
 import type { ArticleData, UserData } from '@/scripts/types'
 import Footer from '@/components/Footer.vue'
 import InputGroup from 'primevue/inputgroup'
@@ -22,7 +22,7 @@ import RadioButton from 'primevue/radiobutton'
 import Menu from 'primevue/menu'
 import ArticleCard from '@/components/ArticleCard.vue'
 import { TAGS } from '@/scripts/data'
-import { allUsers } from '@/scripts/globalStore'
+import { allUsers,userData } from '@/scripts/globalStore'
 import { useRoute } from 'vue-router'
 
 const input = ref('')
@@ -215,12 +215,22 @@ async function setupData() {
       }
     }
   }
-  const { data, error } =
-    selectedTab.value == 'your articles'
-      ? userData.value != null
-        ? await supabase.from('articles').select().eq('id', userData.value.id)
-        : { data: [], error: false }
-      : await supabase.from('articles').select().not('access', 'eq', 'unlisted')
+  console.log(userData.value)
+  let data:ArticleData[] = [];
+  let error = null;
+  if(selectedTab.value == 'your articles') {
+    if( userData.value != null) {
+      let result = await supabase.from('articles').select().eq('user', userData.value.id)
+      data = result.data as ArticleData[]
+      error = result.error
+    } else {
+      // no changes to data
+    }
+  } else {
+    let result = await supabase.from('articles').select().eq('access', 'public')
+    data = result.data as ArticleData[]
+      error = result.error
+  }
   if (!error) {
     allArticles.value = data
   }

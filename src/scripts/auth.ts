@@ -2,9 +2,10 @@ import { createClient, type User } from '@supabase/supabase-js'
 import { ref } from 'vue'
 import { setupThemeAndDisplay } from './themeDisplay'
 import type { UserData } from './types'
+import { preLoading, userData} from './globalStore'
 
 export const user = ref<User | null>(null)
-export const userData = ref<UserData | null>(null)
+
 export const supabase = createClient(
   import.meta.env.VITE_API_URL,
   import.meta.env.VITE_API_KEY,
@@ -20,6 +21,7 @@ export async function signInWithDiscord() {
 }
 
 export async function setupUser() {
+  preLoading.value = true;
   const { data } = await supabase.auth.getUser()
   user.value = data.user
   if(user.value != null) {
@@ -29,6 +31,7 @@ export async function setupUser() {
     }
   } 
   setupThemeAndDisplay();
+  preLoading.value = false;
 }
 
 export async function signOut() {

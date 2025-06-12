@@ -16,7 +16,7 @@ const updatedArticles = computed(()=>{
 })
 let allArticles = ref<ArticleData[]>([])
 onMounted(async ()=>{
-  const { data, error } = await supabase.from('articles').select().not('access', 'eq', 'unlisted')
+  const { data, error } = await supabase.from('articles').select().eq('access', 'public')
   if(!error) {
     allArticles.value = data
 }})

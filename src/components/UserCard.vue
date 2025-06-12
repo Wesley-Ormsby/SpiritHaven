@@ -3,7 +3,6 @@ import type { UserData } from '@/scripts/types'
 import SpiritAvatar from './SpiritAvatar.vue';
 import Skeleton from 'primevue/skeleton';
 import { Card } from 'primevue';
-import router from '@/router';
 
 const props = defineProps<{data:UserData|null}>()
 </script>
@@ -30,6 +29,8 @@ const props = defineProps<{data:UserData|null}>()
   overflow: hidden;
   border:0.5px solid var(--p-primary-100);
   cursor: pointer;
+  transition:0.1s outline;
+  outline:0px solid var(--p-primary-500)
 }
 .my-app-dark .user-card {
     border:0.5px solid var(--p-primary-900)

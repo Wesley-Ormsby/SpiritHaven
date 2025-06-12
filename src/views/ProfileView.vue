@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { userData, supabase } from '@/scripts/auth'
+import { supabase } from '@/scripts/auth'
 import type { ArticleData, UserData } from '@/scripts/types'
-import { notFoundPage, profileData } from '@/scripts/globalStore'
+import { notFoundPage, profileData, userData } from '@/scripts/globalStore'
 import { watch, ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import router from '../router'
