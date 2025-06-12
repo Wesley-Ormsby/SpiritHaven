@@ -289,12 +289,10 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  transition-property: filter;
-  transition-duration: 0.4s;
   color: var(--p-primary-500);
-  transition: 0.4s;
 }
 .nav-button:hover {
+  transition:0.4s;
   background-color: var(--p-surface-300);
 }
 .nav-button svg {

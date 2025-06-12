@@ -9,14 +9,15 @@ const props = defineProps<{data:UserData|null}>()
 </script>
 
 <template>
-  <Card v-if="props.data" class="user-card">
+  <RouterLink class="router-link" v-if="props.data" :to="{ name: 'profile', params: { id: props.data.id } }"><Card class="user-card">
     <template #content>
-      <span class="user-flex" @click="router.push({ name: 'profile', params: { id: props.data.id } })">
+      <span class="user-flex">
         <SpiritAvatar :spirit="props.data.spirit" class="user-avatar"></SpiritAvatar>
         <div class="username">{{ props.data.username }}</div>
       </span>
   </template>
   </Card>
+  </RouterLink>
   <Skeleton v-else class="user-card skeleton"></Skeleton>
 </template>
 

@@ -17,7 +17,6 @@ html, body {
     'Helvetica Neue',
     sans-serif;
     line-height: 1.6;
-    min-height: 100vh;
 }
 .p-button-label {
   font-weight: 300 !important;
@@ -53,4 +52,10 @@ html, body {
  .router-link {
     text-decoration: none;
     width:min-content;
+    color:inherit !important;
   }
+
+  /* For toasts, the icon should be centered */
+.p-toast-message-content {
+  align-items: center !important;
+}

@@ -48,10 +48,8 @@ async function updateOtherArticleData() {
     }
 }
 
-function openArticle() {
-    if(article == null) {return}
-    router.push({ name: 'article', params: { id: article.id } })
-}
+const articleTo = computed(()=>({ name: 'article', params: { id: article?.id } }))
+
 
 // Calculate the time the article was updated relative to now
 const units = [
@@ -95,12 +93,14 @@ const timeAgo = computed<string>(()=>{
 <template>
   <Card class="article-card" v-if="article && articleAuthorData">
     <template #header>
-      <div class="img-container" @click="openArticle">
+      <RouterLink :to="articleTo">
+      <div class="img-container">
         <img v-if="article.img" alt="Article Image" :src="article.img" class="article-card-img" />
         <img v-else src="https://spiritislandwiki.com/images/thumb/f/f5/Spirit_Island_box.png/300px-Spirit_Island_box.png" class="article-card-img">
       </div>
+    </RouterLink>
     </template>
-    <template #title><div class="title" @click="openArticle">{{ article.title }}</div></template>
+    <template #title><RouterLink class="router-link" :to="articleTo"><span class="title">{{ article.title }}</span></RouterLink></template>
     <template #content>
       <p v-if="article.description">
         {{ article.description }}
@@ -110,13 +110,14 @@ const timeAgo = computed<string>(()=>{
         <span class="more-tags" v-if="moreTags && !showAllTags" @click="showAllTags=true">See More</span>
       </div>
       <div class="flex-row">
+        <RouterLink :to="{ name: 'profile', params: { id: articleAuthorData.id } }">
         <span
           class="user-span"
-          @click.prevent="router.push({ name: 'profile', params: { id: articleAuthorData.id } })"
         >
           <SpiritAvatar :spirit="articleAuthorData.spirit" class="user-avatar"></SpiritAvatar>
           {{ articleAuthorData.username }}</span
         >
+      </RouterLink>
         <span>|</span><span> {{ timeAgo }}</span>
       </div>
     </template>
