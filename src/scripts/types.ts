@@ -41,6 +41,7 @@ export interface SpiritData {
   img_small: string
   img_large: string
   image: string
+  caseName: string
 }
 export type Access = 'private' | 'public' | 'unlisted'
 
@@ -69,26 +70,28 @@ export interface ArticleData {
 
 type SetName = "Spirit Island" | "Horizons of Spirit Island" | "Branch and Claw" | "Jagged Earth" | "Nature Incarnate" | "Feather and Flame" | "Promo Pack 2" | "Promo Pack 1"// can loose autocomplete this
 export type Element = "s" | "m" | "f" | "a" | "w" | "e" | "p" | "n" 
-type Environment = "Jungle" | "Wetland" | "Mountain" | "Sands"
+type Environment = "jungle" | "wetland" | "mountain" | "sands"
 type Status = "active" | "retired" | "replaced"
 
 
-type From = "Sacred Site" | Environment | `${Environment} or ${Environment}` // can loose autocomplete this
+type From = "sacred site" | Environment | `${Environment} or ${Environment}` | "dahan" | "blight" // can loose autocomplete this
+type Target = "any land" | "any spirit" | "dahan" | "no blight" | Environment | `${Environment} or ${Environment}` | "blight" | "invaders" | "coastal" | "inland" | "no invaders" | "another spirit" | "yourself" | "city" | "coastal city" | "coastal or wetland" | "any two lands" | "not wetland" | "disease" | "beast" | "beasts" | "jungle or no blight" | "town or city" | "strife" | "dahans" | "blight and invaders" | `${Spirit}'s incarna`
 type Threshhold = {
     elements: Partial<Record<Element, number>>,
     ability: string,
-    specialCondition?: string
+    condition?: string
 }
 export type PowerCard = {
+    caseName: string;
     image: string,
-    set: SetName | SetName[],
+    set: SetName[],
     cardType: string,
     unique?: Spirit,
     cost: number,
     elements: Element[],
     speed: "slow" | "fast",
     range: null | number | number[],
-    target: string,
+    target: null | Target,
     from: null | From,
     effect: string,
     threshhold: null | Threshhold,
@@ -99,20 +102,22 @@ export type PowerCard = {
 
 export type BlightCard = {
   image: string,
-  set: SetName,
-  isBlighted: boolean,
+  set: SetName[],
+  islandHealth: "blighted" | "healthy",
   text: string,
   blightPerPlayer: number,
   status: Status
+  caseName:string
 }
 
 export type FearCard = {
   image: string,
-  set: SetName | SetName[],
+  set: SetName[],
   terrorLevel1: string,
   terrorLevel2: string,
   terrorLevel3: string,
   status: Status
+  caseName: string
 }
 
 export type EventType = "Terror Level 1" | "Terror Levels 1 & 2" | "Terror Levels 2 & 3" | "Terror Level 3"
@@ -129,22 +134,26 @@ export type EventSection = {
 
 export type EventCard = {
   image: string,
-  set: SetName,
+  set: SetName[],
   sections: EventSection[],
   status: Status
+  caseName: string
 }
 
 export type AspectCard = {
   image: string,
   set: SetName | SetName[],
   spirit: Spirit
+  caseName: string
 }
 
 export type Adversary = {
   flag: string,
   map: string | null
   image: string
+  caseName: string
 }
 export type Scenario = {
   art: string | null
+  caseName: string
 }
