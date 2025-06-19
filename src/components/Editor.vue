@@ -1,19 +1,15 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef, ref, nextTick, computed } from 'vue'
+import { onMounted, useTemplateRef, ref, markRaw, computed } from 'vue'
 import { highlight } from '@/scripts/highlighter'
 import { articleData } from '@/scripts/globalStore'
-import type { ArticleData } from '@/scripts/types'
 import { onBeforeRouteLeave } from 'vue-router'
 import Popover from 'primevue/popover'
 import InputText from 'primevue/inputtext'
 import AutoComplete from 'primevue/autocomplete'
 import FloatLabel from 'primevue/floatlabel'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import Button from 'primevue/button';
-import Toast from 'primevue/toast';
-import { useToast } from 'primevue/usetoast';
-
+import Button from 'primevue/button'
+import Toast from 'primevue/toast'
+import { useToast } from 'primevue/usetoast'
 import {
   Save,
   Trash2,
@@ -27,6 +23,8 @@ import {
   Link,
   Image,
   TextQuote,
+  ChevronUp,
+  ChevronDown,
   X,
 } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
@@ -37,9 +35,19 @@ import LargeComponentSVG from './svgs/LargeComponentSVG.vue'
 import DeleteArticleDialog from './DeleteArticleDialog.vue'
 import ArticlePropertiesDialog from './ArticlePropertiesDialog.vue'
 import CenterDisplaySVG from './svgs/CenterDisplaySVG.vue'
-import { ADVESARIES, BOARDS, CARD_ARTS, INVERTABLE_SYMBOLS, LARGE_COMPONENTS_ARTS, SCENARIOS, SPIRITS, SYMBOL_DATA } from '@/scripts/data'
+import {
+  ADVESARIES,
+  BOARDS,
+  CARD_ARTS,
+  CASE_NAME_MAP,
+  INVERTABLE_SYMBOLS,
+  LARGE_COMPONENTS_ARTS,
+  SCENARIOS,
+  SPIRITS,
+  SYMBOL_DATA,
+} from '@/scripts/data'
 
-const toast = useToast();
+const toast = useToast()
 
 const textarea = useTemplateRef('textarea')
 const forground = useTemplateRef('forground')
@@ -105,8 +113,8 @@ async function saveContent() {
     .from('articles')
     .update({ content: articleData.value.content })
     .eq('id', articleData.value.id)
-  if(!error) {
-    toast.add({ severity: 'success', summary: 'Saved', life: 2200 });
+  if (!error) {
+    toast.add({ severity: 'success', summary: 'Saved', life: 2200 })
   }
   saving.value = false
   unsavedChanges.value = false
@@ -117,14 +125,6 @@ const deleteDialogVisable = ref(false)
 function openDeleteDialog() {
   unsavedChanges.value = false
   deleteDialogVisable.value = true
-}
-
-function toolTip(content: string) {
-  return {
-    value: content,
-    showDelay: 1000,
-    pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
-  }
 }
 
 // Change properties
@@ -148,7 +148,7 @@ function addBlock(markdown: string) {
     const lastNewline = value.slice(0, cursorPos).lastIndexOf('\n')
     const lineStart = lastNewline === -1 ? 0 : lastNewline + 1
     el.value = value.slice(0, lineStart) + markdown + ' ' + value.slice(lineStart)
-    el.selectionStart = el.selectionEnd = cursorPos + 2
+    el.selectionStart = el.selectionEnd = cursorPos + markdown.length + 1
   } else {
     el.value = value + '\n' + markdown + ' '
     el.selectionStart = el.selectionEnd = el.value.length
@@ -201,8 +201,8 @@ function insertMarkdownLink(type: 'image' | 'link') {
       alt: 'River',
     },
     link: {
-      url: 'https://spiritislandwiki.com',
-      text: 'Spirit Island Wiki',
+      url: 'https://spirit-haven-nu.vercel.app/',
+      text: 'SpiritHaven',
     },
   }
   const el = textarea.value
@@ -286,12 +286,15 @@ const componentPopover = useTemplateRef('componentPopover')
 const autocompleteContainer = useTemplateRef('autocompleteContainer')
 const selectedComponent = ref<string>('')
 const nickname = ref('')
-const allComponents = [...Object.keys(CARD_ARTS), ...Object.keys(LARGE_COMPONENTS_ARTS)]
+const allComponents = [...Object.keys(CARD_ARTS), ...Object.keys(LARGE_COMPONENTS_ARTS)].map(
+  (name) => CASE_NAME_MAP[name],
+)
 const filteredComponents = ref()
 function componentSearch() {
   filteredComponents.value = allComponents.filter((name) => {
+    let lowerCaseName = name.toLowerCase()
     for (let section of selectedComponent.value.split(' ')) {
-      if (!name.includes(section.trim().toLowerCase())) {
+      if (!lowerCaseName.includes(section.trim().toLowerCase())) {
         return false
       }
     }
@@ -308,24 +311,27 @@ function resetComponentPopover() {
   selectedComponent.value = ''
   nickname.value = ''
 }
-function componentEnterShortcut() {
-  if(selectedComponent.value) {
-    insertText(`[[${selectedComponent.value}${nickname.value.trim().length > 0 ? ' | ' + nickname.value : ''}]]`)
+function insertComponentLink() {
+  if (selectedComponent.value) {
+    insertText(
+      `[[${selectedComponent.value}${nickname.value.trim().length > 0 ? ' | ' + nickname.value : ''}]]`,
+    )
   }
   if (componentPopover.value) componentPopover.value.hide()
 }
 
-// Component Centered Display
-const centeredPopover = useTemplateRef('centeredPopover')
-const centeredMainAutocompleteContainer = useTemplateRef('centeredMainAutocompleteContainer')
-const selectedCenteredCard = ref<string>('')
-const centeredDisplayTable = ref<{ name: string }[]>([])
-const cardComponents = Object.keys(CARD_ARTS)
+// Card Display
+const cardDisplayPopover = useTemplateRef('cardDisplayPopover')
+const cardDisplayMainAutocompleteContainer = useTemplateRef('centeredMainAutocompleteContainer')
+const selectedDisplayCard = ref<string>('')
+const displayCards = ref<string[]>([])
+const cardComponents = Object.keys(CARD_ARTS).map(name=>CASE_NAME_MAP[name])
 const filteredCardComponents = ref()
 function cardSearch() {
   filteredCardComponents.value = cardComponents.filter((name) => {
-    for (let section of selectedCenteredCard.value.split(' ')) {
-      if (!name.includes(section.trim().toLowerCase())) {
+    let lowerCaseName = name.toLowerCase()
+    for (let section of selectedDisplayCard.value.split(' ')) {
+      if (!lowerCaseName.includes(section.trim().toLowerCase())) {
         return false
       }
     }
@@ -333,44 +339,46 @@ function cardSearch() {
   })
 }
 const toggleCenteredPopover = (event: Event) => {
-  if (centeredPopover.value) centeredPopover.value.toggle(event)
+  if (cardDisplayPopover.value) cardDisplayPopover.value.toggle(event)
 }
 function resetCenteredPopover() {
-  if (centeredMainAutocompleteContainer.value) {
-    centeredMainAutocompleteContainer.value.querySelector('input')?.focus()
+  if (cardDisplayMainAutocompleteContainer.value) {
+    cardDisplayMainAutocompleteContainer.value.querySelector('input')?.focus()
   }
-  selectedCenteredCard.value = ''
+  selectedDisplayCard.value = ''
+  displayCards.value = []
 }
 function addCardToCenteredDisplay() {
-  if (centeredDisplayTable.value.length < 3) {
-    centeredDisplayTable.value.push({ name: selectedCenteredCard.value })
-    selectedCenteredCard.value = ''
+  if (displayCards.value.length < 4) {
+    displayCards.value.push(selectedDisplayCard.value)
+    selectedDisplayCard.value = ''
   }
 }
-function removeFromTable(name:string) {
-  const idx = centeredDisplayTable.value.findIndex((obj)=>obj.name == name);
-  if(idx >= 0){ 
-    centeredDisplayTable.value.splice(idx, 1);     
-  }
-}
-const onTableRowReorder = (event: any) => {
-  centeredDisplayTable.value = event.value
+function swapItem(index1: number, index2: number) {
+  let display = displayCards.value
+  // Swap (NOTE: COLEN NECCESSARY)
+  ;[display[index1], display[index2]] = [display[index2], display[index1]]
 }
 function insertCenteredCards() {
-  insertText(`\n![[${centeredDisplayTable.value.map((obj=>obj.name)).join(" | ")}]]\n`)
-  if (centeredPopover.value) centeredPopover.value.hide()
+  insertText(`\n\n![[${displayCards.value.join(' | ')}]]\n`)
+  if (cardDisplayPopover.value) cardDisplayPopover.value.hide()
 }
 
 // Large Component Display
 const LCDPopover = useTemplateRef('LCDPopover')
 const LCDAutocompleteContainer = useTemplateRef('LCDAutocompleteContainer')
 const selectedLCD = ref<string>('')
-const largeComponents = [...Object.keys(SPIRITS), ...Object.keys(ADVESARIES),...Object.keys(BOARDS)]
+const largeComponents = [
+  ...Object.keys(SPIRITS),
+  ...Object.keys(ADVESARIES),
+  ...Object.keys(BOARDS),
+].map((name) => CASE_NAME_MAP[name])
 const filteredLCD = ref()
 function LCDSearch() {
   filteredLCD.value = largeComponents.filter((name) => {
+    let lowerCaseName = name.toLowerCase()
     for (let section of selectedLCD.value.split(' ')) {
-      if (!name.includes(section.trim().toLowerCase())) {
+      if (!lowerCaseName.includes(section.trim().toLowerCase())) {
         return false
       }
     }
@@ -386,10 +394,10 @@ function resetLCDPopover() {
   }
   selectedLCD.value = ''
 }
-function LCDEnterShortcut() {
-  if(selectedLCD.value) {
+function insertLCD() {
+  if (selectedLCD.value) {
     insertText(`\n![[${selectedLCD.value}]]\n`)
-  } else if(filteredLCD.value.length > 0) {
+  } else if (filteredLCD.value.length > 0) {
     insertText(`\n![[${filteredLCD.value[0]}]]\n`)
   }
   if (LCDPopover.value) LCDPopover.value.hide()
@@ -411,131 +419,137 @@ function insertText(text: string) {
   articleData.value.content = el.value
   update()
 }
+
+/* Rendering information */
+const ribbonButtons = ref([
+  {
+    is: Heading1,
+    funciton: () => addBlock('#'),
+    tooltip: 'make heading',
+  },
+  {
+    is: Bold,
+    funciton: () => addInlineEffect('**'),
+    tooltip: 'make bold',
+  },
+  {
+    is: Italic,
+    funciton: () => addInlineEffect('*'),
+    tooltip: 'make italic',
+  },
+  {
+    is: Strikethrough,
+    funciton: () => addInlineEffect('~~'),
+    tooltip: 'make strikethrough',
+  },
+  {
+    is: List,
+    funciton: () => addBlock('-'),
+    tooltip: 'add unordered list',
+  },
+  {
+    is: ListOrdered,
+    funciton: () => addBlock('1.'),
+    tooltip: 'add ordered list',
+  },
+  {
+    is: Link,
+    funciton: () => insertMarkdownLink('link'),
+    tooltip: 'add link',
+  },
+  {
+    is: Image,
+    funciton: () => insertMarkdownLink('image'),
+    tooltip: 'add image',
+  },
+  {
+    is: TextQuote,
+    funciton: () => addBlock('>'),
+    tooltip: 'add blockqoute',
+  },
+  {
+    is: markRaw(SymbolSVG),
+    funciton: toggleSymbolPopover,
+    tooltip: 'add symbol',
+  },
+  {
+    is: markRaw(ComponentSVG),
+    funciton: toggleComponentPopover,
+    tooltip: 'add component link',
+  },
+  {
+    is: markRaw(LargeComponentSVG),
+    funciton: toggleLCDPopover,
+    tooltip: 'add large component display',
+  },
+  {
+    is: markRaw(CenterDisplaySVG),
+    funciton: toggleCenteredPopover,
+    tooltip: 'add card display',
+  },
+])
 </script>
 
 <template>
   <div class="editor" v-if="articleData != null">
     <div class="ribbon">
-      <div class="ribbon-button" @click="saveContent" v-tooltip="toolTip('save changes')">
+      <div class="ribbon-button" @click="saveContent">
         <Save v-if="!saving"></Save>
         <Loader v-else></Loader>
         <span>Save</span>
       </div>
-      <div class="ribbon-button" @click="openDeleteDialog" v-tooltip="toolTip('delete article')">
+      <div class="ribbon-button" @click="openDeleteDialog">
         <Trash2></Trash2>
         <span>Delete</span>
       </div>
-      <div
-        class="ribbon-button"
-        @click="changePropertiesDialogVisable = true"
-        v-tooltip="toolTip('article properties')"
-      >
+      <div class="ribbon-button" @click="changePropertiesDialogVisable = true">
         <Settings2></Settings2>
         <span>Edit Article Properties</span>
       </div>
       <div class="seperator"></div>
       <div
+        v-for="(button, i) in ribbonButtons"
         class="ribbon-button"
-        @mousedown.prevent="addBlock('#')"
-        v-tooltip.right="toolTip('make heading')"
+        :key="i"
+        @mousedown.prevent="button.funciton"
+        v-tooltip.bottom="{
+          value: button.tooltip,
+          showDelay: 1000,
+          pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
+        }"
       >
-        <Heading1></Heading1>
+        <Component :is="button.is"></Component>
       </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addInlineEffect('**')"
-        v-tooltip.right="toolTip('make bold')"
-      >
-        <Bold></Bold>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addInlineEffect('*')"
-        v-tooltip.right="toolTip('make italic')"
-      >
-        <Italic></Italic>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addInlineEffect('~~')"
-        v-tooltip.right="toolTip('make strikethrough')"
-      >
-        <Strikethrough></Strikethrough>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addBlock('-')"
-        v-tooltip.right="toolTip('add unordered list')"
-      >
-        <List></List>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addBlock('1.')"
-        v-tooltip.right="toolTip('add ordered list')"
-      >
-        <ListOrdered></ListOrdered>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="insertMarkdownLink('link')"
-        v-tooltip.right="toolTip('add link')"
-      >
-        <Link></Link>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="insertMarkdownLink('image')"
-        v-tooltip.right="toolTip('add image')"
-      >
-        <Image></Image>
-      </div>
-      <div
-        class="ribbon-button"
-        @mousedown.prevent="addBlock('>')"
-        v-tooltip.right="toolTip('add blockqoute')"
-      >
-        <TextQuote></TextQuote>
-      </div>
-      <div
-        class="ribbon-button"
-        @click="toggleSymbolPopover"
-        v-tooltip.right="toolTip('add symbol')"
-      >
-        <SymbolSVG></SymbolSVG>
-      </div>
+      <!-- RIBBON POPOVERS -->
       <Popover ref="symbolPopover" @show="symbolFilterInput = ''">
-        <div class="popover-heading">Filter Symbols</div>
-        <InputText
-          v-model="symbolFilterInput"
-          autofocus
-          fluid
-          @keyup.enter="symbolEnterShortcut"
-        ></InputText>
-        <div class="symbol-container" v-if="filteredSymbols.length >= 1">
-          <img
-            v-for="symbol of filteredSymbols"
-            class="symbol symbol-option"
-            :class="{ invert: INVERTABLE_SYMBOLS.includes(symbol) }"
-            :alt="symbol"
-            :src="SYMBOL_DATA[symbol]"
-            @click="insertSymbol(symbol)"
-          />
+        <div class="popover">
+          <div class="popover-heading">Add Symbol</div>
+          <InputText
+            v-model="symbolFilterInput"
+            autofocus
+            fluid
+            placeholder="Filter symbols..."
+            @keyup.enter="symbolEnterShortcut"
+          ></InputText>
+          <div class="symbol-container" v-if="filteredSymbols.length >= 1">
+            <img
+              v-for="symbol of filteredSymbols"
+              class="symbol-option"
+              :class="{ invert: INVERTABLE_SYMBOLS.includes(symbol) }"
+              :alt="symbol"
+              :src="SYMBOL_DATA[symbol]"
+              @click="insertSymbol(symbol)"
+            />
+          </div>
+          <div v-else>No results for filter</div>
         </div>
-        <div v-else>No results for filter</div>
       </Popover>
-      <div
-        class="ribbon-button"
-        @click="toggleComponentPopover"
-        v-tooltip.right="toolTip('add game component')"
-      >
-        <ComponentSVG></ComponentSVG>
-      </div>
       <Popover ref="componentPopover" @show="resetComponentPopover">
-        <div class="popover-heading">Game Component Link</div>
-        <div class="form">
-          <FloatLabel variant="on">
-            <div ref="autocompleteContainer">
+        <div class="popover">
+          <div class="popover-heading">Game Component Link</div>
+          <div class="form">
+            <label ref="autocompleteContainer" class="label">
+              <span>Component Name</span>
               <AutoComplete
                 v-model="selectedComponent"
                 :suggestions="filteredComponents"
@@ -544,37 +558,35 @@ function insertText(text: string) {
                 forceSelection
                 autoOptiionFocus
                 inputId="autocomplete"
+                @keyup.enter="insertComponentLink"
+                placeholder="Filter components..."
               >
                 <template #option="slotProps">
-                  <span class="capitalize">{{ slotProps.option }}</span>
+                  <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-            </div>
-            <label for="autocomplete">Search for Component Name</label>
-          </FloatLabel>
-          <FloatLabel variant="on">
-            <InputText
-              v-model="nickname"
-              fluid
-              @keyup.enter="componentEnterShortcut"
-              inputId="Nickname"
-            ></InputText>
-            <label for="nickname">Nickname</label>
-          </FloatLabel>
+            </label>
+            <label class="label">
+              <span>Nickname</span>
+              <InputText
+                v-model="nickname"
+                fluid
+                @keyup.enter="insertComponentLink"
+                inputId="nickname"
+              ></InputText>
+            </label>
+          </div>
+          <div class="popover-footer">
+            <Button @click="insertComponentLink" size="small">Add Component Link</Button>
+          </div>
         </div>
       </Popover>
-      <div
-        class="ribbon-button"
-        @click="toggleLCDPopover"
-        v-tooltip.right="toolTip('add large component display')"
-      >
-        <LargeComponentSVG></LargeComponentSVG>
-      </div>
       <Popover ref="LCDPopover" @show="resetLCDPopover">
-        <div class="popover-heading">Large Component Display</div>
-        <div class="form">
-          <FloatLabel variant="on">
-            <div ref="LCDAutocompleteContainer">
+        <div class="popover">
+          <div class="popover-heading">Large Component Display</div>
+          <div class="form">
+            <label ref="LCDAutocompleteContainer" class="label">
+              <span>Component Name</span>
               <AutoComplete
                 v-model="selectedLCD"
                 :suggestions="filteredLCD"
@@ -583,31 +595,28 @@ function insertText(text: string) {
                 forceSelection
                 autoOptiionFocus
                 inputId="LCDAutocompleteContainer"
-                @keyup.enter="LCDEnterShortcut"
+                @keyup.enter="insertLCD"
+                placeholder="Filter components..."
               >
                 <template #option="slotProps">
-                  <span class="capitalize">{{ slotProps.option }}</span>
+                  <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-            </div>
-            <label for="autocomplete">Search for Component Name</label>
-          </FloatLabel>
+            </label>
+          </div>
+          <div class="popover-footer">
+            <Button @click="insertLCD" size="small">Add Component Display</Button>
+          </div>
         </div>
       </Popover>
-      <div
-        class="ribbon-button"
-        @click="toggleCenteredPopover"
-        v-tooltip.right="toolTip('add card display')"
-      >
-        <CenterDisplaySVG></CenterDisplaySVG>
-      </div>
-      <Popover ref="centeredPopover" @show="resetCenteredPopover">
-        <div class="popover-heading">Centered Card Display</div>
-        <div class="form">
-          <FloatLabel variant="on">
-            <div ref="centeredMainAutocompleteContainer">
+      <Popover ref="cardDisplayPopover" @show="resetCenteredPopover">
+        <div class="popover">
+          <div class="popover-heading">Card Display</div>
+          <div class="form">
+            <label ref="centeredMainAutocompleteContainer" class="label">
+              <span>Card Name</span>
               <AutoComplete
-                v-model="selectedCenteredCard"
+                v-model="selectedDisplayCard"
                 :suggestions="filteredCardComponents"
                 @complete="cardSearch"
                 @option-select="addCardToCenteredDisplay"
@@ -615,33 +624,43 @@ function insertText(text: string) {
                 forceSelection
                 autoOptiionFocus
                 inputId="autocomplete"
+                placeholder="Filter cards..."
               >
                 <template #option="slotProps">
-                  <span class="capitalize">{{ slotProps.option }}</span>
+                  <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-            </div>
-            <label for="autocomplete">Search for Component Name</label>
-          </FloatLabel>
-
-          <DataTable
-            v-if="centeredDisplayTable.length > 0"
-            :value="centeredDisplayTable"
-            :reorderableColumns="true"
-            @rowReorder="onTableRowReorder"
-            :showHeaders="false"
-          >
-            <Column rowReorder :reorderableColumn="false" class="text-color-overlay-svg"></Column>
-            <Column rowReorder>
-              <template #body="slotProps">
-                <div class="tableCard">
-                  {{ slotProps.data.name }}
-                  <X @click="removeFromTable(slotProps.data.name)" class="x"></X>
+              <span class="reminder">(4 cards max)</span>
+            </label>
+            <div class="display-list">
+              <div v-for="(card, i) in displayCards" class="display-item">
+                <div class="display-item-end">
+                  <Button class="end-button" v-if="i != 0" @click="swapItem(i, i - 1)">
+                    <ChevronUp></ChevronUp>
+                  </Button>
+                  <Button
+                    class="end-button"
+                    v-if="i != displayCards.length - 1"
+                    @click="swapItem(i, i + 1)"
+                  >
+                    <ChevronDown></ChevronDown>
+                  </Button>
                 </div>
-              </template>
-            </Column>
-          </DataTable>
-          <Button @click="insertCenteredCards" v-if="centeredDisplayTable.length >0">Insert Display</Button>
+                <div class="display-item-value">
+                  {{ card }}
+                </div>
+                <div class="display-item-end">
+                  <Button @click="displayCards.splice(i, 1)" class="end-button"><X></X></Button>
+                </div>
+              </div>
+            </div>
+            <div class="popover-footer">
+              <Button @click="insertCenteredCards" v-if="displayCards.length > 0"
+              >Insert Display</Button
+            >
+          </div>
+            
+          </div>
         </div>
       </Popover>
     </div>
@@ -665,7 +684,7 @@ function insertText(text: string) {
       v-model="changePropertiesDialogVisable"
       :is-new-article="false"
     ></ArticlePropertiesDialog>
-    <Toast/>
+    <Toast />
   </div>
 </template>
 <style scoped>
@@ -675,12 +694,13 @@ function insertText(text: string) {
   flex-direction: column;
   height: 100%;
 }
+/* RIBBON */
 .ribbon {
   display: flex;
   font-size: smaller;
   flex-wrap: wrap;
-  align-items: center;
   flex-direction: row;
+  align-items: stretch;
   background-color: var(--p-surface-200);
 }
 .ribbon-button {
@@ -692,7 +712,7 @@ function insertText(text: string) {
   justify-content: center;
   gap: 5px;
   transition: background-color 0.2s;
-  height: 100%;
+  height: auto;
 }
 .ribbon-button:hover {
   background-color: var(--p-surface-300);
@@ -704,16 +724,28 @@ function insertText(text: string) {
 }
 .seperator {
   width: 2px;
-  height: 100%;
   background-color: var(--p-surface-300);
+}
+/* POPOVERS */
+.popover {
+  width: min(80vw, 300px);
 }
 .symbol-container {
   display: flex;
-  max-width: min(80vw, 300px);
+  gap: 5px;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 20px;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 .symbol-option {
+  max-width: 30px;
+  max-height: 30px;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
   cursor: pointer;
 }
 .popover-heading {
@@ -725,41 +757,60 @@ function insertText(text: string) {
   display: flex;
   margin-top: 15px;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
-.capitalize {
-  text-transform: capitalize;
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.tableCard {
-  text-transform: capitalize;
-  color: var(--p-surface-700);
+/* popover-auto-complete-otion in main.css*/
+.popover-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.display-list {
   display:flex;
-  align-items: center;
-  justify-content: space-between;
-  gap:10px;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  gap:2px;
 }
-.x {
-  color:var(--p-red-500);
-  cursor: pointer;
-  transition:0.3s;
+.display-item-end {
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
 }
-.x:hover {
-  color:var(--p-red-300);
-}
-::v-deep(tr) {
-  --p-datatable-body-cell-padding: 4px;
-}
-::v-deep(td svg) {
-margin-top: 5px;
-}
-::v-deep() {
-  --p-datatable-body-cell-border-color:transparent;
-}
-.centered-cell {
+.end-button {
   display:flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0px;
+  padding:0px;
+  height: 100%;
 }
+.display-item {
+  display:flex;
+  flex-direction: row;
+  gap:10px;
+  background-color: var(--p-surface-200);
+  align-items: center;
+  height:52px;
+}
+.display-item-value {
+  overflow:hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  width: 100%;
+}
+.reminder {
+  font-size: small;
+  color:var(--p-surface-600)
+}
+
+
 
 /* Highlighting */
 .forground::v-deep(.hljs-section) {
@@ -799,7 +850,7 @@ margin-top: 5px;
 }
 .forground::v-deep(.hljs-inline-nickname) {
   font-weight: inherit;
-  color: var(--p-primary-700)
+  color: var(--p-primary-700);
 }
 
 /* Synced text area */
@@ -822,7 +873,6 @@ textarea,
   width: 100%;
   height: 100%;
 
-  /* same position */
   position: absolute;
   top: 0;
   left: 0;
@@ -835,9 +885,9 @@ textarea,
 }
 
 .forground {
-  background-color: var(--p-surface-50); /* body copy typogogphy */
+  background-color: var(--p-surface-50);
   z-index: 0;
-  color: var(--p-surface-900); /* base*/
+  color: var(--p-surface-900);
 }
 ::selection {
   opacity: 0;

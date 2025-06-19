@@ -70,11 +70,11 @@ async function loadArticles() {
   </div>
   <div class="articles">
     <ArticleCard
-    v-if="articles && articles.length"
+    v-if="articles && filteredArticles.length"
     v-for="article in filteredArticles"
     :article="article"
   />
-  <div v-else-if="articles != null && articles.length == 0">
+  <div v-else-if="articles != null && filteredArticles.length == 0">
     <div class="empty-articles">
       <h2>{{isMyPage ? 'Get started!': 'No Articles'}}</h2>
       <Button v-if="isMyPage" @click="newArticleDialogVisible = true">Make an Article</Button></div>
