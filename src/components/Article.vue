@@ -1,24 +1,39 @@
 <script setup lang="ts">
 import { articleData, profileData } from '@/scripts/globalStore'
 import { renderMarkdown } from '@/scripts/markdown'
-import router from '../router'
-import { watch, ref, onMounted,computed, nextTick,useTemplateRef } from 'vue'
+import { watch, ref, onMounted,computed, nextTick,useTemplateRef, onUnmounted } from 'vue'
 import SpiritAvatar from './SpiritAvatar.vue'
 import Tag from './Tag.vue';
 import {computePosition,autoPlacement,shift,offset} from '@floating-ui/vue'
 import { BOARDS, CARD_ARTS, LARGE_COMPONENTS_ARTS } from '@/scripts/data'
 import ImageDialog from './ImageDialog.vue'
 import Footer from './Footer.vue'
+import type { HeaderData } from '@/scripts/types';
+import TableOfContentsSection from './TableOfContentsSection.vue';
 
 const {showFooter} = defineProps<{showFooter:boolean}>()
-
+const tableOfContentsData = ref<HeaderData[]>([])
+const screenSize = ref(0)
+const showSideTableOfContents = computed(()=>Boolean(screenSize.value > 1000 && showFooter))
 
 const markdownHTML = ref('')
-onMounted(syncArticle)
+onMounted(()=>{
+  syncArticle()
+  window.addEventListener("resize",updateScreenSize)
+  updateScreenSize()
+})
+onUnmounted(()=>{
+  window.removeEventListener("resize",updateScreenSize)
+})
+function updateScreenSize() {
+  screenSize.value = window.screen.width
+}
 watch(() => articleData.value.content, syncArticle)
 
 function syncArticle() {
-  markdownHTML.value = renderMarkdown(articleData.value.content)
+  let {render,tableOfContents} = renderMarkdown(articleData.value.content)
+  markdownHTML.value = render
+  tableOfContentsData.value = tableOfContents
   nextTick(makeGameComponentsInteractable)
 }
 
@@ -33,6 +48,7 @@ const stillHovering = ref(false)
 const imageDialogVisible = ref(false)
 const boardHovering = ref(false)
 const tooltip = useTemplateRef('tooltip')
+const loadingImg = ref(false)
 function makeGameComponentsInteractable() {
   for(var att of ['card','component']) {
     document.querySelectorAll(`[${att}]`).forEach((el)=>{
@@ -47,6 +63,12 @@ function makeGameComponentsInteractable() {
     el.addEventListener('mouseleave', hideTooltip);
   })
   }
+  document.querySelectorAll(".centered-block img").forEach((el)=>{
+    el.addEventListener("click", () =>{
+      clickedURL.value = el.getAttribute("src") as string
+      imageDialogVisible.value = true
+    })
+  })
 }
 
 function update(el:HTMLElement) {
@@ -65,16 +87,20 @@ computePosition(el, tooltip.value as HTMLElement, {
 });
 }
 function startHover(el:HTMLElement, url:string, isBoard:boolean) {
+  el.classList.add("loading-hover")
   boardHovering.value = isBoard;
   stillHovering.value = true
   hoveringElement.value = el;
   hoveredURL.value = url;
+  loadingImg.value = true;
 }
 
 function showTooltip() {
   if(stillHovering.value) {
     (tooltip.value as HTMLElement).style.display = 'block';
     update(hoveringElement.value);
+    loadingImg.value = false;
+    hoveringElement.value.classList.remove("loading-hover")
   }
 }
  
@@ -86,9 +112,15 @@ function hideTooltip() {
 </script>
 
 <template>
-  <div class="article-wrapper">
+  <div class="article-preview-wrapper">
+    <div class="article-wrapper">
+    <div class="table-of-contents side" v-if="showSideTableOfContents">
+        <div class="contents-title">Table of Contents</div>
+        <a class="to-top" href="#title">Go to Top</a>
+        <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
+      </div>
     <div class="article">
-      <div class="title">{{ articleData.title }}</div>
+      <div class="title" id="title">{{ articleData.title }}</div>
       <div class="flex-row">
         <RouterLink :to="{ name: 'profile', params: { id: profileData.id } }">
         <span class="user-span">
@@ -101,19 +133,28 @@ function hideTooltip() {
         <Tag v-for="tag in articleData.tags" :tag="tag" size="normal"></Tag>
       </div>
       <img v-if="articleData.img != null && articleData.img.trim() != ''" class="header-image" :src="articleData.img"></img>
+      <div class="table-of-contents" v-if="!showSideTableOfContents">
+        <div class="contents-title">Table of Contents</div>
+        <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
+      </div>
       <div class="content" v-html="markdownHTML"></div>
       <div ref="tooltip" class="tooltip">
       <img :src="hoveredURL" class="tooltip-img" @load="showTooltip" :class="{shadow:!boardHovering}">
     </div>
     </div>
+  </div>
     <ImageDialog v-model="imageDialogVisible"  :src="clickedURL" ></ImageDialog>
     <Footer v-if="showFooter"></Footer>
   </div>
 </template>
 <style scoped>
-.article-wrapper {
+.article-preview-wrapper {
   overflow-y: scroll;
   height: 100%;
+}
+.article-wrapper {
+  display:flex;
+  flex-direction: row;
 }
 .article {
   padding: 10px 30px;
@@ -164,8 +205,34 @@ function hideTooltip() {
   max-width: 80%;
   margin: auto;
 }
-
-
+/* Table of Contents */
+* {
+  scroll-behavior: smooth;
+ }
+ .table-of-contents {
+  border-left:1px solid var(--p-primary-300);
+  margin-top:10px;
+  margin-bottom: 10px;
+  max-width: 900px;
+  height: min-content;
+}
+.contents-title {
+  font-weight: bold;
+  margin-left:10px;
+}
+.side {
+  position:sticky;
+  top:60px;
+  max-width: 300px;
+  margin-left:20px;
+  margin-top: 60px;
+}
+.to-top {
+  color:var(--p-surface-800) !important;
+  font-size: smaller;
+  margin-left: 20px;
+  text-decoration: none;
+}
 
 ::v-deep(blockquote) {
   background-color: var(--p-surface-200);
@@ -206,13 +273,7 @@ function hideTooltip() {
 * {
   color: var(--p-surface-900);
 }
-::v-deep(.content) a {
-  color:var(--p-primary-500);
-  transition:0.2s;
-}
-::v-deep(.content) a:visited,::v-deep(.content) a:hover {
-  color:var(--p-primary-400)
-}
+/* Note: Link styles in main.css */
 ::v-deep(ol p) {
   margin:0px 5px;
 }
@@ -234,6 +295,9 @@ function hideTooltip() {
   max-width: 80vw;
   border-radius: 8px;
  }
+ ::v-deep(.loading-hover) {
+  cursor: progress;
+ }
  .shadow {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  }
@@ -247,11 +311,12 @@ function hideTooltip() {
 }
 ::v-deep(.centered-block img) {
   border-radius: 8px;
-  max-height: min(350px,70vh); 
+  max-height: min(270px,70vh); 
   /* Overwrite .content img sytles */
   width:auto !important;
   max-width: 80% !important;
   margin:0px !important;
+  cursor: zoom-in;
 }
 ::v-deep(.large) {
   width:auto;

@@ -312,7 +312,7 @@ export const BOARDS: Record<string, string> = {
   board_h: 'https://spiritislandwiki.com/images/4/4a/Piece_horizons_board_h.png',
 }
 
-export const SPIRITS: Record<Spirit, SpiritData> = {
+export const SPIRITS: Record<string, SpiritData> = {
   "lightning's swift strike": {
     img_small:
       'https://spiritislandwiki.com/images/thumb/c/c2/Lightning%27s_Swift_Strike.png/132px-Lightning%27s_Swift_Strike.png',
@@ -10349,5 +10349,14 @@ for (let spirit of Object.keys(SPIRITS)) {
 }
 for (let ad of Object.keys(ADVESARIES)) {
   LARGE_COMPONENTS_ARTS[ad] = ADVESARIES[ad].image
+}
+export const CASE_NAME_MAP: Record<string,string> = {}
+for (let dict of [BLIGHT_CARDS, EVENTS, FEAR_CARDS, POWERS, ASPECTS,ADVESARIES,SCENARIOS,SPIRITS]) {
+  for (var card of Object.keys(dict)) {
+    CASE_NAME_MAP[card] = dict[card].caseName
+  }
+}
+for(let board in BOARDS) {
+  CASE_NAME_MAP[board] = board
 }
 /*NO SCENARIOS YET*/

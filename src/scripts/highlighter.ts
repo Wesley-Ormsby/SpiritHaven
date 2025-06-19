@@ -216,7 +216,7 @@ function markdown(hljs: any) {
       { match: new RegExp(`!\\[\\[\\s*(${largeComponentsWithOr})\\s*\\]\\]`) },
       {
         match:
-          new RegExp(`\\!\\[\\[\\s*(${cardsWithOr})\\s*(\\s*\\|\\s*(${cardsWithOr})){0,2}\\s*\\|?\\s*\\]\\]`),
+          new RegExp(`\\!\\[\\[\\s*(${cardsWithOr})\\s*(\\s*\\|\\s*(${cardsWithOr})){0,3}\\s*\\|?\\s*\\]\\]`),
       },
     ],
   }

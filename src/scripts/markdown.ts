@@ -6,6 +6,7 @@ import {
   LARGE_COMPONENTS_ARTS,
   SYMBOL_DATA,
 } from './data'
+import type { HeaderData } from './types'
 
 const symbolNamesWithOr = ALL_SYMBOLS.map((symbol: string) =>
   symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'),
@@ -45,7 +46,6 @@ function inlineReplace(md: any) {
           nodes.push(symbolToken)
           text = text.slice(symbolMatch[0].length)
         } else {
-          console.log(cardMatch[0])
           const strip = cardMatch[0].replace(/^\[\[\s*|\s*\]\]$/g, '')
           let name = strip
           let nickName: null | string = null
@@ -201,7 +201,7 @@ function centeredBlockDisplay(md: any) {
       for (;;) {
         let cardMatch = text.match(new RegExp(`^(${cardNamesWithOr})`, 'i'))
         if (cardMatch != null) {
-          if (cardNames.length >= 3 || isLargeComponent) {
+          if (cardNames.length >= 4 || isLargeComponent) {
             return false
           } else if (LARGE_COMPONENTS_ARTS[cardMatch[0].toLowerCase()]) {
             if (cardNames.length >= 1) {
@@ -248,7 +248,7 @@ function centeredBlockDisplay(md: any) {
     const name = tokens[idx].content.toLowerCase()
     const url = CARD_ARTS[name] || LARGE_COMPONENTS_ARTS[name]
     const isLarge = LARGE_COMPONENTS_ARTS[name] != undefined
-    return `<img src="${url}" alt="${name}" class="${isLarge ? 'large': ''}">`
+    return `<img src="${url}" alt="${name}" class="${isLarge ? 'large' : ''}">`
   }
 }
 
@@ -263,7 +263,7 @@ function inline_plugin(md: any) {
     const componentName = token[idx].markup
     const lowerCaseName = token[idx].markup.toLowerCase()
     const nickName = token[idx].nickName
-      return `
+    return `
       <span class="inline-component" ${inlineComponentType}="${lowerCaseName}">
       ${htmlEscape(nickName == null ? componentName : nickName)}
       </span>`
@@ -274,18 +274,71 @@ function inline_plugin(md: any) {
 let md = markdownit().use(inline_plugin).use(centeredBlockDisplay)
 
 // Open links in new tab
-var defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, self) {
-  return self.renderToken(tokens, idx, options);
-};
+var defaultRender =
+  md.renderer.rules.link_open ||
+  function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options)
+  }
 md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
-  tokens[idx].attrSet('target', '_blank');
-  return defaultRender(tokens, idx, options, env, self);
-};
-
-export function renderMarkdown(rawMarkdown: string) {
-  return md.render(rawMarkdown)
+  tokens[idx].attrSet('target', '_blank')
+  return defaultRender(tokens, idx, options, env, self)
+}
+// Track headers for table of contents
+var defaultHeadingRender =
+  md.renderer.rules.heading_open ||
+  function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options)
+  }
+md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
+  let level = Number(tokens[idx].tag.match(/\d/)?.[0])
+  tokens[idx].attrSet('id', `header${id}`)
+  headerStack.push({
+    level,
+    id,
+  })
+  id += 1
+  return defaultHeadingRender(tokens, idx, options, env, self)
+}
+// Make the table of contents
+function makeTableOfContents(): HeaderData[] {
+  let ast: HeaderData[] = []
+  while (headerStack.length) {
+    let node = parseHeader()
+    if (node) {
+      ast.push(node)
+    }
+  }
+  return ast
+}
+function parseHeader(): HeaderData | null {
+  let header = headerStack.shift() as Header
+  let level = header.level
+  let id = header.id
+  if (level > 3) {
+    return null
+  } else {
+    let children: HeaderData[] = []
+    while (headerStack.length && headerStack[0].level > level) {
+      let node = parseHeader()
+      if (node) {
+        children.push(node)
+      }
+    }
+    return { id, children }
+  }
 }
 
+type Header = { level: number; id: number }
+let id: number
+let headerStack: Header[] = []
+export function renderMarkdown(rawMarkdown: string) {
+  id = 0
+  headerStack = []
+  let render = md.render(rawMarkdown)
+  let tableOfContents = makeTableOfContents()
+  return {render,tableOfContents}
+}
+// NOTE: I WILL NEED TO QUERY SELECTOR AND GET TEXT CONTENT TO FILL IN TABLE OF CONTENTS
 function htmlEscape(input: string) {
   return input.replace(/&/gm, '&amp').replace(/</gm, '&lt;')
 }

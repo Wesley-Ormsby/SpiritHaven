@@ -157,3 +157,5 @@ export type Scenario = {
   art: string | null
   caseName: string
 }
+
+export type HeaderData = { id: number; children: HeaderData[] }
