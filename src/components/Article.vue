@@ -127,7 +127,7 @@ function hideTooltip() {
         <SpiritAvatar :spirit="profileData.spirit" class="user-avatar"></SpiritAvatar>
          {{ profileData.username }}</span>
         </RouterLink>
-        <span>|</span><span>Last Changes {{ updatedDate }}</span>
+        <span>|</span><span class="last-changes">Last Changes {{ updatedDate }}</span>
       </div>
       <div class="flex-row wrap">
         <Tag v-for="tag in articleData.tags" :tag="tag" size="normal"></Tag>
@@ -169,6 +169,14 @@ function hideTooltip() {
     font-size: 50px;
     font-weight: bold;
 }
+@media (max-width: 700px) {
+  .title {
+    font-size: 30px;
+  }
+}
+.last-changes {
+  text-wrap: nowrap;
+}
 .articleData {
     width: 80% !important;
     height: auto;
@@ -178,6 +186,7 @@ function hideTooltip() {
     align-items: center;
     gap:10px;
     margin:10px 0px;
+    flex-wrap: wrap;
 }
 .wrap {
   flex-wrap: wrap;
