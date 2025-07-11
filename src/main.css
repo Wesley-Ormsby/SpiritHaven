@@ -62,6 +62,7 @@ html, body {
 
 /* For the editor ribbon popovers */
 .popover-auto-complete-otion {
+  display:block;
   max-width: min(80vw, 270px);
   text-overflow: ellipsis;
   overflow: hidden;
@@ -69,18 +70,21 @@ html, body {
 }
 
 /* For article links */
-.content a,.table-of-contents a{
+.content a,.table-of-contents a,.primary-link, .hljs-link  {
   color:var(--p-primary-800);
 }
-.content a:visited {
+.content a:visited, .primary-link:visited{
 color:var(--p-primary-700)
 }
-.my-app-dark .content a, .my-app-dark .table-of-contents a{
+.my-app-dark .content a, .my-app-dark .table-of-contents a, .my-app-dark .primary-link, .my-app-dark .hljs-link{
   color:var(--p-primary-500);
 }
-.my-app-dark .content a:visited {
+.my-app-dark .content a:visited, .my-app-dark .primary-link, .my-app-dark .hljs-link {
 color:var(--p-primary-300)
 }
-.content a:hover, .table-of-contents a:hover {
+.content a:hover, .table-of-contents a:hover, .primary-link:hover {
   filter:brightness(1.2)
+}
+* {
+  scroll-behavior: smooth;
 }

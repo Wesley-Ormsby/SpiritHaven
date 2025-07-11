@@ -140,7 +140,7 @@ function markdown(hljs: any) {
         returnEnd: true,
       },
       {
-        className: 'link',
+        className: 'link ',
         relevance: 0,
         begin: '\\]\\(',
         end: '\\)',

@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import SpiritAvatar from './SpiritAvatar.vue'
-import {
-  Moon,
-  Sun,
-  SunMoon,
-  Menu as IconMenu,
-  Search,
-} from 'lucide-vue-next'
+import { Moon, Sun, SunMoon, Menu as IconMenu, Search } from 'lucide-vue-next'
 import Menu from 'primevue/menu'
 import { computed, onMounted, ref } from 'vue'
 import type { Display } from '../scripts/types'
@@ -105,17 +99,25 @@ const dropdownMenuItems = computed(() => [
 const searchDropdownItems = ref([
   {
     label: 'Articles',
-    link: { name: 'searchArticle' }
+    link: { name: 'searchArticle' },
   },
   {
     label: 'Users',
-    link: { name: 'searchUser' }
+    link: { name: 'searchUser' },
+  },
+  {
+    label: 'Cards',
+    link: { name: 'searchCards' },
+  },
+  {
+    label: 'Query Reference',
+    link: { name: 'querySyntax' },
   },
 ])
-const profileDropdownItems = computed(()=>[
+const profileDropdownItems = computed(() => [
   {
     label: 'Profile',
-    link: userData.value ? { name: 'profile', params: { id: userData.value.id } } : ""
+    link: userData.value ? { name: 'profile', params: { id: userData.value.id } } : '',
   },
   {
     label: 'Logout',
@@ -189,10 +191,12 @@ const toggleProfileDropdown = (event: Event) => {
           :model="searchDropdownItems"
           :popup="true"
         >
-        <template #item="{item}">
-          <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{ item.label }}</RouterLink>
-          <span v-else class="p-menu-item-link">{{ item.label }}</span>
-        </template>
+          <template #item="{ item }">
+            <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{
+              item.label
+            }}</RouterLink>
+            <span v-else class="p-menu-item-link">{{ item.label }}</span>
+          </template>
         </Menu>
         <div
           v-if="userData == null"
@@ -219,10 +223,12 @@ const toggleProfileDropdown = (event: Event) => {
           :model="profileDropdownItems"
           :popup="true"
         >
-        <template #item="{item}">
-          <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{ item.label }}</RouterLink>
-          <span v-else class="p-menu-item-link">{{ item.label }}</span>
-        </template>
+          <template #item="{ item }">
+            <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{
+              item.label
+            }}</RouterLink>
+            <span v-else class="p-menu-item-link">{{ item.label }}</span>
+          </template>
         </Menu>
       </div>
       <div class="menu-dropdown">
@@ -231,17 +237,16 @@ const toggleProfileDropdown = (event: Event) => {
         </div>
         <Menu ref="navDropdownMenu" id="dropdown_menu" :model="dropdownMenuItems" :popup="true">
           <template #submenuheader="{ item }">
-            <span
-              class="menu-label"
-            >
-    
-              {{item.label == 'Profile' && userData != null ? userData.username : item.label }}
+            <span class="menu-label">
+              {{ item.label == 'Profile' && userData != null ? userData.username : item.label }}
             </span>
           </template>
-          <template #item="{item}">
-          <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{ item.label }}</RouterLink>
-          <span v-else class="p-menu-item-link">{{ item.label }}</span>
-        </template>
+          <template #item="{ item }">
+            <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{
+              item.label
+            }}</RouterLink>
+            <span v-else class="p-menu-item-link">{{ item.label }}</span>
+          </template>
         </Menu>
       </div>
     </div>
@@ -286,7 +291,7 @@ nav {
   color: var(--p-primary-500);
 }
 .nav-button:hover {
-  transition:0.4s;
+  transition: 0.4s;
   background-color: var(--p-surface-300);
 }
 .nav-button svg {
@@ -321,7 +326,7 @@ nav {
   height: 30px;
 }
 .p-menu-item-link {
-  padding:0.3rem 0.6rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .home {

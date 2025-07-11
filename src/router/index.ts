@@ -61,10 +61,22 @@ export const router = createRouter({
       beforeEnter: (to, from) => changeTitle("Article Search ⋅ SpiritHaven")
     },
     {
+      path: '/search/cards',
+      name: 'searchCards',
+      component: () => import('../views/CardSearchView.vue'),
+      beforeEnter: (to, from) => changeTitle("Card Search ⋅ SpiritHaven")
+    },
+    {
       path: '/search/user',
       name: 'searchUser',
       component: () => import('../views/UserSearchView.vue'),
       beforeEnter: (to, from) => changeTitle("User Search ⋅ SpiritHaven")
+    },
+    {
+      path: '/query-syntax',
+      name: 'querySyntax',
+      component: () => import('../views/QuerySyntax.vue'),
+      beforeEnter: (to, from) => changeTitle("Query Syntax ⋅ SpiritHaven")
     },
     {
       path: '/:pathMatch(.*)*',
@@ -73,9 +85,15 @@ export const router = createRouter({
       beforeEnter: (to, from) => changeTitle("404 Page Not Found ⋅ SpiritHaven")
     },
   ],
-  scrollBehavior() {
-    return { top: 0, left: 0 }
-  }
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+    return { top: 0 }
+  },
 })
 
 function changeTitle(title: string = "SpiritHaven") {

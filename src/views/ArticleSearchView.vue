@@ -215,7 +215,6 @@ async function setupData() {
       }
     }
   }
-  console.log(userData.value)
   let data:ArticleData[] = [];
   let error = null;
   if(selectedTab.value == 'your articles') {
@@ -277,11 +276,11 @@ async function setupData() {
         ></RouterLink>
         <Menu ref="sortMenu" id="order_menu" :model="sortOptions" :popup="true">
           <template #item="{ item, props }">
-            <label v-if="item.category == 'sortBy'" @click="search('sort', item.label as string)">
+            <label style="padding:2px" v-if="item.category == 'sortBy'" @click="search('sort', item.label as string)">
               <RadioButton v-model="sortBy" :value="item.label" />
               {{ item.label }}
             </label>
-            <label v-else>
+            <label v-else style="padding:2px">
               <RadioButton
                 v-model="sortDirection"
                 :value="item.label"

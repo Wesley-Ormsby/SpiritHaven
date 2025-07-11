@@ -6,7 +6,7 @@ import { onBeforeRouteLeave } from 'vue-router'
 import Popover from 'primevue/popover'
 import InputText from 'primevue/inputtext'
 import AutoComplete from 'primevue/autocomplete'
-import FloatLabel from 'primevue/floatlabel'
+import Message from 'primevue/message';
 import Button from 'primevue/button'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
@@ -41,11 +41,11 @@ import {
   CARD_ARTS,
   CASE_NAME_MAP,
   INVERTABLE_SYMBOLS,
-  LARGE_COMPONENTS_ARTS,
-  SCENARIOS,
   SPIRITS,
   SYMBOL_DATA,
 } from '@/scripts/data'
+import { searchCards } from '@/scripts/HavenDSL/search'
+import type { QueryResult } from '@/scripts/HavenDSL/types'
 
 const toast = useToast()
 
@@ -286,20 +286,14 @@ const componentPopover = useTemplateRef('componentPopover')
 const autocompleteContainer = useTemplateRef('autocompleteContainer')
 const selectedComponent = ref<string>('')
 const nickname = ref('')
-const allComponents = [...Object.keys(CARD_ARTS), ...Object.keys(LARGE_COMPONENTS_ARTS)].map(
-  (name) => CASE_NAME_MAP[name],
+const hoverlinkQueryResult = ref<QueryResult | null>(null)
+const hoverlinkQueryCards = computed(() =>
+  hoverlinkQueryResult.value == null
+    ? []
+    : hoverlinkQueryResult.value.query.map((name) => CASE_NAME_MAP[name]),
 )
-const filteredComponents = ref()
 function componentSearch() {
-  filteredComponents.value = allComponents.filter((name) => {
-    let lowerCaseName = name.toLowerCase()
-    for (let section of selectedComponent.value.split(' ')) {
-      if (!lowerCaseName.includes(section.trim().toLowerCase())) {
-        return false
-      }
-    }
-    return true
-  })
+  hoverlinkQueryResult.value = searchCards(selectedComponent.value, true)
 }
 const toggleComponentPopover = (event: Event) => {
   if (componentPopover.value) componentPopover.value.toggle(event)
@@ -310,6 +304,7 @@ function resetComponentPopover() {
   }
   selectedComponent.value = ''
   nickname.value = ''
+  hoverlinkQueryResult.value = null
 }
 function insertComponentLink() {
   if (selectedComponent.value) {
@@ -325,18 +320,14 @@ const cardDisplayPopover = useTemplateRef('cardDisplayPopover')
 const cardDisplayMainAutocompleteContainer = useTemplateRef('centeredMainAutocompleteContainer')
 const selectedDisplayCard = ref<string>('')
 const displayCards = ref<string[]>([])
-const cardComponents = Object.keys(CARD_ARTS).map(name=>CASE_NAME_MAP[name])
-const filteredCardComponents = ref()
+const cardDisplayQueryResult = ref<QueryResult | null>(null)
+const cardDisplayQueryCards = computed(() =>
+cardDisplayQueryResult.value == null
+    ? []
+    : cardDisplayQueryResult.value.query.map((name) => CASE_NAME_MAP[name]),
+)
 function cardSearch() {
-  filteredCardComponents.value = cardComponents.filter((name) => {
-    let lowerCaseName = name.toLowerCase()
-    for (let section of selectedDisplayCard.value.split(' ')) {
-      if (!lowerCaseName.includes(section.trim().toLowerCase())) {
-        return false
-      }
-    }
-    return true
-  })
+  cardDisplayQueryResult.value = searchCards(selectedDisplayCard.value, true)
 }
 const toggleCenteredPopover = (event: Event) => {
   if (cardDisplayPopover.value) cardDisplayPopover.value.toggle(event)
@@ -347,6 +338,7 @@ function resetCenteredPopover() {
   }
   selectedDisplayCard.value = ''
   displayCards.value = []
+  cardDisplayQueryResult.value = null
 }
 function addCardToCenteredDisplay() {
   if (displayCards.value.length < 4) {
@@ -475,7 +467,7 @@ const ribbonButtons = ref([
   {
     is: markRaw(ComponentSVG),
     funciton: toggleComponentPopover,
-    tooltip: 'add component link',
+    tooltip: 'add hover link',
   },
   {
     is: markRaw(LargeComponentSVG),
@@ -546,13 +538,13 @@ const ribbonButtons = ref([
       </Popover>
       <Popover ref="componentPopover" @show="resetComponentPopover">
         <div class="popover">
-          <div class="popover-heading">Game Component Link</div>
+          <div class="popover-heading">Hover Link</div>
           <div class="form">
             <label ref="autocompleteContainer" class="label">
               <span>Component Name</span>
               <AutoComplete
                 v-model="selectedComponent"
-                :suggestions="filteredComponents"
+                :suggestions="hoverlinkQueryCards"
                 @complete="componentSearch"
                 fluid
                 forceSelection
@@ -560,12 +552,15 @@ const ribbonButtons = ref([
                 inputId="autocomplete"
                 @keyup.enter="insertComponentLink"
                 placeholder="Filter components..."
+                :showEmptyMessage="Boolean(hoverlinkQueryResult && hoverlinkQueryResult.errors.length == 0)"
               >
                 <template #option="slotProps">
                   <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
+              <span class="reminder">(the search uses <RouterLink to="/query-syntax" target="_blank" class="primary-link">query</RouterLink> syntax)</span>
             </label>
+            <Message severity="error" v-if="hoverlinkQueryResult" v-for="error in hoverlinkQueryResult.errors">{{error}}</Message>
             <label class="label">
               <span>Nickname</span>
               <InputText
@@ -617,7 +612,7 @@ const ribbonButtons = ref([
               <span>Card Name</span>
               <AutoComplete
                 v-model="selectedDisplayCard"
-                :suggestions="filteredCardComponents"
+                :suggestions="cardDisplayQueryCards"
                 @complete="cardSearch"
                 @option-select="addCardToCenteredDisplay"
                 fluid
@@ -625,13 +620,15 @@ const ribbonButtons = ref([
                 autoOptiionFocus
                 inputId="autocomplete"
                 placeholder="Filter cards..."
+                :showEmptyMessage="Boolean(cardDisplayQueryResult && cardDisplayQueryResult.errors.length == 0)"
               >
                 <template #option="slotProps">
                   <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-              <span class="reminder">(4 cards max)</span>
+              <span class="reminder">(4 cards max, this search uses <RouterLink to="/query-syntax" target="_blank" class="primary-link">query</RouterLink> syntax)</span>
             </label>
+            <Message severity="error" v-if="cardDisplayQueryResult" v-for="error in cardDisplayQueryResult.errors">{{error}}</Message>
             <div class="display-list">
               <div v-for="(card, i) in displayCards" class="display-item">
                 <div class="display-item-end">
@@ -656,10 +653,9 @@ const ribbonButtons = ref([
             </div>
             <div class="popover-footer">
               <Button @click="insertCenteredCards" v-if="displayCards.length > 0"
-              >Insert Display</Button
-            >
-          </div>
-            
+                >Insert Display</Button
+              >
+            </div>
           </div>
         </div>
       </Popover>
@@ -771,46 +767,44 @@ const ribbonButtons = ref([
   margin-top: 10px;
 }
 .display-list {
-  display:flex;
+  display: flex;
   flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
-  gap:2px;
+  gap: 2px;
 }
 .display-item-end {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: stretch;
   height: 100%;
 }
 .end-button {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0px;
-  padding:0px;
+  padding: 0px;
   height: 100%;
 }
 .display-item {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  gap:10px;
+  gap: 10px;
   background-color: var(--p-surface-200);
   align-items: center;
-  height:52px;
+  height: 52px;
 }
 .display-item-value {
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   text-wrap: nowrap;
   width: 100%;
 }
 .reminder {
   font-size: small;
-  color:var(--p-surface-600)
+  color: var(--p-surface-600);
 }
-
-
 
 /* Highlighting */
 .forground::v-deep(.hljs-section) {
@@ -838,10 +832,7 @@ const ribbonButtons = ref([
 .forground::v-deep(.hljs-hr) {
   color: var(--p-primary-400);
 }
-.forground::v-deep(.hljs-link) {
-  color: var(--p-primary-300);
-  text-decoration: underline;
-}
+/* Link style in main.css */
 .forground::v-deep(.hljs-symbol),
 .forground::v-deep(.hljs-inline-component),
 .forground::v-deep(.hljs-block-component) {
