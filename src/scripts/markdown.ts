@@ -43,7 +43,7 @@ function splitTextToken(text: any, Token: any) {
       } else {
         // Hoverlink
         const strip = cardMatch[0].replace(/^\[\[\s*|\s*\]\]$/g, '')
-        const [name, rawNick = ''] = strip.split(/\|(.*)/)
+        const [name, rawNick = ''] = strip.split(/\s*\|(.*)/)
         const nickName = rawNick.trim() || null
         const componentType = LARGE_COMPONENTS_ARTS[name.toLowerCase()] ? 'component' : 'card'
         const token = createToken('hoverlink', cardMatch[0],Token,{markup:name,nickName,componentType})
