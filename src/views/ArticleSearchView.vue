@@ -252,16 +252,18 @@ async function setupData() {
             <Button @click="search('q', input)" size="small"><Search></Search></Button>
           </InputGroupAddon>
         </InputGroup>
-        <Button size="small" label="More Filters" @click="filterDialogVisible = true"
-          ><template #icon> <ListFilter></ListFilter> </template
-        ></Button>
-        <Button size="small" label="Sort" aria-controls="order_menu" @click="openSortMenu"
-          ><template #icon> <ArrowDownWideNarrow></ArrowDownWideNarrow> </template
-        ></Button>
-        <RouterLink to="/search/article"
-          ><Button label="Reset" size="small" variant="outlined"
-            ><template #icon> <X></X> </template></Button
-        ></RouterLink>
+        <div class="filter-buttons-container">
+          <Button size="small" label="More Filters" @click="filterDialogVisible = true"
+            ><template #icon> <ListFilter></ListFilter> </template
+          ></Button>
+          <Button size="small" label="Sort" aria-controls="order_menu" @click="openSortMenu"
+            ><template #icon> <ArrowDownWideNarrow></ArrowDownWideNarrow> </template
+          ></Button>
+          <RouterLink to="/search/article"
+            ><Button label="Reset" size="small" variant="outlined"
+              ><template #icon> <X></X> </template></Button
+          ></RouterLink>
+        </div>
         <Menu ref="sortMenu" id="order_menu" :model="sortOptions" :popup="true">
           <template #item="{ item, props }">
             <label
@@ -340,7 +342,8 @@ h1 {
 .primary {
   color: var(--p-primary-500);
 }
-.filter-container {
+.filter-container,
+.filter-buttons-container {
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -421,5 +424,15 @@ label {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+@media (max-width: 960px) {
+  .filter-container,
+  .searchOptions {
+    flex-direction: column;
+    align-items: start;
+    width: min-content;
+    margin: auto;
+    gap:20px;
+  }
 }
 </style>

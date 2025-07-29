@@ -565,7 +565,7 @@ const ribbonButtons = ref([
               </AutoComplete>
               <span class="reminder"
                 >(the search uses
-                <RouterLink to="/query-syntax" target="_blank" class="primary-link"
+                <RouterLink to="/query-syntax" target="_blank" class="primary-link underline"
                   >query</RouterLink
                 >
                 syntax)</span
@@ -646,7 +646,7 @@ const ribbonButtons = ref([
               </AutoComplete>
               <span class="reminder"
                 >(4 cards max, this search uses
-                <RouterLink to="/query-syntax" target="_blank" class="primary-link"
+                <RouterLink to="/query-syntax" target="_blank" class="primary-link underline"
                   >query</RouterLink
                 >
                 syntax)</span
@@ -789,7 +789,7 @@ const ribbonButtons = ref([
   flex-direction: column;
   gap: 5px;
 }
-/* popover-auto-complete-otion in main.css*/
+/* popover-auto-complete-option in main.css*/
 .popover-footer {
   display: flex;
   justify-content: flex-end;
@@ -849,6 +849,9 @@ const ribbonButtons = ref([
 .forground::v-deep(.hljs-strike-through) {
   text-decoration: line-through;
 }
+.forground::v-deep(.hljs-link) {
+  text-decoration: underline;
+}
 .forground::v-deep(.hljs-bullet) {
   color: var(--p-primary-500);
 }
@@ -856,7 +859,11 @@ const ribbonButtons = ref([
   color: var(--p-surface-600);
   background-color: var(--p-surface-100);
   border-radius: 2px;
-  outline: 3px solid var(--p-surface-100);
+  
+  /* Short hand styling for mobile */
+  outline-width: 3px;
+  outline-style: solid;
+  outline-color: var(--p-surface-100);
 }
 .forground::v-deep(.hljs-hr) {
   color: var(--p-primary-400);

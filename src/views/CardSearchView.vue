@@ -24,10 +24,7 @@ const sortBy = ref<CardSearchOrders>('Type')
 const sortDirection = ref('Ascending')
 const queryResult = ref<QueryResult | null>(null)
 
-watch(
-  () => route.fullPath,
-  findCards
-)
+watch(() => route.fullPath, findCards)
 onBeforeMount(findCards)
 
 function findCards() {
@@ -158,14 +155,19 @@ const openSortMenu = (event: Event) => {
             </template></Menu
           >
         </InputGroupAddon>
-        <InputText type="text" v-model="query" placeholder="Enter a query..." @keyup="updateQuery" />
+        <InputText
+          type="text"
+          v-model="query"
+          placeholder="Enter a query..."
+          @keyup="updateQuery"
+        />
         <InputGroupAddon>
           <span class="primary">{{ allURLs.length }} cards</span>
         </InputGroupAddon>
       </InputGroup>
       <span class="reminder"
         >The search uses query syntax.
-        <RouterLink to="/query-syntax" target="_blank" class="primary-link"
+        <RouterLink to="/query-syntax" target="_blank" class="primary-link underline"
           >View the guide</RouterLink
         >.</span
       >
@@ -225,5 +227,10 @@ label {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+@media only screen and (max-width: 400px) {
+  .body-container {
+    width: 90vw;
+  }
 }
 </style>

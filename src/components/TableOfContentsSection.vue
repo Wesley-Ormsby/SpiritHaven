@@ -38,7 +38,6 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  text-decoration: none;
 }
 /* Note: Link style in mian.css */
 </style>

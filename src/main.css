@@ -18,6 +18,12 @@ html, body {
     sans-serif;
     line-height: 1.6;
 }
+* {
+  text-decoration: none;
+}
+.underline {
+  text-decoration: underline;
+}
 .p-button-label {
   font-weight: 300 !important;
 }
@@ -50,7 +56,6 @@ html, body {
     color:var(--p-surface-800)
   }
  .router-link {
-    text-decoration: none;
     width:min-content;
     color:inherit !important;
   }

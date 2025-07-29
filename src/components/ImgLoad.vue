@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
-import Dialog from 'primevue/dialog'
-import { X, Eye } from 'lucide-vue-next'
+import { Eye } from 'lucide-vue-next'
 import ImageDialog from './ImageDialog.vue';
 const props = defineProps<{
   src: string | null

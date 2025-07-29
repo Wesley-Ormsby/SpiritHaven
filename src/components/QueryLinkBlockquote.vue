@@ -30,9 +30,6 @@ blockquote {
 blockquote:hover {
   background-color: var(--p-surface-300);
 }
-a {
-  text-decoration: none;
-}
 .query {
   font-family: monospace;
   color: var(--p-primary-500);

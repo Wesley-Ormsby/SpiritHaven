@@ -680,9 +680,6 @@ h1 {
   }
 }
 @media (max-width: 700px) {
-  .example-queries {
-    min-width: 500px;
-  }
   .section-content {
     flex-direction: column;
     gap: 10px;

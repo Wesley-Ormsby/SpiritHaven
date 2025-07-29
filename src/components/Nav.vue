@@ -232,7 +232,6 @@ nav {
   height: 40px;
   padding: 5px 10px;
   border-radius: 5px;
-  text-decoration: none;
   cursor: pointer;
   background-color: var(--p-surface-200);
   display: flex;
@@ -282,9 +281,6 @@ nav {
 .home {
   display: flex;
   align-items: center;
-  * {
-    text-decoration: none;
-  }
 }
 .menu-dropdown {
   display: none;

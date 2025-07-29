@@ -191,9 +191,6 @@ p {
   color: var(--p-primary-500);
 }
 .user-span:hover {
-  text-decoration: underline;
-}
-.user-span:hover .user-avatar {
   filter: brightness(1.1);
 }
 

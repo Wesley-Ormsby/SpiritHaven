@@ -209,9 +209,6 @@ function hideTooltip() {
     color:var(--p-primary-500);
 }
 .user-span:hover {
-    text-decoration: underline;
-}
-.user-span:hover .user-avatar {
     filter:brightness(1.1)
 }
 .header-image {
@@ -252,10 +249,15 @@ function hideTooltip() {
   color:var(--p-surface-800) !important;
   font-size: smaller;
   margin: 5px 0px 0px 20px;
-  text-decoration: none;
 }
 
 /* Article Styles */
+.content::v-deep(a) {
+  text-decoration: underline;
+}
+::v-deep(s) {
+  text-decoration: line-through;
+}
 ::v-deep(blockquote) {
   background-color: var(--p-surface-200);
   padding: 0.5px 1px 0px 12px;

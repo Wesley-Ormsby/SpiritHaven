@@ -43,6 +43,7 @@
 }
  a {
   color:var(--p-primary-600);
+  text-decoration: underline;
 }
 .my-app-dark a {
   color:var(--p-primary-400);
