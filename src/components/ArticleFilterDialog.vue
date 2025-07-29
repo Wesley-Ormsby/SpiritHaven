@@ -7,9 +7,14 @@ import { ref } from 'vue'
 import type { UserData } from '@/scripts/types'
 import { supabase } from '@/scripts/auth'
 import TagMultiselect from './TagMultiselect.vue'
-import { allUsers } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import SpiritAvatar from './SpiritAvatar.vue'
 import Select from 'primevue/select'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const { allUsers } = useGlobalStore
 const model = defineModel<boolean>({ required: true })
 
 const props = defineProps<{ q: string; tags: string[]; id: string }>()
@@ -21,13 +26,18 @@ const loadingUsers = ref(true)
 
 async function open() {
   input.value = props.q
-  selectedTags.value = props.tags.map((tag)=>({tag}))
-  allUsers.value = []
-  loadingUsers.value = true
+  selectedTags.value = props.tags.map((tag) => ({ tag }))
 
-  let { data, error } = await supabase.from('Users').select()
-  if (!error) {
-    allUsers.value = data as UserData[]
+  // Load all users unless it has already been done (note: this will not update for new users unless the tab is reloaded)
+  if (!allUsers.value.length) {
+    loadingUsers.value = true
+    let { data, error } = await supabase.from('Users').select()
+    if (!error) {
+      allUsers.value = data as UserData[]
+      loadingUsers.value = false
+    } else {
+      return setSupabaseError(error)
+    }
   }
   for (let user of allUsers.value) {
     if (user.id == props.id) {
@@ -35,20 +45,18 @@ async function open() {
       break
     }
   }
-  loadingUsers.value = false
 }
 
 function saveFilters() {
-  var searchParams = new URLSearchParams(window.location.search)
+  const newQuery: Record<string, string> = { q: input.value }
   if (author.value) {
-    searchParams.set('author', author.value.id)
+    newQuery.author = author.value.id
   }
   if (selectedTags.value.length >= 1) {
-    let tagStr = selectedTags.value.map((tag)=>tag.tag).join(',')
-    searchParams.set('tags', tagStr)
+    newQuery.tags = selectedTags.value.map((tag) => tag.tag).join(',')
   }
-  searchParams.set('q', input.value)
-  window.location.search = searchParams.toString()
+  router.replace({ query: newQuery })
+  model.value = false
 }
 </script>
 <template>
@@ -67,7 +75,13 @@ function saveFilters() {
     <div class="form">
       <label>
         Article Title
-        <InputText size="small" type="text" v-model="input" placeholder="..." :fluid="true" />
+        <InputText
+          size="small"
+          type="text"
+          v-model="input"
+          placeholder="Search articles"
+          :fluid="true"
+        />
       </label>
       <label>
         Article Tags
@@ -106,7 +120,7 @@ function saveFilters() {
     </div>
     <template #footer>
       <div class="dialog-footer">
-        <RouterLink to="/search/article"><Button class="secondary">Reset</Button></RouterLink>
+        <RouterLink to="/search/article"><Button class="secondary" @click="model = false">Reset</Button></RouterLink>
         <Button @click="saveFilters">Save Filters</Button>
       </div>
     </template>
@@ -152,7 +166,7 @@ label {
 }
 .removeAuthor:hover {
   color: var(--p-surface-900);
-  margin:0px;
+  margin: 0px;
 }
 .author-value {
   display: flex;
@@ -162,7 +176,7 @@ label {
 }
 .author-value .select-option {
   max-width: 250px;
-  overflow:hidden;
+  overflow: hidden;
 }
 /* HEADER + FOOTER */
 .dialog-footer {

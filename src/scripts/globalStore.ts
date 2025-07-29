@@ -1,29 +1,29 @@
-import { ref } from "vue"
-import type { UserData,ArticleData } from './types';
+import { ref, reactive } from 'vue'
+import type { UserData, ArticleData } from './types'
 
-// These have skelleton values becuase they should never be null,
-// This makes it so I don't need to check for null every singe function that uses them
-export const profileData = ref<UserData>({
-  id: "",
-  theme: "a",
-  display: "light",
-  spirit: "wounded waters bleeding",
-  username: "",
-  description: ""
-})
-export const articleData = ref<ArticleData>({
-  id:"",
-  user: "",
-  img: null,
-  title: "",
-  description: "",
-  tags: [],
-  content: "",
-  access: "private",
-  published: "",
-  updated: "",
-})
-export const notFoundPage = ref<string>("")
-export const allUsers = ref<UserData[]>([])
-export const preLoading = ref(false)
-export const userData = ref<UserData | null>(null)
+export const useGlobalStore = {
+  profileData: reactive<UserData>({
+    id: '',
+    theme: 'a',
+    display: 'light',
+    spirit: 'wounded waters bleeding',
+    username: '',
+    description: '',
+  }),
+  userData: ref<UserData | null>(null),
+  articleData: reactive<ArticleData>({
+    id: '',
+    user: '',
+    img: null,
+    title: '',
+    description: '',
+    tags: [],
+    content: '',
+    access: 'private',
+    published: '',
+    updated: '',
+  }),
+  notFoundPage: ref<string>(''),
+  allUsers: ref<UserData[]>([]),
+  preLoading: ref(false),
+}

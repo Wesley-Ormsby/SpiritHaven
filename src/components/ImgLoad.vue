@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import Dialog from 'primevue/dialog'
 import { X, Eye } from 'lucide-vue-next'
+import ImageDialog from './ImageDialog.vue';
 const props = defineProps<{
   src: string | null
   alt: string
   preview: boolean
 }>()
-const model = defineModel<boolean>()
+const error = defineModel<boolean>('error')
 const loading = ref(true)
 const timeout = ref()
 const previewVisability = ref(false)
@@ -15,23 +16,26 @@ const previewVisability = ref(false)
 onMounted(() => {
   timeout.value = setTimeout(notLoaded, 5000)
 })
+onUnmounted(() => {
+  clearTimeout(timeout.value)
+})
 
 watch(
   () => props.src,
   () => {
     loading.value = true
-    // The model value will be set to flase in the parent component: model.value = false
+    // The model value will be set to false in the parent component: model.value = false
     clearTimeout(timeout.value)
     timeout.value = setTimeout(notLoaded, 5000)
   },
 )
 function notLoaded() {
   if (props.src != null && loading.value) {
-    model.value = true
+    error.value = true
   }
 }
 function onLoad() {
-  model.value = false
+  error.value = false
   loading.value = false
   clearTimeout(timeout.value)
 }
@@ -46,7 +50,7 @@ function clickFunction() {
     <img class="img" :src="props.src || ''" @load="onLoad" v-show="!loading" :alt="props.alt" />
     <Eye class="preview-icon"></Eye>
     <svg
-      v-show="loading && !model"
+      v-show="loading && !error"
       width="24"
       height="24"
       stroke="#000"
@@ -57,21 +61,7 @@ function clickFunction() {
         <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3"></circle>
       </g>
     </svg>
-    <Dialog
-      v-model:visible="previewVisability"
-      modal
-      pt:root:style="border:0px transparent;background-color:transparent;box-shadow:none;"
-      dismissableMask
-    >
-      <template #container="{ closeCallback }">
-        <div class="image-preview-dialog">
-          <img class="dialog-img" :src="props.src || ''" />
-          <div @click="closeCallback" class="close-button">
-            <X></X>
-          </div>
-        </div>
-      </template>
-    </Dialog>
+    <ImageDialog :src="props.src || ''" v-model:visible="previewVisability"></ImageDialog>
   </div>
 </template>
 
@@ -123,9 +113,6 @@ function clickFunction() {
 .img {
   transition: filter 0.2s;
 }
-.dialog-img {
-    max-width: 90vw;
-}
 .preview {
   cursor: pointer;
 }
@@ -143,38 +130,5 @@ function clickFunction() {
 }
 .preview:hover .preview-icon {
   opacity: 1;
-}
-.image-preview-dialog {
-  position: relative;
-  height: min-content;
-}
-.close-button {
-  color: var(--p-zinc-200);
-  transition: 0.3s background-color;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.close-button:hover {
-  color: var(--p-zinc-100);
-  background-color: rgba(0, 0, 0, 0.7);
-}
-@media only screen and (max-width: 500px) {
-    .close-button {
-        padding: 8px;
-        right: 5px;
-  top: 5px;
-    }
-    .close-button svg {
-        width:15px;
-        height: 15px;
-    }
 }
 </style>

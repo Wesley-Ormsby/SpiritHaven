@@ -1,55 +1,48 @@
 <script setup lang="ts">
 import type { ArticleData, UserData } from '@/scripts/types'
-import router from '../router'
 import Card from 'primevue/card'
-import { onMounted,ref,computed,watch} from 'vue';
-import { supabase } from '@/scripts/auth';
+import { onMounted, ref, computed, watch } from 'vue'
+import { supabase } from '@/scripts/auth'
 import SpiritAvatar from './SpiritAvatar.vue'
-import Tag from './Tag.vue';
-import Skeleton from 'primevue/skeleton';
+import Tag from './Tag.vue'
+import Skeleton from 'primevue/skeleton'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
 
-const { article } = defineProps<{ article: ArticleData|null}>()
-const articleAuthorData = ref<UserData|null>()
+const { article } = defineProps<{ article: ArticleData | null }>()
+const articleAuthorData = ref<UserData | null>()
 const showAllTags = ref(false)
 const moreTags = ref(false)
-const articleTags = computed(()=>{
-    if(article == null) {return}
-    if(showAllTags.value) {
-        return article.tags
-    } else {
-        return article.tags.slice(0, 3)
-    }
-})
+const articleTags = computed(() =>
+  article ? (showAllTags.value ? article.tags : article.tags.slice(0, 3)) : [],
+)
+const src = computed(
+  () =>
+    article?.img ||
+    'https://spiritislandwiki.com/images/thumb/f/f5/Spirit_Island_box.png/300px-Spirit_Island_box.png',
+)
 
-onMounted(async ()=> {
-    if(article == null) {return}
-    updateOtherArticleData()
-    const { data, error } = await supabase.from('Users').select().eq('id', article.user)
-    if(!error) {
-        articleAuthorData.value = data[0] as UserData
-    }
-    if(article.tags.length <= 3) {
-        showAllTags.value = true
-    } else {
-        moreTags.value = true
-    }
-})
-watch(()=>article,updateOtherArticleData)
+onMounted(updateOtherArticleData)
+watch(() => article, updateOtherArticleData)
+
 async function updateOtherArticleData() {
-    if(article == null) {return}
-    const { data, error } = await supabase.from('Users').select().eq('id', article.user)
-    if(!error) {
-        articleAuthorData.value = data[0] as UserData
-    }
-    if(article.tags.length <= 3) {
-        showAllTags.value = true
-    } else {
-        moreTags.value = true
-    }
+  if (article == null) {
+    return
+  }
+  const { data, error } = await supabase.from('Users').select().eq('id', article.user)
+  if (!error) {
+    articleAuthorData.value = data[0] as UserData
+  } else {
+    return setSupabaseError(error)
+  }
+  if (article.tags.length <= 3) {
+    showAllTags.value = true
+  } else {
+    moreTags.value = true
+  }
 }
 
-const articleTo = computed(()=>({ name: 'article', params: { id: article?.id } }))
-
+// RouterLink to article
+const articleTo = computed(() => ({ name: 'article', params: { id: article?.id } }))
 
 // Calculate the time the article was updated relative to now
 const units = [
@@ -60,33 +53,33 @@ const units = [
   { label: 'hour', seconds: 3600 },
   { label: 'minute', seconds: 60 },
   // Everything less than a minute is `now`
-];
+]
 const calculateTimeDifference = (time: number) => {
   for (let { label, seconds } of units) {
-    const interval = Math.floor(time / seconds);
+    const interval = Math.floor(time / seconds)
     if (interval >= 1) {
       return {
         interval: interval,
-        unit: label
-      };
+        unit: label,
+      }
     }
   }
   return {
     interval: 0,
-    unit: ''
-  };
-};
-const timeAgo = computed<string>(()=>{
-    if(article == null) {return ``}
-    const time = Math.floor(
-    (new Date().valueOf() - new Date(article.updated).valueOf()) / 1000
-  );
-  const { interval, unit } = calculateTimeDifference(time);
-  if(interval == 0) {
+    unit: '',
+  }
+}
+const timeAgo = computed<string>(() => {
+  if (article == null) {
+    return ``
+  }
+  const time = Math.floor((new Date().valueOf() - new Date(article.updated).valueOf()) / 1000)
+  const { interval, unit } = calculateTimeDifference(time)
+  if (interval == 0) {
     return `now`
   }
-  const suffix = interval === 1 ? '' : 's';
-  return `${interval} ${unit}${suffix} ago`;
+  const suffix = interval === 1 ? '' : 's'
+  return `${interval} ${unit}${suffix} ago`
 })
 </script>
 
@@ -94,38 +87,39 @@ const timeAgo = computed<string>(()=>{
   <Card class="article-card" v-if="article && articleAuthorData">
     <template #header>
       <RouterLink :to="articleTo">
-      <div class="img-container">
-        <img v-if="article.img" alt="Article Image" :src="article.img" class="article-card-img" />
-        <img v-else src="https://spiritislandwiki.com/images/thumb/f/f5/Spirit_Island_box.png/300px-Spirit_Island_box.png" class="article-card-img">
-      </div>
-    </RouterLink>
+        <div class="img-container">
+          <img alt="Article Image" :src class="article-card-img" />
+        </div>
+      </RouterLink>
     </template>
-    <template #title><RouterLink class="router-link" :to="articleTo"><span class="title">{{ article.title }}</span></RouterLink></template>
+    <template #title
+      ><RouterLink class="router-link" :to="articleTo"
+        ><span class="title">{{ article.title }}</span></RouterLink
+      ></template
+    >
     <template #content>
       <p v-if="article.description">
         {{ article.description }}
       </p>
       <div class="flex-row tag-container">
         <Tag v-for="tag in articleTags" :tag="tag" size="small"></Tag>
-        <span class="more-tags" v-if="moreTags && !showAllTags" @click="showAllTags=true">See More</span>
+        <span class="more-tags" v-if="moreTags && !showAllTags" @click="showAllTags = true"
+          >See More</span
+        >
       </div>
       <div class="flex-row">
         <RouterLink :to="{ name: 'profile', params: { id: articleAuthorData.id } }">
-        <span
-          class="user-span"
-        >
-          <SpiritAvatar :spirit="articleAuthorData.spirit" class="user-avatar"></SpiritAvatar>
-          {{ articleAuthorData.username }}</span
-        >
-      </RouterLink>
+          <span class="user-span">
+            <SpiritAvatar :spirit="articleAuthorData.spirit" class="user-avatar"></SpiritAvatar>
+            {{ articleAuthorData.username }}</span
+          >
+        </RouterLink>
         <span>|</span><span> {{ timeAgo }}</span>
       </div>
     </template>
     <template #footer> </template>
   </Card>
-  <Skeleton v-else class="skelleton"> 
-
-  </Skeleton>
+  <Skeleton v-else class="skelleton"> </Skeleton>
 </template>
 
 <style lang="css" scoped>
@@ -133,14 +127,14 @@ const timeAgo = computed<string>(()=>{
   width: 350px;
   min-height: 300px;
   overflow: hidden;
-  border:0.5px solid var(--p-primary-100)
+  border: 0.5px solid var(--p-primary-100);
 }
 .my-app-dark .article-card {
-    border:0.5px solid var(--p-primary-900)
+  border: 0.5px solid var(--p-primary-900);
 }
 .skelleton {
   width: 350px !important;
-  height: 250px  !important;
+  height: 250px !important;
   border-radius: var(--p-card-border-radius);
 }
 .img-container {
@@ -150,13 +144,13 @@ const timeAgo = computed<string>(()=>{
   cursor: pointer;
 }
 .title {
-    font-weight: 600;
-    transition:color 0.2s;
-    cursor: pointer;
-    line-height: 1.4;
+  font-weight: 600;
+  transition: color 0.2s;
+  cursor: pointer;
+  line-height: 1.4;
 }
 .title:hover {
-    color:var(--p-primary-500);
+  color: var(--p-primary-500);
 }
 
 .article-card-img {
@@ -164,52 +158,53 @@ const timeAgo = computed<string>(()=>{
   height: 100%;
 }
 p {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 .flex-row {
-    display:flex;
-    align-items: center;
-    gap:10px;
-    margin:10px 0px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0px;
+  flex-wrap: wrap;
 }
 .tag-container {
-    gap:5px;
-    flex-wrap:wrap;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 .more-tags {
-    cursor: pointer;
-    font-size: 9px;
+  cursor: pointer;
+  font-size: 9px;
 }
 .more-tags:hover {
-    filter:brightness(1.5)
+  filter: brightness(1.5);
 }
 .user-avatar {
-    width:24px;
-    height: 24px;
-    transition: 0.2s filter;
+  width: 24px;
+  height: 24px;
+  transition: 0.2s filter;
 }
 .user-span {
-    cursor: pointer;
-    display:inline-flex;
-    align-items: center;
-    gap:5px;
-    color:var(--p-primary-500);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--p-primary-500);
 }
 .user-span:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .user-span:hover .user-avatar {
-    filter:brightness(1.1)
+  filter: brightness(1.1);
 }
 
 @media only screen and (max-width: 780px) {
-  .article-card,.skelleton {
+  .article-card,
+  .skelleton {
     width: 250px !important;
   }
   .img-container {
-  width: 100%;
-  max-height: 108px;
+    width: 100%;
+    max-height: 108px;
   }
   .title {
     font-size: 16px;

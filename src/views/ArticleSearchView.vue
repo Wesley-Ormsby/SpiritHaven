@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
-import type { ArticleData, UserData } from '@/scripts/types'
+import type { ArticleData } from '@/scripts/types'
 import Footer from '@/components/Footer.vue'
 import InputGroup from 'primevue/inputgroup'
 import InputGroupAddon from 'primevue/inputgroupaddon'
@@ -22,8 +22,13 @@ import RadioButton from 'primevue/radiobutton'
 import Menu from 'primevue/menu'
 import ArticleCard from '@/components/ArticleCard.vue'
 import { TAGS } from '@/scripts/data'
-import { allUsers,userData } from '@/scripts/globalStore'
-import { useRoute } from 'vue-router'
+import { useGlobalStore } from '@/scripts/globalStore'
+import { useRoute, useRouter } from 'vue-router'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+
+const router = useRouter()
+const route = useRoute()
+const { userData } = useGlobalStore
 
 const input = ref('')
 const allArticles = ref<ArticleData[]>([])
@@ -34,16 +39,16 @@ const author = ref<string>('')
 const sortDirection = ref('descending')
 const sortBy = ref('recently updated')
 const rowsPerPage = 20
-const filterDialogVisable = ref(false)
+const filterDialogVisible = ref(false)
 const loading = ref(true)
 
-const route = useRoute()
 watch(
-  () => route.params,
+  () => route.query,
   async (newId, oldId) => {
     setupData()
   },
 )
+onMounted(setupData)
 
 const sortOptions = ref([
   {
@@ -103,29 +108,22 @@ const sortFunction: Record<string, (a: ArticleData, b: ArticleData) => number> =
 
 const filteredArticles = computed(() => {
   const query = q.value.toLowerCase().trim().split(/\s/g)
-  let sortedArticles = allArticles.value
+  const sortedArticles = allArticles.value
     .filter((article) => {
-      let title = article.title.toLowerCase()
+      const title = article.title.toLowerCase()
       if (author.value && article.user != author.value) {
         return false
       }
-      for (var term of query) {
-        if (!title.includes(term)) {
-          return false
-        }
+      if (!query.every((term) => title.includes(term.toLowerCase()))) {
+        return false
       }
-      for (var tag of tags.value) {
-        if (!article.tags.includes(tag)) {
-          return false
-        }
+      if (!tags.value.every((tag) => article.tags.includes(tag))) {
+        return false
       }
       return true
     })
     .sort(sortFunction[sortBy.value])
-  if (sortDirection.value == 'ascending') {
-    sortedArticles.reverse()
-  }
-  return sortedArticles
+  return sortDirection.value == 'ascending' ? sortedArticles : sortedArticles.reverse()
 })
 const lowerbound = computed(() => (p.value - 1) * rowsPerPage)
 const upperbound = computed(() =>
@@ -138,100 +136,90 @@ const pageArticles = computed(() => {
 
 const pageError = computed(() => p.value < 1 || p.value > pages.value)
 
-onMounted(setupData)
-
 function changePage(newPage: number) {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set('p', String(Number(newPage)))
-  window.location.search = searchParams.toString()
+  updateQuery({ p: newPage.toString() })
 }
+
 function search(key: string, value: string) {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set(key, value)
-  searchParams.set('p', '1')
-  window.location.search = searchParams.toString()
+  updateQuery({ q: input.value, [key]: value, p: '1' })
+}
+
+function updateQuery(params: Record<string, string>) {
+  router.replace({ query: { ...route.query, ...params } })
 }
 
 async function setupData() {
-  // reset variables
+  // Reset variables
   input.value = ''
   allArticles.value = []
   p.value = 1
   q.value = ''
   tags.value = []
   author.value = ''
-  sortDirection.value = 'descending'
+  sortDirection.value = 'ascending'
   sortBy.value = 'recently updated'
-  filterDialogVisable.value = false
+  filterDialogVisible.value = false
   selectedTab.value = 'all articles'
   loading.value = true
 
-  let params = new URLSearchParams(document.location.search)
-  let query = params.get('q')
+  const params = new URLSearchParams(document.location.search)
+  const query = params.get('q')
   if (query != null) {
     input.value = query
     q.value = query
   }
-  let page = params.get('p')
+  const page = params.get('p')
   if (page != null && /^\d+$/.test(page)) {
     p.value = Number(page)
   }
-  let sortParam = params.get('sort')
+  const sortParam = params.get('sort')
   if (
     sortParam != null &&
-    ['recently updated', 'recently updated', 'name'].includes(sortParam.toLowerCase())
+    ['recently updated', 'recently published', 'name'].includes(sortParam.toLowerCase())
   ) {
     sortBy.value = sortParam.toLowerCase()
   }
-  let directionParam = params.get('direction')
+  const directionParam = params.get('direction')
   if (
     directionParam != null &&
     (directionParam.toLowerCase() == 'ascending' || directionParam.toLowerCase() == 'descending')
   ) {
     sortDirection.value = directionParam.toLowerCase()
   }
-  let tabParam = params.get('tab')
+  const tabParam = params.get('tab')
   if (tabParam != null && tabs.value.includes(tabParam.toLowerCase())) {
     selectedTab.value = tabParam.toLowerCase()
   }
-  let tagsParam = params.get('tags')
+  const tagsParam = params.get('tags')
   if (tagsParam != null) {
-    for (var tag of tagsParam.split(',')) {
+    for (let tag of tagsParam.split(',')) {
       if (TAGS.includes(tag.toLowerCase())) {
         tags.value.push(tag.toLowerCase())
       }
     }
   }
-  let authorParam = params.get('author')
+  const authorParam = params.get('author')
   if (authorParam != null) {
-    let { data, error } = await supabase.from('Users').select()
-    if (!error) {
-      allUsers.value = data as UserData[]
-    }
-    for (let user of allUsers.value) {
-      if ((user.id = authorParam)) {
-        author.value = authorParam
-        break
-      }
-    }
+    author.value = authorParam
   }
-  let data:ArticleData[] = [];
-  let error = null;
-  if(selectedTab.value == 'your articles') {
-    if( userData.value != null) {
+
+  let data: ArticleData[] = []
+  let error = null
+  if (selectedTab.value == 'your articles') {
+    if (userData.value != null) {
       let result = await supabase.from('articles').select().eq('user', userData.value.id)
       data = result.data as ArticleData[]
       error = result.error
-    } else {
-      // no changes to data
     }
   } else {
     let result = await supabase.from('articles').select().eq('access', 'public')
     data = result.data as ArticleData[]
-      error = result.error
+    error = result.error
   }
   if (!error) {
     allArticles.value = data
+  } else {
+    return setSupabaseError(error)
   }
   loading.value = false
 }
@@ -264,7 +252,7 @@ async function setupData() {
             <Button @click="search('q', input)" size="small"><Search></Search></Button>
           </InputGroupAddon>
         </InputGroup>
-        <Button size="small" label="More Filters" @click="filterDialogVisable = true"
+        <Button size="small" label="More Filters" @click="filterDialogVisible = true"
           ><template #icon> <ListFilter></ListFilter> </template
         ></Button>
         <Button size="small" label="Sort" aria-controls="order_menu" @click="openSortMenu"
@@ -276,11 +264,15 @@ async function setupData() {
         ></RouterLink>
         <Menu ref="sortMenu" id="order_menu" :model="sortOptions" :popup="true">
           <template #item="{ item, props }">
-            <label style="padding:2px" v-if="item.category == 'sortBy'" @click="search('sort', item.label as string)">
+            <label
+              style="padding: 2px"
+              v-if="item.category == 'sortBy'"
+              @click="search('sort', item.label as string)"
+            >
               <RadioButton v-model="sortBy" :value="item.label" />
               {{ item.label }}
             </label>
-            <label v-else style="padding:2px">
+            <label v-else style="padding: 2px">
               <RadioButton
                 v-model="sortDirection"
                 :value="item.label"
@@ -293,7 +285,6 @@ async function setupData() {
       </div>
     </div>
     <div class="article-container">
-      <!-- REMEMBER SKELLETONS -->
       <ArticleCard v-if="loading" v-for="_ in rowsPerPage" :article="null"></ArticleCard>
       <h2 v-else-if="filteredArticles.length < 1">No Results Found for Query</h2>
       <div v-else-if="pageError" class="centered-column">
@@ -325,7 +316,7 @@ async function setupData() {
   <Footer></Footer>
 
   <ArticleFilterDialog
-    v-model="filterDialogVisable"
+    v-model="filterDialogVisible"
     :q="q"
     :id="author"
     :tags="tags"
@@ -410,10 +401,6 @@ label {
   flex-wrap: wrap;
   gap: 10px;
   margin: 30px auto;
-}
-.paginator {
-  display: flex;
-  gap: 5px;
 }
 .paginator {
   display: flex;

@@ -3,13 +3,21 @@ import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import { X } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
+import { ref } from 'vue'
 import type { ArticleData } from '@/scripts/types'
 import router from '../router'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
 
 const model = defineModel<boolean>({ required: true })
 const props = defineProps<{ article: ArticleData }>()
+const loading = ref(false)
 async function deleteArticle() {
-  const { data, error } = await supabase.from('articles').delete().eq('id', props.article.id).select()
+  loading.value = true
+  const { error } = await supabase.from('articles').delete().eq('id', props.article.id).select()
+  if(error) {
+    loading.value = false
+    return setSupabaseError(error)
+  }
   router.push({ name: 'profile', params: { id: props.article.user } })
 }
 </script>
@@ -36,7 +44,7 @@ async function deleteArticle() {
     <template #footer>
       <div class="dialog-footer">
       <Button class="secondary" @click="model = false">Cancel</Button>
-      <Button @click="deleteArticle">Delete Deck</Button>
+      <Button @click="deleteArticle" :loading="loading">Delete Deck</Button>
     </div>
     </template>
   </Dialog>

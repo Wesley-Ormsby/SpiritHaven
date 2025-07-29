@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import { profileData, articleData, notFoundPage } from '@/scripts/globalStore'
-import { supabase } from '@/scripts/auth'
-import type { ArticleData, UserData } from '@/scripts/types'
-
+import HomeView from '@/views/HomeView.vue'
+import { loadArticle } from '@/scripts/utils/loadArticle'
+import { loadProfile } from '@/scripts/utils/loadProfile'
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,71 +15,46 @@ export const router = createRouter({
       path: '/profile/:id',
       name: 'profile',
       beforeEnter: async (to, from) => {
-        const { data, error } = await supabase.from('Users').select().eq('id', to.params.id)
-        if (!error) {
-          profileData.value = data[0] as UserData
-          changeTitle(profileData.value.username + " ⋅ SpiritHaven")
-        } else {
-          router.push('/NotFound')
-          notFoundPage.value = window.location.href
-        }
+        await loadProfile(to.params.id)
       },
-      component: () => import('../views/ProfileView.vue'),
+      component: () => import('@/views/ProfileView.vue'),
     },
     {
       path: '/article/:id',
       name: 'article',
       beforeEnter: async (to, from) => {
-        const { data, error } = await supabase.from('articles').select().eq('id', to.params.id)
-        if (!error) {
-          articleData.value = data[0] as ArticleData
-          const searchResult = await supabase
-            .from('Users')
-            .select()
-            .eq('id', articleData.value.user)
-          if (!searchResult.error) {
-            profileData.value = searchResult.data[0]
-            changeTitle(articleData.value.title + " ⋅ SpiritHaven")
-          } else {
-            // Could not get user
-            router.push('/NotFound')
-            notFoundPage.value = window.location.href
-          }
-        } else {
-          router.push('/NotFound')
-          notFoundPage.value = window.location.href
-        }
+        await loadArticle(to.params.id)
       },
-      component: () => import('../views/ArticleView.vue'),
+      component: () => import('@/views/ArticleView.vue'),
     },
     {
       path: '/search/article',
       name: 'searchArticle',
-      component: () => import('../views/ArticleSearchView.vue'),
+      component: () => import('@/views/ArticleSearchView.vue'),
       beforeEnter: (to, from) => changeTitle("Article Search ⋅ SpiritHaven")
     },
     {
       path: '/search/cards',
       name: 'searchCards',
-      component: () => import('../views/CardSearchView.vue'),
+      component: () => import('@/views/CardSearchView.vue'),
       beforeEnter: (to, from) => changeTitle("Card Search ⋅ SpiritHaven")
     },
     {
       path: '/search/user',
       name: 'searchUser',
-      component: () => import('../views/UserSearchView.vue'),
+      component: () => import('@/views/UserSearchView.vue'),
       beforeEnter: (to, from) => changeTitle("User Search ⋅ SpiritHaven")
     },
     {
       path: '/query-syntax',
       name: 'querySyntax',
-      component: () => import('../views/QuerySyntax.vue'),
+      component: () => import('@/views/QuerySyntax.vue'),
       beforeEnter: (to, from) => changeTitle("Query Syntax ⋅ SpiritHaven")
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('../views/NotFound.vue'),
+      component: () => import('@/views/NotFound.vue'),
       beforeEnter: (to, from) => changeTitle("404 Page Not Found ⋅ SpiritHaven")
     },
   ],

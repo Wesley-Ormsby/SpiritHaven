@@ -3,21 +3,26 @@ import InputText from 'primevue/inputtext'
 import InputGroup from 'primevue/inputgroup'
 import InputGroupAddon from 'primevue/inputgroupaddon'
 import { Button } from 'primevue'
-import { onBeforeMount, ref, computed, watch} from 'vue'
+import { ref, computed, watch, onMounted} from 'vue'
 import { Search, ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
 import type { UserData } from '@/scripts/types'
 import UserCard from '@/components/UserCard.vue'
 import Footer from '@/components/Footer.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter} from 'vue-router'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
 
+const router = useRouter()
 const route = useRoute()
+
 watch(
-  () => route.fullPath,
+  () => route.query,
   async (newId, oldId) => {
     setupData()
   },
 )
+
+onMounted(setupData)
 
 const input = ref('')
 const allUsers = ref<UserData[]>([])
@@ -28,15 +33,9 @@ const rowsPerPage = 20
 // Should copute based on url param
 const filteredUsers = computed(() => {
   const query = q.value.toLowerCase().trim().split(/\s/g)
-  return allUsers.value.filter((user) => {
-    let username = user.username.toLowerCase()
-    for (var term of query) {
-      if (!username.includes(term)) {
-        return false
-      }
-    }
-    return true
-  })
+  return allUsers.value.filter((user) =>
+    query.every(term => user.username.toLowerCase().includes(term))
+  )
 })
 const lowerbound = computed(() => (p.value - 1) * rowsPerPage)
 const upperbound = computed(() =>
@@ -49,38 +48,38 @@ const pageUsers = computed(() => {
 
 const pageError = computed(() => p.value < 1 || p.value > pages.value)
 
-onBeforeMount(setupData)
-
 async function setupData() {
-  input.value = ""
-  p.value = 1
-  q.value = ''
   const { data, error } = await supabase.from('Users').select()
   if (!error) {
     allUsers.value = data
+  } else {
+    return setSupabaseError(error)
   }
-  let params = new URLSearchParams(document.location.search)
-  let query = params.get('q')
-  if (query != null) {
-    input.value = query
-    q.value = query
-  }
-  let page = params.get('p')
+
+  const params = new URLSearchParams(document.location.search)
+  const query = params.get('q')
+  input.value = query || ""
+  q.value = query || ""
+
+  const page = params.get('p')
   if (page != null && /^\d+$/.test(page)) {
     p.value = Number(page)
+  } else {
+    p.value = 1
   }
 }
 
 function changePage(newPage: number) {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set('p', String(Number(newPage)))
-  window.location.search = searchParams.toString()
+  updateQuery({ p: newPage.toString() })
 }
+
 function search() {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set('q', input.value)
-  searchParams.set('p', "1")
-  window.location.search = searchParams.toString()
+  updateQuery({ q: input.value, p: '1' })
+}
+
+
+function updateQuery(params: Record<string, string>) {
+  router.replace({ query: { ...route.query, ...params } })
 }
 </script>
 
@@ -89,14 +88,13 @@ function search() {
     <h1>Search <span class="primary">Users</span></h1>
     <div class="text-input-container">
       <InputGroup>
-        <InputText type="text" v-model="input" placeholder="Search for an user" @keypress.enter="search"/>
+        <InputText type="text" v-model="input" placeholder="Search for a user" @keypress.enter="search"/>
         <InputGroupAddon>
           <Button @click="search"><Search></Search></Button>
         </InputGroupAddon>
       </InputGroup>
     </div>
     <div class="user-container">
-      <!-- REMEMBER SKELLETONS -->
       <UserCard v-if="allUsers.length == 0" v-for="_ in rowsPerPage" :data="null"></UserCard>
        <h2 v-else-if="filteredUsers.length<1">No Results Found for Query "<span class="primary">{{ q }}</span>"</h2>
        <div v-else-if="pageError" class="centered-column">
@@ -151,10 +149,6 @@ h1 {
   max-width: 1200px;
   width: 80vw;
   margin: 30px auto;
-}
-.paginator {
-  display: flex;
-  gap: 5px;
 }
 .paginator {
   display: flex;

@@ -6,20 +6,20 @@ import Textarea from 'primevue/textarea'
 import { X } from 'lucide-vue-next'
 import { ref, computed } from 'vue'
 import type { Spirit } from '@/scripts/types'
-import { profileData,userData } from '@/scripts/globalStore'
-import {  } from '@/scripts/auth'
+import { useGlobalStore } from '@/scripts/globalStore'
+import {} from '@/scripts/auth'
 import { SPIRITS } from '@/scripts/data'
 import { supabase } from '@/scripts/auth'
 import Select from 'primevue/select'
 import SpiritAvatar from '@/components/SpiritAvatar.vue'
-
-const model = defineModel<boolean>({ required: true })
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+const { profileData, userData } = useGlobalStore
+const visible = defineModel<boolean>('visible')
+const loadingChanges = ref(false)
 
 // Profile page
-const spiritChoices = ref<{ spirit: Spirit }[]>(
-  (Object.keys(SPIRITS) as Spirit[]).map((spirit) => ({ spirit })),
-)
-const selectedSpirit = ref<{ spirit: Spirit }>({ spirit: 'river surges in sunlight' })
+const spiritChoices = ref<Spirit[]>(Object.keys(SPIRITS) as Spirit[])
+const selectedSpirit = ref<Spirit>('river surges in sunlight')
 
 // Username
 const username = ref('')
@@ -31,45 +31,51 @@ const description = ref('')
 // General functions
 function open() {
   // reset variables
-  selectedSpirit.value = { spirit: profileData.value.spirit }
-  username.value = profileData.value.username
-  description.value = profileData.value.description
+  selectedSpirit.value = profileData.spirit
+  username.value = profileData.username
+  description.value = profileData.description
+  loadingChanges.value = false
 }
 
 async function saveSettings() {
   if (userData.value == null) {
     return
   }
-  profileData.value.spirit = selectedSpirit.value.spirit
-  userData.value.spirit = selectedSpirit.value.spirit
-  profileData.value.username = username.value
-  userData.value.username = username.value
-  profileData.value.description = description.value
-  userData.value.description = description.value
 
-  const { data, error } = await supabase
+  loadingChanges.value = true
+  const { error } = await supabase
     .from('Users')
     .update({
-      spirit: profileData.value.spirit,
+      spirit: selectedSpirit.value,
       username: username.value,
       description: description.value,
     })
     .eq('id', userData.value.id)
 
+  if (error) {
+    setSupabaseError(error)
+  } else {
+    profileData.spirit = selectedSpirit.value
+    userData.value.spirit = selectedSpirit.value
+    profileData.username = username.value
+    userData.value.username = username.value
+    profileData.description = description.value
+    userData.value.description = description.value
+  }
   // Close model
-  model.value = false
+  loadingChanges.value = false
+  visible.value = false
 }
 </script>
 <template>
   <Dialog
-    v-model:visible="model"
+    v-model:visible="visible"
     modal
     header="Update Profile"
     :style="{ width: '25rem' }"
     :breakpoints="{ '500px': '80vw' }"
     :draggable="false"
     @show="open"
-    @hide=""
   >
     <template #closebutton="{ closeCallback }">
       <X class="close-x" @click="closeCallback"></X>
@@ -85,33 +91,24 @@ async function saveSettings() {
       </label>
       <label>
         Bio Description
-        <Textarea
-          type="text"
-          v-model="description"
-          :invalid="!validUsername"
-          maxlength="300"
-          rows="4"
-        />
+        <Textarea type="text" v-model="description" maxlength="300" rows="4" />
       </label>
       <label>
         Profile Image
         <Select v-model="selectedSpirit" :options="spiritChoices" optionLabel="spirit" fluid>
           <template #value="slotProps">
             <div v-if="slotProps.value" class="select-option">
-              <SpiritAvatar
-                class="select-image"
-                :spirit="slotProps.value.spirit as Spirit"
-              ></SpiritAvatar>
-              <div>{{ slotProps.value.spirit }}</div>
+              <SpiritAvatar class="select-image" :spirit="slotProps.value as Spirit"></SpiritAvatar>
+              <div>{{ slotProps.value }}</div>
             </div>
           </template>
           <template #option="slotProps">
             <div class="select-option">
               <SpiritAvatar
                 class="select-image"
-                :spirit="slotProps.option.spirit as Spirit"
+                :spirit="slotProps.option as Spirit"
               ></SpiritAvatar>
-              <div>{{ slotProps.option.spirit }}</div>
+              <div>{{ slotProps.option }}</div>
             </div>
           </template>
         </Select>
@@ -119,7 +116,7 @@ async function saveSettings() {
     </div>
     <template #footer>
       <div class="dialog-footer">
-        <Button class="secondary" @click="model = false">Cancel</Button>
+        <Button class="secondary" @click="visible = false">Cancel</Button>
         <Button @click="saveSettings" :disabled="!validUsername">Save</Button>
       </div>
     </template>

@@ -15,15 +15,18 @@ import { X, Upload, TriangleAlert, Image, SprayCan } from 'lucide-vue-next'
 import { ref, useTemplateRef, watch } from 'vue'
 import { ADVESARIES, POWERS, SCENARIOS, SPIRITS } from '@/scripts/data'
 import type { Access, ArticleData, Spirit } from '@/scripts/types'
-import { articleData, profileData } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import { supabase } from '@/scripts/auth'
 import TagMultiselect from './TagMultiselect.vue'
-
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+const { articleData, profileData } = useGlobalStore
 const model = defineModel<boolean>({ required: true })
 
 // isNewArticle -> create new article
 // !isNewArticle -> update existing article
 const props = defineProps<{ isNewArticle: boolean }>()
+
+const loadingChanges = ref(false)
 
 // Title
 const title = ref('')
@@ -57,19 +60,18 @@ function uploadContent(event: any) {
 // Tags
 const selectedTags = ref<{ tag: string }[]>([])
 
-
 // Access
 const selectedAccess = ref<Access>('private')
 const accessDescription: Record<Access, string> = {
   private: 'Only you can view your article',
   public: 'Anyone can view your article',
   unlisted:
-    'Your article won’t appear on your public profile or in any lists, but anyone with the link can still view it',
+    "Your article won't appear on your public profile or in any lists, but anyone with the link can still view it",
 }
 const showAccessDescription = ref(false)
 const hoveringAccess = ref<Access>('private')
 const timoutDisplay = ref()
-async function showDescription(hov: Access) {
+function showDescription(hov: Access) {
   timoutDisplay.value = setTimeout(() => {
     showAccessDescription.value = true
   }, 1000)
@@ -86,9 +88,9 @@ const imageURL = ref('')
 const gallaryURL = ref<{ name: string; url: string } | null>(null)
 const showImage = ref(false)
 const imageError = ref(false)
-const headerURLContainer = useTemplateRef("headerURLContainer")
+const headerURLContainer = useTemplateRef('headerURLContainer')
 function selectAllTextInInput() {
-  if(headerURLContainer.value) {
+  if (headerURLContainer.value) {
     headerURLContainer.value.querySelector('input')?.select()
   }
 }
@@ -137,7 +139,7 @@ const gallary = ref<{ name: string; url: string }[]>([
         url: ADVESARIES[adv].map as string,
       }
     }),
-    ...Object.keys(POWERS)
+  ...Object.keys(POWERS)
     .filter((card) => POWERS[card].art != null)
     .map((card) => {
       return {
@@ -148,42 +150,40 @@ const gallary = ref<{ name: string; url: string }[]>([
 ])
 
 function open() {
-  // reset variables
+  // Reset variables
   imageError.value = false
   gallaryURL.value = null
   invalidTitle.value = null
   showAccessDescription.value = false
+  loadingChanges.value = false
+
+  const isNew = props.isNewArticle
+
+  // Article Properties
+  title.value = isNew ? '' : articleData.title + ''
+  description.value = isNew ? '' : articleData.description + ''
+  textareaContent.value = isNew ? '' : articleData.content + ''
+  selectedAccess.value = isNew ? 'private' : ((articleData.access + '') as Access)
+  selectedTags.value = isNew ? [] : articleData.tags.map((tag) => ({ tag }))
+
+  // Image-related details
   if (props.isNewArticle) {
-    title.value = ''
-    description.value = ''
-    textareaContent.value = ''
-    selectedTags.value = []
-    selectedAccess.value = 'private'
-    showAccessDescription.value = false
     selectedURL.value = ''
-    imageError.value = false
     imageURL.value = ''
     showImage.value = false
+  } else if (articleData.img != null) {
+    selectedURL.value = articleData.img + ''
+    imageURL.value = articleData.img + ''
+    showImage.value = true
   } else {
-    title.value = articleData.value.title + ''
-    description.value = articleData.value.description + ''
-    textareaContent.value = articleData.value.content + ''
-    selectedTags.value = articleData.value.tags.map((tag) => ({ tag }))
-    selectedAccess.value = (articleData.value.access + '') as Access
-    if (articleData.value.img != null) {
-      selectedURL.value = articleData.value.img + ''
-      imageURL.value = articleData.value.img + ''
-      showImage.value = true
-    } else {
-      showImage.value = false
-    }
+    showImage.value = false
   }
 
   clearTimeout(timoutDisplay.value)
 }
 
 async function openNewArticle() {
-  if (profileData.value == null) {
+  if (profileData == null) {
     return
   }
   if (title.value.length > 80 || title.value.length < 5) {
@@ -195,9 +195,10 @@ async function openNewArticle() {
     }
     return
   }
+  loadingChanges.value = true
   // Note, the dates should be auto updated
   const article = {
-    user: profileData.value.id,
+    user: profileData.id,
     img: imageURL.value || null,
     title: title.value,
     description: description.value,
@@ -209,17 +210,20 @@ async function openNewArticle() {
     const { data, error } = await supabase.from('articles').insert(article).select()
     if (!error) {
       router.push({ name: 'article', params: { id: data[0].id } })
+    } else {
+      setSupabaseError(error)
+      loadingChanges.value = false
     }
   } else {
     const { data, error } = await supabase
       .from('articles')
       .update(article)
-      .eq('id', articleData.value.id)
+      .eq('id', articleData.id)
       .select()
-    console.log(data)
     if (!error) {
-      console.log('not error')
-      articleData.value = data[0] as ArticleData
+      Object.assign(useGlobalStore.articleData, data[0] as ArticleData)
+    } else {
+      setSupabaseError(error)
     }
     model.value = false
   }
@@ -234,7 +238,6 @@ async function openNewArticle() {
     :breakpoints="{ '600px': '80vw' }"
     :draggable="false"
     @show="open"
-    @hide=""
   >
     <template #closebutton="{ closeCallback }">
       <X class="close-x" @click="closeCallback"></X>
@@ -307,29 +310,29 @@ async function openNewArticle() {
       </label>
       <span>Header Image <i>(optional)</i></span>
       <div ref="headerURLContainer">
-      <InputGroup>
-        <InputText
-          type="text"
-          v-model="selectedURL"
-          placeholder="Enter image url"
-          @change="inputURLOnChange"
-          @focus="selectAllTextInInput"
-        />
-        <InputGroupAddon>
-          <TriangleAlert v-if="imageError"></TriangleAlert>
-          <ImgLoad
-            v-else-if="showImage"
-            :src="imageURL"
-            class="list-image"
-            alt="header image"
-            v-model="imageError"
-            :preview="true"
-            :key="imageURL"
+        <InputGroup>
+          <InputText
+            type="text"
+            v-model="selectedURL"
+            placeholder="Enter image url"
+            @change="inputURLOnChange"
+            @focus="selectAllTextInInput"
           />
-          <Image v-else></Image>
-        </InputGroupAddon>
-      </InputGroup>
-    </div>
+          <InputGroupAddon>
+            <TriangleAlert v-if="imageError"></TriangleAlert>
+            <ImgLoad
+              v-else-if="showImage"
+              :src="imageURL"
+              class="list-image"
+              alt="header image"
+              v-model:error="imageError"
+              :preview="true"
+              :key="imageURL"
+            />
+            <Image v-else></Image>
+          </InputGroupAddon>
+        </InputGroup>
+      </div>
       <label> Select a Gallery Image for the Header</label>
       <Listbox
         v-model="gallaryURL"
@@ -340,7 +343,7 @@ async function openNewArticle() {
       >
         <template #option="slotProps">
           <div class="list-option">
-            <div class="list-image-continer">
+            <div class="list-image-container">
               <ImgLoad
                 :src="slotProps.option.url"
                 :preview="false"
@@ -372,7 +375,7 @@ async function openNewArticle() {
     <template #footer>
       <div class="dialog-footer">
         <Button class="secondary" @click="model = false">Cancel</Button>
-        <Button @click="openNewArticle">{{
+        <Button @click="openNewArticle" :loading="loadingChanges">{{
           props.isNewArticle ? 'Open in Editor' : 'Save Changes'
         }}</Button>
       </div>
@@ -457,7 +460,7 @@ label {
   text-transform: capitalize;
   text-wrap: nowrap;
 }
-.list-image-continer {
+.list-image-container {
   width: 50px;
   display: flex;
   align-items: center;

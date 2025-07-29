@@ -1,4 +1,4 @@
-//export type Element = 'sun' | 'moon' | 'fire' | 'air' | 'water' | 'earth' | 'plant' | 'animal'
+// Fundemental Types
 export const spirits = [
   "lightning's swift strike",
   'river surges in sunlight',
@@ -40,15 +40,13 @@ export const spirits = [
 ] as const
 export type Spirit = (typeof spirits)[number]
 
-export interface SpiritData {
-  img_small: string
-  img_large: string
-  image: string
-  caseName: string
-}
+export type Display = 'light' | 'dark' | 'system'
+
+export type Element = 's' | 'm' | 'f' | 'a' | 'w' | 'e' | 'p' | 'n'
+
+// Databse-Related Types
 export type Access = 'private' | 'public' | 'unlisted'
 
-export type Display = 'light' | 'dark' | 'system'
 export interface UserData {
   id: string
   theme: Element
@@ -71,6 +69,7 @@ export interface ArticleData {
   updated: string
 }
 
+// Game Asset Types
 export const setNames = [
   'spirit island',
   'horizons of spirit island',
@@ -83,13 +82,13 @@ export const setNames = [
 ] as const
 export type SetName = (typeof setNames)[number]
 
-export type Element = 's' | 'm' | 'f' | 'a' | 'w' | 'e' | 'p' | 'n'
 type Environment = 'jungle' | 'wetland' | 'mountain' | 'sands'
 
 export const status = ['active', 'retired', 'replaced'] as const
 export type Status = (typeof status)[number]
 
-type From = 'sacred site' | Environment | `${Environment} or ${Environment}` | 'dahan' | 'blight' // can loose autocomplete this
+type From = 'sacred site' | Environment | `${Environment} or ${Environment}` | 'dahan' | 'blight' 
+
 type Target =
   | 'any land'
   | 'any spirit'
@@ -118,11 +117,42 @@ type Target =
   | 'dahans'
   | 'blight and invaders'
   | `${Spirit}'s incarna`
+
 type Threshold = {
   elements: Partial<Record<Element, number>>
   ability: string
   condition?: string
 }
+
+export const eventTypes = [
+  'terror 1',
+  'terror 1 & 2',
+  'terror 2 & 3',
+  'terror 3',
+  'stage 1',
+  'stages 1 & 2',
+  'stages 2 & 3',
+  'stage 3',
+  'healthy island',
+  'blighted island',
+  'group choice',
+  'individual choice',
+  'adversary event',
+  'beasts',
+  'dahan',
+  'disease',
+  'badlands',
+  'disease and strife',
+  'badlands and beasts',
+] as const
+export type EventType = (typeof eventTypes)[number]
+
+export type EventSection = {
+  type: EventType
+  name: string
+  text: string
+}
+
 export type PowerCard = {
   caseName: string
   image: string
@@ -162,37 +192,6 @@ export type FearCard = {
   caseName: string
 }
 
-export type Card = PowerCard | FearCard | EventCard | BlightCard | AspectCard
-
-export const eventTypes = [
-  'terror 1',
-  'terror 1 & 2',
-  'terror 2 & 3',
-  'terror 3',
-  'stage 1',
-  'stages 1 & 2',
-  'stages 2 & 3',
-  'stage 3',
-  'healthy island',
-  'blighted island',
-  'group choice',
-  'individual choice',
-  'adversary event',
-  'beasts',
-  'dahan',
-  'disease',
-  'badlands',
-  'disease and strife',
-  'badlands and beasts',
-] as const
-export type EventType = (typeof eventTypes)[number]
-
-export type EventSection = {
-  type: EventType
-  name: string
-  text: string
-}
-
 export type EventCard = {
   image: string
   set: SetName[]
@@ -208,6 +207,8 @@ export type AspectCard = {
   caseName: string
 }
 
+export type Card = PowerCard | FearCard | EventCard | BlightCard | AspectCard
+
 export type Adversary = {
   flag: string
   map: string | null
@@ -218,6 +219,15 @@ export type Scenario = {
   art: string | null
   caseName: string
 }
+
+export interface SpiritData {
+  img_small: string
+  img_large: string
+  image: string
+  caseName: string
+}
+
+// Miscellaneous Types
 
 export type HeaderData = { id: number; children: HeaderData[] }
 
@@ -230,3 +240,5 @@ export const cardSearchOrders = [
   'Artist',
 ] as const
 export type CardSearchOrders = (typeof cardSearchOrders)[number]
+
+export type Direction = 'Ascending' | 'Descending'

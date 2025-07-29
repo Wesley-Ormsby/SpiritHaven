@@ -1,16 +1,37 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { setupUser } from './scripts/auth'
-import { onBeforeMount} from "vue"
+import { onBeforeMount, watch } from 'vue'
 import Nav from './components/Nav.vue'
-import { preLoading } from './scripts/globalStore'
-import ProgressBar from 'primevue/progressbar';
-
+import { useGlobalStore } from './scripts/globalStore'
+import ProgressBar from 'primevue/progressbar'
+import Toast from 'primevue/toast'
+import { useToast } from 'primevue/usetoast'
+import { supabaseError } from './scripts/supabaseErrors'
+const { preLoading } = useGlobalStore
 // AUTH
 onBeforeMount(setupUser)
+
+// Any Supabase-related error
+const toast = useToast()
+watch(
+  () => supabaseError.value,
+  () => {
+    if (supabaseError.value != null) {
+      toast.add({
+        severity: 'error',
+        summary: supabaseError.value.message,
+        detail: supabaseError.value.code,
+        life: 4000,
+      })
+      supabaseError.value = null
+    }
+  },
+)
 </script>
 
 <template>
+  <Toast />
   <div v-if="preLoading">
     <ProgressBar mode="indeterminate" style="height: 3px"></ProgressBar>
   </div>
@@ -18,11 +39,10 @@ onBeforeMount(setupUser)
     <Nav></Nav>
     <RouterView />
   </div>
-  
 </template>
 
 <style scoped>
-::v-deep(.p-progressbar){
+::v-deep(.p-progressbar) {
   border-radius: 0px;
 }
 </style>

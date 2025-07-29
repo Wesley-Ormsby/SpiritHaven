@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { articleData, profileData } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import { renderMarkdown } from '@/scripts/markdown'
 import { watch, ref, onMounted,computed, nextTick,useTemplateRef, onUnmounted } from 'vue'
 import SpiritAvatar from './SpiritAvatar.vue'
@@ -11,10 +11,12 @@ import Footer from './Footer.vue'
 import type { HeaderData } from '@/scripts/types';
 import TableOfContentsSection from './TableOfContentsSection.vue';
 
+const { articleData, profileData } = useGlobalStore
 const {showFooter} = defineProps<{showFooter:boolean}>()
 const tableOfContentsData = ref<HeaderData[]>([])
 const screenSize = ref(0)
-const showSideTableOfContents = computed(()=>Boolean(screenSize.value > 1000 && showFooter))
+const showSideTableOfContents = computed(()=>screenSize.value > 1000 && showFooter)
+const emptyTableOfContents= computed(()=>tableOfContentsData.value.length == 0)
 
 const markdownHTML = ref('')
 onMounted(()=>{
@@ -26,21 +28,22 @@ onUnmounted(()=>{
   window.removeEventListener("resize",updateScreenSize)
 })
 function updateScreenSize() {
-  screenSize.value = window.screen.width
+  screenSize.value = window.innerWidth
 }
-watch(() => articleData.value.content, syncArticle)
+watch(() => articleData.content, syncArticle)
 
 function syncArticle() {
-  let {render,tableOfContents} = renderMarkdown(articleData.value.content)
+  let {render,tableOfContents} = renderMarkdown(articleData.content)
   markdownHTML.value = render
   tableOfContentsData.value = tableOfContents
   nextTick(makeGameComponentsInteractable)
 }
 
 
-const updatedDate = computed<string>( ()=> (new Date(articleData.value.updated)).toLocaleDateString("en-US",{year: 'numeric', month: 'long', day: 'numeric' }))
+const updatedDate = computed<string>( ()=> (new Date(articleData.updated)).toLocaleDateString("en-US",{year: 'numeric', month: 'long', day: 'numeric' }))
 
 // For Cards and other components
+// We need to make them hoverable/clickable
 const clickedURL = ref('')
 const hoveredURL = ref('')
 const hoveringElement = ref()
@@ -50,19 +53,21 @@ const boardHovering = ref(false)
 const tooltip = useTemplateRef('tooltip')
 const loadingImg = ref(false)
 function makeGameComponentsInteractable() {
-  for(var att of ['card','component']) {
-    document.querySelectorAll(`[${att}]`).forEach((el)=>{
-    const name = el.getAttribute(att) as string
+  ['card', 'component'].forEach(att => {
+  document.querySelectorAll(`[${att}]`).forEach(el => {
+    const name = el.getAttribute(att)!
     const url = att === 'card' ? CARD_ARTS[name] : LARGE_COMPONENTS_ARTS[name]
     const isBoard = BOARDS[name] != undefined
-    el.addEventListener("click", () =>{
+
+    el.addEventListener("click", () => {
       clickedURL.value = url
       imageDialogVisible.value = true
     })
-    el.addEventListener('mouseenter', ()=>startHover(el as HTMLElement,url,isBoard));
-    el.addEventListener('mouseleave', hideTooltip);
+    el.addEventListener("mouseenter", () => startHover(el as HTMLElement, url, isBoard))
+    el.addEventListener("mouseleave", hideTooltip)
   })
-  }
+})
+
   document.querySelectorAll(".centered-block img").forEach((el)=>{
     el.addEventListener("click", () =>{
       clickedURL.value = el.getAttribute("src") as string
@@ -114,7 +119,7 @@ function hideTooltip() {
 <template>
   <div class="article-preview-wrapper">
     <div class="article-wrapper">
-    <div class="table-of-contents side" v-if="showSideTableOfContents">
+    <div class="table-of-contents side" v-if="showSideTableOfContents && !emptyTableOfContents">
         <div class="contents-title">Table of Contents</div>
         <a class="to-top" href="#title">Go to Top</a>
         <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
@@ -133,7 +138,7 @@ function hideTooltip() {
         <Tag v-for="tag in articleData.tags" :tag="tag" size="normal"></Tag>
       </div>
       <img v-if="articleData.img != null && articleData.img.trim() != ''" class="header-image" :src="articleData.img"></img>
-      <div class="table-of-contents" v-if="!showSideTableOfContents">
+      <div class="table-of-contents" v-if="!showSideTableOfContents && !emptyTableOfContents">
         <div class="contents-title">Table of Contents</div>
         <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
       </div>
@@ -143,7 +148,7 @@ function hideTooltip() {
     </div>
     </div>
   </div>
-    <ImageDialog v-model="imageDialogVisible"  :src="clickedURL" ></ImageDialog>
+    <ImageDialog v-model:visible="imageDialogVisible"  :src="clickedURL" ></ImageDialog>
     <Footer v-if="showFooter"></Footer>
   </div>
 </template>
@@ -234,15 +239,23 @@ function hideTooltip() {
   top:60px;
   max-width: 300px;
   margin-left:20px;
-  margin-top: 60px;
+  max-height: calc(100vh - 70px - 60px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.side > .section {
+  flex-grow: 1;
+
 }
 .to-top {
   color:var(--p-surface-800) !important;
   font-size: smaller;
-  margin-left: 20px;
+  margin: 5px 0px 0px 20px;
   text-decoration: none;
 }
 
+/* Article Styles */
 ::v-deep(blockquote) {
   background-color: var(--p-surface-200);
   padding: 0.5px 1px 0px 12px;
@@ -288,7 +301,7 @@ function hideTooltip() {
 }
 
 /* Custom Components */
-::v-deep(.inline-component) {
+::v-deep(.hoverlink) {
   cursor: pointer;
   color:var(--p-primary-500);
 }

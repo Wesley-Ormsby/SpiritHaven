@@ -1,11 +1,4 @@
-import {
-  type Spirit,
-  type SetName,
-  type Status,
-  type EventType,
-  spirits,
-  type Element,
-} from '../types'
+import { type SetName, type Status, type EventType, spirits, type Element } from '../types'
 
 // Token Type
 export type TT =
@@ -15,8 +8,8 @@ export type TT =
   | 'null'
   // Other syntax
   | 'not'
-  | 'lpren'
-  | 'rpren'
+  | 'lparen'
+  | 'rparen'
   | 'or'
   | 'op'
   | 'EOF'
@@ -39,13 +32,13 @@ export type Token =
       value: RegExp
       lexeme: string
     }
-    | {
-        type: 'null'
-        value: null
-        lexeme: string
-      }
   | {
-      type: Exclude<TT, 'int' | 'op'>
+      type: 'null'
+      value: null
+      lexeme: string
+    }
+  | {
+      type: Exclude<TT, 'int' | 'op' | 'regex' | 'null'>
       value: string
       lexeme: string
     }
@@ -130,7 +123,7 @@ export type QueryNode = // All
         op: Op
       }
     | {
-        property: 'from' |'target'
+        property: 'from' | 'target'
         value: string | RegExp | null
         op: ':' | '='
       }

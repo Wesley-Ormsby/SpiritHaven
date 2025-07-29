@@ -699,7 +699,6 @@ export const ADVESARIES: Record<string, Adversary> = {
   },
 }
 
-// NEEDS ADVESARIES AND SENARIOS
 export const TAGS = [
   ...Object.keys(SPIRITS),
   ...Object.keys(ADVESARIES),

@@ -2,66 +2,60 @@ import { eventTypes, setNames, status, type Element } from '../types'
 import { cardTypes, type AndNode, type QueryNode, type Token } from './types'
 
 export class Parser {
-  tokens: Token[]
-  ast: QueryNode | null ///
-  error: string
+  private tokens: Token[]
+  private error: string
 
   constructor(tokens: Token[]) {
     this.tokens = tokens
-    this.ast = null
     this.error = ''
   }
 
   parse() {
     let group = this.parseGroup()
     if (!group) {
-      return
+      return { ast: group, error: this.error }
     }
     if (!this.atEnd()) {
       this.error = `Unexpected token: \`${this.peek().lexeme}\``
-      return
+      return { ast: group, error: this.error }
     }
-    if ((group as AndNode).queries.length == 1) {
-      this.ast = (group as AndNode).queries[0]
-    } else {
-      this.ast = group
-    }
+    return { ast: this.flattenGroup(group), error: this.error }
   }
 
-  parseProperty(group: QueryNode[]): boolean {
+  private parseProperty(group: QueryNode[]): boolean {
     let token = this.peek()
 
-    // parse property / name
+    // Parse property
     if (token.type == 'string') {
       this.shift()
-      let textProperty = token.value
-      let longFormProperty = token.value.toLowerCase()
-      if (longFormProperty in propertyMap) {
-        longFormProperty = propertyMap[longFormProperty]
+      const rawProperty = token.value
+      let standardizedProperty = token.value.toLowerCase()
+      if (standardizedProperty in propertyMap) {
+        standardizedProperty = propertyMap[standardizedProperty]
       }
-      if (longFormProperty in propertyRules) {
+      if (standardizedProperty in propertyRules) {
         return this.parsePropertyRule(
           group,
-          textProperty,
-          longFormProperty,
-          propertyRules[longFormProperty],
+          rawProperty,
+          standardizedProperty,
+          propertyRules[standardizedProperty],
         )
       } else {
-        // parse name property
+        // Parse name property
         group.push({
           property: 'name',
           op: ':',
-          value: longFormProperty,
+          value: standardizedProperty,
         })
         if (this.peek().type == 'op') {
-          this.error = `Unexpected token \`${this.peek().lexeme}\` and/or invalid property name \`${textProperty}\``
+          this.error = `Unexpected token \`${this.peek().lexeme}\` and/or invalid property name \`${rawProperty}\``
           return false
         }
         return true
       }
     }
 
-    // parse not
+    // Parse not
     if (token.type == 'not') {
       this.shift()
       let newGroup: QueryNode[] = []
@@ -77,48 +71,39 @@ export class Parser {
       return true
     }
 
-    // parse or
+    // Parse or
     if (token.type == 'or') {
       this.shift()
-      let newGroup = this.parseGroup()
-      if (!newGroup) {
+      let right = this.parseGroup()
+      if (!right) {
         return false
       }
-      if ((newGroup as AndNode).queries.length == 0) {
+      if ((right as AndNode).queries.length == 0) {
         this.error = `Expected right clause(s) for \`or\` operator`
       }
-      let left: QueryNode = { property: 'and', queries: [...group] } //spread for deep copy
-      if (group.length == 1) {
-        left = group[0]
-      }
-      if ((newGroup as AndNode).queries.length == 1) {
-        newGroup = (newGroup as AndNode).queries[0]
-      }
-      let or = { property: 'or', left, right: newGroup } as QueryNode
-      group.splice(0, group.length, or)
+      let left: QueryNode = this.flattenGroup({ property: 'and', queries: group })
+      right = this.flattenGroup(right)
+      const orNode = { property: 'or', left, right } as QueryNode
+      group.splice(0, group.length, orNode)
       return true
     }
 
-    // pares groups
-    if (token.type == 'lpren') {
+    // Parse groups
+    if (token.type == 'lparen') {
       this.shift()
       let newGroup = this.parseGroup()
       if (!newGroup) {
         return false
       }
       if ((newGroup as AndNode).queries.length == 0) {
-        this.error = `Expected clause in parenthesized group, it can't be empty`
+        this.error = `Expected a clause inside parentheses; group cannot be empty`
       }
-      if (this.peek().type != 'rpren') {
+      if (this.peek().type != 'rparen') {
         this.error = `Expected \`)\` to end parenthesized group`
         return false
       }
       this.shift() // remove `)`
-      if ((newGroup as AndNode).queries.length == 1) {
-        group.push((newGroup as AndNode).queries[0])
-      } else {
-        group.push(newGroup)
-      }
+      group.push(this.flattenGroup(newGroup))
       return true
     }
 
@@ -126,47 +111,48 @@ export class Parser {
     return false
   }
 
-  parsePropertyRule(
+  private parsePropertyRule(
     group: QueryNode[],
-    textProperty: string,
-    property: string,
+    rawProperty: string,
+    standardizedProperty: string,
     rule: RuleDef,
   ): boolean {
+    const showStandardizedProperty = rawProperty.toLowerCase() != standardizedProperty ? `(${standardizedProperty}) ` : ""
     // Validate operator
-    let operator = this.shift()
+    const operator = this.shift()
     if (
       rule.type == 'int' ||
       (Array.isArray(rule.type) && (rule.type as string[]).includes('int'))
     ) {
       if (operator.type != 'op') {
-        this.error = `Expected operator for \`${textProperty}\` (${property}) property`
+        this.error = `Expected operator for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
     } else if ('op' in rule) {
       if (operator.type != 'op' || (operator.value != ':' && operator.value != '=')) {
-        this.error = `Expected \`:\` or \`=\` operator for \`${textProperty}\` (${property}) property`
+        this.error = `Expected \`:\` or \`=\` operator for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
     } else {
       if (operator.type != 'op' || operator.value != ':') {
-        this.error = `Expected \`:\` operator for \`${textProperty}\` (${property}) property`
+        this.error = `Expected \`:\` operator for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
     }
     // Validate value type
-    let value = this.shift()
-    let valueType = value.type
+    const value = this.shift()
+    const valueType = value.type
     if (Array.isArray(rule.type) && (rule.type as string[]).includes('element')) {
       if (value.type == 'int') {
-        group.push({ property, value: value.value, op: operator.value } as QueryNode)
+        group.push({ property:standardizedProperty, value: value.value, op: operator.value } as QueryNode)
         return true
       } else if (value.type == 'string') {
         if (operator.value != ':' && operator.value != '=') {
-          this.error = `Expected int value for \`${textProperty}\` (element) property with \`${operator.value}\` operator`
+          this.error = `Expected int value for \`${rawProperty}\` (element) property with \`${operator.value}\` operator`
           return false
         }
         if (!/^(?:\d*[smfawepn])*$/i.test(value.value)) {
-          this.error = `Expected valid element pattern in word or string value for \`${textProperty}\` (${property}) property`
+          this.error = `Expected valid element pattern in word or string value for \`${rawProperty}\` ${showStandardizedProperty}property`
           return false
         }
         const counts: Partial<Record<Element, number>> = {}
@@ -177,19 +163,19 @@ export class Parser {
           const num = digits ? parseInt(digits, 10) : 1
           counts[el] = (counts[el] ?? 0) + num
         }
-        group.push({ property, value: counts, op: operator.value } as QueryNode)
+        group.push({ property:standardizedProperty, value: counts, op: operator.value } as QueryNode)
         return true
       } else {
-        if(operator.value != "=" && operator.value != ":") {
-          this.error = `Expected int for \`${textProperty}\` (${property}) property with \`${operator.value}\` operator`
-        return false
+        if (operator.value != '=' && operator.value != ':') {
+          this.error = `Expected integer for \`${rawProperty}\` ${showStandardizedProperty}property with \`${operator.value}\` operator`
+          return false
         }
-        this.error = `Expected element pattern value or integer for \`${textProperty}\` (${property}) property`
+        this.error = `Expected element pattern value or integer for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
     } else if (rule.type == 'enum') {
       if (value.type != 'string') {
-        this.error = `Expected word or string value for \`${textProperty}\` (${property}) property`
+        this.error = `Expected word or string value for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
       let propertyVal = value.value.toLowerCase()
@@ -197,48 +183,48 @@ export class Parser {
         propertyVal = rule.enumMap[propertyVal]
       }
       if (rule.value.includes(propertyVal)) {
-        group.push({ property, value: propertyVal } as QueryNode)
+        group.push({ property:standardizedProperty, value: propertyVal } as QueryNode)
         return true
       } else {
-        this.error = `Invalid value for \`${textProperty}\` (${property}) property`
+        this.error = `Invalid value for \`${rawProperty}\` ${showStandardizedProperty}property`
         return false
       }
     } else if (Array.isArray(rule.type)) {
       if (!(rule.type as string[]).includes(valueType)) {
-        this.error = `Expected value of type ${rule.type.map((type) => `\`${type}\``).join(' or ')} for \`${textProperty}\` property`
+        this.error = `Expected value of type ${rule.type.map((type) => `\`${type}\``).join(' or ')} for \`${rawProperty}\` property`
         return false
       }
     } else if (rule.type != valueType) {
-      this.error = `Expected value of type \`${rule.type}\` for \`${textProperty}\` (${property}) property`
+      this.error = `Expected value of type \`${rule.type}\` for \`${rawProperty}\` ${showStandardizedProperty}property`
       return false
     }
-    // Once we validate the type, it is null when the value could have been an int, you must use a `:` operator
+    // Once we validate the type, if it uses an 'int' operator but not an 'int' value, there is an error
     if (
       Array.isArray(rule.type) &&
       (rule.type as string[]).includes('int') &&
       valueType != 'int' &&
       operator.value != ':'
     ) {
-      this.error = `Expected \`:\` operator for \`${textProperty}\` (${property}) property with \`${value.type}\` value`
+      this.error = `Expected \`:\` operator for \`${rawProperty}\` ${showStandardizedProperty}property with \`${value.type}\` value`
       return false
     }
     let nodeValue = typeof value.value == 'string' ? value.value.toLowerCase() : value.value
     group.push(
       'op' in rule
         ? ({
-            property,
+            property: standardizedProperty,
             value: nodeValue,
             op: operator.value,
           } as QueryNode)
         : ({
-            property,
+            property: standardizedProperty,
             value: nodeValue,
           } as QueryNode),
     )
     return true
   }
 
-  parseGroup(): QueryNode | null {
+  private parseGroup(): QueryNode | null {
     let group: QueryNode[] = []
     while (true) {
       let node = this.parseProperty(group)
@@ -254,16 +240,23 @@ export class Parser {
     return { property: 'and', queries: group }
   }
 
-  atEnd() {
+  private atEnd() {
     return this.tokens.length == 1
   }
 
-  peek() {
+  private peek() {
     return this.tokens[0]
   }
 
-  shift() {
+  private shift() {
     return this.tokens.shift() as Token
+  }
+
+  private flattenGroup(node: QueryNode): QueryNode {
+    if (node.property == 'and' && node.queries.length === 1) {
+      return node.queries[0]
+    }
+    return node
   }
 }
 

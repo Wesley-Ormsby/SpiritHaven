@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, useTemplateRef,computed,onMounted } from 'vue'
-import { notFoundPage } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import Footer from '@/components/Footer.vue'
 import Button from 'primevue/button'
 import router from '@/router'
+const {notFoundPage} = useGlobalStore
 
 const voidImage = ref<HTMLImageElement | null>(null)
 const scatteredURLS = useTemplateRef("scatteredURLS")
@@ -76,7 +77,7 @@ function pull() {
     const opacity = Math.max(0, Math.min(1, dist / 300))
     el.style.opacity = `${opacity}`
   })
-  if (pulling.value) setTimeout(pull, 10)
+  if (pulling.value) requestAnimationFrame(pull)
 }
 
 function endPull() {
@@ -111,6 +112,7 @@ function endPull() {
       <img
         src="https://spiritislandwiki.com/images/0/0a/Draw_Towards_a_Consuming_Void.png"
         ref="voidImage"
+        alt="Consuming Void"
         :class="{'img-animation':pulling}"
         @mouseenter="startPull"
         @mouseleave="endPull"

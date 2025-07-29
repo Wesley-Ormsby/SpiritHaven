@@ -1,50 +1,34 @@
 import { supabase } from './auth'
 import type { Display, Element } from './types'
-import { ref,onMounted } from 'vue'
+import { ref } from 'vue'
 import { updatePreset } from '@primeuix/themes'
-import { userData } from './globalStore'
+import { useGlobalStore } from './globalStore'
+import { setSupabaseError } from './supabaseErrors'
+const {userData} = useGlobalStore
 
 export const display = ref<Display>('system')
 export const theme = ref<Element>('a')
 
-export async function setupThemeAndDisplay() {
+export function setupThemeAndDisplay() {
   if (userData.value != null) {
     // Current user
     display.value = userData.value.display
     theme.value = userData.value.theme
   } else {
     // Local storage, no current user
-    let currentDisplay = localStorage.getItem('display')
-    if (currentDisplay) {
-      localStorage.setItem('display', currentDisplay)
-      display.value = currentDisplay as Display
-    } else {
-      localStorage.setItem('display', 'system')
-      display.value = 'system'
-    }
-    let currentTheme = localStorage.getItem('theme')
-    if (currentTheme) {
-      localStorage.setItem('theme', currentTheme)
-      theme.value = currentTheme as Element
-    } else {
-      localStorage.setItem('theme', 'a')
-      theme.value = 'a'
-    }
+    display.value = getLocalStorageOrDefault('display','system') as Display
+    theme.value = getLocalStorageOrDefault('theme','a') as Element
   }
   setPresets()
   setDisplay()
 }
 
-export async function updateDisplay(newDisplay: Display) {
-  display.value = newDisplay
-  if (userData.value != null) {
-    // Current user: update user database
-    const { data, error } = await supabase.from('Users').update({"display":newDisplay}).eq('id', userData.value.id)
-  } else {
-    // No current user: update local storage
-    localStorage.setItem('display', newDisplay)
-  }
-  setDisplay()
+function getLocalStorageOrDefault(key:string,defaultValue:string) {
+  const stored = localStorage.getItem(key)
+  if (stored) return stored
+  // Set local storage to default
+  localStorage.setItem(key, defaultValue)
+  return defaultValue
 }
 
 // Window listener for system display
@@ -53,6 +37,27 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev
     setDisplay()
   }
 })
+
+export async function updateDisplay(newDisplay: Display) {
+  display.value = newDisplay
+  await updateUserSetting("display",newDisplay)
+  setDisplay()
+}
+
+export async function updateTheme(element: Element) {
+  theme.value = element
+  updateUserSetting('theme', element)
+  setPresets()
+}
+
+async function updateUserSetting(key: string, value: string) {
+  if (userData.value != null) {
+    const {error} = await supabase.from('Users').update({ [key]: value }).eq('id', userData.value.id)
+    if(error) setSupabaseError(error)
+  } else {
+    localStorage.setItem(key, value)
+  }
+}
 
 const elementRecord: Record<Element, string> = {
   s: 'amber',
@@ -63,18 +68,6 @@ const elementRecord: Record<Element, string> = {
   e: 'stone',
   p: 'emerald',
   n: 'red',
-}
-
-export async function updateTheme(element: Element) {
-  theme.value = element
-  if (userData.value != null) {
-    // Current user: update user database
-    const { data, error } = await supabase.from('Users').update({"theme":element}).eq('id', userData.value.id)
-  } else {
-    // No current user: update local storage
-    localStorage.setItem('theme', element)
-  }
-  setPresets()
 }
 
 function setPresets() {
@@ -101,6 +94,7 @@ function setPresets() {
     .trim();
   setFavicon(primaryColour)
 }
+
 function setDisplay() {
   if (
     display.value == 'dark' ||

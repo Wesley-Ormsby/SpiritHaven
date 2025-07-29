@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import Dialog from 'primevue/dialog'
 import { X } from 'lucide-vue-next'
-const props = defineProps<{
+const {src} = defineProps<{
   src: string
 }>()
-const model = defineModel<boolean>()
+const visible = defineModel<boolean>('visible')
 </script>
 <template>
     <Dialog
-      v-model:visible="model"
+      v-model:visible="visible"
       modal
       pt:root:style="border:0px transparent;background-color:transparent;box-shadow:none;"
       dismissableMask
@@ -16,7 +16,7 @@ const model = defineModel<boolean>()
     >
       <template #container="{ closeCallback }">
         <div class="image-preview-dialog">
-          <img class="dialog-img" :src="props.src" />
+          <img class="dialog-img" :src alt="Preview image"/>
           <div @click="closeCallback" class="close-button">
             <X></X>
           </div>

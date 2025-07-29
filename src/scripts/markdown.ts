@@ -1,83 +1,73 @@
 import markdownit from 'markdown-it'
 import {
-  ALL_SYMBOLS,
   CARD_ARTS,
   INVERTABLE_SYMBOLS,
   LARGE_COMPONENTS_ARTS,
   SYMBOL_DATA,
 } from './data'
 import type { HeaderData } from './types'
+import {
+  symbolScanRegex,
+  symbolScanStartsWith,
+  hoverlinkRegex,
+  startsWithHoverlinkRegex,
+  startsWithName,
+} from './utils/markdownRegex'
 
-const symbolNamesWithOr = ALL_SYMBOLS.map((symbol: string) =>
-  symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'),
-).join('|')
-const symbolRegex = `(\\{\\{\\s*(${symbolNamesWithOr})\\s*\\}\\})`
-const symbolScanRegex = RegExp(symbolRegex, 'i')
-const symbolScanStartsWith = RegExp('^' + symbolRegex, 'i')
+function createToken(type: string, content: string, Token: any, props: Record<string, any> = {}) {
+  const token = new Token(type, '', 0)
+  token.content = content
+  Object.assign(token, props)
+  return token
+}
 
-const cardNamesWithOr = Object.keys(CARD_ARTS)
-  .concat(Object.keys(LARGE_COMPONENTS_ARTS))
-  .map((symbol: string) => symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'))
-  .join('|')
-const cardRegex = `(\\[\\[\\s*(${cardNamesWithOr})\\s*(\\|.+\\s*)?\\]\\])`
-const cardScanRegex = RegExp(cardRegex, 'i')
-const cardScanStartsWtih = RegExp('^' + cardRegex, 'i')
+// This function splits the text nodes into text nodes + inline component nodes (the symbol and hoverlink)
+function splitTextToken(text: any, Token: any) {
+  const nodes = []
+  let textNodeContent = ''
+  while (text.length >= 1) {
+    const symbolMatch = text.match(symbolScanStartsWith)
+    const cardMatch = text.match(startsWithHoverlinkRegex)
+    if (symbolMatch != null || cardMatch != null) {
+      if (textNodeContent.length >= 1) {
+        nodes.push(createToken('text', textNodeContent, Token))
+        textNodeContent = ''
+      }
+      if (symbolMatch != null) {
+        // Symbol
+        const symbolName = symbolMatch[0].replace(/^\{\{\s*|\s*\}\}$/g, '').toLowerCase() // Extract anme
+        nodes.push(
+          createToken('symbol', symbolMatch[0], Token, { markup: symbolName.toLowerCase() }),
+        )
+        text = text.slice(symbolMatch[0].length)
+      } else {
+        // Hoverlink
+        const strip = cardMatch[0].replace(/^\[\[\s*|\s*\]\]$/g, '')
+        const [name, rawNick = ''] = strip.split(/\|(.*)/)
+        const nickName = rawNick.trim() || null
+        const componentType = LARGE_COMPONENTS_ARTS[name.toLowerCase()] ? 'component' : 'card'
+        const token = createToken('hoverlink', cardMatch[0],Token,{markup:name,nickName,componentType})
+        nodes.push(token)
+        text = text.slice(cardMatch[0].length)
+      }
+    } else {
+      // Text
+      textNodeContent += text.charAt(0)
+      text = text.slice(1)
+    }
+  }
+  // Add ending text
+  if (textNodeContent.length >= 1) {
+    nodes.push(createToken('text',textNodeContent,Token))
+  }
+  return nodes
+}
 
+// This function loops through all text, finds inline components (the symbols and hoverlinks) in text nodes,
+// and extract them to the ast
 function inlineReplace(md: any) {
   const arrayReplaceAt = md.utils.arrayReplaceAt
-  function splitTextToken(text: any, Token: any) {
-    const nodes = []
-    let textNode = new Token('text', '', 0)
-    textNode.content = ''
-    while (text.length >= 1) {
-      let symbolMatch = text.match(symbolScanStartsWith)
-      let cardMatch = text.match(cardScanStartsWtih)
-      if (symbolMatch != null || cardMatch != null) {
-        if (textNode.content.length >= 1) {
-          nodes.push(textNode)
-          textNode = new Token('text', '', 0)
-          textNode.content = ''
-        }
-        if (symbolMatch != null) {
-          let symbolName = symbolMatch[0].replace(/^\{\{\s*|\s*\}\}$/g, '')
-          let symbolToken = new Token('symbol', '', 0)
-          symbolToken.content = symbolMatch[0]
-          symbolToken.markup = symbolName.toLowerCase()
-          nodes.push(symbolToken)
-          text = text.slice(symbolMatch[0].length)
-        } else {
-          const strip = cardMatch[0].replace(/^\[\[\s*|\s*\]\]$/g, '')
-          let name = strip
-          let nickName: null | string = null
-          if (strip.includes('|')) {
-            const split = strip.split(/\|(.*)/)
-            name = split[0].trim()
-            nickName = split[1].trim()
-            if (nickName == '') {
-              nickName = null
-            }
-          }
-          let cardToken = new Token('inline_component', '', 0)
-          cardToken.componentType = 'card'
-          cardToken.content = cardMatch[0]
-          cardToken.markup = name
-          cardToken.nickName = nickName
-          if (LARGE_COMPONENTS_ARTS[name.toLowerCase()]) {
-            cardToken.componentType = 'component'
-          }
-          nodes.push(cardToken)
-          text = text.slice(cardMatch[0].length)
-        }
-      } else {
-        textNode.content += text.charAt(0)
-        text = text.slice(1)
-      }
-    }
-    if (textNode.content.length >= 1) {
-      nodes.push(textNode)
-    }
-    return nodes
-  }
+
   // This is the main function that is returned,
   // it loops through and edits the AST into the end content
   return (state: any) => {
@@ -93,7 +83,7 @@ function inlineReplace(md: any) {
         const token = tokens[i]
         if (
           token.type === 'text' &&
-          (symbolScanRegex.test(token.content) || cardScanRegex.test(token.content))
+          (symbolScanRegex.test(token.content) || hoverlinkRegex.test(token.content))
         ) {
           // replace current node
           blockTokens[j].children = tokens = arrayReplaceAt(
@@ -199,7 +189,7 @@ function centeredBlockDisplay(md: any) {
       let text = content.trim()
       let isLargeComponent = false
       for (;;) {
-        let cardMatch = text.match(new RegExp(`^(${cardNamesWithOr})`, 'i'))
+        const cardMatch = text.match(startsWithName)
         if (cardMatch != null) {
           if (cardNames.length >= 4 || isLargeComponent) {
             return false
@@ -253,35 +243,35 @@ function centeredBlockDisplay(md: any) {
 }
 
 function inline_plugin(md: any) {
-  // Set rule for inline cards + symbols
+  // Set rule for hoverlinks + symbols
   md.renderer.rules.symbol = function (token: any, idx: any) {
     let name = token[idx].markup
     return `<img class="symbol ${INVERTABLE_SYMBOLS.includes(name) ? 'invert' : ''}" alt="${name}" src="${SYMBOL_DATA[name]}"></img>`
   }
-  md.renderer.rules.inline_component = function (token: any, idx: any) {
+  md.renderer.rules.hoverlink = function (token: any, idx: any) {
     const inlineComponentType = token[idx].componentType
     const componentName = token[idx].markup
-    const lowerCaseName = token[idx].markup.toLowerCase()
+    const lowercaseName = token[idx].markup.toLowerCase()
     const nickName = token[idx].nickName
     return `
-      <span class="inline-component" ${inlineComponentType}="${lowerCaseName}">
+      <span class="hoverlink" ${inlineComponentType}="${lowercaseName}">
       ${htmlEscape(nickName == null ? componentName : nickName)}
       </span>`
   }
-  md.core.ruler.after('linkify', 'inline_symbol', inlineReplace(md))
+  md.core.ruler.after('linkify', 'inline_customs', inlineReplace(md))
 }
 
 let md = markdownit().use(inline_plugin).use(centeredBlockDisplay)
 
 // Open links in new tab
-var defaultRender =
+var defaultLinkRender =
   md.renderer.rules.link_open ||
   function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options)
   }
 md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
   tokens[idx].attrSet('target', '_blank')
-  return defaultRender(tokens, idx, options, env, self)
+  return defaultLinkRender(tokens, idx, options, env, self)
 }
 // Track headers for table of contents
 var defaultHeadingRender =
@@ -301,7 +291,7 @@ md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
 }
 // Make the table of contents
 function makeTableOfContents(): HeaderData[] {
-  let ast: HeaderData[] = []
+  const ast: HeaderData[] = []
   while (headerStack.length) {
     let node = parseHeader()
     if (node) {
@@ -311,9 +301,9 @@ function makeTableOfContents(): HeaderData[] {
   return ast
 }
 function parseHeader(): HeaderData | null {
-  let header = headerStack.shift() as Header
-  let level = header.level
-  let id = header.id
+  const header = headerStack.shift() as Header
+  const level = header.level
+  const id = header.id
   if (level > 3) {
     return null
   } else {
@@ -336,9 +326,9 @@ export function renderMarkdown(rawMarkdown: string) {
   headerStack = []
   let render = md.render(rawMarkdown)
   let tableOfContents = makeTableOfContents()
-  return {render,tableOfContents}
+  return { render, tableOfContents }
 }
-// NOTE: I WILL NEED TO QUERY SELECTOR AND GET TEXT CONTENT TO FILL IN TABLE OF CONTENTS
+
 function htmlEscape(input: string) {
   return input.replace(/&/gm, '&amp').replace(/</gm, '&lt;')
 }

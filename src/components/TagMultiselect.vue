@@ -3,7 +3,7 @@ import MultiSelect from 'primevue/multiselect'
 import Chip from 'primevue/chip'
 import { TAGS } from '@/scripts/data'
 import { ref } from 'vue'
-const allTags = ref(TAGS.map((tag) => ({ tag })))
+const allTags = TAGS.map((tag) => ({ tag }))
 
 const selectedTags = defineModel<{ tag: string }[]>({ required: true })
 </script>
@@ -17,13 +17,13 @@ const selectedTags = defineModel<{ tag: string }[]>({ required: true })
     filter
     class="multiselect"
   >
-    <template #chip="{ value, removeCallback }">
-      <Chip removable @remove="removeCallback($event, value)">
-        <span class="chip-text">{{ value.tag }}</span>
+    <template #chip="{ value: { tag }, removeCallback }">
+      <Chip removable @remove="removeCallback($event, tag)">
+        <span class="chip-text">{{ tag }}</span>
       </Chip>
     </template>
     <template #option="slotProps">
-      <div style="text-transform:capitalize;">{{ slotProps.option.tag }}</div>
+      <div style="text-transform: capitalize">{{ slotProps.option.tag }}</div>
     </template>
   </MultiSelect>
 </template>
@@ -34,6 +34,6 @@ const selectedTags = defineModel<{ tag: string }[]>({ required: true })
   font-size: 12px;
 }
 .multiselect {
-  height:38px;
+  height: 38px;
 }
 </style>

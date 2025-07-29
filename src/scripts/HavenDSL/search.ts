@@ -2,7 +2,7 @@ import { ASPECTS, BLIGHT_CARDS, EVENTS, FEAR_CARDS, LARGE_COMPONENTS_ARTS, POWER
 import type { Card, CardSearchOrders, Element } from '../types'
 import { Parser } from './parser'
 import { Scanner } from './scanner'
-import { cardTypes, type CardType, type Op, type QueryNode, type QueryResult } from './types'
+import { type CardType, type Op, type QueryNode, type QueryResult } from './types'
 const aspectPowers: Record<string, string> = {
   'smite the land with fulmination': "lightning's swift strike",
   'belligerent and aggressive crops': 'a spread of rampant green',
@@ -13,21 +13,23 @@ export function searchCards(
   order: CardSearchOrders = 'Type',
 ): QueryResult {
   // Scan
-  let scanner = new Scanner(raw)
-  scanner.scan()
-  if (scanner.errors.length > 0) {
-    return { errors: scanner.errors, query: [] }
+  const scanner = new Scanner(raw)
+  const scannerResult = scanner.scan()
+  if (scannerResult.errors.length > 0) {
+    return { errors: scannerResult.errors, query: [] }
   }
+
   // Parse
-  let parser = new Parser(scanner.tokens)
-  parser.parse()
-  if (parser.error || parser.ast == null) {
-    return { errors: [parser.error], query: [] }
+  const parser = new Parser(scannerResult.tokens)
+  const parserResult = parser.parse()
+  if (parserResult.error || parserResult.ast == null) {
+    return { errors: [parserResult.error], query: [] }
   }
   // Filter
-  let filter = filterCards(parser.ast, allowLargeComponents, order)
+  const filter = filterCards(parserResult.ast, allowLargeComponents, order)
   return { errors: [], query: filter }
 }
+
 const allCards: Partial<Record<CardType, any>> = {
   power: POWERS,
   event: EVENTS,
@@ -35,15 +37,16 @@ const allCards: Partial<Record<CardType, any>> = {
   blight: BLIGHT_CARDS,
   aspect: ASPECTS,
 }
+
 function filterCards(
   ast: QueryNode,
   allowLargeComponents: boolean,
   order: CardSearchOrders,
 ): string[] {
-  let cards: string[] = []
+  const cards: string[] = []
   for (var cardType in allCards) {
-    let ct = cardType as CardType
-    let cardsOfType = Object.keys(allCards[ct])
+    const ct = cardType as CardType
+    const cardsOfType = Object.keys(allCards[ct])
     if (ct == 'power') {
       if (order == 'Cost') {
         cardsOfType.sort((a, b) => POWERS[a].cost - POWERS[b].cost)
@@ -68,18 +71,17 @@ function filterCards(
     )
   }
   if (allowLargeComponents) {
-    // only allow components we have the backs toLARGE_COMPONENTS_ARTS
     cards.push(
       ...Object.keys(LARGE_COMPONENTS_ARTS).filter((name) => {
         return filterNonCard(name, ast)
       }),
     )
   }
-  let set = [...new Set(cards)]
+  let filteredSet = [...new Set(cards)]
   if (order == 'Name') {
-    return set.sort((a, b) => a.localeCompare(b))
+    return filteredSet.sort((a, b) => a.localeCompare(b))
   }
-  return set
+  return filteredSet
 }
 
 function filterCard(card: Card, cardName: string, type: CardType, node: QueryNode): boolean {
@@ -112,13 +114,13 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   }
 
   if (node.property == 'name') {
-    return compairRegexStrProperties(node.value, cardName, node.op)
+    return compareRegexStrProperties(node.value, cardName, node.op)
   }
 
   if (node.property == 'eventname') {
     if ('sections' in card) {
       for (var section of card.sections) {
-        if (compairRegexStrProperties(node.value, section.name.toLowerCase(), node.op)) {
+        if (compareRegexStrProperties(node.value, section.name.toLowerCase(), node.op)) {
           return true
         }
       }
@@ -128,7 +130,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
 
   if (node.property == 'artist') {
     if ('artist' in card) {
-      return compairRegexStrProperties(node.value, card.artist.toLowerCase(), node.op)
+      return compareRegexStrProperties(node.value, card.artist.toLowerCase(), node.op)
     }
     return false
   }
@@ -149,7 +151,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
 
   if (node.property == 'aspect') {
     if ('aspect' in card) {
-      return compairRegexStrProperties(node.value, card.aspect, node.op)
+      return compareRegexStrProperties(node.value, card.aspect, node.op)
     }
     return false
   }
@@ -159,11 +161,11 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   }
 
   if (node.property == 'blight') {
-    return 'blightPerPlayer' in card && compariNumber(node.value, card.blightPerPlayer, node.op)
+    return 'blightPerPlayer' in card && compareNumber(node.value, card.blightPerPlayer, node.op)
   }
 
   if (node.property == 'cost') {
-    return 'cost' in card && compariNumber(node.value, card.cost, node.op)
+    return 'cost' in card && compareNumber(node.value, card.cost, node.op)
   }
 
   if (node.property == 'eventtype') {
@@ -180,7 +182,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   if (node.property == 'elements') {
     if ('elements' in card) {
       if (typeof node.value == 'number') {
-        return compariNumber(node.value, card.elements.length, node.op)
+        return compareNumber(node.value, card.elements.length, node.op)
       }
       for (let element of ['s', 'm', 'f', 'a', 'w', 'e', 'p', 'n'] as Element[]) {
         if (element in node.value) {
@@ -203,7 +205,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   if (node.property == 'thresholdelements') {
     if ('threshold' in card && card.threshold != null) {
       if (typeof node.value == 'number') {
-        return compariNumber(
+        return compareNumber(
           node.value,
           Object.values(card.threshold.elements).reduce((a, b) => a + b, 0),
           node.op,
@@ -238,13 +240,13 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
       }
       if (Array.isArray(card.range)) {
         for (var range of card.range) {
-          if (compariNumber(node.value, range, node.op)) {
+          if (compareNumber(node.value, range, node.op)) {
             return true
           }
         }
         return false
       }
-      return compariNumber(node.value, card.range, node.op)
+      return compareNumber(node.value, card.range, node.op)
     }
     return false
   }
@@ -254,7 +256,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
       if (node.value == null || card.from == null) {
         return card.from == node.value
       }
-      return compairRegexStrProperties(node.value, card.from, node.op)
+      return compareRegexStrProperties(node.value, card.from, node.op)
     }
     return false
   }
@@ -263,7 +265,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
       if (node.value == null || card.target == null) {
         return card.target == node.value
       }
-      return compairRegexStrProperties(node.value, card.target, node.op)
+      return compareRegexStrProperties(node.value, card.target, node.op)
     }
     return false
   }
@@ -273,11 +275,9 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   }
 
   if (node.property == 'or') {
-    let left = filterCard(card, cardName, type, node.left)
-    if (!left) {
-      return filterCard(card, cardName, type, node.right)
-    }
-    return true
+    return (
+      filterCard(card, cardName, type, node.left) || filterCard(card, cardName, type, node.right)
+    )
   }
 
   if (node.property == 'and') {
@@ -294,15 +294,15 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
     // fear card
     if ('terrorLevel1' in card) {
       return (
-        compairRegexStrProperties(node.value, card.terrorLevel1.toLowerCase(), ':') ||
-        compairRegexStrProperties(node.value, card.terrorLevel2.toLowerCase(), ':') ||
-        compairRegexStrProperties(node.value, card.terrorLevel3.toLowerCase(), ':')
+        compareRegexStrProperties(node.value, card.terrorLevel1.toLowerCase(), ':') ||
+        compareRegexStrProperties(node.value, card.terrorLevel2.toLowerCase(), ':') ||
+        compareRegexStrProperties(node.value, card.terrorLevel3.toLowerCase(), ':')
       )
     }
     // event card
     if ('sections' in card) {
       for (let section of card.sections) {
-        if (compairRegexStrProperties(node.value, section.text.toLowerCase(), ':')) {
+        if (compareRegexStrProperties(node.value, section.text.toLowerCase(), ':')) {
           return true
         }
       }
@@ -312,36 +312,36 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
     if (
       'threshold' in card &&
       card.threshold != null &&
-      compairRegexStrProperties(node.value, card.threshold.ability.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.threshold.ability.toLowerCase(), ':')
     ) {
       return true
     }
     // other cards
-    return 'text' in card && compairRegexStrProperties(node.value, card.text.toLowerCase(), ':')
+    return 'text' in card && compareRegexStrProperties(node.value, card.text.toLowerCase(), ':')
   }
   if (node.property == 'terror1') {
     return (
       'terrorLevel1' in card &&
-      compairRegexStrProperties(node.value, card.terrorLevel1.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.terrorLevel1.toLowerCase(), ':')
     )
   }
   if (node.property == 'terror2') {
     return (
       'terrorLevel2' in card &&
-      compairRegexStrProperties(node.value, card.terrorLevel2.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.terrorLevel2.toLowerCase(), ':')
     )
   }
   if (node.property == 'terror3') {
     return (
       'terrorLevel3' in card &&
-      compairRegexStrProperties(node.value, card.terrorLevel3.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.terrorLevel3.toLowerCase(), ':')
     )
   }
   if (node.property == 'thresholdtext') {
     return (
       'threshold' in card &&
       card.threshold != null &&
-      compairRegexStrProperties(node.value, card.threshold.ability.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.threshold.ability.toLowerCase(), ':')
     )
   }
   if (node.property == 'thresholdcondition') {
@@ -349,7 +349,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
       'threshold' in card &&
       card.threshold != null &&
       card.threshold.condition != null &&
-      compairRegexStrProperties(node.value, card.threshold.condition.toLowerCase(), ':')
+      compareRegexStrProperties(node.value, card.threshold.condition.toLowerCase(), ':')
     )
   }
 
@@ -358,7 +358,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
     let event = node.property.replace(' event', '')
     for (var section of card.sections) {
       if (event == section.type) {
-        return compairRegexStrProperties(
+        return compareRegexStrProperties(
           node.value as string | RegExp,
           section.text.toLowerCase(),
           ':',
@@ -369,7 +369,7 @@ function filterCard(card: Card, cardName: string, type: CardType, node: QueryNod
   return false
 }
 
-function compairRegexStrProperties(
+function compareRegexStrProperties(
   propertyValue: string | RegExp,
   cardValue: string,
   op: ':' | '=',
@@ -386,7 +386,7 @@ function compairRegexStrProperties(
   return propertyValue.test(cardValue)
 }
 
-function compariNumber(propertyValue: number, cardValue: number, op: Op) {
+function compareNumber(propertyValue: number, cardValue: number, op: Op) {
   switch (op) {
     case '=':
     case ':':
@@ -404,7 +404,7 @@ function compariNumber(propertyValue: number, cardValue: number, op: Op) {
 
 function filterNonCard(name: string, node: QueryNode): boolean {
   if (node.property == 'name') {
-    return compairRegexStrProperties(node.value, name, node.op)
+    return compareRegexStrProperties(node.value, name, node.op)
   }
 
   if (node.property == 'or') {

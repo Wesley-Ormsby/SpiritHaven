@@ -1,53 +1,50 @@
 <script setup lang="ts">
 import { supabase } from '@/scripts/auth'
 import type { ArticleData, UserData } from '@/scripts/types'
-import { notFoundPage, profileData, userData } from '@/scripts/globalStore'
+import {useGlobalStore} from '@/scripts/globalStore'
 import { watch, ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import router from '../router'
 import Button from 'primevue/button'
 import { SPIRITS } from '@/scripts/data'
 import { UserRoundCog, Plus } from 'lucide-vue-next'
 import ProfileSettingsDialog from '@/components/ProfileSettingsDialog.vue'
 import ArticlePropertiesDialog from '@/components/ArticlePropertiesDialog.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
+import { loadProfile } from '@/scripts/utils/loadProfile'
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+const { profileData, userData } = useGlobalStore
 
 const route = useRoute()
 watch(
   () => route.params.id,
   async (newId, oldId) => {
-    const { data, error } = await supabase.from('Users').select().eq('id', newId)
-    if (!error) {
-      profileData.value = data[0] as UserData
-    } else {
-      router.push('/NotFound')
-      notFoundPage.value = window.location.href
-    }
+    await loadProfile(newId)
     loadArticles()
   },
 )
 onMounted(loadArticles)
 
-const profileSettingsVisable = ref(false)
+const profileSettingsVisible = ref(false)
 const newArticleDialogVisible = ref(false)
 const articles = ref<ArticleData[] | null>(null)
+
 // Filter for unlisted
 const filteredArticles  = computed(()=>{
-  if(articles.value) {
-    if(isMyPage.value) {
-      return articles.value
-    } else {
-      return articles.value.filter((art)=>art.access != "unlisted")
-    }
-  } 
-  return []
+  if (!articles.value) return []
+  return isMyPage.value
+    ? articles.value
+    : articles.value.filter(article => article.access !== 'unlisted')
 })
 
-const isMyPage = computed(() => userData.value != null && userData.value.id == profileData.value.id)
+const isMyPage = computed(() => userData.value != null && userData.value.id == profileData.id)
 
 async function loadArticles() {
-  const { data, error } = await supabase.from('articles').select().eq('user', profileData.value.id)
-  articles.value = data
+  const { data, error } = await supabase.from('articles').select().eq('user', profileData.id)
+  if(error) {
+    setSupabaseError(error)
+  } else {
+    articles.value = data
+  }
 }
 </script>
 
@@ -57,7 +54,7 @@ async function loadArticles() {
     <div class="username">{{ profileData.username }}</div>
     <div class="description">{{ profileData.description }}</div>
     <div class="hero-buttons" v-if="isMyPage">
-      <Button @click="profileSettingsVisable = true" label="Profile Settings">
+      <Button @click="profileSettingsVisible = true" label="Profile Settings">
         <template #icon> <UserRoundCog></UserRoundCog> </template
       ></Button>
       <Button @click="newArticleDialogVisible = true" label="New Article"
@@ -87,7 +84,7 @@ async function loadArticles() {
   </div>
 </div>
   
-  <ProfileSettingsDialog v-model="profileSettingsVisable"></ProfileSettingsDialog>
+  <ProfileSettingsDialog v-model:visible="profileSettingsVisible"></ProfileSettingsDialog>
   <ArticlePropertiesDialog v-model="newArticleDialogVisible" :is-new-article="true"></ArticlePropertiesDialog>
 </template>
 
@@ -103,7 +100,7 @@ async function loadArticles() {
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
-  background-color: var(--p-primary-200);
+  background-color: var(--p-primary-300);
   flex-direction: column;
 }
 .hero-image {
@@ -121,14 +118,14 @@ async function loadArticles() {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, var(--p-primary-200), rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(to right, var(--p-primary-300), rgba(0, 0, 0, 0) 50%);
   pointer-events: none; /* lets mouse clicks pass through */
 }
 .my-app-dark .image-wrapper::after {
-  background: linear-gradient(to right, var(--p-primary-950), rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(to right, var(--p-primary-900), rgba(0, 0, 0, 0) 50%);
 }
 .my-app-dark .hero {
-  background-color: var(--p-primary-950);
+  background-color: var(--p-primary-900);
 }
 .dialog-footer {
   display: flex;

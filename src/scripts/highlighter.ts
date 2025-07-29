@@ -1,24 +1,5 @@
 import hljs from 'highlight.js/lib/core'
-import { ALL_SYMBOLS,POWERS,BLIGHT_CARDS,EVENTS,SPIRITS,ADVESARIES,SCENARIOS, CARD_ARTS, LARGE_COMPONENTS_ARTS } from './data'
-
-
-const largeComponentsWithOr = Object.keys(LARGE_COMPONENTS_ARTS)
-  .map((symbol: string) => symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'))
-  .join('|')
-
-const symbolNamesWithOr = ALL_SYMBOLS.map((symbol: string) =>
-  symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'),
-).join('|')
-const symbolRegex = `\\{\\{\\s*(${symbolNamesWithOr})\\s*\\}\\}`
-const symbolScanRegex = RegExp(symbolRegex)
-const allNamesWithOr = Object.keys(CARD_ARTS).concat(Object.keys(LARGE_COMPONENTS_ARTS))
-  .map((symbol: string) => symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'))
-  .join('|')
-const cardsWithOr = Object.keys(CARD_ARTS).map((symbol: string) =>
-  symbol.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'),
-).join('|')
-const allNamesRegex = `(\\[\\[\\s*(${allNamesWithOr})\\s*(\\:.+\\s*)?\\]\\])`
-const AllNamesScanRegex = RegExp(allNamesRegex, 'i')
+import { escapedCardNames, symbolScanRegex,allNamesRegex,escapedLargeComponentNames } from './utils/markdownRegex'
 
 /*
 Altered markdown with new rules for custom components
@@ -38,7 +19,7 @@ function markdown(hljs: any) {
     relevance: 0,
   }
   const HORIZONTAL_RULE = {
-    className:"hr",
+    className: 'hr',
     match: '^[-\\*_]{3,}\\s*$',
   }
   const CODE = {
@@ -198,13 +179,13 @@ function markdown(hljs: any) {
     className: 'symbol',
     match: symbolScanRegex,
   }
-  const INLINE_COMPONENT = {
-    className: 'inline-component',
+  const HOVERLINK = {
+    className: 'hoverlink',
     variants: [
       {
-        begin: [new RegExp(`\\[\\[\\s*(${allNamesWithOr})`), /\s*\|/, /.*?/, /\]\]/],
+        begin: [new RegExp(`\\[\\[\\s*(${escapedCardNames})`), /\s*\|/, /.*?/, /\]\]/],
         beginScope: {
-          3: 'inline-nickname',
+          3: 'hoverlink-nickname',
         },
       },
       { begin: allNamesRegex, relevance: 1 },
@@ -213,10 +194,11 @@ function markdown(hljs: any) {
   const CENTERED_BLOCK_COMPONENT = {
     className: 'block-component',
     variants: [
-      { match: new RegExp(`!\\[\\[\\s*(${largeComponentsWithOr})\\s*\\]\\]`) },
+      { match: new RegExp(`!\\[\\[\\s*(${escapedLargeComponentNames})\\s*\\]\\]`) },
       {
-        match:
-          new RegExp(`\\!\\[\\[\\s*(${cardsWithOr})\\s*(\\s*\\|\\s*(${cardsWithOr})){0,3}\\s*\\|?\\s*\\]\\]`),
+        match: new RegExp(
+          `\\!\\[\\[\\s*(${escapedCardNames})\\s*(\\s*\\|\\s*(${escapedCardNames})){0,3}\\s*\\|?\\s*\\]\\]`,
+        ),
       },
     ],
   }
@@ -229,9 +211,9 @@ function markdown(hljs: any) {
   BOLD.contains.push(ITALIC_WITHOUT_BOLD)
   ITALIC.contains.push(BOLD_WITHOUT_ITALIC)
 
-  let CONTAINABLE: any[] = [INLINE_HTML, SYMBOL, LINK, INLINE_COMPONENT, STIKETHROUGH]
+  let CONTAINABLE: any[] = [INLINE_HTML, SYMBOL, LINK, HOVERLINK, STIKETHROUGH]
 
-  ;[BOLD, ITALIC, BOLD_WITHOUT_ITALIC, ITALIC_WITHOUT_BOLD,STIKETHROUGH].forEach((m) => {
+  ;[BOLD, ITALIC, BOLD_WITHOUT_ITALIC, ITALIC_WITHOUT_BOLD, STIKETHROUGH].forEach((m) => {
     m.contains = m.contains.concat(CONTAINABLE)
   })
 
@@ -291,7 +273,7 @@ function markdown(hljs: any) {
       LINK_REFERENCE,
       ENTITY,
       SYMBOL,
-      INLINE_COMPONENT,
+      HOVERLINK,
     ],
   }
 }

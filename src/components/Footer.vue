@@ -22,7 +22,7 @@
         Content created on SpiritHaven is publicly viewable and should not be used to store private
         or sensitive information. Use at your own risk.
       </p>
-      <p>All other content © 2025 Wesley Ormsby • View source on <a href="https://github.com/Wesley-Ormsby/SpiritHaven">GitHub</a></p>
+      <p>All other content © 2025 Wesley Ormsby • View source on <a href="https://github.com/Wesley-Ormsby/SpiritHaven" target="_blank">GitHub</a></p>
     </div>
   </div>
 </template>

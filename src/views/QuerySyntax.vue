@@ -246,7 +246,10 @@ const sections = ref<Section[]>([
         query: 'tt:"" -te:a',
         description: 'Power cards with a threshold that does not include air elements',
       },
-      { query: 'te>=8', description: 'Power cards with threshold that requires at least 8 elements' },
+      {
+        query: 'te>=8',
+        description: 'Power cards with threshold that requires at least 8 elements',
+      },
     ],
   },
   {
@@ -427,7 +430,7 @@ function toId(title: string) {
   return title.replace(/\s/gm, '')
 }
 function scrollTo(id: string) {
-  document.querySelector(`#${toId(id)}`)?.scrollIntoView({ behavior: 'smooth' })
+  document.getElementById(toId(id))?.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
 
@@ -669,7 +672,7 @@ h1 {
   min-width: 400px;
 }
 .text-content {
-  width:100%;
+  width: 100%;
 }
 @media (max-width: 1000px) {
   .example-queries {

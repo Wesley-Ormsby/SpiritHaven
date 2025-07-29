@@ -1,12 +1,20 @@
 import type { Op, Token, TT } from './types'
 
+const singleCharTokens: Record<string, TT> = {
+  '=': 'op',
+  ':': 'op',
+  '(': 'lparen',
+  ')': 'rparen',
+  '-': 'not',
+}
+
 export class Scanner {
-  raw: string
-  tokens: Token[]
-  errors: string[]
-  lexeme: string
-  parsingInvalidSequence: boolean
-  invalidSequence: string
+  private raw: string
+  private tokens: Token[]
+  private errors: string[]
+  private lexeme: string
+  private parsingInvalidSequence: boolean
+  private invalidSequence: string
 
   constructor(raw: string) {
     this.raw = `${raw}` // Deepcopy
@@ -27,19 +35,20 @@ export class Scanner {
       if (/\s/.test(char)) {
         this.skipConsume()
         if (this.parsingInvalidSequence) {
-          this.errors.push(`Invalid token: \`${this.invalidSequence}\``)
-          this.parsingInvalidSequence = false
-          this.invalidSequence = ''
+          this.pushInvalidTokenError()
         }
         continue
       }
 
-      // Operators
-      if (char == ':' || char == '=') {
+      // Single character tokens
+      const tokenType = singleCharTokens[char]
+      if (tokenType) {
         this.consume()
-        this.addToken('op', char)
+        this.addToken(tokenType, char)
         continue
       }
+
+      // Other operators
       if (char == '<' || char == '>') {
         this.consume()
         if (!this.atEnd() && this.peek() == '=') {
@@ -49,33 +58,13 @@ export class Scanner {
         continue
       }
 
-      // Single Char Tokens
-      if (char == '-') {
-        this.consume()
-        this.addToken('not', '-')
-        continue
-      }
-      if (char == '(') {
-        this.consume()
-        this.addToken('lpren', '(')
-        continue
-      }
-      if (char == ')') {
-        this.consume()
-        this.addToken('rpren', ')')
-        continue
-      }
-
       // Words
       if (this.isAlpha(char)) {
-        this.consume()
-        while (!this.atEnd() && this.isAlphaNumberic(this.peek())) {
-          this.consume()
-        }
+        this.readWhile(this.isAlphanumeric)
         if (this.lexeme == 'or') {
           this.addToken('or', 'or')
         } else if (this.lexeme == 'null') {
-            this.addToken('null', null)
+          this.addToken('null', null)
         } else {
           this.addToken('string', this.lexeme)
         }
@@ -91,7 +80,7 @@ export class Scanner {
           if (this.peek() == '\\') {
             if (this.raw.length > 1 && ['"', '\\'].includes(this.raw[1])) {
               this.consume()
-            } 
+            }
             string += this.peek()
             this.consume()
           } else if (this.peek() == '"') {
@@ -110,16 +99,11 @@ export class Scanner {
         continue
       }
 
-      // Ints (potentailly words?)
-      if (this.isNumberic(char)) {
-        this.consume()
-        while (!this.atEnd() && this.isNumberic(this.peek())) {
-          this.consume()
-        }
+      // Ints and words that start with an int
+      if (this.isNumeric(char)) {
+        this.readWhile(this.isNumeric)
         if (!this.atEnd() && this.isAlpha(this.peek())) {
-          while (!this.atEnd() && this.isAlphaNumberic(this.peek())) {
-            this.consume()
-          }
+          this.readWhile(this.isAlphanumeric)
           this.addToken('string', this.lexeme)
         } else {
           this.addToken('int', Number(this.lexeme))
@@ -131,7 +115,7 @@ export class Scanner {
       if (char == '/') {
         this.consume()
         let missingEnd = true
-        let regex = ""
+        let regex = ''
         while (!this.atEnd()) {
           if (this.peek() == '\\') {
             if (this.raw.length > 1 && ['/', '\\'].includes(this.raw[1])) {
@@ -144,14 +128,14 @@ export class Scanner {
             missingEnd = false
             // Test if it is valid
             try {
-                this.addToken('regex', new RegExp(regex,"i"))
-              } catch (err) {
-                if (err instanceof SyntaxError) {
-                  this.errors.push(`Regex error for \`${this.lexeme}\`: ${err.message}`) // return the message to display
-                } else {
-                  this.errors.push('Unknown regex error')
-                }
+              this.addToken('regex', new RegExp(regex, 'i'))
+            } catch (err) {
+              if (err instanceof SyntaxError) {
+                this.errors.push(`Regex error for \`${this.lexeme}\`: ${err.message}`) // return the message to display
+              } else {
+                this.errors.push('Unknown regex error')
               }
+            }
             break
           } else {
             regex += this.peek()
@@ -164,7 +148,7 @@ export class Scanner {
         continue
       }
 
-      // if none of the above, error out
+      // Otherwise, this is an invalid sequence
       if (!this.parsingInvalidSequence) {
         this.parsingInvalidSequence = true
         this.invalidSequence = ''
@@ -173,54 +157,77 @@ export class Scanner {
       this.skipConsume()
     }
 
-    this.addToken("EOF","")
+    this.addToken('EOF', '')
+    return { errors: this.errors, tokens: this.tokens }
   }
 
-  atEnd(): boolean {
+  private atEnd(): boolean {
     return this.raw.length == 0
   }
 
-  peek(): string {
+  private peek(): string {
     return this.raw[0]
   }
 
-  consume() {
+  private consume() {
     this.lexeme += this.raw[0]
     this.raw = this.raw.slice(1)
   }
-  skipConsume() {
+  private skipConsume() {
     this.raw = this.raw.slice(1)
   }
 
-  isAlpha(char: string): boolean {
+  private isAlpha(char: string): boolean {
     return /^[a-zA-Z]$/.test(char)
   }
-  isAlphaNumberic(char: string): boolean {
+  private isAlphanumeric(char: string): boolean {
     return /^[a-zA-Z0-9]$/.test(char)
   }
-  isNumberic(char: string): boolean {
+  private isNumeric(char: string): boolean {
     return /^[0-9]$/.test(char)
   }
 
-  addToken<T extends TT>(
+  private readWhile(condition: (char: string) => boolean): string {
+    let result = this.peek()
+    this.consume()
+    while (!this.atEnd() && condition(this.peek())) {
+      result += this.peek()
+      this.consume()
+    }
+    return result
+  }
+  
+  private pushInvalidTokenError() {
+    this.errors.push(`Invalid token: \`${this.invalidSequence}\``)
+    this.parsingInvalidSequence = false
+    this.invalidSequence = ''
+  }
+
+  private addToken<T extends TT>(
     tokenType: T,
-    value: T extends 'int' ? number : T extends 'op' ? Op : T extends 'regex'? RegExp : T extends 'null'? null : string,
+    value: T extends 'int'
+      ? number
+      : T extends 'op'
+        ? Op
+        : T extends 'regex'
+          ? RegExp
+          : T extends 'null'
+            ? null
+            : string,
   ) {
     if (this.parsingInvalidSequence) {
-      this.errors.push(`Invalid token: \`${this.invalidSequence}\``)
-      this.parsingInvalidSequence = false
-      this.invalidSequence = ''
+      this.pushInvalidTokenError()
     }
     if (tokenType === 'int') {
-      this.tokens.push({ type: 'int', lexeme:this.lexeme, value: value as number })
+      this.tokens.push({ type: 'int', lexeme: this.lexeme, value: value as number })
     } else if (tokenType === 'op') {
-      this.tokens.push({ type: 'op', lexeme:this.lexeme, value: value as Op })
+      this.tokens.push({ type: 'op', lexeme: this.lexeme, value: value as Op })
     } else if (tokenType === 'regex') {
-        this.tokens.push({ type: 'regex', lexeme:this.lexeme, value: value as RegExp })
+      this.tokens.push({ type: 'regex', lexeme: this.lexeme, value: value as RegExp })
     } else if (tokenType === 'null') {
-        this.tokens.push({ type: 'null', lexeme:this.lexeme, value: value as null })
+      this.tokens.push({ type: 'null', lexeme: this.lexeme, value: value as null })
     } else {
-      this.tokens.push({ type: tokenType, lexeme:this.lexeme, value: value as string })
+      this.tokens.push({ type: tokenType, lexeme: this.lexeme, value: value as string })
     }
     this.lexeme = ''
   }

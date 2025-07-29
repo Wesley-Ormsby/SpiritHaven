@@ -4,48 +4,45 @@ import InputGroup from 'primevue/inputgroup'
 import InputGroupAddon from 'primevue/inputgroupaddon'
 import { onBeforeMount, ref, computed, watch, useTemplateRef } from 'vue'
 import Footer from '@/components/Footer.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import type { QueryResult } from '@/scripts/HavenDSL/types'
 import { searchCards } from '@/scripts/HavenDSL/search'
 import { CARD_ARTS } from '@/scripts/data'
 import Message from 'primevue/message'
 import LoadingCard from '@/components/LoadingCard.vue'
 import ScrollTop from 'primevue/scrolltop'
-import { cardSearchOrders, type CardSearchOrders } from '@/scripts/types'
+import { cardSearchOrders, type CardSearchOrders, type Direction } from '@/scripts/types'
 import Button from 'primevue/button'
 import Menu from 'primevue/menu'
 import RadioButton from 'primevue/radiobutton'
 import { ArrowDownWideNarrow } from 'lucide-vue-next'
 const route = useRoute()
-watch(
-  () => route.fullPath,
-  async (newId, oldId) => {
-    findCards
-  },
-)
+const router = useRouter()
 
 const query = ref('')
 const sortBy = ref<CardSearchOrders>('Type')
 const sortDirection = ref('Ascending')
 const queryResult = ref<QueryResult | null>(null)
 
+watch(
+  () => route.fullPath,
+  findCards
+)
 onBeforeMount(findCards)
 
-async function findCards() {
-  query.value = ''
-  let params = new URLSearchParams(document.location.search)
-  let queryPram = params.get('q')
-  if (queryPram != null) {
-    query.value = queryPram
-  }
-  let sortParam = params.get('s')
-  if (sortParam != null && (cardSearchOrders as readonly string[]).includes(sortParam)) {
-    sortBy.value = sortParam as CardSearchOrders
-  }
-  let orderParam = params.get('o')
-  if (orderParam != null && orderParam == "Descending") {
-    sortDirection.value = orderParam
-  }
+function findCards() {
+  const qParam = route.query.q
+  const sParam = route.query.s
+  const oParam = route.query.o
+
+  query.value = typeof qParam === 'string' ? qParam : ''
+  sortBy.value =
+    typeof sParam === 'string' && (cardSearchOrders as readonly string[]).includes(sParam)
+      ? (sParam as CardSearchOrders)
+      : 'Type'
+
+  sortDirection.value = oParam === 'Descending' ? 'Descending' : 'Ascending'
+
   queryResult.value = search()
 }
 
@@ -60,20 +57,23 @@ const allURLs = computed(() => {
   return []
 })
 
-function updateQuery() {
-  window.history.pushState(
-    {},
-    `Query: ${query.value}`,
-    `/search/cards?q=${encodeURIComponent(query.value)}`,
-  )
-  queryResult.value = search()
-}
 function search() {
-  let result = searchCards(query.value,false,sortBy.value)
-  if(sortDirection.value == "Descending") {
+  let result = searchCards(query.value, false, sortBy.value)
+  if (sortDirection.value == 'Descending') {
     result.query = result.query.reverse()
   }
   return result
+}
+
+function updateQuery(changes: { s?: CardSearchOrders; o?: Direction }) {
+  router.push({
+    path: '/search/cards',
+    query: {
+      q: query.value,
+      s: changes.s || sortBy.value,
+      o: changes.o || sortDirection.value,
+    },
+  })
 }
 
 // Sorting
@@ -125,17 +125,6 @@ const sortOptions = ref([
 const openSortMenu = (event: Event) => {
   menu?.value?.toggle(event)
 }
-
-function changeSortDirection(order:string) {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set("o", order)
-  window.location.search = searchParams.toString()
-}
-function changeSort(sort: CardSearchOrders) {
-  var searchParams = new URLSearchParams(window.location.search)
-  searchParams.set("s", sort)
-  window.location.search = searchParams.toString()
-}
 </script>
 
 <template>
@@ -153,7 +142,7 @@ function changeSort(sort: CardSearchOrders) {
               <label
                 style="padding: 2px"
                 v-if="item.category == 'sortBy'"
-                @click="changeSort(item.label as CardSearchOrders)"
+                @click="updateQuery({ s: item.label as CardSearchOrders })"
               >
                 <RadioButton v-model="sortBy" :value="item.label" />
                 {{ item.label }}
@@ -162,19 +151,14 @@ function changeSort(sort: CardSearchOrders) {
                 <RadioButton
                   v-model="sortDirection"
                   :value="item.label"
-                  @click="changeSortDirection(item.label as string)"
+                  @click="updateQuery({ o: item.label as Direction })"
                 />
                 {{ item.label }}
               </label>
             </template></Menu
           >
         </InputGroupAddon>
-        <InputText
-          type="text"
-          v-model="query"
-          placeholder="Enter a query..."
-          @keyup="updateQuery"
-        />
+        <InputText type="text" v-model="query" placeholder="Enter a query..." @keyup="updateQuery" />
         <InputGroupAddon>
           <span class="primary">{{ allURLs.length }} cards</span>
         </InputGroupAddon>
@@ -238,8 +222,8 @@ h1 {
   color: var(--p-surface-600);
 }
 label {
-  display:flex;
+  display: flex;
   align-items: center;
-  gap:8px;
+  gap: 8px;
 }
 </style>

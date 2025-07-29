@@ -1,34 +1,19 @@
 <script setup lang="ts">
-import { supabase } from '@/scripts/auth'
-import type { ArticleData } from '@/scripts/types'
-import { articleData, notFoundPage, profileData, userData } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import { watch, computed, ref, onMounted, onUnmounted } from 'vue'
 import { SquareSplitHorizontal, Eye, Pencil } from 'lucide-vue-next'
-import router from '../router'
 import { useRoute } from 'vue-router'
 import Editor from '@/components/Editor.vue'
 import Article from '@/components/Article.vue'
 import Button from 'primevue/button'
-
+import { loadArticle } from '@/scripts/utils/loadArticle'
+const { articleData, userData } = useGlobalStore
 const route = useRoute()
+
 watch(
   () => route.params.id,
   async (newId, oldId) => {
-    const { data, error } = await supabase.from('articles').select().eq('id', newId)
-    if (!error) {
-      articleData.value = data[0] as ArticleData
-      const searchResult = await supabase.from('Users').select().eq('id', articleData.value.user)
-      if (!searchResult.error) {
-        profileData.value = searchResult.data[0]
-      } else {
-        // Could not get user
-        router.push('/NotFound')
-        notFoundPage.value = window.location.href
-      }
-    } else {
-      router.push('/NotFound')
-      notFoundPage.value = window.location.href
-    }
+    await loadArticle(newId)
   },
 )
 
@@ -38,47 +23,51 @@ const display = ref<DisplayLayout>('preview')
 const splitSizingPossible = ref(false)
 function isSplitSizingPossible() {
   splitSizingPossible.value = window.innerWidth >= 800
-  if(!splitSizingPossible.value && display.value=='split')  {
+  if (!splitSizingPossible.value && display.value == 'split') {
     display.value = 'editor'
   }
 }
 
 onMounted(() => {
-  window.addEventListener("resize", isSplitSizingPossible)
-  if (isMyPage.value) {
+  window.addEventListener('resize', isSplitSizingPossible)
+  if (isOwner.value) {
     display.value = 'split'
   } else {
     display.value = 'preview'
   }
   isSplitSizingPossible()
 })
-onUnmounted(()=>{
-  window.removeEventListener("resize", isSplitSizingPossible)
+onUnmounted(() => {
+  window.removeEventListener('resize', isSplitSizingPossible)
 })
 
-const isMyPage = computed(
-  () =>
-    userData.value != null &&
-    articleData.value != null &&
-    userData.value.id == articleData.value.user,
+const isOwner = computed(
+  () => userData.value != null && articleData != null && userData.value.id == articleData.user,
 )
-const showFooter = computed(()=>display.value=="preview")
+const showFooter = computed(() => display.value == 'preview')
 </script>
 
 <template>
   <div v-if="articleData != null" class="article-view-container">
     <div>
       <div class="full-screen">
-        <Editor v-if="display == 'editor' || display == 'split'" :class="{'split-editor':display=='split'}"></Editor>
-        <Article v-if="display == 'preview' || display == 'split'" :class="{'split-preview':display=='split'}" :showFooter></Article>
+        <Editor
+          v-if="display == 'editor' || display == 'split'"
+          :class="{ 'split-editor': display == 'split' }"
+        ></Editor>
+        <Article
+          v-if="display == 'preview' || display == 'split'"
+          :class="{ 'split-preview': display == 'split' }"
+          :showFooter
+        ></Article>
       </div>
     </div>
-    <div class="layout-swapper" v-if="isMyPage">
+    <div class="layout-swapper" v-if="isOwner">
       <Button
         v-if="display != 'editor'"
         @click="display = 'editor'"
         v-tooltip.top="{
-          value: 'editor view',
+          value: 'Editor view',
           showDelay: 1000,
           pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
         }"
@@ -89,7 +78,7 @@ const showFooter = computed(()=>display.value=="preview")
         v-if="display != 'split' && splitSizingPossible"
         @click="display = 'split'"
         v-tooltip.top="{
-          value: 'split view',
+          value: 'Split view',
           showDelay: 1000,
           pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
         }"
@@ -100,7 +89,7 @@ const showFooter = computed(()=>display.value=="preview")
         v-if="display != 'preview'"
         @click="display = 'preview'"
         v-tooltip.top="{
-          value: 'preview view',
+          value: 'Preview view',
           showDelay: 1000,
           pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
         }"
@@ -109,7 +98,6 @@ const showFooter = computed(()=>display.value=="preview")
       </Button>
     </div>
   </div>
-  
 </template>
 
 <style scoped>
@@ -120,12 +108,12 @@ const showFooter = computed(()=>display.value=="preview")
 }
 .full-screen {
   height: calc(100vh - 60px);
-  width:100vw;
-  display:flex;
+  width: 100vw;
+  display: flex;
   flex-direction: row;
 }
 .full-screen > * {
-  flex:1;
+  flex: 1;
 }
 .split-editor {
   flex: 0 0 60%;

@@ -3,81 +3,33 @@ import { RouterLink } from 'vue-router'
 import SpiritAvatar from './SpiritAvatar.vue'
 import { Moon, Sun, SunMoon, Menu as IconMenu, Search } from 'lucide-vue-next'
 import Menu from 'primevue/menu'
-import { computed, onMounted, ref } from 'vue'
-import type { Display } from '../scripts/types'
+import { computed, ref } from 'vue'
+import type { Display, Element } from '../scripts/types'
 import { updateTheme, updateDisplay, display, theme } from '../scripts/themeDisplay'
 import { elementLongForm, SYMBOL_DATA } from '../scripts/data'
 import { signInWithDiscord, signOut } from '../scripts/auth'
 import FaviconSVG from '../components/svgs/FaviconSVG.vue'
-import { userData } from '@/scripts/globalStore'
-
+import { useGlobalStore } from '@/scripts/globalStore'
+const { userData } = useGlobalStore
 const elementMenu = ref()
 const navDropdownMenu = ref()
 const searchDropdownMenu = ref()
 const profileDropdownMenu = ref()
+
+const elementKeys: Element[] = ['s', 'm', 'f', 'a', 'w', 'e', 'p', 'n']
 const elementMenuItems = ref([
   {
     label: 'Theme',
-    items: [
-      {
-        label: 'sun',
-        type: 'element',
-        command: () => {
-          updateTheme('s')
-        },
+    items: elementKeys.map((e) => ({
+      label: elementLongForm[e],
+      type: 'element',
+      command: () => {
+        updateTheme(e)
       },
-      {
-        label: 'moon',
-        type: 'element',
-        command: () => {
-          updateTheme('m')
-        },
-      },
-      {
-        label: 'fire',
-        type: 'element',
-        command: () => {
-          updateTheme('f')
-        },
-      },
-      {
-        label: 'air',
-        type: 'element',
-        command: () => {
-          updateTheme('a')
-        },
-      },
-      {
-        label: 'water',
-        type: 'element',
-        command: () => {
-          updateTheme('w')
-        },
-      },
-      {
-        label: 'earth',
-        type: 'element',
-        command: () => {
-          updateTheme('e')
-        },
-      },
-      {
-        label: 'plant',
-        type: 'element',
-        command: () => {
-          updateTheme('p')
-        },
-      },
-      {
-        label: 'animal',
-        type: 'element',
-        command: () => {
-          updateTheme('n')
-        },
-      },
-    ],
+    })),
   },
 ])
+
 const dropdownMenuItems = computed(() => [
   {
     label: 'Profile',
@@ -134,7 +86,7 @@ function changeDisplay() {
   updateDisplay(circleSwap[display.value])
 }
 
-const toggle = (event: Event) => {
+const toggleElementMenu = (event: Event) => {
   elementMenu.value.toggle(event)
 }
 const toggleDropdown = (event: Event) => {
@@ -163,14 +115,13 @@ const toggleProfileDropdown = (event: Event) => {
           showDelay: 1000,
           pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
         }"
-        :key="display"
       >
         <Sun v-if="display == 'light'"></Sun>
         <Moon v-else-if="display == 'dark'"></Moon>
         <SunMoon v-else></SunMoon>
       </div>
-      <div class="nav-button" @click="toggle" :key="display" aria-controls="element_menu">
-        <img :src="SYMBOL_DATA[elementLongForm[theme]]" :key="theme" />
+      <div class="nav-button" @click="toggleElementMenu" aria-controls="element_menu">
+        <img :src="SYMBOL_DATA[elementLongForm[theme]]" />
       </div>
       <Menu ref="elementMenu" id="element_menu" :model="elementMenuItems" :popup="true">
         <template #item="{ item }">
@@ -202,7 +153,6 @@ const toggleProfileDropdown = (event: Event) => {
           v-if="userData == null"
           class="nav-button"
           @click="signInWithDiscord"
-          :key="String(userData)"
         >
           Sign In / Sign Up
         </div>

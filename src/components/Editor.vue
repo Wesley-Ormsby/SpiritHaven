@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef, ref, markRaw, computed } from 'vue'
 import { highlight } from '@/scripts/highlighter'
-import { articleData } from '@/scripts/globalStore'
+import { useGlobalStore } from '@/scripts/globalStore'
 import { onBeforeRouteLeave } from 'vue-router'
 import Popover from 'primevue/popover'
 import InputText from 'primevue/inputtext'
 import AutoComplete from 'primevue/autocomplete'
-import Message from 'primevue/message';
+import Message from 'primevue/message'
 import Button from 'primevue/button'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
@@ -38,7 +38,6 @@ import CenterDisplaySVG from './svgs/CenterDisplaySVG.vue'
 import {
   ADVESARIES,
   BOARDS,
-  CARD_ARTS,
   CASE_NAME_MAP,
   INVERTABLE_SYMBOLS,
   SPIRITS,
@@ -46,13 +45,15 @@ import {
 } from '@/scripts/data'
 import { searchCards } from '@/scripts/HavenDSL/search'
 import type { QueryResult } from '@/scripts/HavenDSL/types'
-
+import { setSupabaseError } from '@/scripts/supabaseErrors'
+const { articleData } = useGlobalStore
 const toast = useToast()
 
 const textarea = useTemplateRef('textarea')
 const forground = useTemplateRef('forground')
 const unsavedChanges = ref(false)
 
+/* EDITOR + MARKDOWN SYNCING */
 onMounted(() => {
   inputEvent()
   unsavedChanges.value = false
@@ -79,7 +80,7 @@ function update() {
   forground.value.innerHTML = highlight(value)
 }
 
-function check_tab(event: KeyboardEvent) {
+function checkTab(event: KeyboardEvent) {
   if (textarea.value == null) return
   let value = textarea.value.value
   if (event.key == 'Tab') {
@@ -105,22 +106,24 @@ function syncScroll() {
 // Save
 const saving = ref(false)
 async function saveContent() {
-  if (articleData.value == null) {
+  if (articleData == null) {
     return
   }
   saving.value = true
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('articles')
-    .update({ content: articleData.value.content })
-    .eq('id', articleData.value.id)
+    .update({ content: articleData.content })
+    .eq('id', articleData.id)
   if (!error) {
     toast.add({ severity: 'success', summary: 'Saved', life: 2200 })
+    unsavedChanges.value = false
+  } else {
+    setSupabaseError(error)
   }
   saving.value = false
-  unsavedChanges.value = false
 }
 
-// delete
+// Delete
 const deleteDialogVisable = ref(false)
 function openDeleteDialog() {
   unsavedChanges.value = false
@@ -154,7 +157,7 @@ function addBlock(markdown: string) {
     el.selectionStart = el.selectionEnd = el.value.length
     el.focus()
   }
-  articleData.value.content = el.value
+  articleData.content = el.value
   update()
 }
 
@@ -188,14 +191,14 @@ function addInlineEffect(markdown: string) {
     el.value = newValue
     el.selectionStart = el.selectionEnd = newValue.length - markdown.length
   }
-  articleData.value.content = el.value
+  articleData.content = el.value
   update()
   el.focus()
 }
 
 // Add image/link
 function insertMarkdownLink(type: 'image' | 'link') {
-  const defualts = {
+  const defaults = {
     image: {
       url: 'https://spiritislandwiki.com/images/f/ff/River_Surges_in_Sunlight.png',
       alt: 'River',
@@ -216,12 +219,12 @@ function insertMarkdownLink(type: 'image' | 'link') {
   let selectEnd
 
   if (type === 'image') {
-    const { url, alt } = defualts.image
+    const { url, alt } = defaults.image
     insertion = `![${alt}](${url})`
     selectStart = 2
     selectEnd = 2 + alt.length
   } else {
-    const { url, text } = defualts.link
+    const { url, text } = defaults.link
     insertion = `[${text}](${url})`
     selectStart = 1
     selectEnd = 1 + text.length
@@ -243,7 +246,7 @@ function insertMarkdownLink(type: 'image' | 'link') {
     el.selectionEnd = newValue.length - insertion.length + selectEnd
   }
   el.focus()
-  articleData.value.content = el.value
+  articleData.content = el.value
   update()
 }
 
@@ -322,7 +325,7 @@ const selectedDisplayCard = ref<string>('')
 const displayCards = ref<string[]>([])
 const cardDisplayQueryResult = ref<QueryResult | null>(null)
 const cardDisplayQueryCards = computed(() =>
-cardDisplayQueryResult.value == null
+  cardDisplayQueryResult.value == null
     ? []
     : cardDisplayQueryResult.value.query.map((name) => CASE_NAME_MAP[name]),
 )
@@ -408,7 +411,7 @@ function insertText(text: string) {
     el.value = el.value.substring(0, start) + text + el.value.substring(end)
     el.selectionStart = el.selectionEnd = start + text.length // new position of caret
   }
-  articleData.value.content = el.value
+  articleData.content = el.value
   update()
 }
 
@@ -416,67 +419,67 @@ function insertText(text: string) {
 const ribbonButtons = ref([
   {
     is: Heading1,
-    funciton: () => addBlock('#'),
+    function: () => addBlock('#'),
     tooltip: 'make heading',
   },
   {
     is: Bold,
-    funciton: () => addInlineEffect('**'),
+    function: () => addInlineEffect('**'),
     tooltip: 'make bold',
   },
   {
     is: Italic,
-    funciton: () => addInlineEffect('*'),
+    function: () => addInlineEffect('*'),
     tooltip: 'make italic',
   },
   {
     is: Strikethrough,
-    funciton: () => addInlineEffect('~~'),
+    function: () => addInlineEffect('~~'),
     tooltip: 'make strikethrough',
   },
   {
     is: List,
-    funciton: () => addBlock('-'),
+    function: () => addBlock('-'),
     tooltip: 'add unordered list',
   },
   {
     is: ListOrdered,
-    funciton: () => addBlock('1.'),
+    function: () => addBlock('1.'),
     tooltip: 'add ordered list',
   },
   {
     is: Link,
-    funciton: () => insertMarkdownLink('link'),
+    function: () => insertMarkdownLink('link'),
     tooltip: 'add link',
   },
   {
     is: Image,
-    funciton: () => insertMarkdownLink('image'),
+    function: () => insertMarkdownLink('image'),
     tooltip: 'add image',
   },
   {
     is: TextQuote,
-    funciton: () => addBlock('>'),
+    function: () => addBlock('>'),
     tooltip: 'add blockqoute',
   },
   {
     is: markRaw(SymbolSVG),
-    funciton: toggleSymbolPopover,
+    function: toggleSymbolPopover,
     tooltip: 'add symbol',
   },
   {
     is: markRaw(ComponentSVG),
-    funciton: toggleComponentPopover,
+    function: toggleComponentPopover,
     tooltip: 'add hover link',
   },
   {
     is: markRaw(LargeComponentSVG),
-    funciton: toggleLCDPopover,
+    function: toggleLCDPopover,
     tooltip: 'add large component display',
   },
   {
     is: markRaw(CenterDisplaySVG),
-    funciton: toggleCenteredPopover,
+    function: toggleCenteredPopover,
     tooltip: 'add card display',
   },
 ])
@@ -503,7 +506,7 @@ const ribbonButtons = ref([
         v-for="(button, i) in ribbonButtons"
         class="ribbon-button"
         :key="i"
-        @mousedown.prevent="button.funciton"
+        @mousedown.prevent="button.function"
         v-tooltip.bottom="{
           value: button.tooltip,
           showDelay: 1000,
@@ -548,19 +551,32 @@ const ribbonButtons = ref([
                 @complete="componentSearch"
                 fluid
                 forceSelection
-                autoOptiionFocus
+                autoOptionFocus
                 inputId="autocomplete"
                 @keyup.enter="insertComponentLink"
                 placeholder="Filter components..."
-                :showEmptyMessage="Boolean(hoverlinkQueryResult && hoverlinkQueryResult.errors.length == 0)"
+                :showEmptyMessage="
+                  Boolean(hoverlinkQueryResult && hoverlinkQueryResult.errors.length == 0)
+                "
               >
                 <template #option="slotProps">
                   <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-              <span class="reminder">(the search uses <RouterLink to="/query-syntax" target="_blank" class="primary-link">query</RouterLink> syntax)</span>
+              <span class="reminder"
+                >(the search uses
+                <RouterLink to="/query-syntax" target="_blank" class="primary-link"
+                  >query</RouterLink
+                >
+                syntax)</span
+              >
             </label>
-            <Message severity="error" v-if="hoverlinkQueryResult" v-for="error in hoverlinkQueryResult.errors">{{error}}</Message>
+            <Message
+              severity="error"
+              v-if="hoverlinkQueryResult"
+              v-for="error in hoverlinkQueryResult.errors"
+              >{{ error }}</Message
+            >
             <label class="label">
               <span>Nickname</span>
               <InputText
@@ -588,7 +604,7 @@ const ribbonButtons = ref([
                 @complete="LCDSearch"
                 fluid
                 forceSelection
-                autoOptiionFocus
+                autoOptionFocus
                 inputId="LCDAutocompleteContainer"
                 @keyup.enter="insertLCD"
                 placeholder="Filter components..."
@@ -617,18 +633,31 @@ const ribbonButtons = ref([
                 @option-select="addCardToCenteredDisplay"
                 fluid
                 forceSelection
-                autoOptiionFocus
+                autoOptionFocus
                 inputId="autocomplete"
                 placeholder="Filter cards..."
-                :showEmptyMessage="Boolean(cardDisplayQueryResult && cardDisplayQueryResult.errors.length == 0)"
+                :showEmptyMessage="
+                  Boolean(cardDisplayQueryResult && cardDisplayQueryResult.errors.length == 0)
+                "
               >
                 <template #option="slotProps">
                   <span class="popover-auto-complete-otion">{{ slotProps.option }}</span>
                 </template>
               </AutoComplete>
-              <span class="reminder">(4 cards max, this search uses <RouterLink to="/query-syntax" target="_blank" class="primary-link">query</RouterLink> syntax)</span>
+              <span class="reminder"
+                >(4 cards max, this search uses
+                <RouterLink to="/query-syntax" target="_blank" class="primary-link"
+                  >query</RouterLink
+                >
+                syntax)</span
+              >
             </label>
-            <Message severity="error" v-if="cardDisplayQueryResult" v-for="error in cardDisplayQueryResult.errors">{{error}}</Message>
+            <Message
+              severity="error"
+              v-if="cardDisplayQueryResult"
+              v-for="error in cardDisplayQueryResult.errors"
+              >{{ error }}</Message
+            >
             <div class="display-list">
               <div v-for="(card, i) in displayCards" class="display-item">
                 <div class="display-item-end">
@@ -660,7 +689,7 @@ const ribbonButtons = ref([
         </div>
       </Popover>
     </div>
-    <div class="typeing-area">
+    <div class="typeing-area ignore-smooth-scroll">
       <textarea
         ref="textarea"
         spellcheck="false"
@@ -668,12 +697,12 @@ const ribbonButtons = ref([
         v-model="articleData.content"
         @input="inputEvent"
         @scroll="syncScroll()"
-        @keydown="check_tab"
+        @keydown="checkTab"
         @click="saveCaretPosition"
         @keyup="saveCaretPosition"
         @keydown.capture="handleShortcuts"
       ></textarea>
-      <pre class="forground" ref="forground"></pre>
+      <pre class="forground ignore-smooth-scroll" ref="forground"></pre>
     </div>
     <DeleteArticleDialog v-model="deleteDialogVisable" :article="articleData"></DeleteArticleDialog>
     <ArticlePropertiesDialog
@@ -834,12 +863,12 @@ const ribbonButtons = ref([
 }
 /* Link style in main.css */
 .forground::v-deep(.hljs-symbol),
-.forground::v-deep(.hljs-inline-component),
+.forground::v-deep(.hljs-hoverlink),
 .forground::v-deep(.hljs-block-component) {
   font-weight: inherit;
   color: var(--p-primary-500);
 }
-.forground::v-deep(.hljs-inline-nickname) {
+.forground::v-deep(.hljs-hoverlink-nickname) {
   font-weight: inherit;
   color: var(--p-primary-700);
 }
