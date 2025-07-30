@@ -23,6 +23,7 @@ export async function signInWithDiscord() {
 
 export async function setupUser() {
   preLoading.value = true
+  setupThemeAndDisplay()
   const { data } = await supabase.auth.getUser()
   user.value = data.user
   if (user.value != null) {
@@ -40,5 +41,15 @@ export async function setupUser() {
 export async function signOut() {
   const { error } = await supabase.auth.signOut()
   if (error) setSupabaseError(error)
+  localStorage.setItem('signedOut', Date.now().toString())
   window.location.reload()
 }
+
+// Sign out listener to sign out of all tabs
+window.addEventListener('storage', async (event) => {
+  if (event.key === 'signedOut') {
+    const { error } = await supabase.auth.signOut()
+    if (error) setSupabaseError(error)
+    window.location.reload()
+  }
+})

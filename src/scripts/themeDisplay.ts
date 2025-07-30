@@ -14,6 +14,9 @@ export function setupThemeAndDisplay() {
     // Current user
     display.value = userData.value.display
     theme.value = userData.value.theme
+    // Update local storage
+    localStorage.setItem('display',display.value)
+    localStorage.setItem('theme',theme.value)
   } else {
     // Local storage, no current user
     display.value = getLocalStorageOrDefault('display','system') as Display
@@ -38,6 +41,17 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev
   }
 })
 
+// Watch for local storage changes
+window.addEventListener('storage', (event) => {
+  if (event.key === 'theme') {
+    theme.value = getLocalStorageOrDefault('theme','a') as Element
+    setPresets()
+  } else if (event.key === 'display') {
+    display.value = getLocalStorageOrDefault('display','system') as Display
+    setDisplay()
+  }
+});
+
 export async function updateDisplay(newDisplay: Display) {
   display.value = newDisplay
   await updateUserSetting("display",newDisplay)
@@ -54,9 +68,8 @@ async function updateUserSetting(key: string, value: string) {
   if (userData.value != null) {
     const {error} = await supabase.from('Users').update({ [key]: value }).eq('id', userData.value.id)
     if(error) setSupabaseError(error)
-  } else {
-    localStorage.setItem(key, value)
-  }
+  } 
+  localStorage.setItem(key, value)
 }
 
 const elementRecord: Record<Element, string> = {

@@ -15,6 +15,7 @@ const elementMenu = ref()
 const navDropdownMenu = ref()
 const searchDropdownMenu = ref()
 const profileDropdownMenu = ref()
+const helpDropdownMenu = ref()
 
 const elementKeys: Element[] = ['s', 'm', 'f', 'a', 'w', 'e', 'p', 'n']
 const elementMenuItems = ref([
@@ -47,6 +48,10 @@ const dropdownMenuItems = computed(() => [
     label: 'Search',
     items: searchDropdownItems.value,
   },
+  {
+    label: 'Help',
+    items: helpDropdownItems.value,
+  },
 ])
 const searchDropdownItems = ref([
   {
@@ -60,6 +65,12 @@ const searchDropdownItems = ref([
   {
     label: 'Cards',
     link: { name: 'searchCards' },
+  },
+])
+const helpDropdownItems = ref([
+  {
+    label: 'Article Markdown',
+    link: { name: 'article', params: { id: 'e6cac6b2-6197-424e-9e78-6b09f4e27280' } },
   },
   {
     label: 'Query Reference',
@@ -94,6 +105,9 @@ const toggleDropdown = (event: Event) => {
 }
 const toggleSearchDropdown = (event: Event) => {
   searchDropdownMenu.value.toggle(event)
+}
+const toggleHelpDropdown = (event: Event) => {
+  helpDropdownMenu.value.toggle(event)
 }
 const toggleProfileDropdown = (event: Event) => {
   profileDropdownMenu.value.toggle(event)
@@ -149,11 +163,23 @@ const toggleProfileDropdown = (event: Event) => {
             <span v-else class="p-menu-item-link">{{ item.label }}</span>
           </template>
         </Menu>
-        <div
-          v-if="userData == null"
-          class="nav-button"
-          @click="signInWithDiscord"
+        <div class="nav-button" @click="toggleHelpDropdown" aria-controls="help_dropdown_menu">
+          <div>Help</div>
+        </div>
+        <Menu
+          ref="helpDropdownMenu"
+          id="help_dropdown_menu"
+          :model="helpDropdownItems"
+          :popup="true"
         >
+          <template #item="{ item }">
+            <RouterLink class="p-menu-item-link" :to="item.link" v-if="item.link">{{
+              item.label
+            }}</RouterLink>
+            <span v-else class="p-menu-item-link">{{ item.label }}</span>
+          </template>
+        </Menu>
+        <div v-if="userData == null" class="nav-button" @click="signInWithDiscord">
           Sign In / Sign Up
         </div>
         <div
