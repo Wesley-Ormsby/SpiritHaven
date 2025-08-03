@@ -27,14 +27,14 @@ const sections = ref<Section[]>([
     title: 'Type',
     pretext: `<p>Find cards by type using the <code>type:</code> property with one of the following values:</p>`,
     table: [
-      { 'Long Form': `<code>Unique<code>`, 'Short Form': `<code>U<code>` },
-      { 'Long Form': `<code>Aspect<code>`, 'Short Form': `<code>A<code>` },
-      { 'Long Form': `<code>Blight<code>`, 'Short Form': `<code>B<code>` },
-      { 'Long Form': `<code>Event<code>`, 'Short Form': `<code>E<code>` },
-      { 'Long Form': `<code>Fear<code>`, 'Short Form': `<code>F<code>` },
-      { 'Long Form': `<code>Power<code>`, 'Short Form': `<code>P<code>` },
-      { 'Long Form': `<code>Major<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>Minor<code>`, 'Short Form': '' },
+      { 'Long Form': `<code>Unique</code>`, 'Short Form': `<code>U</code>` },
+      { 'Long Form': `<code>Aspect</code>`, 'Short Form': `<code>A</code>` },
+      { 'Long Form': `<code>Blight</code>`, 'Short Form': `<code>B</code>` },
+      { 'Long Form': `<code>Event</code>`, 'Short Form': `<code>E</code>` },
+      { 'Long Form': `<code>Fear</code>`, 'Short Form': `<code>F</code>` },
+      { 'Long Form': `<code>Power</code>`, 'Short Form': `<code>P</code>` },
+      { 'Long Form': `<code>Major</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>Minor</code>`, 'Short Form': '' },
       { 'Long Form': 'A spirit name', 'Short Form': '' },
     ],
     posttext: `<p>You can use either a short form or long form, word or string. All of these queries are the same: <code>type:power</code>, <code>type:"power"</code>, <code>type:p</code>, and <code>type:"p"</code>. If the value is a spirit name, the results are that spirit's unique powers.`,
@@ -59,14 +59,14 @@ const sections = ref<Section[]>([
     title: 'Set',
     pretext: `<p>Find cards by set using the <code>set:</code> or <code>s:</code> property with one of the following values:</p>`,
     table: [
-      { 'Long Form': `<code>"Spirit Island"<code>`, 'Short Form': `<code>SI<code>` },
-      { 'Long Form': `<code>"Horizons of Spirit Island"<code>`, 'Short Form': `<code>H<code>` },
-      { 'Long Form': `<code>"Branch and Claw"<code>`, 'Short Form': `<code>BC<code>` },
-      { 'Long Form': `<code>"Jagged Earth"<code>`, 'Short Form': `<code>JE<code>` },
-      { 'Long Form': `<code>"Nature Incarnate"<code>`, 'Short Form': `<code>NI<code>` },
-      { 'Long Form': `<code>"Feather and Flame"<code>`, 'Short Form': `<code>FF<code>` },
-      { 'Long Form': `<code>"Promo Pack 2"<code>`, 'Short Form': '<code>PP1</code>' },
-      { 'Long Form': `<code>"Promo Pack 1"<code>`, 'Short Form': '<code>PP2</code>' },
+      { 'Long Form': `<code>"Spirit Island"</code>`, 'Short Form': `<code>SI</code>` },
+      { 'Long Form': `<code>"Horizons of Spirit Island"</code>`, 'Short Form': `<code>H</code>` },
+      { 'Long Form': `<code>"Branch and Claw"</code>`, 'Short Form': `<code>BC</code>` },
+      { 'Long Form': `<code>"Jagged Earth"</code>`, 'Short Form': `<code>JE</code>` },
+      { 'Long Form': `<code>"Nature Incarnate"</code>`, 'Short Form': `<code>NI</code>` },
+      { 'Long Form': `<code>"Feather and Flame"</code>`, 'Short Form': `<code>FF</code>` },
+      { 'Long Form': `<code>"Promo Pack 2"</code>`, 'Short Form': '<code>PP1</code>' },
+      { 'Long Form': `<code>"Promo Pack 1"</code>`, 'Short Form': '<code>PP2</code>' },
     ],
     queries: [
       { query: 's:h', description: 'All cards in Horizons' },
@@ -94,8 +94,8 @@ const sections = ref<Section[]>([
     title: 'Blight Card Island Health',
     pretext: `<p>Find Blight cards by post-flip island health using the <code>health:</code> or <code>h:</code> property with one of the following values:</p>`,
     table: [
-      { 'Long Form': `<code>Healthy<code>`, 'Short Form': `<code>H<code>` },
-      { 'Long Form': `<code>Blighted<code>`, 'Short Form': `<code>B<code>` },
+      { 'Long Form': `<code>Healthy</code>`, 'Short Form': `<code>H</code>` },
+      { 'Long Form': `<code>Blighted</code>`, 'Short Form': `<code>B</code>` },
     ],
     queries: [{ query: 'h:h', description: 'Still healthy Blight cards' }],
   },
@@ -121,8 +121,8 @@ const sections = ref<Section[]>([
     title: 'Speed',
     pretext: `<p>Find Power cards by speed using the <code>speed:</code> property with one of the following values:</p>`,
     table: [
-      { 'Long Form': `<code>Fast<code>`, 'Short Form': `<code>F<code>` },
-      { 'Long Form': `<code>Slow<code>`, 'Short Form': `<code>S<code>` },
+      { 'Long Form': `<code>Fast</code>`, 'Short Form': `<code>F</code>` },
+      { 'Long Form': `<code>Slow</code>`, 'Short Form': `<code>S</code>` },
     ],
     queries: [{ query: 'speed:f', description: 'Fast powers' }],
   },
@@ -140,13 +140,13 @@ const sections = ref<Section[]>([
     title: 'From',
     pretext: `<p>Find cards by 'from' requirements using the <code>from:</code> or <code>f:</code> property with either a string or regex value or <code>null</code> for no requirement.</p><p>All possible 'from' requirements are standardized:</p>`,
     table: [
-      { 'From Requirement': `<code>Sacred Site<code>` },
-      { 'From Requirement': `<code>Dahan<code>` },
-      { 'From Requirement': `<code>Blight<code>` },
+      { 'From Requirement': `<code>Sacred Site</code>` },
+      { 'From Requirement': `<code>Dahan</code>` },
+      { 'From Requirement': `<code>Blight</code>` },
       {
         'From Requirement': `<code>Jungle</code>, <code>Wetland</code>, <code>Mountain</code>, or <code>Sands</code>`,
       },
-      { 'From Requirement': `<code>Mountain or Jungle<code>` },
+      { 'From Requirement': `<code>Mountain or Jungle</code>` },
     ],
     posttext: `<p>The <code>:</code> operator searches for a 'from' requirement that includes the value. The <code>=</code> operator will search for a 'from' requirement that is the exact value you provided.</p>`,
     queries: [
@@ -210,14 +210,14 @@ const sections = ref<Section[]>([
     title: 'Elements',
     pretext: `<p>Search Power cards by elements using the <code>elements:</code> or <code>e:</code> property with an element pattern value.</p>`,
     table: [
-      { Element: `Sun`, 'Character Code': `<code>S<code>` },
-      { Element: `Moon`, 'Character Code': `<code>M<code>` },
-      { Element: `Fire`, 'Character Code': `<code>F<code>` },
-      { Element: `Air`, 'Character Code': `<code>A<code>` },
-      { Element: `Water`, 'Character Code': `<code>W<code>` },
-      { Element: `Earth`, 'Character Code': `<code>E<code>` },
-      { Element: `Plant`, 'Character Code': `<code>P<code>` },
-      { Element: `Animal`, 'Character Code': `<code>N<code>` },
+      { Element: `Sun`, 'Character Code': `<code>S</code>` },
+      { Element: `Moon`, 'Character Code': `<code>M</code>` },
+      { Element: `Fire`, 'Character Code': `<code>F</code>` },
+      { Element: `Air`, 'Character Code': `<code>A</code>` },
+      { Element: `Water`, 'Character Code': `<code>W</code>` },
+      { Element: `Earth`, 'Character Code': `<code>E</code>` },
+      { Element: `Plant`, 'Character Code': `<code>P</code>` },
+      { Element: `Animal`, 'Character Code': `<code>N</code>` },
     ],
     posttext: `<p>To make an element pattern, combine element characters in a single string or word. For example, <code>sw</code> represents Sun and Water.</p><p>The <code>:</code> operator searches for powers that include the chosen elements. The <code>=</code> operator will search for powers that match the exact elements you provided.</p><p>You can also use an integer value to match the number of elements a power card has. With an integer value, you can use a comparison operator for a range of results: <code>&lt;</code>, <code>&lt;=</code>, <code>></code>, and <code>>=</code>.</p>`,
     queries: [
@@ -232,7 +232,7 @@ const sections = ref<Section[]>([
   {
     title: 'Threshold Elements',
     pretext: `<p>Search Power cards by threshold elements using the <code>thresholdelements:</code> or <code>te:</code> property with an element pattern value. View the section above for an introduction to element patterns.</p>`,
-    posttext: `<p>You can include the same element multiple times, like <code>WWWA</code> is 3 Water and 1 Animal element. This can be simplified to <code>3WA</code>, where the prepending number declares the number of the following element.</p><p>The <code>:</code> operator searches for powers that include the chosen threshold elements. The <code>=</code> operator will search for powers that match the exact threshold elements you provided.</p><p>You can also use an integer value to match the number of elements the threshold requires. With an integer value, you can use a comparison operator for a range of results: <code>&lt;</code>, <code>&lt;=</code>, <code>></code>, and <code>>=</code>.`,
+    posttext: `<p>You can include the same element multiple times, like <code>WWWA</code> is 3 Water and 1 Animal element. This can be simplified to <code>3WA</code>, where the prepended number declares the number of the following element.</p><p>The <code>:</code> operator searches for powers that include the chosen threshold elements. The <code>=</code> operator will search for powers that match the exact threshold elements you provided.</p><p>You can also use an integer value to match the number of elements the threshold requires. With an integer value, you can use a comparison operator for a range of results: <code>&lt;</code>, <code>&lt;=</code>, <code>></code>, and <code>>=</code>.`,
     queries: [
       {
         query: 'te:4w2m2e',
@@ -301,25 +301,25 @@ const sections = ref<Section[]>([
     title: 'Event Type',
     pretext: `<p>Find Event cards that include a specific event type using the <code>EventType:</code> or <code>ET:</code> property with one of the following values:</p>`,
     table: [
-      { 'Long Form': `<code>"Terror 1"<code>`, 'Short Form': `<code>T1<code>` },
-      { 'Long Form': `<code>"Terror 1 & 2"<code>`, 'Short Form': `<code>t12<code>` },
-      { 'Long Form': `<code>"Terror 2 & 3"<code>`, 'Short Form': `<code>t23<code>` },
-      { 'Long Form': `<code>"Terror 3"<code>`, 'Short Form': `<code>t3<code>` },
-      { 'Long Form': `<code>"Stage 1"<code>`, 'Short Form': `<code>S1<code>` },
-      { 'Long Form': `<code>"Stage 1 & 2"<code>`, 'Short Form': `<code>S12<code>` },
-      { 'Long Form': `<code>"Stage 2 & 3"<code>`, 'Short Form': `<code>S23<code>` },
-      { 'Long Form': `<code>"Stage 3"<code>`, 'Short Form': `<code>S3<code>` },
-      { 'Long Form': `<code>"Healthy Island"<code>`, 'Short Form': `<code>H<code>` },
-      { 'Long Form': `<code>"Blighted Island"<code>`, 'Short Form': `<code>B<code>` },
-      { 'Long Form': `<code>"Group Choice"<code>`, 'Short Form': `<code>GC<code>` },
-      { 'Long Form': `<code>"Individual Choice"<code>`, 'Short Form': `<code>IC<code>` },
-      { 'Long Form': `<code>"Adversary Event"<code>`, 'Short Form': `<code>AE<code>` },
-      { 'Long Form': `<code>Beasts<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>Dahan<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>Disease<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>Badlands<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>"Disease and Strife"<code>`, 'Short Form': '' },
-      { 'Long Form': `<code>"Badlands and Beasts"<code>`, 'Short Form': '' },
+      { 'Long Form': `<code>"Terror 1"</code>`, 'Short Form': `<code>T1</code>` },
+      { 'Long Form': `<code>"Terror 1 & 2"</code>`, 'Short Form': `<code>t12</code>` },
+      { 'Long Form': `<code>"Terror 2 & 3"</code>`, 'Short Form': `<code>t23</code>` },
+      { 'Long Form': `<code>"Terror 3"</code>`, 'Short Form': `<code>t3</code>` },
+      { 'Long Form': `<code>"Stage 1"</code>`, 'Short Form': `<code>S1</code>` },
+      { 'Long Form': `<code>"Stage 1 & 2"</code>`, 'Short Form': `<code>S12</code>` },
+      { 'Long Form': `<code>"Stage 2 & 3"</code>`, 'Short Form': `<code>S23</code>` },
+      { 'Long Form': `<code>"Stage 3"</code>`, 'Short Form': `<code>S3</code>` },
+      { 'Long Form': `<code>"Healthy Island"</code>`, 'Short Form': `<code>H</code>` },
+      { 'Long Form': `<code>"Blighted Island"</code>`, 'Short Form': `<code>B</code>` },
+      { 'Long Form': `<code>"Group Choice"</code>`, 'Short Form': `<code>GC</code>` },
+      { 'Long Form': `<code>"Individual Choice"</code>`, 'Short Form': `<code>IC</code>` },
+      { 'Long Form': `<code>"Adversary Event"</code>`, 'Short Form': `<code>AE</code>` },
+      { 'Long Form': `<code>Beasts</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>Dahan</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>Disease</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>Badlands</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>"Disease and Strife"</code>`, 'Short Form': '' },
+      { 'Long Form': `<code>"Badlands and Beasts"</code>`, 'Short Form': '' },
     ],
     queries: [
       { query: 'eventtype:T3', description: 'Event cards that include a Terror Level 3 event' },
@@ -333,25 +333,25 @@ const sections = ref<Section[]>([
     title: 'Event Type Text',
     pretext: `<p>Find Event cards that include a specific text effect within an event type using one of the following properties with a string or regex value:</p>`,
     table: [
-      { Property: '<code>"Terror 1"<code> event' },
-      { Property: '<code>"Terror 1 & 2"<code> event' },
-      { Property: '<code>"Terror 2 & 3"<code> event' },
-      { Property: '<code>"Terror 3"<code> event' },
-      { Property: '<code>"Stage 1"<code> event' },
-      { Property: '<code>"Stage 1 & 2"<code> event' },
-      { Property: '<code>"Stage 2 & 3"<code> event' },
-      { Property: '<code>"Stage 3"<code> event' },
-      { Property: '<code>"Healthy Island"<code> event' },
-      { Property: '<code>"Blighted Island"<code> event' },
-      { Property: '<code>"Group Choice"<code> event' },
-      { Property: '<code>"Individual Choice"<code> event' },
-      { Property: '<code>"Adversary Event"<code> event' },
-      { Property: '<code>Beasts<code> event' },
-      { Property: '<code>Dahan<code> event' },
-      { Property: '<code>Disease<code> event' },
-      { Property: '<code>Badlands<code> event' },
-      { Property: '<code>"Disease and Strife"<code> event' },
-      { Property: '<code>"Badlands and Beasts"<code> event' },
+      { Property: '<code>"Terror 1 event"<code>' },
+      { Property: '<code>"Terror 1 & 2 event"<code>' },
+      { Property: '<code>"Terror 2 & 3 event"<code>' },
+      { Property: '<code>"Terror 3 event"<code>' },
+      { Property: '<code>"Stage 1 event"<code>' },
+      { Property: '<code>"Stage 1 & 2 event"<code>' },
+      { Property: '<code>"Stage 2 & 3 event"<code>' },
+      { Property: '<code>"Stage 3 event"<code>' },
+      { Property: '<code>"Healthy Island event"<code>' },
+      { Property: '<code>"Blighted Island event"<code>' },
+      { Property: '<code>"Group Choice event"<code>' },
+      { Property: '<code>"Individual Choice event"<code>' },
+      { Property: '<code>"Adversary Event event"<code>' },
+      { Property: '<code>"Beasts event"<code>' },
+      { Property: '<code>"Dahan event"<code>' },
+      { Property: '<code>"Disease event"<code>' },
+      { Property: '<code>"Badlands event"<code>' },
+      { Property: '<code>"Disease and Strife event"<code>' },
+      { Property: '<code>"Badlands and Beasts event"<code>' },
     ],
     queries: [
       {
@@ -482,7 +482,7 @@ function scrollTo(id: string) {
 
             <p>They can also accept different values.</p>
             <p>
-              <b>Words</b> are any alphanumeric combination of letters, like <code>dahan</code>.
+              <b>Words</b> are any alphanumeric combination of characters, like <code>dahan</code>.
             </p>
             <p>
               <b>Strings</b> can contain any character within double quotes, like
@@ -503,7 +503,7 @@ function scrollTo(id: string) {
               <code>12</code>. Properties like Blight Per Player and Energy Cost use integers.
             </p>
             <p>
-              <b>Null</b> represents a lack of the property, like when a power has no range when it
+              <b>Null</b> represents a lack of the property, like when a power has no range if it
               targets another spirit. It is written as <code>null</code>.
             </p>
             <p>The text content for cards has been generalized:</p>

@@ -15,7 +15,7 @@ const { articleData, profileData } = useGlobalStore
 const {showFooter} = defineProps<{showFooter:boolean}>()
 const tableOfContentsData = ref<HeaderData[]>([])
 const screenSize = ref(0)
-const showSideTableOfContents = computed(()=>screenSize.value > 1000 && showFooter)
+const showSideTableOfContents = computed(()=>screenSize.value > 1100 && showFooter)
 const emptyTableOfContents= computed(()=>tableOfContentsData.value.length == 0)
 
 const markdownHTML = ref('')
@@ -132,19 +132,19 @@ function hideTooltip() {
         <SpiritAvatar :spirit="profileData.spirit" class="user-avatar"></SpiritAvatar>
          {{ profileData.username }}</span>
         </RouterLink>
-        <span>|</span><span class="last-changes">Last Changes {{ updatedDate }}</span>
+        <span>|</span><span class="last-changed">Last Changed {{ updatedDate }}</span>
       </div>
       <div class="flex-row wrap">
         <Tag v-for="tag in articleData.tags" :tag="tag" size="normal"></Tag>
       </div>
-      <img v-if="articleData.img != null && articleData.img.trim() != ''" class="header-image" :src="articleData.img"></img>
+      <img v-if="articleData.img != null && articleData.img.trim() != ''" class="header-image" :src="articleData.img" alt="Article header image"></img>
       <div class="table-of-contents" v-if="!showSideTableOfContents && !emptyTableOfContents">
         <div class="contents-title">Table of Contents</div>
         <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
       </div>
       <div class="content" v-html="markdownHTML"></div>
       <div ref="tooltip" class="tooltip">
-      <img :src="hoveredURL" class="tooltip-img" @load="showTooltip" :class="{shadow:!boardHovering}">
+      <img :src="hoveredURL" class="tooltip-img" @load="showTooltip" :class="{shadow:!boardHovering}" alt="Preview image">
     </div>
     </div>
   </div>
@@ -179,7 +179,7 @@ function hideTooltip() {
     font-size: 30px;
   }
 }
-.last-changes {
+.last-changed {
   text-wrap: nowrap;
 }
 .articleData {

@@ -2,7 +2,6 @@
 import MultiSelect from 'primevue/multiselect'
 import Chip from 'primevue/chip'
 import { TAGS } from '@/scripts/data'
-import { ref } from 'vue'
 const allTags = TAGS.map((tag) => ({ tag }))
 
 const selectedTags = defineModel<{ tag: string }[]>({ required: true })

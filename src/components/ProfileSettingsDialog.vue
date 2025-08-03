@@ -95,7 +95,7 @@ async function saveSettings() {
       </label>
       <label>
         Profile Image
-        <Select v-model="selectedSpirit" :options="spiritChoices" optionLabel="spirit" fluid>
+        <Select v-model="selectedSpirit" :options="spiritChoices" optionLabel="spirit" fluid filter>
           <template #value="slotProps">
             <div v-if="slotProps.value" class="select-option">
               <SpiritAvatar class="select-image" :spirit="slotProps.value as Spirit"></SpiritAvatar>

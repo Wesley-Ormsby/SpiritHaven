@@ -7,6 +7,7 @@ import SpiritAvatar from './SpiritAvatar.vue'
 import Tag from './Tag.vue'
 import Skeleton from 'primevue/skeleton'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
+import Loader from './Loader.vue'
 
 const { article } = defineProps<{ article: ArticleData | null }>()
 const articleAuthorData = ref<UserData | null>()
@@ -20,6 +21,7 @@ const src = computed(
     article?.img ||
     'https://spiritislandwiki.com/images/thumb/f/f5/Spirit_Island_box.png/300px-Spirit_Island_box.png',
 )
+const loadingHeaderImg = ref(true)
 
 onMounted(updateOtherArticleData)
 watch(() => article, updateOtherArticleData)
@@ -76,7 +78,7 @@ const timeAgo = computed<string>(() => {
   const time = Math.floor((new Date().valueOf() - new Date(article.updated).valueOf()) / 1000)
   const { interval, unit } = calculateTimeDifference(time)
   if (interval == 0) {
-    return `now`
+    return `Now`
   }
   const suffix = interval === 1 ? '' : 's'
   return `${interval} ${unit}${suffix} ago`
@@ -87,8 +89,11 @@ const timeAgo = computed<string>(() => {
   <Card class="article-card" v-if="article && articleAuthorData">
     <template #header>
       <RouterLink :to="articleTo">
-        <div class="img-container">
-          <img alt="Article Image" :src class="article-card-img" />
+        <div class="img-container-loading" v-if="loadingHeaderImg">
+          <Loader></Loader>
+        </div>
+        <div class="img-container" v-show="!loadingHeaderImg">
+          <img alt="Article Image" :src class="article-card-img" @load="loadingHeaderImg = false"/>
         </div>
       </RouterLink>
     </template>
@@ -142,6 +147,14 @@ const timeAgo = computed<string>(() => {
   max-height: 150px;
   overflow: hidden;
   cursor: pointer;
+}
+.img-container-loading {
+  width: 100%;
+  height: 150px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:var(--p-surface-500)
 }
 .title {
   font-weight: 600;

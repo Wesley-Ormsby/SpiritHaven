@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Skeleton from 'primevue/skeleton'
-const { url } = defineProps<{ url: string }>()
+import DeferredContent from 'primevue/deferredcontent';
+const { url,alt } = defineProps<{ url: string,alt:string }>()
 const loaded = ref(false)
 </script>
 
 <template>
-  <Skeleton v-if="!loaded" class="skeleton" />
-  <img v-show="loaded" :src="url" @load="loaded = true" />
+  <DeferredContent>
+    <Skeleton v-if="!loaded" class="skeleton" />
+    <img v-show="loaded" :src="url" @load="loaded = true" :alt="alt"/>
+  </DeferredContent>
 </template>
 
 <style lang="css" scoped>

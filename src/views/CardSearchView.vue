@@ -44,9 +44,11 @@ function findCards() {
 }
 
 const loadingImages = ref<boolean[]>([])
+const allNames = ref<string[]>([])
 const allURLs = computed(() => {
   if (queryResult.value != null && queryResult.value.errors.length == 0) {
     loadingImages.value = Array(queryResult.value.query.length).fill(false)
+    allNames.value = queryResult.value.query
     return queryResult.value.query.map((name) => {
       return CARD_ARTS[name]
     })
@@ -181,7 +183,7 @@ const openSortMenu = (event: Event) => {
       >
     </div>
     <div class="body-container">
-      <LoadingCard v-for="url in allURLs" :url="url" />
+      <LoadingCard v-for="(url,i) in allURLs" :url="url" :alt="allNames[i]" />
     </div>
   </div>
   <Footer></Footer>

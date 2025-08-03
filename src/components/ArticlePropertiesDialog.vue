@@ -21,6 +21,7 @@ import TagMultiselect from './TagMultiselect.vue'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
 const { articleData, profileData } = useGlobalStore
 const model = defineModel<boolean>({ required: true })
+const emit = defineEmits(['save'])
 
 // isNewArticle -> create new article
 // !isNewArticle -> update existing article
@@ -222,6 +223,7 @@ async function openNewArticle() {
       .select()
     if (!error) {
       Object.assign(useGlobalStore.articleData, data[0] as ArticleData)
+      emit('save')
     } else {
       setSupabaseError(error)
     }
@@ -324,7 +326,7 @@ async function openNewArticle() {
               v-else-if="showImage"
               :src="imageURL"
               class="list-image"
-              alt="header image"
+              alt="Header image"
               v-model:error="imageError"
               :preview="true"
               :key="imageURL"

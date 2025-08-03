@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef, ref, markRaw, computed } from 'vue'
+import { onMounted, useTemplateRef, ref, markRaw, computed, watch, nextTick } from 'vue'
 import { highlight } from '@/scripts/highlighter'
 import { useGlobalStore } from '@/scripts/globalStore'
 import { onBeforeRouteLeave } from 'vue-router'
@@ -28,7 +28,6 @@ import {
   X,
 } from 'lucide-vue-next'
 import { supabase } from '@/scripts/auth'
-import Loader from './Loader.vue'
 import SymbolSVG from './svgs/SymbolSVG.vue'
 import ComponentSVG from './svgs/ComponentSVG.vue'
 import LargeComponentSVG from './svgs/LargeComponentSVG.vue'
@@ -46,17 +45,17 @@ import {
 import { searchCards } from '@/scripts/HavenDSL/search'
 import type { QueryResult } from '@/scripts/HavenDSL/types'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
+import Loader from './Loader.vue'
 const { articleData } = useGlobalStore
 const toast = useToast()
 
 const textarea = useTemplateRef('textarea')
 const forground = useTemplateRef('forground')
-const unsavedChanges = ref(false)
 
 /* EDITOR + MARKDOWN SYNCING */
 onMounted(() => {
+  articleContent.value = articleData.content
   inputEvent()
-  unsavedChanges.value = false
 })
 onBeforeRouteLeave((to, from) => {
   if (unsavedChanges.value) {
@@ -71,7 +70,6 @@ function inputEvent() {
   saveCaretPosition()
 }
 function update() {
-  unsavedChanges.value = true
   if (forground.value == null || textarea.value == null) return
   let value = textarea.value.value
   if (value[value.length - 1] == '\n') {
@@ -104,29 +102,31 @@ function syncScroll() {
 
 /* RIBBON OPTIONS */
 // Save
-const saving = ref(false)
+const articleContent = ref("")
+const unsavedChanges = computed(()=>articleContent.value != articleData.content)
+const loadingSave = ref(false)
 async function saveContent() {
   if (articleData == null) {
     return
   }
-  saving.value = true
-  const { error } = await supabase
+  loadingSave.value = true
+  const { data, error } = await supabase
     .from('articles')
     .update({ content: articleData.content })
     .eq('id', articleData.id)
+    .select()
   if (!error) {
     toast.add({ severity: 'success', summary: 'Saved', life: 2200 })
-    unsavedChanges.value = false
+    articleContent.value = data[0].content
   } else {
     setSupabaseError(error)
   }
-  saving.value = false
+  loadingSave.value = false
 }
 
 // Delete
 const deleteDialogVisable = ref(false)
 function openDeleteDialog() {
-  unsavedChanges.value = false
   deleteDialogVisable.value = true
 }
 
@@ -317,6 +317,9 @@ function insertComponentLink() {
   }
   if (componentPopover.value) componentPopover.value.hide()
 }
+const validHoverLinkName = computed(() =>
+  Boolean(selectedComponent.value && CASE_NAME_MAP[selectedComponent.value.toLowerCase()]),
+)
 
 // Card Display
 const cardDisplayPopover = useTemplateRef('cardDisplayPopover')
@@ -367,10 +370,11 @@ const largeComponents = [
   ...Object.keys(SPIRITS),
   ...Object.keys(ADVESARIES),
   ...Object.keys(BOARDS),
-].map((name) => CASE_NAME_MAP[name])
+]
+const normalCaseComponents = largeComponents.map((name) => CASE_NAME_MAP[name])
 const filteredLCD = ref()
 function LCDSearch() {
-  filteredLCD.value = largeComponents.filter((name) => {
+  filteredLCD.value = normalCaseComponents.filter((name) => {
     let lowerCaseName = name.toLowerCase()
     for (let section of selectedLCD.value.split(' ')) {
       if (!lowerCaseName.includes(section.trim().toLowerCase())) {
@@ -397,6 +401,7 @@ function insertLCD() {
   }
   if (LCDPopover.value) LCDPopover.value.hide()
 }
+const validLCDName = computed(() => largeComponents.includes(selectedLCD.value.toLowerCase()))
 
 function insertText(text: string) {
   const el = textarea.value
@@ -488,21 +493,21 @@ const ribbonButtons = ref([
 <template>
   <div class="editor" v-if="articleData != null">
     <div class="ribbon">
-      <div class="ribbon-button" @click="saveContent">
-        <Save v-if="!saving"></Save>
-        <Loader v-else></Loader>
-        <span>Save</span>
-      </div>
-      <div class="ribbon-button" @click="openDeleteDialog">
-        <Trash2></Trash2>
-        <span>Delete</span>
-      </div>
-      <div class="ribbon-button" @click="changePropertiesDialogVisable = true">
-        <Settings2></Settings2>
-        <span>Edit Article Properties</span>
-      </div>
+      <Button class="ribbon-button" @click="saveContent" :disabled="!unsavedChanges" :loading="loadingSave">
+          <Loader v-if="loadingSave"></Loader>
+          <Save v-else></Save>
+        Save
+      </Button>
+      <Button class="ribbon-button" @click="openDeleteDialog">
+          <Trash2></Trash2>
+        Delete
+      </Button>
+      <Button class="ribbon-button" @click="changePropertiesDialogVisable = true">
+          <Settings2></Settings2>
+        Edit Article Properties
+      </Button>
       <div class="seperator"></div>
-      <div
+      <Button
         v-for="(button, i) in ribbonButtons"
         class="ribbon-button"
         :key="i"
@@ -514,7 +519,7 @@ const ribbonButtons = ref([
         }"
       >
         <Component :is="button.is"></Component>
-      </div>
+      </Button>
       <!-- RIBBON POPOVERS -->
       <Popover ref="symbolPopover" @show="symbolFilterInput = ''">
         <div class="popover">
@@ -573,7 +578,7 @@ const ribbonButtons = ref([
             </label>
             <Message
               severity="error"
-              v-if="hoverlinkQueryResult"
+              v-if="hoverlinkQueryResult && selectedComponent"
               v-for="error in hoverlinkQueryResult.errors"
               >{{ error }}</Message
             >
@@ -588,7 +593,9 @@ const ribbonButtons = ref([
             </label>
           </div>
           <div class="popover-footer">
-            <Button @click="insertComponentLink" size="small">Add Component Link</Button>
+            <Button @click="insertComponentLink" size="small" :disabled="!validHoverLinkName"
+              >Add Component Link</Button
+            >
           </div>
         </div>
       </Popover>
@@ -616,7 +623,9 @@ const ribbonButtons = ref([
             </label>
           </div>
           <div class="popover-footer">
-            <Button @click="insertLCD" size="small">Add Component Display</Button>
+            <Button @click="insertLCD" size="small" :disabled="!validLCDName"
+              >Add Component Display</Button
+            >
           </div>
         </div>
       </Popover>
@@ -654,7 +663,7 @@ const ribbonButtons = ref([
             </label>
             <Message
               severity="error"
-              v-if="cardDisplayQueryResult"
+              v-if="cardDisplayQueryResult && selectedDisplayCard"
               v-for="error in cardDisplayQueryResult.errors"
               >{{ error }}</Message
             >
@@ -695,6 +704,7 @@ const ribbonButtons = ref([
         spellcheck="false"
         autocapitalize="none"
         v-model="articleData.content"
+        placeholder="Start writing..."
         @input="inputEvent"
         @scroll="syncScroll()"
         @keydown="checkTab"
@@ -708,6 +718,7 @@ const ribbonButtons = ref([
     <ArticlePropertiesDialog
       v-model="changePropertiesDialogVisable"
       :is-new-article="false"
+      @save="articleContent = articleData.content"
     ></ArticlePropertiesDialog>
     <Toast />
   </div>
@@ -729,23 +740,18 @@ const ribbonButtons = ref([
   background-color: var(--p-surface-200);
 }
 .ribbon-button {
-  cursor: pointer;
   padding: 5px;
   color: var(--p-surface-800);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+  background-color: var(--p-surface-200);
+  border-color: var(--p-surface-200) !important;
   transition: background-color 0.2s;
-  height: auto;
+  width:auto;
 }
-.ribbon-button:hover {
-  background-color: var(--p-surface-300);
+.ribbon-button:hover:not(:disabled) {
+  background-color: var(--p-surface-300) !important;
 }
 .ribbon-button svg {
-  stroke-width: 1.5px;
-  width: 20px;
-  height: 20px;
+  width:20px;
 }
 .seperator {
   width: 2px;
@@ -859,7 +865,7 @@ const ribbonButtons = ref([
   color: var(--p-surface-600);
   background-color: var(--p-surface-100);
   border-radius: 2px;
-  
+
   /* Short hand styling for mobile */
   outline-width: 3px;
   outline-style: solid;
@@ -915,6 +921,9 @@ textarea,
   background-color: var(--p-surface-50);
   z-index: 0;
   color: var(--p-surface-900);
+}
+::placeholder {
+  color: var(--p-surface-600);
 }
 ::selection {
   opacity: 0;

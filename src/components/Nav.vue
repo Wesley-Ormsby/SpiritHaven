@@ -135,7 +135,7 @@ const toggleProfileDropdown = (event: Event) => {
         <SunMoon v-else></SunMoon>
       </div>
       <div class="nav-button" @click="toggleElementMenu" aria-controls="element_menu">
-        <img :src="SYMBOL_DATA[elementLongForm[theme]]" />
+        <img :src="SYMBOL_DATA[elementLongForm[theme]]" :alt="elementLongForm[theme]"/>
       </div>
       <Menu ref="elementMenu" id="element_menu" :model="elementMenuItems" :popup="true">
         <template #item="{ item }">

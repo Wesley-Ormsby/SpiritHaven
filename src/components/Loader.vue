@@ -1,5 +1,5 @@
 <template>
-  <svg width="24" height="24" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <g class="spinner_V8m1">
       <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3"></circle>
     </g>
@@ -14,7 +14,7 @@
   animation: spinner_zKoa 2s linear infinite;
 }
 .spinner_V8m1 circle {
-  stroke: var(--p-surface-500);
+  stroke: inherit;
   stroke-linecap: round;
   animation: spinner_YpZS 1.5s ease-in-out infinite;
 }
