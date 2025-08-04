@@ -699,11 +699,12 @@ export const ADVESARIES: Record<string, Adversary> = {
   },
 }
 
-export const TAGS = [
-  ...Object.keys(SPIRITS),
-  ...Object.keys(ADVESARIES),
-  ...Object.keys(SCENARIOS),
-  'strategy guide',
+export const CATEGORIZED_TAGS: Record<string,string[]> = {
+  'Spirits': [...Object.keys(SPIRITS),'aspect'],
+  'Advesaries': Object.keys(ADVESARIES).flatMap(ad=>[0,1,2,3,4,5,6].map(x=>`${ad} ${x}`)),
+  'Scenarios': Object.keys(SCENARIOS),
+  'Others': [
+    'strategy guide',
   'news',
   'humor',
   'game analysis',
@@ -714,6 +715,7 @@ export const TAGS = [
   'custom scenario',
   // Mechanics
   'events',
+  'fear',
   'minors',
   'majors',
   'boards',
@@ -727,11 +729,11 @@ export const TAGS = [
   'disease',
   'badlands',
   // Game Descriptions
-  'Advanced',
-  'basic',
   'solo',
   'multi-spirit',
-]
+  ]
+}
+export const TAGS = Object.values(CATEGORIZED_TAGS).flat()
 
 export const ASPECTS: Record<string, AspectCard> = {
   "pandemonium": {

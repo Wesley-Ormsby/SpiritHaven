@@ -1,38 +1,31 @@
 <script lang="ts" setup>
-import MultiSelect from 'primevue/multiselect'
-import Chip from 'primevue/chip'
-import { TAGS } from '@/scripts/data'
-const allTags = TAGS.map((tag) => ({ tag }))
+import Listbox from 'primevue/listbox';
+import { CATEGORIZED_TAGS, TAGS } from '@/scripts/data'
+const allTags = Object.keys(CATEGORIZED_TAGS).map(label=>({
+    label,
+    items: CATEGORIZED_TAGS[label].map(tag=>({tag}))
+  }))
 
 const selectedTags = defineModel<{ tag: string }[]>({ required: true })
+
 </script>
 <template>
-  <MultiSelect
-    v-model="selectedTags"
-    display="chip"
-    :options="allTags"
-    optionLabel="tag"
-    fluid
-    filter
-    class="multiselect"
-  >
-    <template #chip="{ value: { tag }, removeCallback }">
-      <Chip removable @remove="removeCallback($event, tag)">
-        <span class="chip-text">{{ tag }}</span>
-      </Chip>
+  <Listbox v-model="selectedTags" :options="allTags" optionLabel="tag" optionGroupLabel="label" optionGroupChildren="items" multiple filter scrollHeight="14rem" @change="console.log(selectedTags)" checkmark>
+    <template #optiongroup="slotProps">
+            <div class="group-header">{{ slotProps.option.label }}</div>
     </template>
-    <template #option="slotProps">
-      <div style="text-transform: capitalize">{{ slotProps.option.tag }}</div>
+    <template #option="{option,selected}">
+            <div class="option">{{ option.tag }}</div>
     </template>
-  </MultiSelect>
+</Listbox>
 </template>
 
 <style lang="css" scoped>
-.chip-text {
+.option {
   text-transform: capitalize;
-  font-size: 12px;
+  font-size: 14px;
 }
-.multiselect {
-  height: 38px;
+.group-header {
+  color:var(--p-primary-500)
 }
 </style>
