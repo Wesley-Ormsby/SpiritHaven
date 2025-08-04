@@ -342,6 +342,7 @@ async function openNewArticle() {
         filter
         optionLabel="name"
         @change="pressGallaryOption"
+        class="gallery-listbox"
       >
         <template #option="slotProps">
           <div class="list-option">
@@ -439,13 +440,13 @@ label {
 .access-description {
   padding: 5px;
 }
-::v-deep(.p-listbox-list-container) {
+.gallery-listbox ::v-deep(.p-listbox-list-container) {
   max-height: 8rem !important;
 }
-::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected) {
+.gallery-listbox ::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected) {
   background-color: var(--p-listbox-option-background);
 }
-::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected):hover {
+.gallery-listbox ::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected):hover {
   background-color: var(--p-listbox-option-focus-background);
 }
 .list-option {

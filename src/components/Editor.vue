@@ -741,7 +741,7 @@ const ribbonButtons = ref([
 }
 .ribbon-button {
   padding: 5px;
-  color: var(--p-surface-800);
+  color: var(--p-surface-800) !important;
   background-color: var(--p-surface-200);
   border-color: var(--p-surface-200) !important;
   transition: background-color 0.2s;
