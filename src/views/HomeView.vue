@@ -35,7 +35,7 @@ const nullArray = Array(7).fill(null)
 </script>
 
 <template>
-  <h1>Spirit<span class="primary-text">Haven</span></h1>
+  <h1>Spirit<span class="primary">Haven</span></h1>
   <div class="subheading">Your sanctuary for Spirit Island tactics, tales, news, and more!</div>
 
   <h2>New Articles</h2>
@@ -84,9 +84,6 @@ h2 {
   text-align: center;
   font-size: 20px;
   color: var(--p-surface-700);
-}
-.primary-text {
-  color: var(--p-primary-500);
 }
 .centered-button {
   margin: auto;

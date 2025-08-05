@@ -129,7 +129,7 @@ const openSortMenu = (event: Event) => {
 <template>
   <ScrollTop :threshold="50" />
   <div class="page">
-    <h1>Search <span class="primary">Cards</span></h1>
+    <h1 class="title">Search <span class="primary">Cards</span></h1>
     <div class="text-input-container">
       <InputGroup>
         <InputGroupAddon>
@@ -193,16 +193,6 @@ const openSortMenu = (event: Event) => {
 .page {
   min-height: calc(100vh - 60px);
 }
-h1 {
-  color: var(--p-surface-900);
-  margin-top: 70px;
-  text-align: center;
-  font-size: 60px;
-  margin-bottom: 30px;
-}
-.primary {
-  color: var(--p-primary-500);
-}
 .text-input-container {
   max-width: 500px;
   width: 80vw;
@@ -220,10 +210,6 @@ h1 {
   max-width: 1200px;
   width: 80vw;
   margin: 30px auto;
-}
-.reminder {
-  font-size: small;
-  color: var(--p-surface-600);
 }
 label {
   display: flex;

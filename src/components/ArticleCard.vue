@@ -8,6 +8,7 @@ import Tag from './Tag.vue'
 import Skeleton from 'primevue/skeleton'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
 import Loader from './Loader.vue'
+import UserAvatarLink from './UserAvatarLink.vue'
 
 const { article } = defineProps<{ article: ArticleData | null }>()
 const articleAuthorData = ref<UserData | null>()
@@ -113,12 +114,7 @@ const timeAgo = computed<string>(() => {
         >
       </div>
       <div class="flex-row">
-        <RouterLink :to="{ name: 'profile', params: { id: articleAuthorData.id } }">
-          <span class="user-span">
-            <SpiritAvatar :spirit="articleAuthorData.spirit" class="user-avatar"></SpiritAvatar>
-            {{ articleAuthorData.username }}</span
-          >
-        </RouterLink>
+        <UserAvatarLink :profile="articleAuthorData"></UserAvatarLink>
         <span>|</span><span> {{ timeAgo }}</span>
       </div>
     </template>
@@ -190,21 +186,6 @@ p {
 }
 .more-tags:hover {
   filter: brightness(1.5);
-}
-.user-avatar {
-  width: 24px;
-  height: 24px;
-  transition: 0.2s filter;
-}
-.user-span {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--p-primary-500);
-}
-.user-span:hover {
-  filter: brightness(1.1);
 }
 
 @media only screen and (max-width: 780px) {

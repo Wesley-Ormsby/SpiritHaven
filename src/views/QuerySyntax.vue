@@ -437,7 +437,7 @@ function scrollTo(id: string) {
 <template>
   <div class="page">
     <ScrollTop :threshold="50" />
-    <h1>Query <span class="primary">Reference</span></h1>
+    <h1 class="title">Query <span class="primary">Reference</span></h1>
     <div class="subheading">
       SpiritHaven offers a wide range of keywords and expressions for filtering cards.
       <br />
@@ -588,22 +588,12 @@ function scrollTo(id: string) {
 .page {
   min-height: calc(100vh - 60px);
 }
-h1 {
-  color: var(--p-surface-900);
-  margin-top: 70px;
-  margin-bottom: 10px;
-  text-align: center;
-  font-size: 60px;
-}
 .subheading {
   color: var(--p-surface-800);
   text-align: center;
   font-size: 1rem;
   max-width: 400px;
   margin: auto;
-}
-.primary {
-  color: var(--p-primary-500);
 }
 .body-container {
   display: flex;
@@ -633,7 +623,7 @@ h1 {
 ::v-deep(pre code) {
   padding: 0px;
 }
-* {
+.section * {
   color: var(--p-surface-800);
 }
 ::v-deep(table),

@@ -12,7 +12,7 @@ const selectedTags = defineModel<{ tag: string }[]>({ required: true })
 <template>
   <Listbox v-model="selectedTags" :options="allTags" optionLabel="tag" optionGroupLabel="label" optionGroupChildren="items" multiple filter scrollHeight="14rem" @change="console.log(selectedTags)" checkmark>
     <template #optiongroup="slotProps">
-            <div class="group-header">{{ slotProps.option.label }}</div>
+            <div class="primary">{{ slotProps.option.label }}</div>
     </template>
     <template #option="{option,selected}">
             <div class="option">{{ option.tag }}</div>
@@ -24,8 +24,5 @@ const selectedTags = defineModel<{ tag: string }[]>({ required: true })
 .option {
   text-transform: capitalize;
   font-size: 14px;
-}
-.group-header {
-  color:var(--p-primary-500)
 }
 </style>

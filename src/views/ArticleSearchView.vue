@@ -227,7 +227,7 @@ async function setupData() {
 
 <template>
   <div class="page">
-    <h1>Search <span class="primary">Articles</span></h1>
+    <h1 class="title">Search <span class="primary">Articles</span></h1>
     <div class="searchOptions">
       <div class="tabGroup">
         <div
@@ -333,15 +333,7 @@ async function setupData() {
   margin-right: auto;
   width: 90vw;
 }
-h1 {
-  color: var(--p-surface-900);
-  margin-top: 70px;
-  text-align: center;
-  font-size: 60px;
-}
-.primary {
-  color: var(--p-primary-500);
-}
+
 .filter-container,
 .filter-buttons-container {
   display: flex;
@@ -416,9 +408,6 @@ label {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.primary {
-  color: var(--p-primary-500);
 }
 .flex-row {
   display: flex;

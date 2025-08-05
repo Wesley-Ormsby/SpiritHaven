@@ -1,0 +1,55 @@
+/* THIS FILE IS FOR SHARED FORM STYLES */
+
+
+.p-multiselect-overlay,.p-select-overlay {
+  max-width: 60vw;
+}
+
+/* For the editor ribbon popovers */
+.popover-auto-complete-option {
+  display: block;
+  max-width: min(80vw, 270px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+
+/* Reminder text that exists below some inputs */
+.reminder {
+  font-size: small;
+  color: var(--p-surface-600);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.f-error {
+  color: var(--p-red-500);
+  font-size: 12px;
+}
+
+/* Profile & Spirit select */
+.f-select-option {
+  display: flex;
+  flex-direction: row;
+  text-transform: capitalize;
+  align-items: center;
+  gap: 10px;
+  max-width: 60vw;
+}
+.f-select-option div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.f-select-option-image {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}

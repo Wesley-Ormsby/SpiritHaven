@@ -1,0 +1,23 @@
+/* THIS FILE IS FOR SHARED DIALOG STYLES */
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+.secondary {
+  background-color: var(--p-surface-300) !important;
+  border-color: var(--p-surface-300) !important;
+  color: var(--p-surface-900) !important;
+}
+.secondary:hover {
+  background-color: var(--p-surface-400) !important;
+}
+.close-x {
+  stroke: var(--p-surface-600);
+  transition: 0.3s stroke;
+  cursor: pointer;
+}
+.close-x:hover {
+  stroke: var(--p-surface-900);
+}

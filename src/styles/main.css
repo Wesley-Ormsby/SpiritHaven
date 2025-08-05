@@ -1,0 +1,123 @@
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  background: var(--p-surface-100) !important;
+  color: var(--p-surface-600) !important;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
+}
+
+* {
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.router-link {
+  width: min-content;
+  color: inherit !important;
+}
+
+.p-button-label {
+  font-weight: 300 !important;
+}
+:not(.ignore-smooth-scroll) {
+  scroll-behavior: smooth;
+}
+
+/* Page Title styles */
+h1.title {
+  color: var(--p-surface-900);
+  margin-top: 70px;
+  text-align: center;
+  font-size: 60px;
+}
+@media (max-width: 600px) {
+  h1.title {
+    font-size: 40px;
+  }
+}
+.primary {
+  color: var(--p-primary-500);
+}
+
+/* For secondary buttons */
+.secondary {
+  background-color: var(--p-surface-300);
+  border-color: var(--p-surface-300) !important;
+  color: var(--p-surface-900) !important;
+}
+.secondary:hover {
+  background-color: var(--p-surface-400) !important;
+}
+
+/* For the Symbol component */
+.my-app-dark .invert {
+  filter: invert();
+}
+
+.symbol {
+  height: 1.5rem;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px;
+}
+
+.text-color-overlay-svg {
+  color: var(--p-surface-800)
+}
+
+/* For toasts, the icon should be centered */
+.p-toast-message-content {
+  align-items: center !important;
+}
+
+
+/* For article links */
+.content a,
+.table-of-contents a,
+.primary-link,
+.hljs-link {
+  color: var(--p-primary-800);
+}
+
+.content a:visited,
+.primary-link:visited {
+  color: var(--p-primary-700)
+}
+
+.my-app-dark .content a,
+.my-app-dark .table-of-contents a,
+.my-app-dark .primary-link,
+.my-app-dark .hljs-link {
+  color: var(--p-primary-500);
+}
+
+.my-app-dark .content a:visited,
+.my-app-dark .primary-link,
+.my-app-dark .hljs-link {
+  color: var(--p-primary-300)
+}
+
+.content a:hover,
+.table-of-contents a:hover,
+.primary-link:hover {
+  filter: brightness(1.2)
+}
+

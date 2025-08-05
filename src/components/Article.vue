@@ -1,31 +1,32 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/scripts/globalStore'
 import { renderMarkdown } from '@/scripts/markdown'
-import { watch, ref, onMounted,computed, nextTick,useTemplateRef, onUnmounted } from 'vue'
+import { watch, ref, onMounted, computed, nextTick, useTemplateRef, onUnmounted } from 'vue'
 import SpiritAvatar from './SpiritAvatar.vue'
-import Tag from './Tag.vue';
-import {computePosition,autoPlacement,shift,offset} from '@floating-ui/vue'
-import { BOARDS, CARD_ARTS, LARGE_COMPONENTS_ARTS } from '@/scripts/data'
+import Tag from './Tag.vue'
+import { computePosition, autoPlacement, shift, offset } from '@floating-ui/vue'
+import { BOARDS, CARD_ARTS, LARGE_COMPONENTS_ARTS, TAGS } from '@/scripts/data'
 import ImageDialog from './ImageDialog.vue'
 import Footer from './Footer.vue'
-import type { HeaderData } from '@/scripts/types';
-import TableOfContentsSection from './TableOfContentsSection.vue';
+import type { HeaderData } from '@/scripts/types'
+import TableOfContentsSection from './TableOfContentsSection.vue'
+import UserAvatarLink from './UserAvatarLink.vue'
 
 const { articleData, profileData } = useGlobalStore
-const {showFooter} = defineProps<{showFooter:boolean}>()
+const { showFooter } = defineProps<{ showFooter: boolean }>()
 const tableOfContentsData = ref<HeaderData[]>([])
 const screenSize = ref(0)
-const showSideTableOfContents = computed(()=>screenSize.value > 1100 && showFooter)
-const emptyTableOfContents= computed(()=>tableOfContentsData.value.length == 0)
+const showSideTableOfContents = computed(() => screenSize.value > 1100 && showFooter)
+const emptyTableOfContents = computed(() => tableOfContentsData.value.length == 0)
 
 const markdownHTML = ref('')
-onMounted(()=>{
+onMounted(() => {
   syncArticle()
-  window.addEventListener("resize",updateScreenSize)
+  window.addEventListener('resize', updateScreenSize)
   updateScreenSize()
 })
-onUnmounted(()=>{
-  window.removeEventListener("resize",updateScreenSize)
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenSize)
 })
 function updateScreenSize() {
   screenSize.value = window.innerWidth
@@ -33,14 +34,21 @@ function updateScreenSize() {
 watch(() => articleData.content, syncArticle)
 
 function syncArticle() {
-  let {render,tableOfContents} = renderMarkdown(articleData.content)
+  let { render, tableOfContents } = renderMarkdown(articleData.content)
   markdownHTML.value = render
   tableOfContentsData.value = tableOfContents
   nextTick(makeGameComponentsInteractable)
 }
 
+const validTags = articleData.tags.filter((tag) => TAGS.includes(tag))
 
-const updatedDate = computed<string>( ()=> (new Date(articleData.updated)).toLocaleDateString("en-US",{year: 'numeric', month: 'long', day: 'numeric' }))
+const updatedDate = computed<string>(() =>
+  new Date(articleData.updated).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }),
+)
 
 // For Cards and other components
 // We need to make them hoverable/clickable
@@ -53,102 +61,114 @@ const boardHovering = ref(false)
 const tooltip = useTemplateRef('tooltip')
 const loadingImg = ref(false)
 function makeGameComponentsInteractable() {
-  ['card', 'component'].forEach(att => {
-  document.querySelectorAll(`[${att}]`).forEach(el => {
-    const name = el.getAttribute(att)!
-    const url = att === 'card' ? CARD_ARTS[name] : LARGE_COMPONENTS_ARTS[name]
-    const isBoard = BOARDS[name] != undefined
+  ;['card', 'component'].forEach((att) => {
+    document.querySelectorAll(`[${att}]`).forEach((el) => {
+      const name = el.getAttribute(att)!
+      const url = att === 'card' ? CARD_ARTS[name] : LARGE_COMPONENTS_ARTS[name]
+      const isBoard = BOARDS[name] != undefined
 
-    el.addEventListener("click", () => {
-      clickedURL.value = url
-      imageDialogVisible.value = true
+      el.addEventListener('click', () => {
+        clickedURL.value = url
+        imageDialogVisible.value = true
+      })
+      el.addEventListener('mouseenter', () => startHover(el as HTMLElement, url, isBoard))
+      el.addEventListener('mouseleave', hideTooltip)
     })
-    el.addEventListener("mouseenter", () => startHover(el as HTMLElement, url, isBoard))
-    el.addEventListener("mouseleave", hideTooltip)
   })
-})
 
-  document.querySelectorAll(".centered-block img").forEach((el)=>{
-    el.addEventListener("click", () =>{
-      clickedURL.value = el.getAttribute("src") as string
+  document.querySelectorAll('.centered-block img').forEach((el) => {
+    el.addEventListener('click', () => {
+      clickedURL.value = el.getAttribute('src') as string
       imageDialogVisible.value = true
     })
   })
 }
 
-function update(el:HTMLElement) {
-  if(el == null || tooltip == null) {
+function update(el: HTMLElement) {
+  if (el == null || tooltip == null) {
     return
   }
-computePosition(el, tooltip.value as HTMLElement, {
-  placement: 'top',
-  middleware: [offset(6),autoPlacement({
-    allowedPlacements: ['top', 'bottom']}),shift({padding: 5})],
-}).then(({x, y}) => {
-  Object.assign((tooltip.value as HTMLElement).style, {
-    left: `${x}px`,
-    top: `${y}px`,
-  });
-});
+  computePosition(el, tooltip.value as HTMLElement, {
+    placement: 'top',
+    middleware: [
+      offset(6),
+      autoPlacement({
+        allowedPlacements: ['top', 'bottom'],
+      }),
+      shift({ padding: 5 }),
+    ],
+  }).then(({ x, y }) => {
+    Object.assign((tooltip.value as HTMLElement).style, {
+      left: `${x}px`,
+      top: `${y}px`,
+    })
+  })
 }
-function startHover(el:HTMLElement, url:string, isBoard:boolean) {
-  el.classList.add("loading-hover")
-  boardHovering.value = isBoard;
+function startHover(el: HTMLElement, url: string, isBoard: boolean) {
+  el.classList.add('loading-hover')
+  boardHovering.value = isBoard
   stillHovering.value = true
-  hoveringElement.value = el;
-  hoveredURL.value = url;
-  loadingImg.value = true;
+  hoveringElement.value = el
+  hoveredURL.value = url
+  loadingImg.value = true
 }
 
 function showTooltip() {
-  if(stillHovering.value) {
-    (tooltip.value as HTMLElement).style.display = 'block';
-    update(hoveringElement.value);
-    loadingImg.value = false;
-    hoveringElement.value.classList.remove("loading-hover")
+  if (stillHovering.value) {
+    ;(tooltip.value as HTMLElement).style.display = 'block'
+    update(hoveringElement.value)
+    loadingImg.value = false
+    hoveringElement.value.classList.remove('loading-hover')
   }
 }
- 
+
 function hideTooltip() {
-  (tooltip.value as HTMLElement).style.display = 'none';
-  stillHovering.value = false;
-  hoveredURL.value = "";
+  ;(tooltip.value as HTMLElement).style.display = 'none'
+  stillHovering.value = false
+  hoveredURL.value = ''
 }
 </script>
 
 <template>
   <div class="article-preview-wrapper">
     <div class="article-wrapper">
-    <div class="table-of-contents side" v-if="showSideTableOfContents && !emptyTableOfContents">
+      <div class="table-of-contents side" v-if="showSideTableOfContents && !emptyTableOfContents">
         <div class="contents-title">Table of Contents</div>
         <a class="to-top" href="#title">Go to Top</a>
         <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
       </div>
-    <div class="article">
-      <div class="title" id="title">{{ articleData.title }}</div>
-      <div class="flex-row">
-        <RouterLink :to="{ name: 'profile', params: { id: profileData.id } }">
-        <span class="user-span">
-        <SpiritAvatar :spirit="profileData.spirit" class="user-avatar"></SpiritAvatar>
-         {{ profileData.username }}</span>
-        </RouterLink>
-        <span>|</span><span class="last-changed">Last Changed {{ updatedDate }}</span>
+      <div class="article">
+        <div class="title" id="title">{{ articleData.title }}</div>
+        <div class="flex-row">
+          <UserAvatarLink :profile="profileData"></UserAvatarLink>
+          <span>|</span><span class="last-changed">Last Changed {{ updatedDate }}</span>
+        </div>
+        <div class="flex-row wrap">
+          <Tag v-for="tag in validTags" :tag="tag" size="normal"></Tag>
+        </div>
+        <img
+          v-if="articleData.img != null && articleData.img.trim() != ''"
+          class="header-image"
+          :src="articleData.img"
+          alt="Article header image"
+        />
+        <div class="table-of-contents" v-if="!showSideTableOfContents && !emptyTableOfContents">
+          <div class="contents-title">Table of Contents</div>
+          <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
+        </div>
+        <div class="content" v-html="markdownHTML"></div>
+        <div ref="tooltip" class="tooltip">
+          <img
+            :src="hoveredURL"
+            class="tooltip-img"
+            @load="showTooltip"
+            :class="{ shadow: !boardHovering }"
+            alt="Preview image"
+          />
+        </div>
       </div>
-      <div class="flex-row wrap">
-        <Tag v-for="tag in articleData.tags" :tag="tag" size="normal"></Tag>
-      </div>
-      <img v-if="articleData.img != null && articleData.img.trim() != ''" class="header-image" :src="articleData.img" alt="Article header image"></img>
-      <div class="table-of-contents" v-if="!showSideTableOfContents && !emptyTableOfContents">
-        <div class="contents-title">Table of Contents</div>
-        <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
-      </div>
-      <div class="content" v-html="markdownHTML"></div>
-      <div ref="tooltip" class="tooltip">
-      <img :src="hoveredURL" class="tooltip-img" @load="showTooltip" :class="{shadow:!boardHovering}" alt="Preview image">
     </div>
-    </div>
-  </div>
-    <ImageDialog v-model:visible="imageDialogVisible"  :src="clickedURL" ></ImageDialog>
+    <ImageDialog v-model:visible="imageDialogVisible" :src="clickedURL"></ImageDialog>
     <Footer v-if="showFooter"></Footer>
   </div>
 </template>
@@ -158,7 +178,7 @@ function hideTooltip() {
   height: 100%;
 }
 .article-wrapper {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 .article {
@@ -171,8 +191,8 @@ function hideTooltip() {
 
 /* Header */
 .title {
-    font-size: 50px;
-    font-weight: bold;
+  font-size: 50px;
+  font-weight: bold;
 }
 @media (max-width: 700px) {
   .title {
@@ -183,33 +203,18 @@ function hideTooltip() {
   text-wrap: nowrap;
 }
 .articleData {
-    width: 80% !important;
-    height: auto;
+  width: 80% !important;
+  height: auto;
 }
 .flex-row {
-    display:flex;
-    align-items: center;
-    gap:10px;
-    margin:10px 0px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0px;
+  flex-wrap: wrap;
 }
 .wrap {
   flex-wrap: wrap;
-}
-.user-avatar {
-    width:24px;
-    height: 24px;
-    transition: 0.2s filter;
-}
-.user-span {
-    cursor: pointer;
-    display:inline-flex;
-    align-items: center;
-    gap:5px;
-    color:var(--p-primary-500);
-}
-.user-span:hover {
-    filter:brightness(1.1)
 }
 .header-image {
   display: block;
@@ -219,23 +224,23 @@ function hideTooltip() {
 /* Table of Contents */
 * {
   scroll-behavior: smooth;
- }
- .table-of-contents {
-  border-left:1px solid var(--p-primary-300);
-  margin-top:10px;
+}
+.table-of-contents {
+  border-left: 1px solid var(--p-primary-300);
+  margin-top: 10px;
   margin-bottom: 10px;
   max-width: 900px;
   height: min-content;
 }
 .contents-title {
   font-weight: bold;
-  margin-left:10px;
+  margin-left: 10px;
 }
 .side {
-  position:sticky;
-  top:60px;
+  position: sticky;
+  top: 60px;
   max-width: 300px;
-  margin-left:20px;
+  margin-left: 20px;
   max-height: calc(100vh - 70px - 60px);
   overflow: hidden;
   display: flex;
@@ -243,10 +248,9 @@ function hideTooltip() {
 }
 .side > .section {
   flex-grow: 1;
-
 }
 .to-top {
-  color:var(--p-surface-800) !important;
+  color: var(--p-surface-800) !important;
   font-size: smaller;
   margin: 5px 0px 0px 20px;
 }
@@ -299,13 +303,13 @@ function hideTooltip() {
 }
 /* Note: Link styles in main.css */
 ::v-deep(ol p) {
-  margin:0px 5px;
+  margin: 0px 5px;
 }
 
 /* Custom Components */
 ::v-deep(.hoverlink) {
   cursor: pointer;
-  color:var(--p-primary-500);
+  color: var(--p-primary-500);
 }
 .tooltip {
   display: none;
@@ -313,37 +317,37 @@ function hideTooltip() {
   position: absolute;
   top: 0;
   left: 0;
- }
- .tooltip-img {
+}
+.tooltip-img {
   max-height: 300px;
   max-width: 80vw;
   border-radius: 8px;
- }
- ::v-deep(.loading-hover) {
+}
+::v-deep(.loading-hover) {
   cursor: progress;
- }
- .shadow {
+}
+.shadow {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
- }
- ::v-deep(.centered-block) {
-  display:flex;
+}
+::v-deep(.centered-block) {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap:15px;
-  padding:10px;
+  gap: 15px;
+  padding: 10px;
   justify-content: center;
 }
 ::v-deep(.centered-block img) {
   border-radius: 8px;
-  max-height: min(270px,70vh); 
+  max-height: min(270px, 70vh);
   /* Overwrite .content img sytles */
-  width:auto !important;
+  width: auto !important;
   max-width: 80% !important;
-  margin:0px !important;
+  margin: 0px !important;
   cursor: zoom-in;
 }
 ::v-deep(.large) {
-  width:auto;
+  width: auto;
   max-height: 80vh !important;
 }
 </style>

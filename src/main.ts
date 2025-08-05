@@ -119,6 +119,11 @@ const MyPreset = definePreset(Aura, {
             }
           },
         },
+        primary: {
+          contrast: {
+            color: "{zinc.900}"
+          }
+        }
         // add new ones here
       },
     },

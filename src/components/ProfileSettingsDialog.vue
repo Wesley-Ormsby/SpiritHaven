@@ -84,8 +84,8 @@ async function saveSettings() {
       <label>
         Username
         <InputText type="text" v-model="username" :invalid="!validUsername" maxlength="15" />
-        <span class="error" v-if="validUsername"></span>
-        <span class="error" v-else>
+        <span class="f-error" v-if="validUsername">&nbsp;</span>
+        <span class="f-error" v-else>
           Invalid: 6-15 characters (letters, numbers, or underscores).</span
         >
       </label>
@@ -97,17 +97,14 @@ async function saveSettings() {
         Profile Image
         <Select v-model="selectedSpirit" :options="spiritChoices" optionLabel="spirit" fluid filter>
           <template #value="slotProps">
-            <div v-if="slotProps.value" class="select-option">
-              <SpiritAvatar class="select-image" :spirit="slotProps.value as Spirit"></SpiritAvatar>
+            <div v-if="slotProps.value" class="f-select-option">
+              <div class="f-select-option-image"><SpiritAvatar class="select-image" :spirit="slotProps.value as Spirit"></SpiritAvatar></div>
               <div>{{ slotProps.value }}</div>
             </div>
           </template>
           <template #option="slotProps">
-            <div class="select-option">
-              <SpiritAvatar
-                class="select-image"
-                :spirit="slotProps.option as Spirit"
-              ></SpiritAvatar>
+            <div class="f-select-option">
+                <div class="f-select-option-image"><SpiritAvatar :spirit="slotProps.option as Spirit"></SpiritAvatar></div>
               <div>{{ slotProps.option }}</div>
             </div>
           </template>
@@ -124,66 +121,9 @@ async function saveSettings() {
 </template>
 <style scoped>
 /* FORM */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.select-option {
-  display: flex;
-  flex-direction: row;
-  text-transform: capitalize;
-  align-items: center;
-  gap: 10px;
-  max-width: 60vw;
-}
-.select-option div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.select-image {
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-}
 textarea {
   resize: none;
 }
-
-/* HEADER + FOOTER */
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 10px;
-}
-.secondary {
-  background-color: var(--p-surface-300);
-  border-color: var(--p-surface-300) !important;
-  color: var(--p-surface-900) !important;
-}
-.secondary:hover {
-  background-color: var(--p-surface-400) !important;
-}
-.close-x {
-  stroke: var(--p-surface-600);
-  transition: 0.3s stroke;
-  cursor: pointer;
-}
-.close-x:hover {
-  stroke: var(--p-surface-900);
-}
-.error {
-  color: var(--p-red-500);
-  height: 16px;
-  font-size: 12px;
-}
-
 @media only screen and (max-width: 500px) {
   ::v-deep(.p-textarea),
   .select-option,

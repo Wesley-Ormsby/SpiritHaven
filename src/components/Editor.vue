@@ -785,15 +785,7 @@ const ribbonButtons = ref([
   margin-bottom: 10px;
 }
 .form {
-  display: flex;
   margin-top: 15px;
-  flex-direction: column;
-  gap: 10px;
-}
-.label {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 /* popover-auto-complete-option in main.css*/
 .popover-footer {
@@ -835,10 +827,6 @@ const ribbonButtons = ref([
   text-overflow: ellipsis;
   text-wrap: nowrap;
   width: 100%;
-}
-.reminder {
-  font-size: small;
-  color: var(--p-surface-600);
 }
 
 /* Highlighting */

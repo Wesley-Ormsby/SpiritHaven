@@ -248,9 +248,8 @@ async function openNewArticle() {
       <label ref="title-ref-parent">
         Title
         <InputText type="text" v-model="title" :invalid="invalidTitle" maxLength="80" />
-        <span class="error" :class="{ visible: invalidTitle }"
-          >The title must be 5-80 characters</span
-        >
+        <span class="f-error" v-if="invalidTitle">The title must be 5-80 characters</span>
+        <span class="f-error" v-else>&nbsp;</span>
       </label>
       <label>
         <span>Description <i>(optional)</i></span>
@@ -387,16 +386,6 @@ async function openNewArticle() {
 </template>
 <style scoped>
 /* FORM */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
 ::v-deep(.p-fileupload) {
   display: block;
 }
@@ -440,13 +429,15 @@ label {
 .access-description {
   padding: 5px;
 }
+/* So it does not effect the tag selector listbox */
 .gallery-listbox ::v-deep(.p-listbox-list-container) {
   max-height: 8rem !important;
 }
 .gallery-listbox ::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected) {
   background-color: var(--p-listbox-option-background);
 }
-.gallery-listbox ::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected):hover {
+.gallery-listbox
+  ::v-deep(.p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected):hover {
   background-color: var(--p-listbox-option-focus-background);
 }
 .list-option {
@@ -472,39 +463,6 @@ label {
 .list-image {
   height: 24px;
   width: auto;
-}
-
-/* HEADER + FOOTER */
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 10px;
-}
-.secondary {
-  background-color: var(--p-surface-300);
-  border-color: var(--p-surface-300) !important;
-  color: var(--p-surface-900) !important;
-}
-.secondary:hover {
-  background-color: var(--p-surface-400) !important;
-}
-.close-x {
-  stroke: var(--p-surface-600);
-  transition: 0.3s stroke;
-  cursor: pointer;
-}
-.close-x:hover {
-  stroke: var(--p-surface-900);
-}
-
-.error {
-  color: var(--p-red-500);
-  opacity: 0;
-  font-size: 12px;
-}
-.visible {
-  opacity: 1;
 }
 @media only screen and (max-width: 500px) {
   ::v-deep(.p-message-text) {

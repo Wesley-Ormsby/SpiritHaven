@@ -99,9 +99,9 @@ function saveFilters() {
         >
           <template #value="slotProps">
             <div class="author-value" v-if="slotProps.value">
-              <div class="select-option">
-                <SpiritAvatar class="select-image" :spirit="slotProps.value.spirit"></SpiritAvatar>
-                <div>{{ slotProps.value.username }}</div>
+              <div class="f-select-option">
+                <div class="f-select-option-image"><SpiritAvatar :spirit="slotProps.value.spirit"></SpiritAvatar></div>
+                <div class="text">{{ slotProps.value.username }}</div>
               </div>
               <X @click.prevent="author = null" class="removeAuthor"></X>
             </div>
@@ -110,8 +110,8 @@ function saveFilters() {
             </span>
           </template>
           <template #option="slotProps">
-            <div class="select-option">
-              <SpiritAvatar class="select-image" :spirit="slotProps.option.spirit"></SpiritAvatar>
+            <div class="f-select-option">
+              <div class="f-select-option-image"><SpiritAvatar :spirit="slotProps.option.spirit"></SpiritAvatar></div>
               <div>{{ slotProps.option.username }}</div>
             </div>
           </template>
@@ -128,78 +128,29 @@ function saveFilters() {
 </template>
 <style scoped>
 /* FORM */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-label {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.select-option {
-  display: flex;
-  flex-direction: row;
-  text-transform: capitalize;
-  align-items: center;
-  gap: 10px;
-  max-width: 60vw;
-}
-.select-option div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.select-image {
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-}
 .userSelect {
   height: 46px;
 }
 .removeAuthor {
   color: var(--p-surface-400);
   transition: 0.3s color;
-  width: min-content;
+  flex-shrink: 0;
 }
 .removeAuthor:hover {
   color: var(--p-surface-900);
-  margin: 0px;
 }
 .author-value {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-}
-.author-value .select-option {
-  max-width: 250px;
-  overflow: hidden;
-}
-/* HEADER + FOOTER */
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
   gap: 10px;
-  margin-top: 10px;
+  min-width: 0;
 }
-.secondary {
-  background-color: var(--p-surface-300);
-  border-color: var(--p-surface-300) !important;
-  color: var(--p-surface-900) !important;
+.author-value .f-select-option {
+  min-width: 0;
 }
-.secondary:hover {
-  background-color: var(--p-surface-400) !important;
-}
-.close-x {
-  stroke: var(--p-surface-600);
-  transition: 0.3s stroke;
-  cursor: pointer;
-}
-.close-x:hover {
-  stroke: var(--p-surface-900);
+.author-value .f-select-option .text {
+  flex: 1;
 }
 @media only screen and (max-width: 500px) {
   ::v-deep(.p-message-text) {

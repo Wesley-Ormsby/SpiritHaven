@@ -85,7 +85,7 @@ function updateQuery(params: Record<string, string>) {
 
 <template>
   <div class="page">
-    <h1>Search <span class="primary">Users</span></h1>
+    <h1 class="title">Search <span class="primary">Users</span></h1>
     <div class="text-input-container">
       <InputGroup>
         <InputText type="text" v-model="input" placeholder="Search for a user" @keypress.enter="search"/>
@@ -125,15 +125,6 @@ function updateQuery(params: Record<string, string>) {
 <style lang="css" scoped>
 .page {
   min-height: calc(100vh - 60px);
-}
-h1 {
-  color: var(--p-surface-900);
-  margin-top: 70px;
-  text-align: center;
-  font-size: 60px;
-}
-.primary {
-  color: var(--p-primary-500);
 }
 .text-input-container {
   max-width: 500px;

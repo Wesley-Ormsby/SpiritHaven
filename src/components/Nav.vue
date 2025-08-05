@@ -129,6 +129,7 @@ const toggleProfileDropdown = (event: Event) => {
           showDelay: 1000,
           pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
         }"
+        :key="display"
       >
         <Sun v-if="display == 'light'"></Sun>
         <Moon v-else-if="display == 'dark'"></Moon>

@@ -179,13 +179,18 @@ async function loadArticles() {
   }
 }
 @media only screen and (max-width: 880px) {
-  .title {
+  .username {
     font-size: 40px;
     max-width: 400px;
   }
   .description {
     font-size: 13px;
     max-width: 400px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .username {
+    font-size: 30px;
   }
 }
 @media only screen and (max-width: 480px) {
