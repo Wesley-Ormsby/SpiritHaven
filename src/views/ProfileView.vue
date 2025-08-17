@@ -127,12 +127,6 @@ async function loadArticles() {
 .my-app-dark .hero {
   background-color: var(--p-primary-900);
 }
-.dialog-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 10px;
-}
 .description {
   color: var(--p-surface-700);
   font-size: 16px;

@@ -11,6 +11,7 @@ export const router = createRouter({
       component: HomeView,
       beforeEnter: (to, from) => changeTitle()
     },
+    /*
     {
       path: '/profile/:id',
       name: 'profile',
@@ -57,6 +58,7 @@ export const router = createRouter({
       component: () => import('@/views/NotFound.vue'),
       beforeEnter: (to, from) => changeTitle("404 Page Not Found ⋅ SpiritHaven")
     },
+    */
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {

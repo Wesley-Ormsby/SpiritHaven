@@ -36,8 +36,12 @@ watch(
     <ProgressBar mode="indeterminate" style="height: 3px"></ProgressBar>
   </div>
   <div v-else>
+    <h1>This website is currently unavailable</h1>
+    <p>Thank you for your patience</p>
+    <!--
     <Nav></Nav>
     <RouterView />
+    --->
   </div>
 </template>
 
