@@ -36,8 +36,9 @@ watch(
     <ProgressBar mode="indeterminate" style="height: 3px"></ProgressBar>
   </div>
   <div v-else>
-    <h1>This website is currently unavailable</h1>
-    <p>Thank you for your patience</p>
+    <h1>This website is temporarily unavailable</h1>
+    <p>Thank you for your patience. </p>
+    <p>Before the error is fixed, the <a href="https://spiritislandwiki.com/">Wiki</a> must be operating.</p>
     <!--
     <Nav></Nav>
     <RouterView />
@@ -48,5 +49,8 @@ watch(
 <style scoped>
 ::v-deep(.p-progressbar) {
   border-radius: 0px;
+}
+h1, p {
+  text-align: center;
 }
 </style>
