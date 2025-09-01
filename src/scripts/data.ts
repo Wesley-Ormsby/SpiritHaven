@@ -3584,7 +3584,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
 
 export const POWERS: Record<string, PowerCard> = {
   "call of the dahan ways": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738814/powers/call_of_the_dahan_ways.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753347/powers_cards/call_of_the_dahan_ways.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3613,7 +3613,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740011/powers/call_of_the_dahan_ways.png"
   },
   "drought": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738816/powers/drought.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753350/powers_cards/drought.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3642,7 +3642,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740012/powers/drought.png"
   },
   "delusions of danger": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738819/powers/delusions_of_danger.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753352/powers_cards/delusions_of_danger.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3666,7 +3666,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740013/powers/delusions_of_danger.png"
   },
   "call to bloodshed": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738820/powers/call_to_bloodshed.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753353/powers_cards/call_to_bloodshed.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3690,7 +3690,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740014/powers/call_to_bloodshed.png"
   },
   "devouring ants": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738822/powers/devouring_ants.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753354/powers_cards/devouring_ants.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3714,7 +3714,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740015/powers/devouring_ants.png"
   },
   "call to migrate": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738822/powers/call_to_migrate.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753355/powers_cards/call_to_migrate.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3738,7 +3738,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740016/powers/call_to_migrate.png"
   },
   "call to ferocity": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738823/powers/call_to_ferocity.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753356/powers_cards/call_to_ferocity.png",
     "set": [
       "branch and claw"
     ],
@@ -3761,7 +3761,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740019/powers/call_to_ferocity.png"
   },
   "encompassing ward": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738824/powers/encompassing_ward.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753357/powers_cards/encompassing_ward.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3785,7 +3785,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740020/powers/encompassing_ward.png"
   },
   "drift down into slumber": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738825/powers/drift_down_into_slumber.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753358/powers_cards/drift_down_into_slumber.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3809,7 +3809,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740021/powers/drift_down_into_slumber.png"
   },
   "dark and tangled woods": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738826/powers/dark_and_tangled_woods.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753359/powers_cards/dark_and_tangled_woods.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3833,7 +3833,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740022/powers/dark_and_tangled_woods.png"
   },
   "enticing splendor": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738827/powers/enticing_splendor.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753360/powers_cards/enticing_splendor.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3857,7 +3857,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740023/powers/enticing_splendor.png"
   },
   "gift of power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738828/powers/gift_of_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753361/powers_cards/gift_of_power.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3882,7 +3882,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740024/powers/gift_of_power.png"
   },
   "absorb corruption": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738830/powers/absorb_corruption.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753363/powers_cards/absorb_corruption.png",
     "set": [
       "branch and claw"
     ],
@@ -3910,7 +3910,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740025/powers/absorb_corruption.png"
   },
   "land of haunts and embers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738832/powers/land_of_haunts_and_embers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753363/powers_cards/land_of_haunts_and_embers.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3934,7 +3934,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740026/powers/land_of_haunts_and_embers.png"
   },
   "quicken the earth's struggles": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738833/powers/quicken_the_earth%27s_struggles.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753364/powers_cards/quicken_the_earth%27s_struggles.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3959,7 +3959,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740028/powers/quicken_the_earth%27s_struggles.png"
   },
   "purifying flame": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738834/powers/purifying_flame.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753365/powers_cards/purifying_flame.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3984,7 +3984,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740030/powers/purifying_flame.png"
   },
   "pull beneath the hungry earth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738835/powers/pull_beneath_the_hungry_earth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753366/powers_cards/pull_beneath_the_hungry_earth.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4008,7 +4008,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740031/powers/pull_beneath_the_hungry_earth.png"
   },
   "nature's resilience": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738836/powers/nature%27s_resilience.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753367/powers_cards/nature%27s_resilience.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4037,7 +4037,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740032/powers/nature%27s_resilience.png"
   },
   "reaching grasp": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738837/powers/reaching_grasp.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753368/powers_cards/reaching_grasp.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4061,7 +4061,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740032/powers/reaching_grasp.png"
   },
   "rituals of destruction": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738838/powers/rituals_of_destruction.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753369/powers_cards/rituals_of_destruction.png",
     "set": [
       "spirit island"
     ],
@@ -4087,7 +4087,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740033/powers/rituals_of_destruction.png"
   },
   "gift of constancy": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738838/powers/gift_of_constancy.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753370/powers_cards/gift_of_constancy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4110,7 +4110,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740035/powers/gift_of_constancy.png"
   },
   "crops wither and fade": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738839/powers/crops_wither_and_fade.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753372/powers_cards/crops_wither_and_fade.png",
     "set": [
       "spirit island"
     ],
@@ -4134,7 +4134,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740035/powers/crops_wither_and_fade.png"
   },
   "tidal boon": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738840/powers/tidal_boon.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753372/powers_cards/tidal_boon.png",
     "set": [
       "spirit island"
     ],
@@ -4158,7 +4158,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740036/powers/tidal_boon.png"
   },
   "rain of blood": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738841/powers/rain_of_blood.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753373/powers_cards/rain_of_blood.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4182,7 +4182,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740037/powers/rain_of_blood.png"
   },
   "guard the healing land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738842/powers/guard_the_healing_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753374/powers_cards/guard_the_healing_land.png",
     "set": [
       "spirit island"
     ],
@@ -4206,7 +4206,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740038/powers/guard_the_healing_land.png"
   },
   "call to isolation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738843/powers/call_to_isolation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753375/powers_cards/call_to_isolation.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4230,7 +4230,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740039/powers/call_to_isolation.png"
   },
   "gnawing rootbiters": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738844/powers/gnawing_rootbiters.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753376/powers_cards/gnawing_rootbiters.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4253,7 +4253,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740041/powers/gnawing_rootbiters.png"
   },
   "shadows of the burning forest": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738845/powers/shadows_of_the_burning_forest.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753377/powers_cards/shadows_of_the_burning_forest.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4277,7 +4277,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740043/powers/shadows_of_the_burning_forest.png"
   },
   "call to tend": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738845/powers/call_to_tend.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753378/powers_cards/call_to_tend.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4301,7 +4301,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740044/powers/call_to_tend.png"
   },
   "wash away": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738846/powers/wash_away.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753379/powers_cards/wash_away.png",
     "set": [
       "spirit island"
     ],
@@ -4324,7 +4324,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740045/powers/wash_away.png"
   },
   "sap the strength of multitudes": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738847/powers/sap_the_strength_of_multitudes.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753380/powers_cards/sap_the_strength_of_multitudes.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4352,7 +4352,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740045/powers/sap_the_strength_of_multitudes.png"
   },
   "words of warning": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738848/powers/words_of_warning.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753381/powers_cards/words_of_warning.png",
     "set": [
       "spirit island"
     ],
@@ -4376,7 +4376,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740047/powers/words_of_warning.png"
   },
   "draw of the fruitful earth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738849/powers/draw_of_the_fruitful_earth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753382/powers_cards/draw_of_the_fruitful_earth.png",
     "set": [
       "spirit island"
     ],
@@ -4400,7 +4400,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740047/powers/draw_of_the_fruitful_earth.png"
   },
   "boon of vigor": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738850/powers/boon_of_vigor.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753383/powers_cards/boon_of_vigor.png",
     "set": [
       "spirit island"
     ],
@@ -4424,7 +4424,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740048/powers/boon_of_vigor.png"
   },
   "lure of the unknown": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738851/powers/lure_of_the_unknown.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753384/powers_cards/lure_of_the_unknown.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4449,7 +4449,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740049/powers/lure_of_the_unknown.png"
   },
   "savage mawbeasts": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738853/powers/savage_mawbeasts.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753384/powers_cards/savage_mawbeasts.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4477,7 +4477,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740051/powers/savage_mawbeasts.png"
   },
   "manifestation of power and glory": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738853/powers/manifestation_of_power_and_glory.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753386/powers_cards/manifestation_of_power_and_glory.png",
     "set": [
       "spirit island"
     ],
@@ -4501,7 +4501,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740053/powers/manifestation_of_power_and_glory.png"
   },
   "tsunami": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738854/powers/tsunami.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753388/powers_cards/tsunami.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4530,7 +4530,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740054/powers/tsunami.png"
   },
   "concealing shadows": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738855/powers/concealing_shadows.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753390/powers_cards/concealing_shadows.png",
     "set": [
       "spirit island"
     ],
@@ -4553,7 +4553,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740055/powers/concealing_shadows.png"
   },
   "paralyzing fright": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738856/powers/paralyzing_fright.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753392/powers_cards/paralyzing_fright.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4582,7 +4582,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740056/powers/paralyzing_fright.png"
   },
   "mantle of dread": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738857/powers/mantle_of_dread.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753393/powers_cards/mantle_of_dread.png",
     "set": [
       "spirit island"
     ],
@@ -4606,7 +4606,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740056/powers/mantle_of_dread.png"
   },
   "portents of disaster": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738858/powers/portents_of_disaster.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753394/powers_cards/portents_of_disaster.png",
     "set": [
       "branch and claw"
     ],
@@ -4629,7 +4629,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740057/powers/portents_of_disaster.png"
   },
   "blazing renewal": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738860/powers/blazing_renewal.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753396/powers_cards/blazing_renewal.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4660,7 +4660,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740058/powers/blazing_renewal.png"
   },
   "rouse the trees and stones": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738861/powers/rouse_the_trees_and_stones.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753398/powers_cards/rouse_the_trees_and_stones.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4684,7 +4684,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740060/powers/rouse_the_trees_and_stones.png"
   },
   "a year of perfect stillness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738861/powers/a_year_of_perfect_stillness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753400/powers_cards/a_year_of_perfect_stillness.png",
     "set": [
       "spirit island"
     ],
@@ -4707,7 +4707,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740061/powers/a_year_of_perfect_stillness.png"
   },
   "dissolve the bonds of kinship": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738862/powers/dissolve_the_bonds_of_kinship.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753401/powers_cards/dissolve_the_bonds_of_kinship.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4738,7 +4738,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740064/powers/dissolve_the_bonds_of_kinship.png"
   },
   "veil the night's hunt": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738864/powers/veil_the_night%27s_hunt.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753402/powers_cards/veil_the_night%27s_hunt.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4762,7 +4762,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740065/powers/veil_the_night%27s_hunt.png"
   },
   "animated wrackroot": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738865/powers/animated_wrackroot.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753403/powers_cards/animated_wrackroot.png",
     "set": [
       "branch and claw"
     ],
@@ -4785,7 +4785,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740065/powers/animated_wrackroot.png"
   },
   "infinite vitality": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738866/powers/infinite_vitality.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753405/powers_cards/infinite_vitality.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4814,7 +4814,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740066/powers/infinite_vitality.png"
   },
   "disorienting landscape": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738867/powers/disorienting_landscape.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753406/powers_cards/disorienting_landscape.png",
     "set": [
       "branch and claw"
     ],
@@ -4837,7 +4837,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740067/powers/disorienting_landscape.png"
   },
   "cleansing floods": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738868/powers/cleansing_floods.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753406/powers_cards/cleansing_floods.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4865,7 +4865,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740068/powers/cleansing_floods.png"
   },
   "indomitable claim": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738870/powers/indomitable_claim.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753407/powers_cards/indomitable_claim.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4894,7 +4894,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740069/powers/indomitable_claim.png"
   },
   "call to trade": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738871/powers/call_to_trade.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753408/powers_cards/call_to_trade.png",
     "set": [
       "branch and claw"
     ],
@@ -4918,7 +4918,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740070/powers/call_to_trade.png"
   },
   "river's bounty": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738872/powers/river%27s_bounty.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753409/powers_cards/river%27s_bounty.png",
     "set": [
       "spirit island"
     ],
@@ -4942,7 +4942,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740074/powers/river%27s_bounty.png"
   },
   "gold's allure": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738874/powers/gold%27s_allure.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753411/powers_cards/gold%27s_allure.png",
     "set": [
       "branch and claw"
     ],
@@ -4965,7 +4965,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740075/powers/gold%27s_allure.png"
   },
   "pillar of living flame": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738875/powers/pillar_of_living_flame.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753411/powers_cards/pillar_of_living_flame.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4992,7 +4992,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740076/powers/pillar_of_living_flame.png"
   },
   "uncanny melting": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738878/powers/uncanny_melting.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753412/powers_cards/uncanny_melting.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5016,7 +5016,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740077/powers/uncanny_melting.png"
   },
   "fleshrot fever": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738879/powers/fleshrot_fever.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753413/powers_cards/fleshrot_fever.png",
     "set": [
       "branch and claw"
     ],
@@ -5040,7 +5040,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740078/powers/fleshrot_fever.png"
   },
   "the trees and stones speak of war": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738880/powers/the_trees_and_stones_speak_of_war.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753414/powers_cards/the_trees_and_stones_speak_of_war.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5071,7 +5071,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740079/powers/the_trees_and_stones_speak_of_war.png"
   },
   "poisoned land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738881/powers/poisoned_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753415/powers_cards/poisoned_land.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5102,7 +5102,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740080/powers/poisoned_land.png"
   },
   "elusive ambushes": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738882/powers/elusive_ambushes.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753417/powers_cards/elusive_ambushes.png",
     "set": [
       "branch and claw"
     ],
@@ -5125,7 +5125,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740084/powers/elusive_ambushes.png"
   },
   "song of sanctity": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738883/powers/song_of_sanctity.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753417/powers_cards/song_of_sanctity.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5149,7 +5149,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740085/powers/song_of_sanctity.png"
   },
   "here there be monsters": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738885/powers/here_there_be_monsters.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753418/powers_cards/here_there_be_monsters.png",
     "set": [
       "branch and claw"
     ],
@@ -5172,7 +5172,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740086/powers/here_there_be_monsters.png"
   },
   "fire in the sky": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738887/powers/fire_in_the_sky.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753420/powers_cards/fire_in_the_sky.png",
     "set": [
       "branch and claw"
     ],
@@ -5195,7 +5195,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740087/powers/fire_in_the_sky.png"
   },
   "steam vents": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738888/powers/steam_vents.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753420/powers_cards/steam_vents.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5225,7 +5225,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740087/powers/steam_vents.png"
   },
   "inflame the fires of life": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738889/powers/inflame_the_fires_of_life.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753421/powers_cards/inflame_the_fires_of_life.png",
     "set": [
       "branch and claw"
     ],
@@ -5254,7 +5254,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740088/powers/inflame_the_fires_of_life.png"
   },
   "swallow the land-dwellers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738890/powers/swallow_the_land-dwellers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753422/powers_cards/swallow_the_land-dwellers.png",
     "set": [
       "spirit island"
     ],
@@ -5277,7 +5277,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740089/powers/swallow_the_land-dwellers.png"
   },
   "powerstorm": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738891/powers/powerstorm.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753423/powers_cards/powerstorm.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5308,7 +5308,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740090/powers/powerstorm.png"
   },
   "stem the flow of fresh water": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738892/powers/stem_the_flow_of_fresh_water.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753424/powers_cards/stem_the_flow_of_fresh_water.png",
     "set": [
       "spirit island"
     ],
@@ -5331,7 +5331,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740091/powers/stem_the_flow_of_fresh_water.png"
   },
   "accelerated rot": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738893/powers/accelerated_rot.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753425/powers_cards/accelerated_rot.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5362,7 +5362,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740095/powers/accelerated_rot.png"
   },
   "the land thrashes in furious pain": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738894/powers/the_land_thrashes_in_furious_pain.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753426/powers_cards/the_land_thrashes_in_furious_pain.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5392,7 +5392,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740096/powers/the_land_thrashes_in_furious_pain.png"
   },
   "confounding mists": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738895/powers/confounding_mists.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753427/powers_cards/confounding_mists.png",
     "set": [
       "branch and claw"
     ],
@@ -5414,7 +5414,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740097/powers/confounding_mists.png"
   },
   "voracious growth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738896/powers/voracious_growth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753428/powers_cards/voracious_growth.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5437,7 +5437,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740097/powers/voracious_growth.png"
   },
   "grant hatred a ravenous form": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738897/powers/grant_hatred_a_ravenous_form.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753428/powers_cards/grant_hatred_a_ravenous_form.png",
     "set": [
       "branch and claw"
     ],
@@ -5465,7 +5465,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740098/powers/grant_hatred_a_ravenous_form.png"
   },
   "cycles of time and tide": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738898/powers/cycles_of_time_and_tide.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753430/powers_cards/cycles_of_time_and_tide.png",
     "set": [
       "branch and claw"
     ],
@@ -5488,7 +5488,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740099/powers/cycles_of_time_and_tide.png"
   },
   "entwined power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738899/powers/entwined_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753431/powers_cards/entwined_power.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5518,7 +5518,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740100/powers/entwined_power.png"
   },
   "razor-sharp undergrowth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738900/powers/razor-sharp_undergrowth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753432/powers_cards/razor-sharp_undergrowth.png",
     "set": [
       "branch and claw"
     ],
@@ -5540,7 +5540,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740101/powers/razor-sharp_undergrowth.png"
   },
   "visions of fiery doom": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738901/powers/visions_of_fiery_doom.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753433/powers_cards/visions_of_fiery_doom.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5568,7 +5568,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740103/powers/visions_of_fiery_doom.png"
   },
   "call on midnight's dream": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738902/powers/call_on_midnight%27s_dream.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753434/powers_cards/call_on_midnight%27s_dream.png",
     "set": [
       "spirit island"
     ],
@@ -5591,7 +5591,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740105/powers/call_on_midnight%27s_dream.png"
   },
   "vigor of the breaking dawn": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738903/powers/vigor_of_the_breaking_dawn.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753435/powers_cards/vigor_of_the_breaking_dawn.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5620,7 +5620,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740106/powers/vigor_of_the_breaking_dawn.png"
   },
   "fields choked with growth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738904/powers/fields_choked_with_growth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753436/powers_cards/fields_choked_with_growth.png",
     "set": [
       "spirit island"
     ],
@@ -5644,7 +5644,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740107/powers/fields_choked_with_growth.png"
   },
   "gift of proliferation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738905/powers/gift_of_proliferation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753437/powers_cards/gift_of_proliferation.png",
     "set": [
       "spirit island"
     ],
@@ -5667,7 +5667,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740108/powers/gift_of_proliferation.png"
   },
   "terrifying nightmares": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738906/powers/terrifying_nightmares.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753438/powers_cards/terrifying_nightmares.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5695,7 +5695,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740109/powers/terrifying_nightmares.png"
   },
   "the jungle hungers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738907/powers/the_jungle_hungers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753438/powers_cards/the_jungle_hungers.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5724,7 +5724,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740110/powers/the_jungle_hungers.png"
   },
   "tormenting rotflies": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738907/powers/tormenting_rotflies.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753439/powers_cards/tormenting_rotflies.png",
     "set": [
       "branch and claw"
     ],
@@ -5747,7 +5747,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740111/powers/tormenting_rotflies.png"
   },
   "harbingers of the lightning": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738908/powers/harbingers_of_the_lightning.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753440/powers_cards/harbingers_of_the_lightning.png",
     "set": [
       "spirit island"
     ],
@@ -5770,7 +5770,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740113/powers/harbingers_of_the_lightning.png"
   },
   "lightning's boon": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738909/powers/lightning%27s_boon.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753441/powers_cards/lightning%27s_boon.png",
     "set": [
       "spirit island"
     ],
@@ -5793,7 +5793,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740115/powers/lightning%27s_boon.png"
   },
   "overgrow in a night": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738910/powers/overgrow_in_a_night.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753442/powers_cards/overgrow_in_a_night.png",
     "set": [
       "spirit island"
     ],
@@ -5816,7 +5816,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740117/powers/overgrow_in_a_night.png"
   },
   "smothering infestation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738911/powers/smothering_infestation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753443/powers_cards/smothering_infestation.png",
     "set": [
       "branch and claw"
     ],
@@ -5844,7 +5844,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740118/powers/smothering_infestation.png"
   },
   "dreams of the dahan": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738912/powers/dreams_of_the_dahan.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753444/powers_cards/dreams_of_the_dahan.png",
     "set": [
       "spirit island"
     ],
@@ -5867,7 +5867,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740119/powers/dreams_of_the_dahan.png"
   },
   "bombard with boulders and stinging seeds": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738913/powers/bombard_with_boulders_and_stinging_seeds.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753445/powers_cards/bombard_with_boulders_and_stinging_seeds.png",
     "set": [
       "nature incarnate"
     ],
@@ -5897,7 +5897,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "scour the land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738914/powers/scour_the_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753447/powers_cards/scour_the_land.png",
     "set": [
       "branch and claw"
     ],
@@ -5924,7 +5924,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740120/powers/scour_the_land.png"
   },
   "talons of lightning": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738915/powers/talons_of_lightning.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753448/powers_cards/talons_of_lightning.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5953,7 +5953,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740121/powers/talons_of_lightning.png"
   },
   "shatter homesteads": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738916/powers/shatter_homesteads.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753448/powers_cards/shatter_homesteads.png",
     "set": [
       "spirit island"
     ],
@@ -5976,7 +5976,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740121/powers/shatter_homesteads.png"
   },
   "mists of oblivion": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738917/powers/mists_of_oblivion.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753450/powers_cards/mists_of_oblivion.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6007,7 +6007,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740123/powers/mists_of_oblivion.png"
   },
   "renewing rain": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738918/powers/renewing_rain.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753451/powers_cards/renewing_rain.png",
     "set": [
       "branch and claw"
     ],
@@ -6035,7 +6035,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740125/powers/renewing_rain.png"
   },
   "guardian serpents": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738920/powers/guardian_serpents.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753452/powers_cards/guardian_serpents.png",
     "set": [
       "branch and claw"
     ],
@@ -6059,7 +6059,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740126/powers/guardian_serpents.png"
   },
   "winds of rust and atrophy": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738922/powers/winds_of_rust_and_atrophy.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753453/powers_cards/winds_of_rust_and_atrophy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6090,7 +6090,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740127/powers/winds_of_rust_and_atrophy.png"
   },
   "infested aquifers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738923/powers/infested_aquifers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753454/powers_cards/infested_aquifers.png",
     "set": [
       "branch and claw"
     ],
@@ -6114,7 +6114,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740128/powers/infested_aquifers.png"
   },
   "poisoned dew": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738924/powers/poisoned_dew.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753458/powers_cards/poisoned_dew.png",
     "set": [
       "branch and claw"
     ],
@@ -6137,7 +6137,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740129/powers/poisoned_dew.png"
   },
   "cast down into the briny deep": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738925/powers/cast_down_into_the_briny_deep.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753459/powers_cards/cast_down_into_the_briny_deep.png",
     "set": [
       "branch and claw"
     ],
@@ -6169,7 +6169,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740130/powers/cast_down_into_the_briny_deep.png"
   },
   "swarming wasps": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738926/powers/swarming_wasps.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753461/powers_cards/swarming_wasps.png",
     "set": [
       "branch and claw"
     ],
@@ -6192,7 +6192,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740131/powers/swarming_wasps.png"
   },
   "raging storm": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738927/powers/raging_storm.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753462/powers_cards/raging_storm.png",
     "set": [
       "spirit island"
     ],
@@ -6216,7 +6216,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740132/powers/raging_storm.png"
   },
   "bloodwrack plague": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738929/powers/bloodwrack_plague.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753463/powers_cards/bloodwrack_plague.png",
     "set": [
       "branch and claw"
     ],
@@ -6245,7 +6245,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740133/powers/bloodwrack_plague.png"
   },
   "pact of the joined hunt": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738930/powers/pact_of_the_joined_hunt.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753464/powers_cards/pact_of_the_joined_hunt.png",
     "set": [
       "branch and claw"
     ],
@@ -6268,7 +6268,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740135/powers/pact_of_the_joined_hunt.png"
   },
   "bargain of coursing paths": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738931/powers/bargain_of_coursing_paths.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753465/powers_cards/bargain_of_coursing_paths.png",
     "set": [
       "nature incarnate"
     ],
@@ -6299,7 +6299,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "exaltation of the incandescent sky": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738932/powers/exaltation_of_the_incandescent_sky.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753466/powers_cards/exaltation_of_the_incandescent_sky.png",
     "set": [
       "nature incarnate"
     ],
@@ -6331,7 +6331,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "sweep into the sea": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738932/powers/sweep_into_the_sea.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753467/powers_cards/sweep_into_the_sea.png",
     "set": [
       "branch and claw"
     ],
@@ -6360,7 +6360,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740137/powers/sweep_into_the_sea.png"
   },
   "sea monsters": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738935/powers/sea_monsters.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753468/powers_cards/sea_monsters.png",
     "set": [
       "branch and claw",
       "jagged earth"
@@ -6389,7 +6389,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740138/powers/sea_monsters.png"
   },
   "fire and flood": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738937/powers/fire_and_flood.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753469/powers_cards/fire_and_flood.png",
     "set": [
       "branch and claw"
     ],
@@ -6420,7 +6420,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740139/powers/fire_and_flood.png"
   },
   "volcanic eruption": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738938/powers/volcanic_eruption.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753470/powers_cards/volcanic_eruption.png",
     "set": [
       "branch and claw"
     ],
@@ -6448,7 +6448,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740140/powers/volcanic_eruption.png"
   },
   "absorb essence": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738939/powers/absorb_essence.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753471/powers_cards/absorb_essence.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6474,7 +6474,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740141/powers/absorb_essence.png"
   },
   "unrelenting growth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738940/powers/unrelenting_growth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753472/powers_cards/unrelenting_growth.png",
     "set": [
       "branch and claw"
     ],
@@ -6504,7 +6504,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740142/powers/unrelenting_growth.png"
   },
   "promises of protection": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738941/powers/promises_of_protection.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753472/powers_cards/promises_of_protection.png",
     "set": [
       "branch and claw"
     ],
@@ -6527,7 +6527,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740143/powers/promises_of_protection.png"
   },
   "tigers hunting": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738942/powers/tigers_hunting.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753474/powers_cards/tigers_hunting.png",
     "set": [
       "branch and claw"
     ],
@@ -6557,7 +6557,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740144/powers/tigers_hunting.png"
   },
   "wrap in wings of sunlight": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738943/powers/wrap_in_wings_of_sunlight.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753475/powers_cards/wrap_in_wings_of_sunlight.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6588,7 +6588,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740145/powers/wrap_in_wings_of_sunlight.png"
   },
   "insatiable hunger of the swarm": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738944/powers/insatiable_hunger_of_the_swarm.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753476/powers_cards/insatiable_hunger_of_the_swarm.png",
     "set": [
       "branch and claw"
     ],
@@ -6617,7 +6617,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740147/powers/insatiable_hunger_of_the_swarm.png"
   },
   "prowling panthers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738946/powers/prowling_panthers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753477/powers_cards/prowling_panthers.png",
     "set": [
       "branch and claw"
     ],
@@ -6640,7 +6640,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740149/powers/prowling_panthers.png"
   },
   "strangling firevine": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738948/powers/strangling_firevine.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753478/powers_cards/strangling_firevine.png",
     "set": [
       "branch and claw"
     ],
@@ -6668,7 +6668,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740150/powers/strangling_firevine.png"
   },
   "weep for what is lost": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738950/powers/weep_for_what_is_lost.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753479/powers_cards/weep_for_what_is_lost.png",
     "set": [
       "jagged earth"
     ],
@@ -6691,7 +6691,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740151/powers/weep_for_what_is_lost.png"
   },
   "elemental aegis": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738950/powers/elemental_aegis.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753480/powers_cards/elemental_aegis.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6716,7 +6716,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740152/powers/elemental_aegis.png"
   },
   "flocking red-talons": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738951/powers/flocking_red-talons.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753481/powers_cards/flocking_red-talons.png",
     "set": [
       "nature incarnate"
     ],
@@ -6747,7 +6747,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "manifest incarnation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738952/powers/manifest_incarnation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753483/powers_cards/manifest_incarnation.png",
     "set": [
       "branch and claw"
     ],
@@ -6777,7 +6777,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740153/powers/manifest_incarnation.png"
   },
   "towering wrath": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738953/powers/towering_wrath.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753484/powers_cards/towering_wrath.png",
     "set": [
       "branch and claw"
     ],
@@ -6801,7 +6801,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740154/powers/towering_wrath.png"
   },
   "sucking ooze": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738954/powers/sucking_ooze.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753485/powers_cards/sucking_ooze.png",
     "set": [
       "jagged earth"
     ],
@@ -6824,7 +6824,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740155/powers/sucking_ooze.png"
   },
   "forests of living obsidian": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738955/powers/forests_of_living_obsidian.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753486/powers_cards/forests_of_living_obsidian.png",
     "set": [
       "jagged earth"
     ],
@@ -6855,7 +6855,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740156/powers/forests_of_living_obsidian.png"
   },
   "flame's fury": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738956/powers/flame%27s_fury.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753487/powers_cards/flame%27s_fury.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6880,7 +6880,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740156/powers/flame%27s_fury.png"
   },
   "gift of flowing power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738957/powers/gift_of_flowing_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753488/powers_cards/gift_of_flowing_power.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6904,7 +6904,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740157/powers/gift_of_flowing_power.png"
   },
   "rites of the land's rejection": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738958/powers/rites_of_the_land%27s_rejection.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753489/powers_cards/rites_of_the_land%27s_rejection.png",
     "set": [
       "branch and claw"
     ],
@@ -6927,7 +6927,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740158/powers/rites_of_the_land%27s_rejection.png"
   },
   "renewing boon": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738960/powers/renewing_boon.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753490/powers_cards/renewing_boon.png",
     "set": [
       "jagged earth"
     ],
@@ -6950,7 +6950,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740159/powers/renewing_boon.png"
   },
   "grasping tide": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738961/powers/grasping_tide.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753491/powers_cards/grasping_tide.png",
     "set": [
       "spirit island"
     ],
@@ -6973,7 +6973,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740160/powers/grasping_tide.png"
   },
   "asphyxiating smoke": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738962/powers/asphyxiating_smoke.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753492/powers_cards/asphyxiating_smoke.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6998,7 +6998,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740161/powers/asphyxiating_smoke.png"
   },
   "predatory nightmares": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738962/powers/predatory_nightmares.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753493/powers_cards/predatory_nightmares.png",
     "set": [
       "spirit island"
     ],
@@ -7023,7 +7023,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740162/powers/predatory_nightmares.png"
   },
   "strong and constant currents": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738963/powers/strong_and_constant_currents.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753494/powers_cards/strong_and_constant_currents.png",
     "set": [
       "jagged earth"
     ],
@@ -7051,7 +7051,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740163/powers/strong_and_constant_currents.png"
   },
   "teeth gleam from darkness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738964/powers/teeth_gleam_from_darkness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753494/powers_cards/teeth_gleam_from_darkness.png",
     "set": [
       "branch and claw"
     ],
@@ -7075,7 +7075,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740164/powers/teeth_gleam_from_darkness.png"
   },
   "pyroclastic flow": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738965/powers/pyroclastic_flow.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753496/powers_cards/pyroclastic_flow.png",
     "set": [
       "branch and claw"
     ],
@@ -7105,7 +7105,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740165/powers/pyroclastic_flow.png"
   },
   "hazards spread across the island": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738967/powers/hazards_spread_across_the_island.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753496/powers_cards/hazards_spread_across_the_island.png",
     "set": [
       "jagged earth"
     ],
@@ -7129,7 +7129,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740166/powers/hazards_spread_across_the_island.png"
   },
   "birds cry warning": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738968/powers/birds_cry_warning.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753497/powers_cards/birds_cry_warning.png",
     "set": [
       "jagged earth"
     ],
@@ -7152,7 +7152,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740166/powers/birds_cry_warning.png"
   },
   "like calls to like": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738969/powers/like_calls_to_like.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753498/powers_cards/like_calls_to_like.png",
     "set": [
       "jagged earth"
     ],
@@ -7175,7 +7175,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740167/powers/like_calls_to_like.png"
   },
   "flow downriver, blow downwind": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738970/powers/flow_downriver%2C_blow_downwind.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753499/powers_cards/flow_downriver%2C_blow_downwind.png",
     "set": [
       "jagged earth"
     ],
@@ -7198,7 +7198,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740168/powers/flow_downriver%2C_blow_downwind.png"
   },
   "sacrosanct wilderness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738971/powers/sacrosanct_wilderness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753500/powers_cards/sacrosanct_wilderness.png",
     "set": [
       "branch and claw"
     ],
@@ -7222,7 +7222,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740169/powers/sacrosanct_wilderness.png"
   },
   "death falls gently from open blossoms": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738972/powers/death_falls_gently_from_open_blossoms.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753502/powers_cards/death_falls_gently_from_open_blossoms.png",
     "set": [
       "branch and claw"
     ],
@@ -7251,7 +7251,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740170/powers/death_falls_gently_from_open_blossoms.png"
   },
   "sear anger into the wild lands": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738973/powers/sear_anger_into_the_wild_lands.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753503/powers_cards/sear_anger_into_the_wild_lands.png",
     "set": [
       "jagged earth"
     ],
@@ -7274,7 +7274,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740171/powers/sear_anger_into_the_wild_lands.png"
   },
   "favor of the sun and star-lit dark": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738974/powers/favor_of_the_sun_and_star-lit_dark.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753504/powers_cards/favor_of_the_sun_and_star-lit_dark.png",
     "set": [
       "jagged earth"
     ],
@@ -7302,7 +7302,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740172/powers/favor_of_the_sun_and_star-lit_dark.png"
   },
   "flash-fires": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738975/powers/flash-fires.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753505/powers_cards/flash-fires.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -7331,7 +7331,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740173/powers/flash-fires.png"
   },
   "desiccating winds": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738976/powers/desiccating_winds.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753506/powers_cards/desiccating_winds.png",
     "set": [
       "jagged earth"
     ],
@@ -7354,7 +7354,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740174/powers/desiccating_winds.png"
   },
   "blur the arc of years": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738977/powers/blur_the_arc_of_years.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753507/powers_cards/blur_the_arc_of_years.png",
     "set": [
       "jagged earth"
     ],
@@ -7378,7 +7378,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740175/powers/blur_the_arc_of_years.png"
   },
   "terror turns to madness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738978/powers/terror_turns_to_madness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753508/powers_cards/terror_turns_to_madness.png",
     "set": [
       "jagged earth"
     ],
@@ -7401,7 +7401,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740176/powers/terror_turns_to_madness.png"
   },
   "dry wood explodes in smoldering splinters": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738980/powers/dry_wood_explodes_in_smoldering_splinters.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753509/powers_cards/dry_wood_explodes_in_smoldering_splinters.png",
     "set": [
       "jagged earth"
     ],
@@ -7424,7 +7424,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740176/powers/dry_wood_explodes_in_smoldering_splinters.png"
   },
   "unlock the gates of deepest power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738981/powers/unlock_the_gates_of_deepest_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753510/powers_cards/unlock_the_gates_of_deepest_power.png",
     "set": [
       "branch and claw"
     ],
@@ -7464,7 +7464,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740177/powers/unlock_the_gates_of_deepest_power.png"
   },
   "treacherous waterways": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738982/powers/treacherous_waterways.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753511/powers_cards/treacherous_waterways.png",
     "set": [
       "jagged earth"
     ],
@@ -7487,7 +7487,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740178/powers/treacherous_waterways.png"
   },
   "vengeance of the dead": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738983/powers/vengeance_of_the_dead.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753512/powers_cards/vengeance_of_the_dead.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -7516,7 +7516,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740180/powers/vengeance_of_the_dead.png"
   },
   "bargains of power and protection": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738985/powers/bargains_of_power_and_protection.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753513/powers_cards/bargains_of_power_and_protection.png",
     "set": [
       "jagged earth"
     ],
@@ -7547,7 +7547,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740181/powers/bargains_of_power_and_protection.png"
   },
   "skies herald the season of return": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738986/powers/skies_herald_the_season_of_return.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753515/powers_cards/skies_herald_the_season_of_return.png",
     "set": [
       "jagged earth"
     ],
@@ -7571,7 +7571,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740182/powers/skies_herald_the_season_of_return.png"
   },
   "mesmerized tranquility": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738987/powers/mesmerized_tranquility.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753519/powers_cards/mesmerized_tranquility.png",
     "set": [
       "jagged earth"
     ],
@@ -7594,7 +7594,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740183/powers/mesmerized_tranquility.png"
   },
   "irresistible call": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738988/powers/irresistible_call.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753519/powers_cards/irresistible_call.png",
     "set": [
       "jagged earth"
     ],
@@ -7624,7 +7624,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740184/powers/irresistible_call.png"
   },
   "twisted flowers murmur ultimatums": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738989/powers/twisted_flowers_murmur_ultimatums.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753520/powers_cards/twisted_flowers_murmur_ultimatums.png",
     "set": [
       "branch and claw"
     ],
@@ -7656,7 +7656,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740184/powers/twisted_flowers_murmur_ultimatums.png"
   },
   "transform to a murderous darkness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738990/powers/transform_to_a_murderous_darkness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753521/powers_cards/transform_to_a_murderous_darkness.png",
     "set": [
       "jagged earth"
     ],
@@ -7688,7 +7688,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740185/powers/transform_to_a_murderous_darkness.png"
   },
   "terrifying chase": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738991/powers/terrifying_chase.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753522/powers_cards/terrifying_chase.png",
     "set": [
       "branch and claw"
     ],
@@ -7711,7 +7711,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740186/powers/terrifying_chase.png"
   },
   "entrap the forces of corruption": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738992/powers/entrap_the_forces_of_corruption.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753523/powers_cards/entrap_the_forces_of_corruption.png",
     "set": [
       "jagged earth"
     ],
@@ -7734,7 +7734,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740187/powers/entrap_the_forces_of_corruption.png"
   },
   "flow like water, reach like air": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738993/powers/flow_like_water%2C_reach_like_air.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753524/powers_cards/flow_like_water%2C_reach_like_air.png",
     "set": [
       "branch and claw"
     ],
@@ -7762,7 +7762,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740188/powers/flow_like_water%2C_reach_like_air.png"
   },
   "unleash a torrent of the self's own essence": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738996/powers/unleash_a_torrent_of_the_self%27s_own_essence.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753525/powers_cards/unleash_a_torrent_of_the_self%27s_own_essence.png",
     "set": [
       "jagged earth"
     ],
@@ -7792,7 +7792,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740189/powers/unleash_a_torrent_of_the_self%27s_own_essence.png"
   },
   "walls of rock and thorn": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738998/powers/walls_of_rock_and_thorn.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753527/powers_cards/walls_of_rock_and_thorn.png",
     "set": [
       "jagged earth"
     ],
@@ -7821,7 +7821,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740190/powers/walls_of_rock_and_thorn.png"
   },
   "the past returns again": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738998/powers/the_past_returns_again.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753528/powers_cards/the_past_returns_again.png",
     "set": [
       "jagged earth"
     ],
@@ -7844,7 +7844,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740191/powers/the_past_returns_again.png"
   },
   "pour time sideways": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738999/powers/pour_time_sideways.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753529/powers_cards/pour_time_sideways.png",
     "set": [
       "jagged earth"
     ],
@@ -7868,7 +7868,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740192/powers/pour_time_sideways.png"
   },
   "too near the jungle": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739000/powers/too_near_the_jungle.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753530/powers_cards/too_near_the_jungle.png",
     "set": [
       "branch and claw"
     ],
@@ -7891,7 +7891,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740193/powers/too_near_the_jungle.png"
   },
   "bats scout for raids by darkness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739001/powers/bats_scout_for_raids_by_darkness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753531/powers_cards/bats_scout_for_raids_by_darkness.png",
     "set": [
       "jagged earth"
     ],
@@ -7914,7 +7914,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740197/powers/bats_scout_for_raids_by_darkness.png"
   },
   "unquenchable flames": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739004/powers/unquenchable_flames.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753532/powers_cards/unquenchable_flames.png",
     "set": [
       "jagged earth"
     ],
@@ -7942,7 +7942,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740198/powers/unquenchable_flames.png"
   },
   "dream of the untouched land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739006/powers/dream_of_the_untouched_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753533/powers_cards/dream_of_the_untouched_land.png",
     "set": [
       "jagged earth"
     ],
@@ -7975,7 +7975,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740199/powers/dream_of_the_untouched_land.png"
   },
   "gift of the primordial deeps": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739009/powers/gift_of_the_primordial_deeps.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753533/powers_cards/gift_of_the_primordial_deeps.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -7999,7 +7999,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740201/powers/gift_of_the_primordial_deeps.png"
   },
   "territorial strife": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739010/powers/territorial_strife.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753534/powers_cards/territorial_strife.png",
     "set": [
       "jagged earth"
     ],
@@ -8022,7 +8022,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740202/powers/territorial_strife.png"
   },
   "carapaced land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739011/powers/carapaced_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753535/powers_cards/carapaced_land.png",
     "set": [
       "jagged earth"
     ],
@@ -8050,7 +8050,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740203/powers/carapaced_land.png"
   },
   "thriving chokefungus": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739012/powers/thriving_chokefungus.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753537/powers_cards/thriving_chokefungus.png",
     "set": [
       "jagged earth"
     ],
@@ -8073,7 +8073,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740204/powers/thriving_chokefungus.png"
   },
   "softly beckon ever inward": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739013/powers/softly_beckon_ever_inward.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753538/powers_cards/softly_beckon_ever_inward.png",
     "set": [
       "jagged earth"
     ],
@@ -8096,7 +8096,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740205/powers/softly_beckon_ever_inward.png"
   },
   "sleep and never waken": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739014/powers/sleep_and_never_waken.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753538/powers_cards/sleep_and_never_waken.png",
     "set": [
       "jagged earth"
     ],
@@ -8127,7 +8127,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740206/powers/sleep_and_never_waken.png"
   },
   "thickets erupt with every touch of breeze": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739015/powers/thickets_erupt_with_every_touch_of_breeze.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753539/powers_cards/thickets_erupt_with_every_touch_of_breeze.png",
     "set": [
       "jagged earth"
     ],
@@ -8154,7 +8154,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740207/powers/thickets_erupt_with_every_touch_of_breeze.png"
   },
   "gift of the untamed wild": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739016/powers/gift_of_the_untamed_wild.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753541/powers_cards/gift_of_the_untamed_wild.png",
     "set": [
       "jagged earth"
     ],
@@ -8179,7 +8179,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740208/powers/gift_of_the_untamed_wild.png"
   },
   "the shore seethes with hatred": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739017/powers/the_shore_seethes_with_hatred.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753542/powers_cards/the_shore_seethes_with_hatred.png",
     "set": [
       "jagged earth"
     ],
@@ -8203,7 +8203,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740209/powers/the_shore_seethes_with_hatred.png"
   },
   "angry bears": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739018/powers/angry_bears.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753543/powers_cards/angry_bears.png",
     "set": [
       "jagged earth"
     ],
@@ -8232,7 +8232,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740210/powers/angry_bears.png"
   },
   "settle into hunting-grounds": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739019/powers/settle_into_hunting-grounds.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753544/powers_cards/settle_into_hunting-grounds.png",
     "set": [
       "jagged earth"
     ],
@@ -8262,7 +8262,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740210/powers/settle_into_hunting-grounds.png"
   },
   "incite the mob": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739020/powers/incite_the_mob.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753545/powers_cards/incite_the_mob.png",
     "set": [
       "jagged earth"
     ],
@@ -8287,7 +8287,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740211/powers/incite_the_mob.png"
   },
   "scream disease into the wind": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739021/powers/scream_disease_into_the_wind.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753546/powers_cards/scream_disease_into_the_wind.png",
     "set": [
       "jagged earth"
     ],
@@ -8310,7 +8310,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740212/powers/scream_disease_into_the_wind.png"
   },
   "domesticated animals go berserk": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739022/powers/domesticated_animals_go_berserk.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753547/powers_cards/domesticated_animals_go_berserk.png",
     "set": [
       "jagged earth"
     ],
@@ -8338,7 +8338,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740213/powers/domesticated_animals_go_berserk.png"
   },
   "sunset's fire flows across the land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739023/powers/sunset%27s_fire_flows_across_the_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753548/powers_cards/sunset%27s_fire_flows_across_the_land.png",
     "set": [
       "jagged earth"
     ],
@@ -8362,7 +8362,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740214/powers/sunset%27s_fire_flows_across_the_land.png"
   },
   "set them on an ever-twisting trail": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739024/powers/set_them_on_an_ever-twisting_trail.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753550/powers_cards/set_them_on_an_ever-twisting_trail.png",
     "set": [
       "jagged earth"
     ],
@@ -8385,7 +8385,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740215/powers/set_them_on_an_ever-twisting_trail.png"
   },
   "melt earth into quicksand": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739025/powers/melt_earth_into_quicksand.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753551/powers_cards/melt_earth_into_quicksand.png",
     "set": [
       "jagged earth"
     ],
@@ -8415,7 +8415,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740216/powers/melt_earth_into_quicksand.png"
   },
   "dread apparitions": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739026/powers/dread_apparitions.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753551/powers_cards/dread_apparitions.png",
     "set": [
       "spirit island"
     ],
@@ -8438,7 +8438,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740217/powers/dread_apparitions.png"
   },
   "vanish softly away, forgotten by all": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739027/powers/vanish_softly_away%2C_forgotten_by_all.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753552/powers_cards/vanish_softly_away%2C_forgotten_by_all.png",
     "set": [
       "jagged earth"
     ],
@@ -8466,7 +8466,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740217/powers/vanish_softly_away%2C_forgotten_by_all.png"
   },
   "overenthusiastic arson": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739029/powers/overenthusiastic_arson.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753553/powers_cards/overenthusiastic_arson.png",
     "set": [
       "jagged earth"
     ],
@@ -8489,7 +8489,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740218/powers/overenthusiastic_arson.png"
   },
   "perils of the deepest island": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739030/powers/perils_of_the_deepest_island.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753554/powers_cards/perils_of_the_deepest_island.png",
     "set": [
       "jagged earth"
     ],
@@ -8513,7 +8513,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740219/powers/perils_of_the_deepest_island.png"
   },
   "voice of command": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739031/powers/voice_of_command.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753555/powers_cards/voice_of_command.png",
     "set": [
       "jagged earth"
     ],
@@ -8541,7 +8541,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740220/powers/voice_of_command.png"
   },
   "impersonate authority": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739032/powers/impersonate_authority.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753556/powers_cards/impersonate_authority.png",
     "set": [
       "jagged earth"
     ],
@@ -8565,7 +8565,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740221/powers/impersonate_authority.png"
   },
   "elemental teachings": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739033/powers/elemental_teachings.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753560/powers_cards/elemental_teachings.png",
     "set": [
       "jagged earth"
     ],
@@ -8589,7 +8589,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740222/powers/elemental_teachings.png"
   },
   "pursue with scratches, pecks, and stings": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739034/powers/pursue_with_scratches%2C_pecks%2C_and_stings.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753562/powers_cards/pursue_with_scratches%2C_pecks%2C_and_stings.png",
     "set": [
       "jagged earth"
     ],
@@ -8614,7 +8614,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740223/powers/pursue_with_scratches%2C_pecks%2C_and_stings.png"
   },
   "dark skies loose a stinging rain": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739035/powers/dark_skies_loose_a_stinging_rain.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753563/powers_cards/dark_skies_loose_a_stinging_rain.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -8639,7 +8639,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740224/powers/dark_skies_loose_a_stinging_rain.png"
   },
   "guide the way on feathered wings": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739036/powers/guide_the_way_on_feathered_wings.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753564/powers_cards/guide_the_way_on_feathered_wings.png",
     "set": [
       "jagged earth"
     ],
@@ -8663,7 +8663,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740226/powers/guide_the_way_on_feathered_wings.png"
   },
   "the wounded wild turns on its assailants": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739037/powers/the_wounded_wild_turns_on_its_assailants.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753566/powers_cards/the_wounded_wild_turns_on_its_assailants.png",
     "set": [
       "jagged earth"
     ],
@@ -8693,7 +8693,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740226/powers/the_wounded_wild_turns_on_its_assailants.png"
   },
   "study the invaders' fears": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739038/powers/study_the_invaders%27_fears.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753567/powers_cards/study_the_invaders%27_fears.png",
     "set": [
       "jagged earth"
     ],
@@ -8717,7 +8717,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740227/powers/study_the_invaders%27_fears.png"
   },
   "call to guard": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739040/powers/call_to_guard.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753568/powers_cards/call_to_guard.png",
     "set": [
       "jagged earth"
     ],
@@ -8740,7 +8740,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740228/powers/call_to_guard.png"
   },
   "boon of ancient memories": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739041/powers/boon_of_ancient_memories.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753569/powers_cards/boon_of_ancient_memories.png",
     "set": [
       "jagged earth"
     ],
@@ -8765,7 +8765,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740229/powers/boon_of_ancient_memories.png"
   },
   "trees radiate celestial brilliance": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739042/powers/trees_radiate_celestial_brilliance.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753570/powers_cards/trees_radiate_celestial_brilliance.png",
     "set": [
       "jagged earth"
     ],
@@ -8795,7 +8795,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740230/powers/trees_radiate_celestial_brilliance.png"
   },
   "unnerving pall": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739043/powers/unnerving_pall.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753571/powers_cards/unnerving_pall.png",
     "set": [
       "jagged earth"
     ],
@@ -8819,7 +8819,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740231/powers/unnerving_pall.png"
   },
   "utter a curse of dread and bone": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739044/powers/utter_a_curse_of_dread_and_bone.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753572/powers_cards/utter_a_curse_of_dread_and_bone.png",
     "set": [
       "jagged earth"
     ],
@@ -8847,7 +8847,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740232/powers/utter_a_curse_of_dread_and_bone.png"
   },
   "gather the scattered light of stars": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739045/powers/gather_the_scattered_light_of_stars.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753573/powers_cards/gather_the_scattered_light_of_stars.png",
     "set": [
       "jagged earth"
     ],
@@ -8869,7 +8869,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740232/powers/gather_the_scattered_light_of_stars.png"
   },
   "storm-swath": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739046/powers/storm-swath.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753575/powers_cards/storm-swath.png",
     "set": [
       "jagged earth"
     ],
@@ -8899,7 +8899,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740233/powers/storm-swath.png"
   },
   "boon of reimagining": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739047/powers/boon_of_reimagining.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753578/powers_cards/boon_of_reimagining.png",
     "set": [
       "jagged earth"
     ],
@@ -8921,7 +8921,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740234/powers/boon_of_reimagining.png"
   },
   "weave together the fabric of place": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739048/powers/weave_together_the_fabric_of_place.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753579/powers_cards/weave_together_the_fabric_of_place.png",
     "set": [
       "jagged earth"
     ],
@@ -8951,7 +8951,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740235/powers/weave_together_the_fabric_of_place.png"
   },
   "shape the self anew": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739049/powers/shape_the_self_anew.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753580/powers_cards/shape_the_self_anew.png",
     "set": [
       "jagged earth"
     ],
@@ -8978,7 +8978,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740236/powers/shape_the_self_anew.png"
   },
   "share secrets of survival": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739050/powers/share_secrets_of_survival.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753581/powers_cards/share_secrets_of_survival.png",
     "set": [
       "jagged earth"
     ],
@@ -9007,7 +9007,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740237/powers/share_secrets_of_survival.png"
   },
   "strike low with sudden fevers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739051/powers/strike_low_with_sudden_fevers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753582/powers_cards/strike_low_with_sudden_fevers.png",
     "set": [
       "jagged earth"
     ],
@@ -9032,7 +9032,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740238/powers/strike_low_with_sudden_fevers.png"
   },
   "a dreadful tide of scurrying flesh": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739052/powers/a_dreadful_tide_of_scurrying_flesh.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753583/powers_cards/a_dreadful_tide_of_scurrying_flesh.png",
     "set": [
       "jagged earth"
     ],
@@ -9057,7 +9057,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740239/powers/a_dreadful_tide_of_scurrying_flesh.png"
   },
   "unexpected tigers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739053/powers/unexpected_tigers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753583/powers_cards/unexpected_tigers.png",
     "set": [
       "jagged earth"
     ],
@@ -9081,7 +9081,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740240/powers/unexpected_tigers.png"
   },
   "peace of the nighttime sky": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739054/powers/peace_of_the_nighttime_sky.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753584/powers_cards/peace_of_the_nighttime_sky.png",
     "set": [
       "jagged earth"
     ],
@@ -9103,7 +9103,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740240/powers/peace_of_the_nighttime_sky.png"
   },
   "focus the land's anguish": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739057/powers/focus_the_land%27s_anguish.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753586/powers_cards/focus_the_land%27s_anguish.png",
     "set": [
       "jagged earth"
     ],
@@ -9129,7 +9129,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740241/powers/focus_the_land%27s_anguish.png"
   },
   "boon of swarming bedevilment": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739059/powers/boon_of_swarming_bedevilment.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753586/powers_cards/boon_of_swarming_bedevilment.png",
     "set": [
       "jagged earth"
     ],
@@ -9153,7 +9153,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740242/powers/boon_of_swarming_bedevilment.png"
   },
   "spur on with words of fire": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739059/powers/spur_on_with_words_of_fire.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753587/powers_cards/spur_on_with_words_of_fire.png",
     "set": [
       "branch and claw"
     ],
@@ -9176,7 +9176,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740243/powers/spur_on_with_words_of_fire.png"
   },
   "aid from the spirit-speakers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739061/powers/aid_from_the_spirit-speakers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753588/powers_cards/aid_from_the_spirit-speakers.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9202,7 +9202,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740244/powers/aid_from_the_spirit-speakers.png"
   },
   "swallowed by the wilderness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739062/powers/swallowed_by_the_wilderness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753589/powers_cards/swallowed_by_the_wilderness.png",
     "set": [
       "jagged earth"
     ],
@@ -9227,7 +9227,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740245/powers/swallowed_by_the_wilderness.png"
   },
   "stubborn solidity": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739062/powers/stubborn_solidity.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753592/powers_cards/stubborn_solidity.png",
     "set": [
       "jagged earth"
     ],
@@ -9251,7 +9251,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740246/powers/stubborn_solidity.png"
   },
   "paths tied by nature": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739064/powers/paths_tied_by_nature.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753593/powers_cards/paths_tied_by_nature.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9277,7 +9277,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740247/powers/paths_tied_by_nature.png"
   },
   "sky stretches to shore": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739067/powers/sky_stretches_to_shore.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753594/powers_cards/sky_stretches_to_shore.png",
     "set": [
       "branch and claw"
     ],
@@ -9301,7 +9301,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740248/powers/sky_stretches_to_shore.png"
   },
   "intractable thickets and thorns": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739068/powers/intractable_thickets_and_thorns.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753595/powers_cards/intractable_thickets_and_thorns.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9326,7 +9326,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740249/powers/intractable_thickets_and_thorns.png"
   },
   "rain of ash": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739069/powers/rain_of_ash.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753596/powers_cards/rain_of_ash.png",
     "set": [
       "jagged earth"
     ],
@@ -9350,7 +9350,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740250/powers/rain_of_ash.png"
   },
   "the fog closes in": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739071/powers/the_fog_closes_in.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753597/powers_cards/the_fog_closes_in.png",
     "set": [
       "jagged earth"
     ],
@@ -9374,7 +9374,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740251/powers/the_fog_closes_in.png"
   },
   "flowing and silent forms dart by": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739072/powers/flowing_and_silent_forms_dart_by.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753598/powers_cards/flowing_and_silent_forms_dart_by.png",
     "set": [
       "jagged earth"
     ],
@@ -9398,7 +9398,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740252/powers/flowing_and_silent_forms_dart_by.png"
   },
   "plows shatter on rocky ground": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739073/powers/plows_shatter_on_rocky_ground.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753599/powers_cards/plows_shatter_on_rocky_ground.png",
     "set": [
       "jagged earth"
     ],
@@ -9420,7 +9420,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740253/powers/plows_shatter_on_rocky_ground.png"
   },
   "instruments of their own ruin": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739074/powers/instruments_of_their_own_ruin.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753600/powers_cards/instruments_of_their_own_ruin.png",
     "set": [
       "branch and claw"
     ],
@@ -9451,7 +9451,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740255/powers/instruments_of_their_own_ruin.png"
   },
   "gift of searing heat": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739075/powers/gift_of_searing_heat.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753601/powers_cards/gift_of_searing_heat.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9475,7 +9475,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740257/powers/gift_of_searing_heat.png"
   },
   "eerie noises and moving trees": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739075/powers/eerie_noises_and_moving_trees.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753602/powers_cards/eerie_noises_and_moving_trees.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9499,7 +9499,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740258/powers/eerie_noises_and_moving_trees.png"
   },
   "savage transformation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739076/powers/savage_transformation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753603/powers_cards/savage_transformation.png",
     "set": [
       "branch and claw"
     ],
@@ -9527,7 +9527,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740259/powers/savage_transformation.png"
   },
   "teeming rivers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739077/powers/teeming_rivers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753604/powers_cards/teeming_rivers.png",
     "set": [
       "branch and claw"
     ],
@@ -9551,7 +9551,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740260/powers/teeming_rivers.png"
   },
   "swallowed by the endless dark": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739078/powers/swallowed_by_the_endless_dark.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753605/powers_cards/swallowed_by_the_endless_dark.png",
     "set": [
       "nature incarnate"
     ],
@@ -9581,7 +9581,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "absolute stasis": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739078/powers/absolute_stasis.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753606/powers_cards/absolute_stasis.png",
     "set": [
       "jagged earth"
     ],
@@ -9605,7 +9605,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740261/powers/absolute_stasis.png"
   },
   "plaguebearers": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739079/powers/plaguebearers.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753606/powers_cards/plaguebearers.png",
     "set": [
       "jagged earth"
     ],
@@ -9629,7 +9629,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740262/powers/plaguebearers.png"
   },
   "pent-up calamity": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739081/powers/pent-up_calamity.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753607/powers_cards/pent-up_calamity.png",
     "set": [
       "branch and claw"
     ],
@@ -9660,7 +9660,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740262/powers/pent-up_calamity.png"
   },
   "infestation of venomous spiders": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739082/powers/infestation_of_venomous_spiders.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753608/powers_cards/infestation_of_venomous_spiders.png",
     "set": [
       "jagged earth"
     ],
@@ -9691,7 +9691,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740263/powers/infestation_of_venomous_spiders.png"
   },
   "foundations sink into mud": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739083/powers/foundations_sink_into_mud.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753609/powers_cards/foundations_sink_into_mud.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9715,7 +9715,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740264/powers/foundations_sink_into_mud.png"
   },
   "frightful keening": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739084/powers/frightful_keening.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753610/powers_cards/frightful_keening.png",
     "set": [
       "nature incarnate"
     ],
@@ -9739,7 +9739,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "dissolving vapors": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739085/powers/dissolving_vapors.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753611/powers_cards/dissolving_vapors.png",
     "set": [
       "jagged earth"
     ],
@@ -9762,7 +9762,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740268/powers/dissolving_vapors.png"
   },
   "gift of twinned days": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739086/powers/gift_of_twinned_days.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753612/powers_cards/gift_of_twinned_days.png",
     "set": [
       "jagged earth"
     ],
@@ -9784,7 +9784,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740269/powers/gift_of_twinned_days.png"
   },
   "lava flows": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739087/powers/lava_flows.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753613/powers_cards/lava_flows.png",
     "set": [
       "jagged earth"
     ],
@@ -9807,7 +9807,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740270/powers/lava_flows.png"
   },
   "rumbling earthquakes": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739088/powers/rumbling_earthquakes.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753614/powers_cards/rumbling_earthquakes.png",
     "set": [
       "nature incarnate"
     ],
@@ -9834,7 +9834,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "foul vapors and fetid muck": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739089/powers/foul_vapors_and_fetid_muck.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753615/powers_cards/foul_vapors_and_fetid_muck.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9859,7 +9859,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740270/powers/foul_vapors_and_fetid_muck.png"
   },
   "blinding glare": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739090/powers/blinding_glare.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753616/powers_cards/blinding_glare.png",
     "set": [
       "nature incarnate"
     ],
@@ -9887,7 +9887,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "fetid breath spreads infection": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739092/powers/fetid_breath_spreads_infection.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753617/powers_cards/fetid_breath_spreads_infection.png",
     "set": [
       "jagged earth"
     ],
@@ -9911,7 +9911,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740271/powers/fetid_breath_spreads_infection.png"
   },
   "gift of furious might": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739093/powers/gift_of_furious_might.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753618/powers_cards/gift_of_furious_might.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9935,7 +9935,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740272/powers/gift_of_furious_might.png"
   },
   "herd towards the lurking maw": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739094/powers/herd_towards_the_lurking_maw.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753619/powers_cards/herd_towards_the_lurking_maw.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9959,7 +9959,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740273/powers/herd_towards_the_lurking_maw.png"
   },
   "unbearable gaze": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739094/powers/unbearable_gaze.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753620/powers_cards/unbearable_gaze.png",
     "set": [
       "nature incarnate"
     ],
@@ -9982,7 +9982,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "blazing intimidation": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739095/powers/blazing_intimidation.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753621/powers_cards/blazing_intimidation.png",
     "set": [
       "nature incarnate"
     ],
@@ -10006,7 +10006,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "rumblings portend a greater quake": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739096/powers/rumblings_portend_a_greater_quake.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753622/powers_cards/rumblings_portend_a_greater_quake.png",
     "set": [
       "nature incarnate"
     ],
@@ -10031,7 +10031,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "growth through sacrifice": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739097/powers/growth_through_sacrifice.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753623/powers_cards/growth_through_sacrifice.png",
     "set": [
       "branch and claw"
     ],
@@ -10060,7 +10060,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740274/powers/growth_through_sacrifice.png"
   },
   "radiating tremors": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739098/powers/radiating_tremors.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753624/powers_cards/radiating_tremors.png",
     "set": [
       "nature incarnate"
     ],
@@ -10084,7 +10084,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "entwine the fates of all": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739099/powers/entwine_the_fates_of_all.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753625/powers_cards/entwine_the_fates_of_all.png",
     "set": [
       "nature incarnate"
     ],
@@ -10109,7 +10109,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "coordinated raid": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739100/powers/coordinated_raid.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753626/powers_cards/coordinated_raid.png",
     "set": [
       "nature incarnate"
     ],
@@ -10133,7 +10133,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "focus the sun's rays": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739101/powers/focus_the_sun%27s_rays.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753627/powers_cards/focus_the_sun%27s_rays.png",
     "set": [
       "nature incarnate"
     ],
@@ -10157,7 +10157,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "inspire a winding dance": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739101/powers/inspire_a_winding_dance.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753628/powers_cards/inspire_a_winding_dance.png",
     "set": [
       "nature incarnate"
     ],
@@ -10182,7 +10182,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "draw to the water's edge": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739102/powers/draw_to_the_water%27s_edge.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753629/powers_cards/draw_to_the_water%27s_edge.png",
     "set": [
       "nature incarnate"
     ],
@@ -10206,7 +10206,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "unbearable deluge": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739104/powers/unbearable_deluge.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753630/powers_cards/unbearable_deluge.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -10231,7 +10231,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740275/powers/unbearable_deluge.png"
   },
   "solidify echoes of majesty past": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739105/powers/solidify_echoes_of_majesty_past.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753631/powers_cards/solidify_echoes_of_majesty_past.png",
     "set": [
       "nature incarnate"
     ],
@@ -10262,7 +10262,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "wrack with pain and grief": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739106/powers/wrack_with_pain_and_grief.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753632/powers_cards/wrack_with_pain_and_grief.png",
     "set": [
       "nature incarnate"
     ],
@@ -10286,7 +10286,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "plague ships sail to distant ports": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739107/powers/plague_ships_sail_to_distant_ports.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753633/powers_cards/plague_ships_sail_to_distant_ports.png",
     "set": [
       "nature incarnate"
     ],
@@ -10317,7 +10317,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of living energy": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739108/powers/gift_of_living_energy.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753634/powers_cards/gift_of_living_energy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -10341,7 +10341,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740276/powers/gift_of_living_energy.png"
   },
   "ravaged undergrowth slithers back to life": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739109/powers/ravaged_undergrowth_slithers_back_to_life.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753637/powers_cards/ravaged_undergrowth_slithers_back_to_life.png",
     "set": [
       "nature incarnate"
     ],
@@ -10370,7 +10370,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "boon of resilient power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739110/powers/boon_of_resilient_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753639/powers_cards/boon_of_resilient_power.png",
     "set": [
       "nature incarnate"
     ],
@@ -10395,7 +10395,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "flash floods": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739112/powers/flash_floods.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753640/powers_cards/flash_floods.png",
     "set": [
       "spirit island"
     ],
@@ -10418,7 +10418,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740277/powers/flash_floods.png"
   },
   "exhale confusion and delirium": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739113/powers/exhale_confusion_and_delirium.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753640/powers_cards/exhale_confusion_and_delirium.png",
     "set": [
       "nature incarnate"
     ],
@@ -10443,7 +10443,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "roiling bog and snagging thorn": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739114/powers/roiling_bog_and_snagging_thorn.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753642/powers_cards/roiling_bog_and_snagging_thorn.png",
     "set": [
       "nature incarnate"
     ],
@@ -10467,7 +10467,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "whispered guidance through the night": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739115/powers/whispered_guidance_through_the_night.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753643/powers_cards/whispered_guidance_through_the_night.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10491,7 +10491,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740278/powers/whispered_guidance_through_the_night.png"
   },
   "boon of growing power": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739119/powers/boon_of_growing_power.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753643/powers_cards/boon_of_growing_power.png",
     "set": [
       "branch and claw"
     ],
@@ -10515,7 +10515,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740279/powers/boon_of_growing_power.png"
   },
   "wither bodies, scar stones": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739120/powers/wither_bodies%2C_scar_stones.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753647/powers_cards/wither_bodies%2C_scar_stones.png",
     "set": [
       "nature incarnate"
     ],
@@ -10539,7 +10539,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "turmoil's touch": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739121/powers/turmoil%27s_touch.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753648/powers_cards/turmoil%27s_touch.png",
     "set": [
       "nature incarnate"
     ],
@@ -10564,7 +10564,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "dire metamorphosis": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739122/powers/dire_metamorphosis.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753649/powers_cards/dire_metamorphosis.png",
     "set": [
       "jagged earth"
     ],
@@ -10588,7 +10588,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740280/powers/dire_metamorphosis.png"
   },
   "ferocious rampage": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739123/powers/ferocious_rampage.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753650/powers_cards/ferocious_rampage.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10611,7 +10611,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740281/powers/ferocious_rampage.png"
   },
   "spill bitterness into the earth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739123/powers/spill_bitterness_into_the_earth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753651/powers_cards/spill_bitterness_into_the_earth.png",
     "set": [
       "jagged earth"
     ],
@@ -10640,7 +10640,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740282/powers/spill_bitterness_into_the_earth.png"
   },
   "surging lahar": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739124/powers/surging_lahar.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753652/powers_cards/surging_lahar.png",
     "set": [
       "nature incarnate"
     ],
@@ -10664,7 +10664,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "fiery vengeance": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739129/powers/fiery_vengeance.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753653/powers_cards/fiery_vengeance.png",
     "set": [
       "jagged earth"
     ],
@@ -10687,7 +10687,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740282/powers/fiery_vengeance.png"
   },
   "haunted by primal memories": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739130/powers/haunted_by_primal_memories.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753654/powers_cards/haunted_by_primal_memories.png",
     "set": [
       "jagged earth"
     ],
@@ -10710,7 +10710,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740283/powers/haunted_by_primal_memories.png"
   },
   "sudden ambush": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739131/powers/sudden_ambush.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753655/powers_cards/sudden_ambush.png",
     "set": [
       "spirit island"
     ],
@@ -10734,7 +10734,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740284/powers/sudden_ambush.png"
   },
   "resounding footfalls sow dismay": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739132/powers/resounding_footfalls_sow_dismay.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753656/powers_cards/resounding_footfalls_sow_dismay.png",
     "set": [
       "nature incarnate"
     ],
@@ -10758,7 +10758,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "mysterious abductions": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739134/powers/mysterious_abductions.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753656/powers_cards/mysterious_abductions.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10782,7 +10782,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740285/powers/mysterious_abductions.png"
   },
   "unearth a beast of wrathful stone": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739134/powers/unearth_a_beast_of_wrathful_stone.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753658/powers_cards/unearth_a_beast_of_wrathful_stone.png",
     "set": [
       "nature incarnate"
     ],
@@ -10813,7 +10813,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "open shifting waterways": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739136/powers/open_shifting_waterways.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753658/powers_cards/open_shifting_waterways.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10837,7 +10837,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740286/powers/open_shifting_waterways.png"
   },
   "surrounded by the dahan": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739137/powers/surrounded_by_the_dahan.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753659/powers_cards/surrounded_by_the_dahan.png",
     "set": [
       "nature incarnate"
     ],
@@ -10861,7 +10861,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "sweltering exhaustion": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739139/powers/sweltering_exhaustion.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753660/powers_cards/sweltering_exhaustion.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10884,7 +10884,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740286/powers/sweltering_exhaustion.png"
   },
   "fragments of yesteryear": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739139/powers/fragments_of_yesteryear.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753661/powers_cards/fragments_of_yesteryear.png",
     "set": [
       "nature incarnate"
     ],
@@ -10911,7 +10911,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of the sunlit air": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739141/powers/gift_of_the_sunlit_air.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753662/powers_cards/gift_of_the_sunlit_air.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10935,7 +10935,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740287/powers/gift_of_the_sunlit_air.png"
   },
   "traveler's boon": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739142/powers/traveler%27s_boon.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753663/powers_cards/traveler%27s_boon.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -10960,7 +10960,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740289/powers/traveler%27s_boon.png"
   },
   "exaltation of molten stone": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739143/powers/exaltation_of_molten_stone.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753664/powers_cards/exaltation_of_molten_stone.png",
     "set": [
       "jagged earth"
     ],
@@ -10984,7 +10984,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740289/powers/exaltation_of_molten_stone.png"
   },
   "exaltation of tangled growth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739144/powers/exaltation_of_tangled_growth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753665/powers_cards/exaltation_of_tangled_growth.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11008,7 +11008,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740290/powers/exaltation_of_tangled_growth.png"
   },
   "blood water and bloodlust": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739145/powers/blood_water_and_bloodlust.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753666/powers_cards/blood_water_and_bloodlust.png",
     "set": [
       "nature incarnate"
     ],
@@ -11032,7 +11032,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "boon of watchful guarding": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739146/powers/boon_of_watchful_guarding.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753667/powers_cards/boon_of_watchful_guarding.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11056,7 +11056,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740291/powers/boon_of_watchful_guarding.png"
   },
   "emerge from the dread night wind": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739147/powers/emerge_from_the_dread_night_wind.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753668/powers_cards/emerge_from_the_dread_night_wind.png",
     "set": [
       "nature incarnate"
     ],
@@ -11079,7 +11079,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "jagged shards push from the earth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739147/powers/jagged_shards_push_from_the_earth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753668/powers_cards/jagged_shards_push_from_the_earth.png",
     "set": [
       "jagged earth"
     ],
@@ -11102,7 +11102,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740292/powers/jagged_shards_push_from_the_earth.png"
   },
   "blooming of the rocks and trees": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739148/powers/blooming_of_the_rocks_and_trees.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753669/powers_cards/blooming_of_the_rocks_and_trees.png",
     "set": [
       "nature incarnate"
     ],
@@ -11132,7 +11132,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "offer passage between worlds": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739149/powers/offer_passage_between_worlds.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753670/powers_cards/offer_passage_between_worlds.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11157,7 +11157,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740293/powers/offer_passage_between_worlds.png"
   },
   "twist perceptions": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739150/powers/twist_perceptions.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753671/powers_cards/twist_perceptions.png",
     "set": [
       "nature incarnate"
     ],
@@ -11181,7 +11181,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "exaltation of echoed steps": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739151/powers/exaltation_of_echoed_steps.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753672/powers_cards/exaltation_of_echoed_steps.png",
     "set": [
       "nature incarnate"
     ],
@@ -11205,7 +11205,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "call on herders for aid": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739152/powers/call_on_herders_for_aid.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753673/powers_cards/call_on_herders_for_aid.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11230,7 +11230,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740294/powers/call_on_herders_for_aid.png"
   },
   "a circuitous and wending journey": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739153/powers/a_circuitous_and_wending_journey.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753674/powers_cards/a_circuitous_and_wending_journey.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11254,7 +11254,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740295/powers/a_circuitous_and_wending_journey.png"
   },
   "pyroclastic bombardment": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739154/powers/pyroclastic_bombardment.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753675/powers_cards/pyroclastic_bombardment.png",
     "set": [
       "jagged earth"
     ],
@@ -11278,7 +11278,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740296/powers/pyroclastic_bombardment.png"
   },
   "favors of story and season": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739155/powers/favors_of_story_and_season.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753676/powers_cards/favors_of_story_and_season.png",
     "set": [
       "nature incarnate"
     ],
@@ -11303,7 +11303,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "radiant and hallowed grove": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739156/powers/radiant_and_hallowed_grove.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753677/powers_cards/radiant_and_hallowed_grove.png",
     "set": [
       "nature incarnate"
     ],
@@ -11328,7 +11328,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of abundance": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739157/powers/gift_of_abundance.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753678/powers_cards/gift_of_abundance.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11354,7 +11354,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740296/powers/gift_of_abundance.png"
   },
   "boon of corrupted blood": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739158/powers/boon_of_corrupted_blood.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753679/powers_cards/boon_of_corrupted_blood.png",
     "set": [
       "nature incarnate"
     ],
@@ -11378,7 +11378,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of seismic energy": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739159/powers/gift_of_seismic_energy.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753679/powers_cards/gift_of_seismic_energy.png",
     "set": [
       "nature incarnate"
     ],
@@ -11403,7 +11403,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "blood draws predators": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739160/powers/blood_draws_predators.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753680/powers_cards/blood_draws_predators.png",
     "set": [
       "jagged earth"
     ],
@@ -11427,7 +11427,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740298/powers/blood_draws_predators.png"
   },
   "stinging sandstorm": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739161/powers/stinging_sandstorm.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753681/powers_cards/stinging_sandstorm.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11451,7 +11451,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740299/powers/stinging_sandstorm.png"
   },
   "exaltation of grasping roots": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739162/powers/exaltation_of_grasping_roots.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753682/powers_cards/exaltation_of_grasping_roots.png",
     "set": [
       "nature incarnate"
     ],
@@ -11476,7 +11476,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "tempest of leaves and branches": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739163/powers/tempest_of_leaves_and_branches.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753683/powers_cards/tempest_of_leaves_and_branches.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11500,7 +11500,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740299/powers/tempest_of_leaves_and_branches.png"
   },
   "voice of thunder": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739165/powers/voice_of_thunder.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753683/powers_cards/voice_of_thunder.png",
     "set": [
       "spirit island"
     ],
@@ -11523,7 +11523,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740300/powers/voice_of_thunder.png"
   },
   "regrow from roots": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739166/powers/regrow_from_roots.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753684/powers_cards/regrow_from_roots.png",
     "set": [
       "branch and claw"
     ],
@@ -11547,7 +11547,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740301/powers/regrow_from_roots.png"
   },
   "call of the deeps": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739167/powers/call_of_the_deeps.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753685/powers_cards/call_of_the_deeps.png",
     "set": [
       "spirit island"
     ],
@@ -11571,7 +11571,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740302/powers/call_of_the_deeps.png"
   },
   "inspire the release of stolen lands": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739168/powers/inspire_the_release_of_stolen_lands.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753686/powers_cards/inspire_the_release_of_stolen_lands.png",
     "set": [
       "nature incarnate"
     ],
@@ -11602,7 +11602,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "entrancing apparitions": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739169/powers/entrancing_apparitions.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753687/powers_cards/entrancing_apparitions.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -11626,7 +11626,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740303/powers/entrancing_apparitions.png"
   },
   "call to vigilance": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739170/powers/call_to_vigilance.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753687/powers_cards/call_to_vigilance.png",
     "set": [
       "nature incarnate"
     ],
@@ -11650,7 +11650,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "scarred and stony land": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739170/powers/scarred_and_stony_land.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753688/powers_cards/scarred_and_stony_land.png",
     "set": [
       "jagged earth"
     ],
@@ -11673,7 +11673,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740304/powers/scarred_and_stony_land.png"
   },
   "ways of shore and heartland": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739171/powers/ways_of_shore_and_heartland.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753689/powers_cards/ways_of_shore_and_heartland.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11698,7 +11698,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740305/powers/ways_of_shore_and_heartland.png"
   },
   "ever-multiplying swarm": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739173/powers/ever-multiplying_swarm.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753690/powers_cards/ever-multiplying_swarm.png",
     "set": [
       "jagged earth"
     ],
@@ -11722,7 +11722,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740307/powers/ever-multiplying_swarm.png"
   },
   "mark territory with scars and teeth": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739175/powers/mark_territory_with_scars_and_teeth.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753691/powers_cards/mark_territory_with_scars_and_teeth.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11746,7 +11746,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740308/powers/mark_territory_with_scars_and_teeth.png"
   },
   "reach from the infinite darkness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739178/powers/reach_from_the_infinite_darkness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753692/powers_cards/reach_from_the_infinite_darkness.png",
     "set": [
       "nature incarnate"
     ],
@@ -11770,7 +11770,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "prey on the builders": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739179/powers/prey_on_the_builders.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753692/powers_cards/prey_on_the_builders.png",
     "set": [
       "branch and claw"
     ],
@@ -11794,7 +11794,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740309/powers/prey_on_the_builders.png"
   },
   "scatter to the winds": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739180/powers/scatter_to_the_winds.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753693/powers_cards/scatter_to_the_winds.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11818,7 +11818,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740310/powers/scatter_to_the_winds.png"
   },
   "threatening flames": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739181/powers/threatening_flames.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753695/powers_cards/threatening_flames.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -11842,7 +11842,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740311/powers/threatening_flames.png"
   },
   "twilight fog brings madness": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739182/powers/twilight_fog_brings_madness.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753698/powers_cards/twilight_fog_brings_madness.png",
     "set": [
       "branch and claw"
     ],
@@ -11866,7 +11866,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740312/powers/twilight_fog_brings_madness.png"
   },
   "transformative sacrifice": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739183/powers/transformative_sacrifice.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753699/powers_cards/transformative_sacrifice.png",
     "set": [
       "nature incarnate"
     ],
@@ -11897,7 +11897,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "favors called due": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739184/powers/favors_called_due.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753700/powers_cards/favors_called_due.png",
     "set": [
       "spirit island"
     ],
@@ -11921,7 +11921,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740313/powers/favors_called_due.png"
   },
   "terrifying rampage": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739185/powers/terrifying_rampage.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753701/powers_cards/terrifying_rampage.png",
     "set": [
       "nature incarnate"
     ],
@@ -11945,7 +11945,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "terror of the hunted": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739185/powers/terror_of_the_hunted.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753702/powers_cards/terror_of_the_hunted.png",
     "set": [
       "nature incarnate"
     ],
@@ -11969,7 +11969,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "belligerent and aggressive crops": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739186/powers/belligerent_and_aggressive_crops.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753703/powers_cards/belligerent_and_aggressive_crops.png",
     "set": [
       "nature incarnate"
     ],
@@ -11993,7 +11993,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "smite the land with fulmination": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739187/powers/smite_the_land_with_fulmination.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753704/powers_cards/smite_the_land_with_fulmination.png",
     "set": [
       "nature incarnate"
     ],
@@ -12017,7 +12017,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of wind-sped steps": {
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739188/powers/gift_of_wind-sped_steps.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753706/powers_cards/gift_of_wind-sped_steps.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -12042,7 +12042,7 @@ export const POWERS: Record<string, PowerCard> = {
   },
   "draw towards a consuming void": {
     "caseName": "Draw Towards a Consuming Void",
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739189/powers/draw_towards_a_consuming_void.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753710/powers_cards/draw_towards_a_consuming_void.png",
     "set": [
       "jagged earth",
       "nature incarnate"
@@ -12066,7 +12066,7 @@ export const POWERS: Record<string, PowerCard> = {
   },
   "elemental boon": {
     "caseName": "Elemental Boon",
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739191/powers/elemental_boon.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753711/powers_cards/elemental_boon.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -12086,7 +12086,7 @@ export const POWERS: Record<string, PowerCard> = {
   },
   "gift of nature's connection": {
     "caseName": "Gift of Nature's Connection",
-    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739193/powers/gift_of_nature%27s_connection.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756753712/powers_cards/gift_of_nature%27s_connection.png",
     "set": [
       "jagged earth"
     ],
