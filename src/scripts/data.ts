@@ -66,184 +66,123 @@ import type {
 
 // https://spiritislandwiki.com/index.php?title=Template:PresenceTIcons
 export const SYMBOL_DATA: Record<string, string> = {
-  // Elements
-  sun: 'https://spiritislandwiki.com/images/thumb/2/23/Esun.png/52px-Esun.png',
-  moon: 'https://spiritislandwiki.com/images/thumb/a/a6/Emoon.png/52px-Emoon.png',
-  fire: 'https://spiritislandwiki.com/images/thumb/e/ef/Efire.png/52px-Efire.png',
-  air: 'https://spiritislandwiki.com/images/thumb/9/96/Eair.png/52px-Eair.png',
-  water: 'https://spiritislandwiki.com/images/thumb/b/b4/Ewater.png/52px-Ewater.png',
-  earth: 'https://spiritislandwiki.com/images/thumb/6/6e/Eearth.png/52px-Eearth.png',
-  plant: 'https://spiritislandwiki.com/images/thumb/f/f2/Eplant.png/52px-Eplant.png',
-  animal: 'https://spiritislandwiki.com/images/thumb/c/c9/Eanimal.png/52px-Eanimal.png',
-  any: 'https://spiritislandwiki.com/images/thumb/4/42/Anyelement.png/60px-Anyelement.png',
-  element: 'https://spiritislandwiki.com/images/thumb/a/a5/Element.png/120px-Element.png',
-
-  // Card Plays
-  card_1: 'https://spiritislandwiki.com/images/thumb/3/3c/Cardplay1.png/60px-Cardplay1.png',
-  card_2: 'https://spiritislandwiki.com/images/thumb/6/63/Cardplay2.png/60px-Cardplay2.png',
-  card_3: 'https://spiritislandwiki.com/images/thumb/5/5b/Cardplay3.png/60px-Cardplay3.png',
-  card_4: 'https://spiritislandwiki.com/images/thumb/f/f3/Cardplay4.png/60px-Cardplay4.png',
-  card_5: 'https://spiritislandwiki.com/images/thumb/3/35/Cardplay5.png/60px-Cardplay5.png',
-  card_6: 'https://spiritislandwiki.com/images/thumb/0/00/Cardplay6.png/60px-Cardplay6.png',
-
-  // Lands
-  mountain: 'https://spiritislandwiki.com/images/f/fb/Mountainland.png',
-  jungle: 'https://spiritislandwiki.com/images/a/ae/Jungle.png',
-  sands: 'https://spiritislandwiki.com/images/a/a6/Sands.svg',
-  wetland: 'https://spiritislandwiki.com/images/1/12/Wetland.svg',
-
-  mountain_jungle: 'https://spiritislandwiki.com/images/3/3e/MountainJungle.svg',
-  mountaion_sands:
-    'https://spiritislandwiki.com/images/thumb/e/ed/Mountainsand.png/50px-Mountainsand.png',
-  mountain_wetland: 'https://spiritislandwiki.com/images/b/b8/Mountainwetland.png',
-  jungle_sands: 'https://spiritislandwiki.com/images/7/7f/JungleSands.svg',
-  jungle_wetland: 'https://spiritislandwiki.com/images/0/04/Junglewetland.png',
-  sands_wetland: 'https://spiritislandwiki.com/images/0/03/SandsWetland.svg',
-
-  mountain_presence: 'https://spiritislandwiki.com/images/2/25/MountainPresence.svg',
-  jungle_presence: 'https://spiritislandwiki.com/images/9/99/JunglePresence.svg',
-  sands_presence: 'https://spiritislandwiki.com/images/4/47/SandsPresence.svg',
-  wetland_presence: 'https://spiritislandwiki.com/images/e/e2/WetlandPresence.svg',
-
-  // Board Tokens & Similar
-  town: 'https://spiritislandwiki.com/images/f/fe/Town.svg',
-  city: 'https://spiritislandwiki.com/images/b/ba/City.svg',
-  explorer: 'https://spiritislandwiki.com/images/0/00/Explorer.svg',
-  dahan: 'https://spiritislandwiki.com/images/7/72/Dahan.svg',
-  blight: 'https://spiritislandwiki.com/images/f/f6/Blight.svg',
-  no_blight: 'https://spiritislandwiki.com/images/4/43/Noblighticon.png',
-  presence: 'https://spiritislandwiki.com/images/6/61/Presence.svg',
-  sacred_site: 'https://spiritislandwiki.com/images/5/51/SacredSite.svg',
-  destroyed_presence:
-    'https://spiritislandwiki.com/images/thumb/0/07/Destroyedpresence.png/50px-Destroyedpresence.png',
-  incarna: 'https://spiritislandwiki.com/images/b/b4/Incarna.svg',
-  empower: 'https://spiritislandwiki.com/images/thumb/8/8e/Empowericon.png/120px-Empowericon.png',
-
-  strife: 'https://spiritislandwiki.com/images/c/ce/Strife.svg',
-  wilds: 'https://spiritislandwiki.com/images/a/aa/Wilds.svg',
-  beasts: 'https://spiritislandwiki.com/images/3/34/Beasts.svg',
-  badlands: 'https://spiritislandwiki.com/images/7/7c/Badlands.svg',
-  disease: 'https://spiritislandwiki.com/images/d/d8/Disease.svg',
-  vitality: 'https://spiritislandwiki.com/images/4/48/Vitalityicon.png',
-
-  // Game Mechanics
-  fear: 'https://spiritislandwiki.com/images/9/98/Fear.svg',
-  isolate: 'https://spiritislandwiki.com/images/thumb/9/9e/Isolateicon.png/50px-Isolateicon.png',
-  defend: 'https://spiritislandwiki.com/images/f/f8/Defend.svg',
-  fast: 'https://spiritislandwiki.com/images/6/61/FastColor.svg',
-  slow: 'https://spiritislandwiki.com/images/7/71/SlowColor.svg',
-  minor: 'https://spiritislandwiki.com/images/thumb/f/f6/Minorsymbol.png/30px-Minorsymbol.png',
-  escalation: 'https://spiritislandwiki.com/images/8/83/Escalation.svg',
-  terror_1: 'https://spiritislandwiki.com/images/d/dd/Terror1.svg',
-  terror_2: 'https://spiritislandwiki.com/images/5/54/Terror2.svg',
-  terror_3: 'https://spiritislandwiki.com/images/9/9e/Terror3.svg',
-
-  // Growth + Presence Tracks
-  reclaim_all: 'https://spiritislandwiki.com/images/e/e9/Reclaimall.png',
-  reclaim_one: 'https://spiritislandwiki.com/images/7/71/Reclaimone.png',
-  reclaim_half:
-    'https://spiritislandwiki.com/images/thumb/c/cb/Reclaim_Half.png/120px-Reclaim_Half.png',
-  push_1_dahan:
-    'https://spiritislandwiki.com/images/thumb/f/f3/Pushdahanicon.png/120px-Pushdahanicon.png',
-  gather_1_dahan:
-    'https://spiritislandwiki.com/images/thumb/b/b5/Gather1Dahan.png/120px-Gather1Dahan.png',
-  gain_card: 'https://spiritislandwiki.com/images/f/fb/Gaincardicon.png',
-
-  // Spirit Specific:
-  gather_into_ocean: 'https://spiritislandwiki.com/images/5/5e/Gathertoocean.png',
-  push_from_ocean: 'https://spiritislandwiki.com/images/8/89/Pushfromocean.png',
-  ocean: 'https://spiritislandwiki.com/images/8/89/Ocean.png',
-  gain_1_per_fire:
-    'https://spiritislandwiki.com/images/thumb/3/3b/Oneenergyfire.png/120px-Oneenergyfire.png',
-  gain_energy_for_card_plays:
-    'https://spiritislandwiki.com/images/thumb/e/eb/Energy_Gain_1_Per_Card_Play.png/120px-Energy_Gain_1_Per_Card_Play.png',
-  gather_beasts:
-    'https://spiritislandwiki.com/images/thumb/6/6f/Land_Gather_Beasts.png/120px-Land_Gather_Beasts.png',
-  prepare_element:
-    'https://spiritislandwiki.com/images/thumb/0/0d/Element_Marker_Gain_1.png/62px-Element_Marker_Gain_1.png',
-  discard_markers_for_card_play:
-    'https://spiritislandwiki.com/images/thumb/9/9b/Card_Play_Gain_1_Pay_2_Element_Markers.png/100px-Card_Play_Gain_1_Pay_2_Element_Markers.png',
-  gain_2_time: 'https://spiritislandwiki.com/images/thumb/6/6e/Gain2time.png/120px-Gain2time.png',
-  gain_1_time_twice:
-    'https://spiritislandwiki.com/images/thumb/8/88/Gain1timex2.png/50px-Gain1timex2.png',
-  gain_1_time_thrice:
-    'https://spiritislandwiki.com/images/thumb/e/ef/Gain1timex3.png/50px-Gain1timex3.png',
-  gain_card_from_pile:
-    'https://spiritislandwiki.com/images/thumb/2/27/Daysthatneverweregrowthicon.png/100px-Daysthatneverweregrowthicon.png',
-  gain_2_card_plays:
-    'https://spiritislandwiki.com/images/thumb/9/92/2cardplays.png/50px-2cardplays.png',
-  gain_1_card_play: 'https://spiritislandwiki.com/images/2/26/Plusonecardplay.png',
-  '2_damage': 'https://spiritislandwiki.com/images/thumb/1/15/Damage_2.png/72px-Damage_2.png',
-  discard_2_cards:
-    'https://spiritislandwiki.com/images/thumb/1/12/Discard2Cards.png/160px-Discard2Cards.png',
-  push_town_city:
-    'https://spiritislandwiki.com/images/thumb/2/2a/Land_Push_Town-City.png/120px-Land_Push_Town-City.png',
-  behemoth: 'https://spiritislandwiki.com/images/d/d6/EmberEyedBehemoth.svg',
-  unempowered_behemoth: 'https://spiritislandwiki.com/images/8/8d/Ember-Eyed_Behemoth_Incarna.png',
-  empowered_behemoth:
-    'https://spiritislandwiki.com/images/a/a7/Ember-Eyed_Behemoth_Empowered_Incarna.png',
-  towering_roots: 'https://spiritislandwiki.com/images/0/0c/ToweringRoots.svg',
-  unempowered_towering_roots:
-    'https://spiritislandwiki.com/images/f/f2/Towering_Roots_of_the_Jungle_Incarna.png',
-  empowered_towering_roots:
-    'https://spiritislandwiki.com/images/3/34/Towering_Roots_of_the_Jungle_Empowered_Incarna.png',
-  breath_of_darkness: 'https://spiritislandwiki.com/images/3/30/BreathOfDarkness.svg',
-  unempowered_breath_of_darkness:
-    'https://spiritislandwiki.com/images/b/b1/Breath_of_Darkness_Down_Your_Spine_Incarna.png',
-  empowered_breath_of_darkness:
-    'https://spiritislandwiki.com/images/2/26/Breath_of_Darkness_Down_Your_Spine_Empowered_Incarna.png',
-  endless_dark: 'https://spiritislandwiki.com/images/0/08/EndlessDark.svg',
-  escape_all:
-    'https://spiritislandwiki.com/images/thumb/2/20/DarknessEscapeAll.png/160px-DarknessEscapeAll.png',
-  escape_1:
-    'https://spiritislandwiki.com/images/thumb/8/8d/DarknessEscape2.png/160px-DarknessEscape2.png',
-  escape_2:
-    'https://spiritislandwiki.com/images/thumb/1/15/DarknessEscape1.png/160px-DarknessEscape1.png',
-  wandering_voice: 'https://spiritislandwiki.com/images/d/d0/WanderingVoice.svg',
-  unempowered_wandering_voice:
-    'https://spiritislandwiki.com/images/f/fa/Wandering_Voice_Keens_Delirium_Incarna.png',
-  empowered_wandering_voice:
-    'https://spiritislandwiki.com/images/c/cd/Wandering_Voice_Keens_Delirium_Empowered_Incarna.png',
-  push_wandering_voice:
-    'https://spiritislandwiki.com/images/thumb/8/83/Push_Voice_Incarna.png/120px-Push_Voice_Incarna.png',
-  gather_1_blight:
-    'https://spiritislandwiki.com/images/thumb/7/73/Gatherblight.png/124px-Gatherblight.png',
-  quake: 'https://spiritislandwiki.com/images/0/03/Quake.svg',
-  gain_major_without_forgetting:
-    'https://spiritislandwiki.com/images/thumb/f/fa/GainMajorWithoutForgetting.png/72px-GainMajorWithoutForgetting.png',
-  impending_card:
-    'https://spiritislandwiki.com/images/thumb/1/1e/Impendingcard.png/60px-Impendingcard.png',
-  impending_energy_1:
-    'https://spiritislandwiki.com/images/thumb/b/bf/Impendenergy1.png/58px-Impendenergy1.png',
-  impending_energy_2:
-    'https://spiritislandwiki.com/images/thumb/d/d0/Impendenergy2.png/88px-Impendenergy2.png',
-  impending_energy:
-    'https://spiritislandwiki.com/images/thumb/e/e3/Impendenergygain.png/52px-Impendenergygain.png',
-  impending_cards:
-    'https://spiritislandwiki.com/images/thumb/5/5c/Impendingcardplay.png/68px-Impendingcardplay.png',
-  energy_plus_minus:
-    'https://spiritislandwiki.com/images/thumb/6/6f/Energyplusminus1.png/60px-Energyplusminus1.png',
-  card: 'https://spiritislandwiki.com/images/e/ea/PowerCard.svg',
-  lair: 'https://spiritislandwiki.com/images/1/15/Lair.svg',
-  unempowered_lair:
-    'https://spiritislandwiki.com/images/e/ec/Lure_of_the_Deep_Wilderness_Incarna_%28Lair%29.png',
-  locus: 'https://spiritislandwiki.com/images/4/47/Locus.svg',
-  unempowered_locus:
-    'https://spiritislandwiki.com/images/0/00/Serpent_Slumbering_Beneath_the_Island_Incarna_%28Locus%29.png',
-  empowered_locus:
-    'https://spiritislandwiki.com/images/b/b9/Serpent_Slumbering_Beneath_the_Island_Empowered_Incarna_%28Locus%29.png',
-  warrior: 'https://spiritislandwiki.com/images/d/d3/Warrior.svg',
-  unempowered_warrior:
-    'https://spiritislandwiki.com/images/6/69/Thunderspeaker_Incarna_%28Warrior%29.png',
-  deeps: 'https://spiritislandwiki.com/images/9/99/Deeps.svg',
-
-  // Targeting
-  check: 'https://spiritislandwiki.com/images/thumb/5/5a/Checkmark.png/36px-Checkmark.png',
-  //no_range: 'https://spiritislandwiki.com/images/d/d4/NoRange.svg',
-  spirit: 'https://spiritislandwiki.com/images/2/2f/Spirits.svg',
-
-  // Random
-  //or: 'https://spiritislandwiki.com/images/2/26/Or.svg',
+  "sun": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739413/symbols/sun.png",
+  "moon": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739495/symbols/moon.png",
+  "fire": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739496/symbols/fire.png",
+  "air": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739496/symbols/air.png",
+  "water": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739497/symbols/water.png",
+  "earth": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739497/symbols/earth.png",
+  "plant": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739498/symbols/plant.png",
+  "animal": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739498/symbols/animal.png",
+  "any": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739499/symbols/any.png",
+  "element": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739500/symbols/element.png",
+  "card_1": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739501/symbols/card_1.png",
+  "card_2": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739501/symbols/card_2.png",
+  "card_3": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739502/symbols/card_3.png",
+  "card_4": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739502/symbols/card_4.png",
+  "card_5": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739503/symbols/card_5.png",
+  "card_6": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739504/symbols/card_6.png",
+  "mountain": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739505/symbols/mountain.png",
+  "jungle": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739505/symbols/jungle.png",
+  "sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739506/symbols/sands.svg",
+  "wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739507/symbols/wetland.svg",
+  "mountain_jungle": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739509/symbols/mountain_jungle.svg",
+  "mountaion_sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739510/symbols/mountaion_sands.png",
+  "mountain_wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739511/symbols/mountain_wetland.png",
+  "jungle_sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739512/symbols/jungle_sands.svg",
+  "jungle_wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739513/symbols/jungle_wetland.png",
+  "sands_wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739514/symbols/sands_wetland.svg",
+  "mountain_presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739516/symbols/mountain_presence.svg",
+  "jungle_presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739519/symbols/jungle_presence.svg",
+  "sands_presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739520/symbols/sands_presence.svg",
+  "wetland_presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739523/symbols/wetland_presence.svg",
+  "town": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739525/symbols/town.svg",
+  "city": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739526/symbols/city.svg",
+  "explorer": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739528/symbols/explorer.svg",
+  "dahan": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739529/symbols/dahan.svg",
+  "blight": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739531/symbols/blight.svg",
+  "no_blight": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739534/symbols/no_blight.png",
+  "presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739537/symbols/presence.svg",
+  "sacred_site": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739540/symbols/sacred_site.svg",
+  "destroyed_presence": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739541/symbols/destroyed_presence.png",
+  "incarna": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739542/symbols/incarna.svg",
+  "empower": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739543/symbols/empower.png",
+  "strife": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739544/symbols/strife.svg",
+  "wilds": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739546/symbols/wilds.svg",
+  "beasts": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739547/symbols/beasts.svg",
+  "badlands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739550/symbols/badlands.svg",
+  "disease": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739552/symbols/disease.svg",
+  "vitality": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739553/symbols/vitality.png",
+  "fear": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739554/symbols/fear.svg",
+  "isolate": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739555/symbols/isolate.png",
+  "defend": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739556/symbols/defend.svg",
+  "fast": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739557/symbols/fast.svg",
+  "slow": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739559/symbols/slow.svg",
+  "minor": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739561/symbols/minor.png",
+  "escalation": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739562/symbols/escalation.svg",
+  "terror_1": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739564/symbols/terror_1.svg",
+  "terror_2": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739566/symbols/terror_2.svg",
+  "terror_3": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739568/symbols/terror_3.svg",
+  "reclaim_all": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739569/symbols/reclaim_all.png",
+  "reclaim_one": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739570/symbols/reclaim_one.png",
+  "reclaim_half": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739571/symbols/reclaim_half.png",
+  "push_1_dahan": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739572/symbols/push_1_dahan.png",
+  "gather_1_dahan": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739572/symbols/gather_1_dahan.png",
+  "gain_card": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739573/symbols/gain_card.png",
+  "gather_into_ocean": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739574/symbols/gather_into_ocean.png",
+  "push_from_ocean": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739575/symbols/push_from_ocean.png",
+  "ocean": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739575/symbols/ocean.png",
+  "gain_1_per_fire": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739576/symbols/gain_1_per_fire.png",
+  "gain_energy_for_card_plays": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739577/symbols/gain_energy_for_card_plays.png",
+  "gather_beasts": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739578/symbols/gather_beasts.png",
+  "prepare_element": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739578/symbols/prepare_element.png",
+  "discard_markers_for_card_play": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739579/symbols/discard_markers_for_card_play.png",
+  "gain_2_time": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739579/symbols/gain_2_time.png",
+  "gain_1_time_twice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739580/symbols/gain_1_time_twice.png",
+  "gain_1_time_thrice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739581/symbols/gain_1_time_thrice.png",
+  "gain_card_from_pile": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739581/symbols/gain_card_from_pile.png",
+  "gain_2_card_plays": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739582/symbols/gain_2_card_plays.png",
+  "gain_1_card_play": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739582/symbols/gain_1_card_play.png",
+  "2_damage": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739583/symbols/2_damage.png",
+  "discard_2_cards": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739584/symbols/discard_2_cards.png",
+  "push_town_city": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739584/symbols/push_town_city.png",
+  "behemoth": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739585/symbols/behemoth.svg",
+  "unempowered_behemoth": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739587/symbols/unempowered_behemoth.png",
+  "empowered_behemoth": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739588/symbols/empowered_behemoth.png",
+  "towering_roots": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739589/symbols/towering_roots.svg",
+  "unempowered_towering_roots": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739591/symbols/unempowered_towering_roots.png",
+  "empowered_towering_roots": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739592/symbols/empowered_towering_roots.png",
+  "breath_of_darkness": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739592/symbols/breath_of_darkness.svg",
+  "unempowered_breath_of_darkness": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739596/symbols/unempowered_breath_of_darkness.png",
+  "empowered_breath_of_darkness": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739597/symbols/empowered_breath_of_darkness.png",
+  "endless_dark": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739598/symbols/endless_dark.svg",
+  "escape_all": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739600/symbols/escape_all.png",
+  "escape_1": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739602/symbols/escape_1.png",
+  "escape_2": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739602/symbols/escape_2.png",
+  "wandering_voice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739604/symbols/wandering_voice.svg",
+  "unempowered_wandering_voice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739607/symbols/unempowered_wandering_voice.png",
+  "empowered_wandering_voice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739608/symbols/empowered_wandering_voice.png",
+  "push_wandering_voice": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739609/symbols/push_wandering_voice.png",
+  "gather_1_blight": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739610/symbols/gather_1_blight.png",
+  "quake": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739610/symbols/quake.svg",
+  "gain_major_without_forgetting": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739612/symbols/gain_major_without_forgetting.png",
+  "impending_card": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739613/symbols/impending_card.png",
+  "impending_energy_1": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739613/symbols/impending_energy_1.png",
+  "impending_energy_2": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739614/symbols/impending_energy_2.png",
+  "impending_energy": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739615/symbols/impending_energy.png",
+  "impending_cards": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739616/symbols/impending_cards.png",
+  "energy_plus_minus": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739617/symbols/energy_plus_minus.png",
+  "card": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739617/symbols/card.svg",
+  "lair": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739620/symbols/lair.svg",
+  "unempowered_lair": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739621/symbols/unempowered_lair.png",
+  "locus": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739622/symbols/locus.svg",
+  "unempowered_locus": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739624/symbols/unempowered_locus.png",
+  "empowered_locus": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739624/symbols/empowered_locus.png",
+  "warrior": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739625/symbols/warrior.svg",
+  "unempowered_warrior": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739627/symbols/unempowered_warrior.png",
+  "deeps": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739628/symbols/deeps.svg",
+  "check": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739630/symbols/check.png",
+  "spirit": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739630/symbols/spirit.svg"
 }
 export const ALL_SYMBOLS = Object.keys(SYMBOL_DATA)
 export const INVERTABLE_SYMBOLS = [
@@ -286,417 +225,359 @@ export const elementLongForm: Record<Element, string> = {
   n: 'animal',
 }
 export const BOARDS: Record<string, string> = {
-  board_a:
-    'https://spiritislandwiki.com/images/thumb/e/e2/Piece_core_board_a.png/900px-Piece_core_board_a.png',
-  north_east:
-    'https://spiritislandwiki.com/images/thumb/f/f9/Piece_core_board_north_east.png/900px-Piece_core_board_north_east.png',
-  board_b:
-    'https://spiritislandwiki.com/images/thumb/7/7a/Piece_core_board_b.png/900px-Piece_core_board_b.png',
-  east: 'https://spiritislandwiki.com/images/thumb/5/58/Piece_core_board_east.png/900px-Piece_core_board_east.png',
-  board_c:
-    'https://spiritislandwiki.com/images/thumb/8/82/Piece_core_board_c.png/900px-Piece_core_board_c.png',
-  north_west:
-    'https://spiritislandwiki.com/images/thumb/8/8c/Piece_core_board_north_west.png/900px-Piece_core_board_north_west.png',
-  board_d:
-    'https://spiritislandwiki.com/images/thumb/3/3a/Piece_core_board_d.png/900px-Piece_core_board_d.png',
-  west: 'https://spiritislandwiki.com/images/thumb/2/26/Piece_core_board_west.png/900px-Piece_core_board_west.png',
-  board_e:
-    'https://spiritislandwiki.com/images/thumb/e/e5/Piece_je_board_e.png/900px-Piece_je_board_e.png',
-  south_east:
-    'https://spiritislandwiki.com/images/thumb/c/cc/Piece_je_board_south_east.png/900px-Piece_je_board_south_east.png',
-  board_f:
-    'https://spiritislandwiki.com/images/thumb/0/0b/Piece_je_board_f.png/900px-Piece_je_board_f.png',
-  south_west:
-    'https://spiritislandwiki.com/images/thumb/6/64/Piece_je_board_south_west.png/900px-Piece_je_board_south_west.png',
-  board_g: 'https://spiritislandwiki.com/images/d/d4/Piece_horizons_board_g.png',
-  board_h: 'https://spiritislandwiki.com/images/4/4a/Piece_horizons_board_h.png',
+  board_a: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731411/board_a_iolewd.png',
+  north_east: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731417/north_east_b3ftz0.png',
+  board_b: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731412/board_b_higzm3.png',
+  east: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731416/east_uw4ubs.png',
+  board_c: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731412/board_c_bcs21z.png',
+  north_west: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731418/north_west_hvvigs.png',
+  board_d: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731413/board_d_kn1vl1.png',
+  west: '',
+  board_e: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731413/board_e_syban4.png',
+  south_east: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731419/south_east_t3sms4.png',
+  board_f: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731414/board_f_matalr.png',
+  south_west: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731419/south_west_vybsw2.png',
+  board_g: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731415/board_g_o0jff7.png',
+  board_h: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756731415/board_h_oxzfra.png',
 }
 
 export const SPIRITS: Record<string, SpiritData> = {
-  "lightning's swift strike": {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/c/c2/Lightning%27s_Swift_Strike.png/132px-Lightning%27s_Swift_Strike.png',
-    img_large: 'https://spiritislandwiki.com/images/c/c2/Lightning%27s_Swift_Strike.png',
-    image: "/Lightning's_Swift_Strike_SpiritBoard.png",
-    caseName: "Lightning's Swift Strike",
-  },
-  'river surges in sunlight': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/f/ff/River_Surges_in_Sunlight.png/263px-River_Surges_in_Sunlight.png',
-    img_large: 'https://spiritislandwiki.com/images/f/ff/River_Surges_in_Sunlight.png',
-    image: '/River_Surges_in_Sunlight_SpiritBoard.png',
-    caseName: 'River Surges in Sunlight',
-  },
-  'shadows flicker like flame': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/d/d2/Shadows_Flicker_Like_Flame.png/263px-Shadows_Flicker_Like_Flame.png',
-    img_large: 'https://spiritislandwiki.com/images/d/d2/Shadows_Flicker_Like_Flame.png',
-    image: '/Shadows_Flicker_Like_Flame_SpiritBoard.png',
-    caseName: 'Shadows Flicker Like Flame',
-  },
-  'vital strength of the earth': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/c/c2/Vital_Strength_of_the_Earth.png/263px-Vital_Strength_of_the_Earth.png',
-    img_large: 'https://spiritislandwiki.com/images/c/c2/Vital_Strength_of_the_Earth.png',
-    image: '/Vital_Strength_of_the_Earth_SpiritBoard.png',
-    caseName: 'Vital Strength of the Earth',
-  },
-  'a spread of rampant green': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/7/7f/A_Spread_of_Rampant_Green.png/263px-A_Spread_of_Rampant_Green.png',
-    img_large: 'https://spiritislandwiki.com/images/7/7f/A_Spread_of_Rampant_Green.png',
-    image: '/A_Spread_of_Rampant_Green_SpiritBoard.png',
-    caseName: 'A Spread of Rampant Green',
-  },
-
-  thunderspeaker: {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/b/bd/Thunderspeaker.png/255px-Thunderspeaker.png',
-    img_large: 'https://spiritislandwiki.com/images/b/bd/Thunderspeaker.png',
-    image: '/Thunderspeaker_SpiritBoard.png',
-    caseName: 'Thunderspeaker',
-  },
-
-  'bringer of dreams and nightmares': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/a/aa/Bringer_of_Dreams_and_Nightmares.png/220px-Bringer_of_Dreams_and_Nightmares.png',
-    img_large: 'https://spiritislandwiki.com/images/a/aa/Bringer_of_Dreams_and_Nightmares.png',
-    image: '/Bringer_of_Dreams_and_Nightmares_SpiritBoard.png',
-    caseName: 'Bringer of Dreams and Nightmares',
-  },
-  "ocean's hungry grasp": {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/d/d8/Ocean%27s_Hungry_Grasp.png/262px-Ocean%27s_Hungry_Grasp.png',
-    img_large: 'https://spiritislandwiki.com/images/d/d8/Ocean%27s_Hungry_Grasp.png',
-    image: "/Ocean's_Hungry_Grasp_SpiritBoard.png",
-    caseName: "Ocean's Hungry Grasp",
-  },
-  'keeper of the forbidden wilds': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/a/ae/Keeper_of_the_Forbidden_Wilds.png/263px-Keeper_of_the_Forbidden_Wilds.png',
-    img_large: 'https://spiritislandwiki.com/images/a/ae/Keeper_of_the_Forbidden_Wilds.png',
-    image: '/Keeper_of_the_Forbidden_Wilds_SpiritBoard.png',
-    caseName: 'Keeper of the Forbidden Wilds',
-  },
-  'sharp fangs behind the leaves': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/a/a5/Sharp_Fangs_Behind_the_Leaves.png/263px-Sharp_Fangs_Behind_the_Leaves.png',
-    img_large: 'https://spiritislandwiki.com/images/a/a5/Sharp_Fangs_Behind_the_Leaves.png',
-    image: '/Sharp_Fangs_Behind_the_Leaves_SpiritBoard.png',
-    caseName: 'Sharp Fangs Behind the Leaves',
-  },
-  'heart of the wildfire': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/2/21/Heart_of_the_Wildfire.png/263px-Heart_of_the_Wildfire.png',
-    img_large: 'https://spiritislandwiki.com/images/2/21/Heart_of_the_Wildfire.png',
-    image: 'codex/public/Heart_Of_The_Wildfire.png',
-    caseName: 'Heart of the Wildfire',
-  },
-
-  'serpent slumbering beneath the island': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/1/1a/Serpent_Slumbering_Beneath_the_Island.png/263px-Serpent_Slumbering_Beneath_the_Island.png',
-    img_large: 'https://spiritislandwiki.com/images/1/1a/Serpent_Slumbering_Beneath_the_Island.png',
-    image: '/Snek_Slumbering_Beneath_the_Island_SpiritBoard.png',
-    caseName: 'Serpent Slumbering Beneath the Island',
-  },
-  'grinning trickster stirs up trouble': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/f/f0/Grinning_Trickster_Stirs_Up_Trouble.png/263px-Grinning_Trickster_Stirs_Up_Trouble.png',
-    img_large: 'https://spiritislandwiki.com/images/f/f0/Grinning_Trickster_Stirs_Up_Trouble.png',
-    image: '/Grinning_Trickster_Stirs_Up_Trouble_SpiritBoard.png',
-    caseName: 'Grinning Trickster Stirs Up Trouble',
-  },
-  'lure of the deep wilderness': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/2/25/Lure_of_the_Deep_Wilderness.png/263px-Lure_of_the_Deep_Wilderness.png',
-    img_large: 'https://spiritislandwiki.com/images/2/25/Lure_of_the_Deep_Wilderness.png',
-    image: '/LURE_OF_THE_DEEP_WILDERNESS_SpiritBoard.png',
-    caseName: 'Lure of the Deep Wilderness',
-  },
-
-  'many minds move as one': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/a/a3/Many_Minds_Move_as_One.png/263px-Many_Minds_Move_as_One.png',
-    img_large: 'https://spiritislandwiki.com/images/a/a3/Many_Minds_Move_as_One.png',
-    image: 'codex/public/Many_Minds_Move_As_One.png',
-    caseName: 'Many Minds Move as One',
-  },
-  'shifting memory of ages': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/0/0f/Shifting_Memory_of_Ages.png/263px-Shifting_Memory_of_Ages.png',
-    img_large: 'https://spiritislandwiki.com/images/0/0f/Shifting_Memory_of_Ages.png',
-    image: '/Shifting_Memory_of_Ages_SpiritBoard.png',
-    caseName: 'Shifting Memory of Ages',
-  },
-
-  "stone's unyielding defiance": {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/b/bf/Stone%27s_Unyielding_Defiance.png/263px-Stone%27s_Unyielding_Defiance.png',
-    img_large: 'https://spiritislandwiki.com/images/b/bf/Stone%27s_Unyielding_Defiance.png',
-    image: "/Stone's_Unyielding_Defiance_SpiritBoard.png",
-    caseName: "Stone's Unyielding Defiance",
-  },
-  'volcano looming high': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/3/33/Volcano_Looming_High.png/263px-Volcano_Looming_High.png',
-    img_large: 'https://spiritislandwiki.com/images/3/33/Volcano_Looming_High.png',
-    image: '/Volcano_Looming_High_SpiritBoard.png',
-    caseName: 'Volcano Looming High',
-  },
-  'shroud of silent mist': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/4/4e/Shroud_of_Silent_Mist.png/263px-Shroud_of_Silent_Mist.png',
-    img_large: 'https://spiritislandwiki.com/images/4/4e/Shroud_of_Silent_Mist.png',
-    image: '/Shroud_of_Silent_Mist_SpiritBoard.png',
-    caseName: 'Shroud of Silent Mist',
-  },
-  'vengeance as a burning plague': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/f/f2/Vengeance_as_a_Burning_Plague.png/263px-Vengeance_as_a_Burning_Plague.png',
-    img_large: 'https://spiritislandwiki.com/images/f/f2/Vengeance_as_a_Burning_Plague.png',
-    image: '/Vengeance_as_a_Burning_Plague_SpiritBoard.png',
-    caseName: 'Vengeance as a Burning Plague',
-  },
-  'fractured days split the sky': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/8/81/Fractured_Days_Split_the_Sky.png/263px-Fractured_Days_Split_the_Sky.png',
-    img_large: 'https://spiritislandwiki.com/images/8/81/Fractured_Days_Split_the_Sky.png',
-    image: '/Fractured_Days_Split_the_Sky_SpiritBoard.png',
-    caseName: 'Fractured Days Split the Sky',
-  },
-  'starlight seeks its form': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/6/6b/Starlight_Seeks_Its_Form.png/263px-Starlight_Seeks_Its_Form.png',
-    img_large: 'https://spiritislandwiki.com/images/6/6b/Starlight_Seeks_Its_Form.png',
-    image: '/Starlight_Seeks_Its_Form_SpiritBoard.png',
-    caseName: 'Starlight Seeks Its Form',
-  },
-  'downpour drenches the world': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/7/74/Downpour_Drenches_the_World.png/263px-Downpour_Drenches_the_World.png',
-    img_large: 'https://spiritislandwiki.com/images/7/74/Downpour_Drenches_the_World.png',
-    image: '/Downpour_Drenches_the_World_SpiritBoard.png',
-    caseName: 'Downpour Drenches the World',
-  },
-  'finder of paths unseen': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/d/d9/Finder_of_Paths_Unseen.png/263px-Finder_of_Paths_Unseen.png',
-    img_large: 'https://spiritislandwiki.com/images/d/d9/Finder_of_Paths_Unseen.png',
-    image: '/Finder_of_Paths_Unseen_SpiritBoard.png',
-    caseName: 'Finder of Paths Unseen',
-  },
-  'devouring teeth lurk underfoot': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/d/dc/Devouring_Teeth_Lurk_Underfoot.png/234px-Devouring_Teeth_Lurk_Underfoot.png',
-    img_large: 'https://spiritislandwiki.com/images/d/dc/Devouring_Teeth_Lurk_Underfoot.png',
-    image: '/Devouring_Teeth_Lurk_Underfoot_SpiritBoard.png',
-    caseName: 'Devouring Teeth Lurk Underfoot',
-  },
-
-  'eyes watch from the trees': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/5/53/Eyes_Watch_from_the_Trees.png/234px-Eyes_Watch_from_the_Trees.png',
-    img_large: 'https://spiritislandwiki.com/images/5/53/Eyes_Watch_from_the_Trees.png',
-    image: '',
-    caseName: 'Eyes Watch from the Trees',
-  },
-
-  'fathomless mud of the swamp': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/f/f6/Fathomless_Mud_of_the_Swamp.png/234px-Fathomless_Mud_of_the_Swamp.png',
-    img_large: 'https://spiritislandwiki.com/images/f/f6/Fathomless_Mud_of_the_Swamp.png',
-    image: '/Eyes_Watch_from_the_Trees_SpiritBoard.png',
-    caseName: 'Fathomless Mud of the Swamp',
-  },
-  'rising heat of stone and sand': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/7/7f/Rising_Heat_of_Stone_and_Sand.png/272px-Rising_Heat_of_Stone_and_Sand.png',
-    img_large: 'https://spiritislandwiki.com/images/7/7f/Rising_Heat_of_Stone_and_Sand.png',
-    image: '/Rising_Heat_of_Stone_and_Sand_SpiritBoard.png',
-    caseName: 'Rising Heat of Stone and Sand',
-  },
-  'sun-bright whirlwind': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/7/7b/Sun-Bright_Whirlwind.png/272px-Sun-Bright_Whirlwind.png',
-    img_large: 'https://spiritislandwiki.com/images/7/7b/Sun-Bright_Whirlwind.png',
-    image: '/Sun-Bright_Whirlwind_SpiritBoard.png',
-    caseName: 'Sun-Bright Whirlwind',
-  },
-  'ember-eyed behemoth': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/4/4e/Ember-Eyed_Behemoth.png/263px-Ember-Eyed_Behemoth.png',
-    img_large: 'https://spiritislandwiki.com/images/4/4e/Ember-Eyed_Behemoth.png',
-    image: '/Ember-Eyed_Behemoth_SpiritBoard.png',
-    caseName: 'Ember-Eyed Behemoth',
-  },
-  'hearth-vigil': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/c/c0/Hearth-Vigil.png/263px-Hearth-Vigil.png',
-    img_large: 'https://spiritislandwiki.com/images/c/c0/Hearth-Vigil.png',
-    image: '/Hearth_Vigil.png',
-    caseName: 'Hearth-Vigil',
-  },
-
-  'towering roots of the jungle': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/7/74/Towering_Roots_of_the_Jungle.png/263px-Towering_Roots_of_the_Jungle.png',
-    img_large: 'https://spiritislandwiki.com/images/7/74/Towering_Roots_of_the_Jungle.png',
-    image: 'Towering_Roots_Of_The_Jungle.png',
-    caseName: 'Towering Roots of the Jungle',
-  },
-  'breath of darkness down your spine': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/0/03/Breath_of_Darkness_Down_Your_Spine.png/263px-Breath_of_Darkness_Down_Your_Spine.png',
-    img_large: 'https://spiritislandwiki.com/images/0/03/Breath_of_Darkness_Down_Your_Spine.png',
-    image: 'codex/public/Beath_Of_Darkness_Down_Your_Spin.png',
-    caseName: 'Breath of Darkness Down Your Spine',
-  },
-  'relentless gaze of the sun': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/0/04/Relentless_Gaze_of_the_Sun.png/263px-Relentless_Gaze_of_the_Sun.png',
-    img_large: 'https://spiritislandwiki.com/images/0/04/Relentless_Gaze_of_the_Sun.png',
-    image: '/Relentless_Gaze_of_the_Sun_SpiritBoard.png',
-    caseName: 'Relentless Gaze of the Sun',
-  },
-  'wandering voice keens delirium': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/a/a4/Wandering_Voice_Keens_Delirium.png/254px-Wandering_Voice_Keens_Delirium.png',
-    img_large: 'https://spiritislandwiki.com/images/a/a4/Wandering_Voice_Keens_Delirium.png',
-    image: '/Wandering_Voice_Keens_Delerium_SpiritBoard.png',
-    caseName: 'Wandering Voice Keens Delirium',
-  },
-  'wounded waters bleeding': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/2/24/Wounded_Waters_Bleeding.png/263px-Wounded_Waters_Bleeding.png',
-    img_large: 'https://spiritislandwiki.com/images/2/24/Wounded_Waters_Bleeding.png',
-    image: '/Wounded_Waters_Bleeding_SpiritBoard.png',
-    caseName: 'Wounded Waters Bleeding',
-  },
-  'dances up earthquakes': {
-    img_small:
-      'https://spiritislandwiki.com/images/thumb/4/4c/Dances_Up_Earthquakes.png/263px-Dances_Up_Earthquakes.png',
-    img_large: 'https://spiritislandwiki.com/images/4/4c/Dances_Up_Earthquakes.png',
-    image: '/Dances_Up_Earthquakes_SpiritBoard.png',
-    caseName: 'Dances Up Earthquakes',
-  },
+	"a spread of rampant green": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732658/a_spread_of_rampant_green_iol0kg.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733033/a_spread_of_rampant_green_c0devu.png",
+		"image": "/A_Spread_of_Rampant_Green_SpiritBoard.png",
+		"caseName": "A Spread of Rampant Green"
+	},
+	"breath of darkness down your spine": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732659/breath_of_darkness_down_your_spine_hqqhud.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733034/breath_of_darkness_down_your_spine_wwdh0m.png",
+		"image": "/Beath_Of_Darkness_Down_Your_Spin.png",
+		"caseName": "Breath of Darkness Down Your Spine"
+	},
+	"bringer of dreams and nightmares": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732659/bringer_of_dreams_and_nightmares_hkz3pt.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733035/bringer_of_dreams_and_nightmares_e0648d.png",
+		"image": "/Bringer_of_Dreams_and_Nightmares_SpiritBoard.png",
+		"caseName": "Bringer of Dreams and Nightmares"
+	},
+	"dances up earthquakes": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732660/dances_up_earthquakes_znkxxg.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733036/dances_up_earthquakes_omk2r1.png",
+		"image": "/Dances_Up_Earthquakes_SpiritBoard.png",
+		"caseName": "Dances Up Earthquakes"
+	},
+	"devouring teeth lurk underfoot": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732661/devouring_teeth_lurk_underfoot_aw77ok.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733037/devouring_teeth_lurk_underfoot_deqi3g.png",
+		"image": "/Devouring_Teeth_Lurk_Underfoot_SpiritBoard.png",
+		"caseName": "Devouring Teeth Lurk Underfoot"
+	},
+	"downpour drenches the world": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732662/downpour_drenches_the_world_ww8uwk.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733038/downpour_drenches_the_world_rna9om.png",
+		"image": "/Downpour_Drenches_the_World_SpiritBoard.png",
+		"caseName": "Downpour Drenches the World"
+	},
+	"ember-eyed behemoth": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732663/ember-eyed_behemoth_n1mojn.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733039/ember-eyed_behemoth_tsgwga.png",
+		"image": "/Ember-Eyed_Behemoth_SpiritBoard.png",
+		"caseName": "Ember-Eyed Behemoth"
+	},
+	"eyes watch from the trees": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732664/eyes_watch_from_the_trees_yji4mc.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733040/eyes_watch_from_the_trees_umaxim.png",
+		"image": "",
+		"caseName": "Eyes Watch from the Trees"
+	},
+	"fathomless mud of the swamp": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732665/fathomless_mud_of_the_swamp_uxajua.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733041/fathomless_mud_of_the_swamp_catphz.png",
+		"image": "/Eyes_Watch_from_the_Trees_SpiritBoard.png",
+		"caseName": "Fathomless Mud of the Swamp"
+	},
+	"finder of paths unseen": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732666/finder_of_paths_unseen_paylpu.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733042/finder_of_paths_unseen_ldu1qm.png",
+		"image": "/Finder_of_Paths_Unseen_SpiritBoard.png",
+		"caseName": "Finder of Paths Unseen"
+	},
+	"fractured days split the sky": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732667/fractured_days_split_the_sky_fnsx8e.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733044/fractured_days_split_the_sky_ppbtph.png",
+		"image": "/Fractured_Days_Split_the_Sky_SpiritBoard.png",
+		"caseName": "Fractured Days Split the Sky"
+	},
+	"grinning trickster stirs up trouble": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732667/grinning_trickster_stirs_up_trouble_ukt7wy.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733045/grinning_trickster_stirs_up_trouble_glnm3t.png",
+		"image": "/Grinning_Trickster_Stirs_Up_Trouble_SpiritBoard.png",
+		"caseName": "Grinning Trickster Stirs Up Trouble"
+	},
+	"heart of the wildfire": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732668/heart_of_the_wildfire_qcm0hr.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733046/heart_of_the_wildfire_i6xkpb.png",
+		"image": "codex/public/Heart_Of_The_Wildfire.png",
+		"caseName": "Heart of the Wildfire"
+	},
+	"hearth-vigil": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732670/hearth-vigil_tyokh0.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733047/hearth-vigil_ndv9qu.png",
+		"image": "/Hearth_Vigil.png",
+		"caseName": "Hearth-Vigil"
+	},
+	"keeper of the forbidden wilds": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732671/keeper_of_the_forbidden_wilds_nayi7n.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733049/keeper_of_the_forbidden_wilds_snamzf.png",
+		"image": "/Keeper_of_the_Forbidden_Wilds_SpiritBoard.png",
+		"caseName": "Keeper of the Forbidden Wilds"
+	},
+	"lightning's swift strike": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732672/lightning_s_swift_strike_htq7ah.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733051/lightning_s_swift_strike_uocgcr.png",
+		"image": "/Lightning's_Swift_Strike_SpiritBoard.png",
+		"caseName": "Lightning's Swift Strike"
+	},
+	"lure of the deep wilderness": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732673/lure_of_the_deep_wilderness_w9x095.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733051/lure_of_the_deep_wilderness_f60zjk.png",
+		"image": "/LURE_OF_THE_DEEP_WILDERNESS_SpiritBoard.png",
+		"caseName": "Lure of the Deep Wilderness"
+	},
+	"many minds move as one": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732674/many_minds_move_as_one_yxc9g3.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733052/many_minds_move_as_one_b4vjme.png",
+		"image": "codex/public/Many_Minds_Move_As_One.png",
+		"caseName": "Many Minds Move as One"
+	},
+	"ocean's hungry grasp": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732675/ocean_s_hungry_grasp_mbecsu.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733054/ocean_s_hungry_grasp_e1kihi.png",
+		"image": "/Ocean's_Hungry_Grasp_SpiritBoard.png",
+		"caseName": "Ocean's Hungry Grasp"
+	},
+	"relentless gaze of the sun": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732676/relentless_gaze_of_the_sun_tgwqre.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733055/relentless_gaze_of_the_sun_tnf0m1.png",
+		"image": "/Relentless_Gaze_of_the_Sun_SpiritBoard.png",
+		"caseName": "Relentless Gaze of the Sun"
+	},
+	"rising heat of stone and sand": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732677/rising_heat_of_stone_and_sand_docada.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733056/rising_heat_of_stone_and_sand_pg31eb.png",
+		"image": "/Rising_Heat_of_Stone_and_Sand_SpiritBoard.png",
+		"caseName": "Rising Heat of Stone and Sand"
+	},
+	"river surges in sunlight": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732678/river_surges_in_sunlight_tdyzth.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733058/river_surges_in_sunlight_u1sbpe.png",
+		"image": "/River_Surges_in_Sunlight_SpiritBoard.png",
+		"caseName": "River Surges in Sunlight"
+	},
+	"serpent slumbering beneath the island": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732680/serpent_slumbering_beneath_the_island_cm2kli.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733059/serpent_slumbering_beneath_the_island_ijrfez.png",
+		"image": "/Snek_Slumbering_Beneath_the_Island_SpiritBoard.png",
+		"caseName": "Serpent Slumbering Beneath the Island"
+	},
+	"shadows flicker like flame": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732680/shadows_flicker_like_flame_rdsign.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733061/shadows_flicker_like_flame_eicaqx.png",
+		"image": "/Shadows_Flicker_Like_Flame_SpiritBoard.png",
+		"caseName": "Shadows Flicker Like Flame"
+	},
+	"sharp fangs behind the leaves": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732682/sharp_fangs_behind_the_leaves_ddishw.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733062/sharp_fangs_behind_the_leaves_yjwofu.png",
+		"image": "/Sharp_Fangs_Behind_the_Leaves_SpiritBoard.png",
+		"caseName": "Sharp Fangs Behind the Leaves"
+	},
+	"shifting memory of ages": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732683/shifting_memory_of_ages_wfxkez.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733064/shifting_memory_of_ages_qsajbu.png",
+		"image": "/Shifting_Memory_of_Ages_SpiritBoard.png",
+		"caseName": "Shifting Memory of Ages"
+	},
+	"shroud of silent mist": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732685/shroud_of_silent_mist_l0meuk.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733065/shroud_of_silent_mist_tqcvzm.png",
+		"image": "/Shroud_of_Silent_Mist_SpiritBoard.png",
+		"caseName": "Shroud of Silent Mist"
+	},
+	"starlight seeks its form": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732685/starlight_seeks_its_form_rlf6ps.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733067/starlight_seeks_its_form_uf1v8p.png",
+		"image": "/Starlight_Seeks_Its_Form_SpiritBoard.png",
+		"caseName": "Starlight Seeks Its Form"
+	},
+	"stone's unyielding defiance": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732687/stone_s_unyielding_defiance_njmhub.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733068/stone_s_unyielding_defiance_stgs43.png",
+		"image": "/Stone's_Unyielding_Defiance_SpiritBoard.png",
+		"caseName": "Stone's Unyielding Defiance"
+	},
+	"sun-bright whirlwind": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732688/sun-bright_whirlwind_qz1j37.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733070/sun-bright_whirlwind_boroui.png",
+		"image": "/Sun-Bright_Whirlwind_SpiritBoard.png",
+		"caseName": "Sun-Bright Whirlwind"
+	},
+	"thunderspeaker": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732690/thunderspeaker_cucmdp.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733071/thunderspeaker_lks2bj.png",
+		"image": "/Thunderspeaker_SpiritBoard.png",
+		"caseName": "Thunderspeaker"
+	},
+	"towering roots of the jungle": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732691/towering_roots_of_the_jungle_xtstge.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733073/towering_roots_of_the_jungle_nhkigd.png",
+		"image": "Towering_Roots_Of_The_Jungle.png",
+		"caseName": "Towering Roots of the Jungle"
+	},
+	"vengeance as a burning plague": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732692/vengeance_as_a_burning_plague_bzeqyj.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733074/vengeance_as_a_burning_plague_oszmiw.png",
+		"image": "/Vengeance_as_a_Burning_Plague_SpiritBoard.png",
+		"caseName": "Vengeance as a Burning Plague"
+	},
+	"vital strength of the earth": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732694/vital_strength_of_the_earth_y6s6xy.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733076/vital_strength_of_the_earth_y8zppx.png",
+		"image": "/Vital_Strength_of_the_Earth_SpiritBoard.png",
+		"caseName": "Vital Strength of the Earth"
+	},
+	"volcano looming high": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732695/volcano_looming_high_hsehca.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733077/volcano_looming_high_ugynuj.png",
+		"image": "/Volcano_Looming_High_SpiritBoard.png",
+		"caseName": "Volcano Looming High"
+	},
+	"wandering voice keens delirium": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732697/wandering_voice_keens_delirium_ezmz5u.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733079/wandering_voice_keens_delirium_egdave.png",
+		"image": "/Wandering_Voice_Keens_Delerium_SpiritBoard.png",
+		"caseName": "Wandering Voice Keens Delirium"
+	},
+	"wounded waters bleeding": {
+		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732697/wounded_waters_bleeding_g91g4r.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733079/wandering_voice_keens_delirium_egdave.png",
+		"image": "/Wounded_Waters_Bleeding_SpiritBoard.png",
+		"caseName": "Wounded Waters Bleeding"
+	}
 }
 
 export const SCENARIOS: Record<string, Scenario> = {
-  blitz: {
-    art: 'https://spiritislandwiki.com/images/1/10/Blitz.png',
-    caseName: 'Blitz',
+  "blitz": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737765/scenarios/blitz.png",
+    "caseName": "Blitz"
   },
   "guard the isle's heart": {
-    art: 'https://spiritislandwiki.com/images/d/d4/Guard_the_Isle%27s_Heart.png',
-    caseName: "Guard the Isle's Heart",
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737766/scenarios/guard_the_isle%27s_heart.png",
+    "caseName": "Guard the Isle's Heart"
   },
-  'rituals of terror': {
-    art: 'https://spiritislandwiki.com/images/9/96/Rituals_of_Terror.png',
-    caseName: 'Rituals of Terror',
+  "rituals of terror": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737767/scenarios/rituals_of_terror.png",
+    "caseName": "Rituals of Terror"
   },
-  'dahan insurrection': {
-    art: 'https://spiritislandwiki.com/images/5/53/Dahan_Insurrection.png',
-    caseName: 'Dahan Insurrection',
+  "dahan insurrection": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737768/scenarios/dahan_insurrection.png",
+    "caseName": "Dahan Insurrection"
   },
-  'second wave': {
-    art: 'https://spiritislandwiki.com/images/1/18/Second_Wave.png',
-    caseName: 'Second Wave',
+  "second wave": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737769/scenarios/second_wave.png",
+    "caseName": "Second Wave"
   },
-  'powers long forgotten': {
-    art: 'https://spiritislandwiki.com/images/a/a0/Powers_Long_Forgotten.png',
-    caseName: 'Powers Long Forgotten',
+  "powers long forgotten": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737772/scenarios/powers_long_forgotten.png",
+    "caseName": "Powers Long Forgotten"
   },
-  'ward the shores': {
-    art: 'https://spiritislandwiki.com/images/3/3f/Ward_the_Shores.png',
-    caseName: 'Ward the Shores',
+  "ward the shores": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737773/scenarios/ward_the_shores.png",
+    "caseName": "Ward the Shores"
   },
-  'rituals of the destroying flame': {
-    art: 'https://spiritislandwiki.com/images/2/2d/Rituals_of_the_Destroying_Flame.png',
-    caseName: 'Rituals of the Destroying Flame',
+  "rituals of the destroying flame": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737774/scenarios/rituals_of_the_destroying_flame.png",
+    "caseName": "Rituals of the Destroying Flame"
   },
-  'elemental invocation': {
-    art: 'https://spiritislandwiki.com/images/4/46/Elemental_Invocation.png',
-    caseName: 'Elemental Invocation',
+  "elemental invocation": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737775/scenarios/elemental_invocation.png",
+    "caseName": "Elemental Invocation"
   },
-  'despicable theft': {
-    art: 'https://spiritislandwiki.com/images/f/f5/Despicable_Theft.png',
-    caseName: 'Despicable Theft',
+  "despicable theft": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737776/scenarios/despicable_theft.png",
+    "caseName": "Despicable Theft"
   },
-  'the great river': {
-    art: 'https://spiritislandwiki.com/images/8/8e/The_Great_River.png',
-    caseName: 'The Great River',
+  "the great river": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737777/scenarios/the_great_river.png",
+    "caseName": "The Great River"
   },
-  'a diversity of spirits': {
-    art: 'https://spiritislandwiki.com/images/8/86/A_Diversity_of_Spirits.png',
-    caseName: 'A Diversity of Spirits',
+  "a diversity of spirits": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737777/scenarios/a_diversity_of_spirits.png",
+    "caseName": "A Diversity of Spirits"
   },
-  'varied terrains': {
-    art: 'https://spiritislandwiki.com/images/d/d1/Varied_Terrains.png',
-    caseName: 'Varied Terrains',
+  "varied terrains": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737778/scenarios/varied_terrains.png",
+    "caseName": "Varied Terrains"
   },
-  'destiny unfolds': {
-    art: 'https://spiritislandwiki.com/images/b/bc/Destiny_Unfolds.png',
-    caseName: 'Destiny Unfolds',
+  "destiny unfolds": {
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737780/scenarios/destiny_unfolds.png",
+    "caseName": "Destiny Unfolds"
   },
-  'surges of colonization': {
-    art: null,
-    caseName: 'Surges of Colonization',
-  },
+  "surges of colonization": {
+    "art": null,
+    "caseName": "Surges of Colonization"
+  }
 }
 
 export const ADVESARIES: Record<string, Adversary> = {
-  'brandenburg-prussia': {
-    flag: 'https://spiritislandwiki.com/images/f/f8/Brandenburg-Prussia_WrinkledFlag.png',
-    map: 'https://spiritislandwiki.com/images/2/24/Brandenburg-Prussia_Map.png',
-    image: '/The_Kingdom_of_Brandenburg-Prussia_Adversary.png',
-    caseName: 'Brandenburg-Prussia',
+  "brandenburg-prussia": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737991/scenarios/brandenburg-prussia.png",
+    "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738342/advesaries/brandenburg-prussia.png",
+    "image": "/The_Kingdom_of_Brandenburg-Prussia_Adversary.png",
+    "caseName": "Brandenburg-Prussia"
   },
-  england: {
-    flag: 'https://spiritislandwiki.com/images/2/2e/England_WrinkledFlag.png',
-    map: 'https://spiritislandwiki.com/images/7/7a/England_Map.png',
-    image: 'The_Kingdom_of_England_Adversary.png',
-    caseName: 'England',
+  "england": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737992/scenarios/england.png",
+    "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738343/advesaries/england.png",
+    "image": "The_Kingdom_of_England_Adversary.png",
+    "caseName": "England"
   },
-  sweden: {
-    flag: 'https://spiritislandwiki.com/images/4/4a/Sweden_WrinkledFlag.png',
-    map: 'https://spiritislandwiki.com/images/5/51/Sweden_Map.png',
-    image: 'The_Kingdom_of_Sweden_Adversary.png',
-    caseName: 'Sweden',
+  "sweden": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737992/scenarios/sweden.png",
+    "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738345/advesaries/sweden.png",
+    "image": "The_Kingdom_of_Sweden_Adversary.png",
+    "caseName": "Sweden"
   },
-
-  'france (plantation colony)': {
-    flag: 'https://spiritislandwiki.com/images/b/bd/France_%28Plantation_Colony%29_WrinkledFlag.png',
-    map: 'https://spiritislandwiki.com/images/8/81/France_%28Plantation_Colony%29_Map.png',
-    image: 'The_Kingdom_of_France_(Plantation_Colony)_Adversary.png',
-    caseName: 'France',
+  "france (plantation colony)": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737993/scenarios/france_%28plantation_colony%29.png",
+    "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738347/advesaries/france_%28plantation_colony%29.png",
+    "image": "The_Kingdom_of_France_(Plantation_Colony)_Adversary.png",
+    "caseName": "France"
   },
-  'habsburg monarchy (livestock colony)': {
-    flag: 'https://spiritislandwiki.com/images/7/71/Habsburg_Monarchy_%28Livestock_Colony%29_WrinkledFlag.png',
-    map: null,
-    image: '/The_Habsburg_Monarchy_(Livestock_Colony)_Adversary.png',
-    caseName: 'Habsburg Monarchy (Livestock Colony)',
+  "habsburg monarchy (livestock colony)": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737994/scenarios/habsburg_monarchy_%28livestock_colony%29.png",
+    "map": null,
+    "image": "/The_Habsburg_Monarchy_(Livestock_Colony)_Adversary.png",
+    "caseName": "Habsburg Monarchy (Livestock Colony)"
   },
-
-  russia: {
-    flag: 'https://spiritislandwiki.com/images/e/e9/Russia_WrinkledFlag.png',
-    map: null,
-    image: '/The_Tsardom_of_Russia_Adversary.png',
-    caseName: 'Russia',
+  "russia": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737994/scenarios/russia.png",
+    "map": null,
+    "image": "/The_Tsardom_of_Russia_Adversary.png",
+    "caseName": "Russia"
   },
-
-  scotland: {
-    flag: 'https://spiritislandwiki.com/images/9/9f/Scotland_WrinkledFlag.png',
-    map: null,
-    image: '/The_Kingdom_of_Scotland_Adversary.png',
-    caseName: 'Scotland',
+  "scotland": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737995/scenarios/scotland.png",
+    "map": null,
+    "image": "/The_Kingdom_of_Scotland_Adversary.png",
+    "caseName": "Scotland"
   },
-  'habsburg mining expedition': {
-    flag: 'https://spiritislandwiki.com/images/thumb/1/13/Habsburg_Mining_Expedition_Flag.png/172px-Habsburg_Mining_Expedition_Flag.png',
-    map: null,
-    image: '/Habsburg_Mining_Expedition_Adversary.png',
-    caseName: 'Habsburg Mining Expedition',
-  },
+  "habsburg mining expedition": {
+    "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737995/scenarios/habsburg_mining_expedition.png",
+    "map": null,
+    "image": "/Habsburg_Mining_Expedition_Adversary.png",
+    "caseName": "Habsburg Mining Expedition"
+  }
 }
 
 export const CATEGORIZED_TAGS: Record<string,string[]> = {
@@ -737,7 +618,7 @@ export const TAGS = Object.values(CATEGORIZED_TAGS).flat()
 
 export const ASPECTS: Record<string, AspectCard> = {
   "pandemonium": {
-    "image": "https://spiritislandwiki.com/images/7/73/Pandemonium_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729994/pandemonium_xgttqe.png",
     "set": [
       "jagged earth"
     ],
@@ -745,7 +626,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Pandemonium"
   },
   "sunshine": {
-    "image": "https://spiritislandwiki.com/images/0/02/Sunshine_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/sunshine_b35sdv.png",
     "set": [
       "jagged earth"
     ],
@@ -753,7 +634,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Sunshine"
   },
   "locus (1 of 2)": {
-    "image": "https://spiritislandwiki.com/images/0/0c/Locus_1_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729993/locus_1_of_2_nckfa0.png",
     "set": [
       "nature incarnate"
     ],
@@ -761,7 +642,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Locus (1 of 2)"
   },
   "locus (2 of 2)": {
-    "image": "https://spiritislandwiki.com/images/8/81/Locus_2_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729993/locus_2_of_2_xrh9ci.png",
     "set": [
       "nature incarnate"
     ],
@@ -769,7 +650,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Locus (2 of 2)"
   },
   "travel": {
-    "image": "https://spiritislandwiki.com/images/4/41/Travel_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729997/travel_rxdbxy.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -778,7 +659,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Travel"
   },
   "immense": {
-    "image": "https://spiritislandwiki.com/images/6/6a/Immense_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/immense_d6o7tm.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -787,7 +668,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Immense"
   },
   "spreading hostility": {
-    "image": "https://spiritislandwiki.com/images/b/bf/Spreading_Hostility_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/spreading_hostility_knw5i1.png",
     "set": [
       "nature incarnate"
     ],
@@ -795,7 +676,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Spreading Hostility"
   },
   "tactician": {
-    "image": "https://spiritislandwiki.com/images/d/d3/Tactician_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/tactician_i2wyna.png",
     "set": [
       "nature incarnate"
     ],
@@ -803,7 +684,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Tactician"
   },
   "wind": {
-    "image": "https://spiritislandwiki.com/images/f/fc/Wind_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729997/wind_lyovkp.png",
     "set": [
       "jagged earth"
     ],
@@ -811,7 +692,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Wind"
   },
   "resilience": {
-    "image": "https://spiritislandwiki.com/images/7/71/Resilience_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/resilience_kfnwpi.png",
     "set": [
       "jagged earth"
     ],
@@ -819,7 +700,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Resilience"
   },
   "enticing": {
-    "image": "https://spiritislandwiki.com/images/d/d9/Enticing_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729991/enticing_gi930o.png",
     "set": [
       "nature incarnate"
     ],
@@ -827,7 +708,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Enticing"
   },
   "tangles": {
-    "image": "https://spiritislandwiki.com/images/5/58/Tangles_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/tangles_ncmc2u.png",
     "set": [
       "nature incarnate"
     ],
@@ -835,7 +716,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Tangles"
   },
   "belligerent and aggressive crops": {
-    "image": "https://spiritislandwiki.com/images/3/3c/Belligerent_and_Aggressive_Crops_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729991/belligerent_and_aggressive_crops_dqlqew.png",
     "set": [
       "nature incarnate"
     ],
@@ -843,7 +724,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Belligerent and Aggressive Crops"
   },
   "encircle": {
-    "image": "https://spiritislandwiki.com/images/4/49/Encircle_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729991/encircle_ucabmh.png",
     "set": [
       "nature incarnate"
     ],
@@ -851,7 +732,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Encircle"
   },
   "stranded": {
-    "image": "https://spiritislandwiki.com/images/e/e8/Stranded_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/stranded_fmt8qf.png",
     "set": [
       "nature incarnate"
     ],
@@ -859,7 +740,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Stranded"
   },
   "madness": {
-    "image": "https://spiritislandwiki.com/images/3/3a/Madness_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729994/madness_gm7l7v.png",
     "set": [
       "jagged earth"
     ],
@@ -867,7 +748,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Madness"
   },
   "lair": {
-    "image": "https://spiritislandwiki.com/images/7/78/Lair_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729993/lair_swz5ol.png",
     "set": [
       "nature incarnate"
     ],
@@ -875,7 +756,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Lair"
   },
   "nourishing": {
-    "image": "https://spiritislandwiki.com/images/8/8f/Nourishing_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729994/nourishing_xmukwt.png",
     "set": [
       "nature incarnate"
     ],
@@ -883,7 +764,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Nourishing"
   },
   "violence": {
-    "image": "https://spiritislandwiki.com/images/9/90/Violence_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729997/violence_m6temw.png",
     "set": [
       "nature incarnate"
     ],
@@ -891,7 +772,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Violence"
   },
   "haven": {
-    "image": "https://spiritislandwiki.com/images/2/27/Haven_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/haven_rhs9x8.png",
     "set": [
       "nature incarnate"
     ],
@@ -899,7 +780,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Haven"
   },
   "transforming": {
-    "image": "https://spiritislandwiki.com/images/b/bf/Transforming_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729996/transforming_ebeo0d.png",
     "set": [
       "nature incarnate"
     ],
@@ -907,7 +788,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Transforming"
   },
   "regrowth": {
-    "image": "https://spiritislandwiki.com/images/9/90/Regrowth_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/regrowth_eovc0r.png",
     "set": [
       "nature incarnate"
     ],
@@ -915,7 +796,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Regrowth"
   },
   "foreboding": {
-    "image": "https://spiritislandwiki.com/images/c/cf/Foreboding_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/regrowth_eovc0r.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -924,7 +805,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Foreboding"
   },
   "reach": {
-    "image": "https://spiritislandwiki.com/images/b/ba/Reach_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/reach_nwqmau.png",
     "set": [
       "jagged earth"
     ],
@@ -932,7 +813,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Reach"
   },
   "mentor": {
-    "image": "https://spiritislandwiki.com/images/6/6c/Mentor_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729994/mentor_dvxfj4.png",
     "set": [
       "nature incarnate"
     ],
@@ -940,7 +821,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Mentor"
   },
   "amorphous": {
-    "image": "https://spiritislandwiki.com/images/6/64/Amorphous_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/amorphous_js0uez.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -949,7 +830,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Amorphous"
   },
   "dark fire": {
-    "image": "https://spiritislandwiki.com/images/0/06/Dark_Fire_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/dark_fire_kkpv7o.png",
     "set": [
       "nature incarnate"
     ],
@@ -957,7 +838,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Dark Fire"
   },
   "sparking": {
-    "image": "https://spiritislandwiki.com/images/1/1c/Sparking_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/sparking_oogqqk.png",
     "set": [
       "nature incarnate"
     ],
@@ -965,7 +846,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Sparking"
   },
   "smite the land with fulmination": {
-    "image": "https://spiritislandwiki.com/images/2/2f/Smite_the_Land_with_Fulmination_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/smite_the_land_with_fulmination_swtur9.png",
     "set": [
       "nature incarnate"
     ],
@@ -973,7 +854,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Smite the Land with Fulmination"
   },
   "deeps (1 of 2)": {
-    "image": "https://spiritislandwiki.com/images/b/bf/Deeps_1_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/deeps_1_of_2_afsoi9.png",
     "set": [
       "nature incarnate"
     ],
@@ -981,7 +862,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Deeps (1 of 2)"
   },
   "deeps (2 of 2)": {
-    "image": "https://spiritislandwiki.com/images/f/fa/Deeps_2_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729992/deeps_2_of_2_vg13yn.png",
     "set": [
       "nature incarnate"
     ],
@@ -989,7 +870,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Deeps (2 of 2)"
   },
   "might": {
-    "image": "https://spiritislandwiki.com/images/5/5b/Might_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729995/might_hvvkpy.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -998,7 +879,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Might"
   },
   "unconstrained": {
-    "image": "https://spiritislandwiki.com/images/0/08/Unconstrained_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729997/unconstrained_kfwagy.png",
     "set": [
       "nature incarnate"
     ],
@@ -1006,7 +887,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Unconstrained"
   },
   "warrior": {
-    "image": "https://spiritislandwiki.com/images/6/69/Warrior_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729997/warrior_le5ep6.png",
     "set": [
       "nature incarnate"
     ],
@@ -1014,7 +895,7 @@ export const ASPECTS: Record<string, AspectCard> = {
     "caseName": "Warrior"
   },
   "intensify": {
-    "image": "https://spiritislandwiki.com/images/1/16/Intensify_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756729994/intensify_dhhft0.png",
     "set": [
       "nature incarnate"
     ],
@@ -1025,7 +906,7 @@ export const ASPECTS: Record<string, AspectCard> = {
 
 export const BLIGHT_CARDS: Record<string, BlightCard> = {
   "downward spiral": {
-    "image": "https://spiritislandwiki.com/images/3/3b/Downward_Spiral_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738435/blight/downward_spiral.png",
     "set": [
       "spirit island"
     ],
@@ -1036,7 +917,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Downward Spiral"
   },
   "disintegrating ecosystem": {
-    "image": "https://spiritislandwiki.com/images/e/e7/Disintegrating_Ecosystem_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738436/blight/disintegrating_ecosystem.png",
     "set": [
       "branch and claw"
     ],
@@ -1047,7 +928,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Disintegrating Ecosystem"
   },
   "a pall upon the land": {
-    "image": "https://spiritislandwiki.com/images/e/ec/A_Pall_Upon_the_Land_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738438/blight/a_pall_upon_the_land.png",
     "set": [
       "branch and claw"
     ],
@@ -1058,7 +939,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "A Pall Upon the Land"
   },
   "slow dissolution of will": {
-    "image": "https://spiritislandwiki.com/images/8/8d/Slow_Dissolution_of_Will_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738439/blight/slow_dissolution_of_will.png",
     "set": [
       "nature incarnate"
     ],
@@ -1069,7 +950,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Slow Dissolution of Will"
   },
   "memory fades to dust": {
-    "image": "https://spiritislandwiki.com/images/3/3c/Memory_Fades_to_Dust_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738440/blight/memory_fades_to_dust.png",
     "set": [
       "spirit island"
     ],
@@ -1080,7 +961,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Memory Fades to Dust"
   },
   "invaders find the land to their liking": {
-    "image": "https://spiritislandwiki.com/images/3/3b/Invaders_Find_the_Land_to_Their_Liking_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738441/blight/invaders_find_the_land_to_their_liking.png",
     "set": [
       "jagged earth"
     ],
@@ -1091,7 +972,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Invaders Find the Land to Their Liking"
   },
   "blight corrodes the spirit": {
-    "image": "https://spiritislandwiki.com/images/3/35/Blight_Corrodes_the_Spirit_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738442/blight/blight_corrodes_the_spirit.png",
     "set": [
       "nature incarnate"
     ],
@@ -1102,7 +983,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Blight Corrodes the Spirit"
   },
   "intensifying exploitation": {
-    "image": "https://spiritislandwiki.com/images/b/b6/Intensifying_Exploitation_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738444/blight/intensifying_exploitation.png",
     "set": [
       "nature incarnate"
     ],
@@ -1113,7 +994,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Intensifying Exploitation"
   },
   "strong earth shatters slowly": {
-    "image": "https://spiritislandwiki.com/images/6/6a/Strong_Earth_Shatters_Slowly_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738444/blight/strong_earth_shatters_slowly.png",
     "set": [
       "jagged earth"
     ],
@@ -1124,7 +1005,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Strong Earth Shatters Slowly"
   },
   "shattered fragments of power": {
-    "image": "https://spiritislandwiki.com/images/5/51/Shattered_Fragments_of_Power_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738445/blight/shattered_fragments_of_power.png",
     "set": [
       "nature incarnate"
     ],
@@ -1135,7 +1016,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Shattered Fragments of Power"
   },
   "erosion of will": {
-    "image": "https://spiritislandwiki.com/images/c/cb/Erosion_of_Will_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738447/blight/erosion_of_will.png",
     "set": [
       "branch and claw"
     ],
@@ -1146,7 +1027,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Erosion of Will"
   },
   "the border of life and death": {
-    "image": "https://spiritislandwiki.com/images/c/ca/The_Border_of_Life_and_Death_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738448/blight/the_border_of_life_and_death.png",
     "set": [
       "nature incarnate"
     ],
@@ -1157,7 +1038,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "The Border of Life and Death"
   },
   "tipping point": {
-    "image": "https://spiritislandwiki.com/images/d/d2/Tipping_Point_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738449/blight/tipping_point.png",
     "set": [
       "branch and claw"
     ],
@@ -1168,7 +1049,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Tipping Point"
   },
   "unnatural proliferation": {
-    "image": "https://spiritislandwiki.com/images/e/e7/Unnatural_Proliferation_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738450/blight/unnatural_proliferation.png",
     "set": [
       "jagged earth"
     ],
@@ -1179,7 +1060,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Unnatural Proliferation"
   },
   "all things weaken": {
-    "image": "https://spiritislandwiki.com/images/7/7e/All_Things_Weaken_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738451/blight/all_things_weaken.png",
     "set": [
       "jagged earth"
     ],
@@ -1190,7 +1071,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "All Things Weaken"
   },
   "promising farmlands": {
-    "image": "https://spiritislandwiki.com/images/8/81/Promising_Farmlands_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738452/blight/promising_farmlands.png",
     "set": [
       "branch and claw"
     ],
@@ -1201,7 +1082,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Promising Farmlands"
   },
   "attenuated essence": {
-    "image": "https://spiritislandwiki.com/images/2/2e/Attenuated_Essence_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738453/blight/attenuated_essence.png",
     "set": [
       "nature incarnate"
     ],
@@ -1212,7 +1093,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Attenuated Essence"
   },
   "back against the wall": {
-    "image": "https://spiritislandwiki.com/images/3/34/Back_Against_the_Wall_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738457/blight/back_against_the_wall.png",
     "set": [
       "branch and claw"
     ],
@@ -1223,7 +1104,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Back Against the Wall"
   },
   "aid from lesser spirits": {
-    "image": "https://spiritislandwiki.com/images/a/a9/Aid_from_Lesser_Spirits_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738459/blight/aid_from_lesser_spirits.png",
     "set": [
       "branch and claw"
     ],
@@ -1234,7 +1115,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Aid from Lesser Spirits"
   },
   "thriving communities": {
-    "image": "https://spiritislandwiki.com/images/b/b9/Thriving_Communities_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738460/blight/thriving_communities.png",
     "set": [
       "jagged earth"
     ],
@@ -1245,7 +1126,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Thriving Communities"
   },
   "power corrodes the spirit": {
-    "image": "https://spiritislandwiki.com/images/3/36/Power_Corrodes_the_Spirit_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738461/blight/power_corrodes_the_spirit.png",
     "set": [
       "jagged earth"
     ],
@@ -1256,7 +1137,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Power Corrodes the Spirit"
   },
   "untended land crumbles": {
-    "image": "https://spiritislandwiki.com/images/c/c2/Untended_Land_Crumbles_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738462/blight/untended_land_crumbles.png",
     "set": [
       "jagged earth"
     ],
@@ -1267,7 +1148,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Untended Land Crumbles"
   },
   "thriving crops": {
-    "image": "https://spiritislandwiki.com/images/5/57/Thriving_Crops_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738463/blight/thriving_crops.png",
     "set": [
       "nature incarnate"
     ],
@@ -1278,7 +1159,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
     "caseName": "Thriving Crops"
   },
   "burn brightest before the end": {
-    "image": "https://spiritislandwiki.com/images/0/09/Burn_Brightest_Before_the_End_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738464/blight/burn_brightest_before_the_end.png",
     "set": [
       "nature incarnate"
     ],
@@ -1292,7 +1173,7 @@ export const BLIGHT_CARDS: Record<string, BlightCard> = {
 
 export const EVENTS: Record<string, EventCard> = {
   "cultural assimilation": {
-    "image": "https://spiritislandwiki.com/images/4/44/Cultural_Assimilation_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738591/events/cultural_assimilation.png",
     "set": [
       "branch and claw"
     ],
@@ -1322,7 +1203,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Cultural Assimilation"
   },
   "bureaucrats adjust funding": {
-    "image": "https://spiritislandwiki.com/images/d/da/Bureaucrats_Adjust_Funding_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738592/events/bureaucrats_adjust_funding.png",
     "set": [
       "jagged earth"
     ],
@@ -1352,7 +1233,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Bureaucrats Adjust Funding"
   },
   "interesting discoveries": {
-    "image": "https://spiritislandwiki.com/images/b/b7/Interesting_Discoveries_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738593/events/interesting_discoveries.png",
     "set": [
       "branch and claw"
     ],
@@ -1382,7 +1263,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Interesting Discoveries"
   },
   "distant exploration": {
-    "image": "https://spiritislandwiki.com/images/e/e5/Distant_Exploration_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738594/events/distant_exploration.png",
     "set": [
       "branch and claw"
     ],
@@ -1412,7 +1293,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Distant Exploration"
   },
   "heavy farming": {
-    "image": "https://spiritislandwiki.com/images/c/ce/Heavy_Farming_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738595/events/heavy_farming.png",
     "set": [
       "branch and claw"
     ],
@@ -1442,7 +1323,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Heavy Farming"
   },
   "putting down roots": {
-    "image": "https://spiritislandwiki.com/images/e/eb/Putting_Down_Roots_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738596/events/putting_down_roots.png",
     "set": [
       "branch and claw"
     ],
@@ -1472,7 +1353,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Putting Down Roots"
   },
   "rising interest in the island": {
-    "image": "https://spiritislandwiki.com/images/4/4f/Rising_Interest_in_the_Island_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738597/events/rising_interest_in_the_island.png",
     "set": [
       "branch and claw"
     ],
@@ -1497,7 +1378,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Rising Interest in the Island"
   },
   "missionaries arrive": {
-    "image": "https://spiritislandwiki.com/images/3/37/Missionaries_Arrive_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738598/events/missionaries_arrive.png",
     "set": [
       "branch and claw"
     ],
@@ -1517,7 +1398,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Missionaries Arrive"
   },
   "invaders surge inland": {
-    "image": "https://spiritislandwiki.com/images/0/0f/Invaders_Surge_Inland_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738599/events/invaders_surge_inland.png",
     "set": [
       "branch and claw"
     ],
@@ -1547,7 +1428,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Invaders Surge Inland"
   },
   "population rises": {
-    "image": "https://spiritislandwiki.com/images/3/37/Population_Rises_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738601/events/population_rises.png",
     "set": [
       "branch and claw"
     ],
@@ -1577,7 +1458,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Population Rises"
   },
   "new species spread": {
-    "image": "https://spiritislandwiki.com/images/6/67/New_Species_Spread_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738602/events/new_species_spread.png",
     "set": [
       "branch and claw"
     ],
@@ -1602,7 +1483,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "New Species Spread"
   },
   "investigation of dangers": {
-    "image": "https://spiritislandwiki.com/images/a/a7/Investigation_of_Dangers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738603/events/investigation_of_dangers.png",
     "set": [
       "branch and claw"
     ],
@@ -1632,7 +1513,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Investigation of Dangers"
   },
   "seeking the interior": {
-    "image": "https://spiritislandwiki.com/images/e/ee/Seeking_the_Interior_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738605/events/seeking_the_interior.png",
     "set": [
       "branch and claw"
     ],
@@ -1662,7 +1543,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Seeking the Interior"
   },
   "promising farmland": {
-    "image": "https://spiritislandwiki.com/images/4/4c/Promising_Farmland_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738606/events/promising_farmland.png",
     "set": [
       "branch and claw"
     ],
@@ -1692,7 +1573,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Promising Farmland"
   },
   "sacred sites under threat": {
-    "image": "https://spiritislandwiki.com/images/4/46/Sacred_Sites_Under_Threat_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738606/events/sacred_sites_under_threat.png",
     "set": [
       "branch and claw"
     ],
@@ -1717,7 +1598,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Sacred Sites Under Threat"
   },
   "farmers seek the dahan for aid": {
-    "image": "https://spiritislandwiki.com/images/3/37/Farmers_Seek_the_Dahan_for_Aid_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738608/events/farmers_seek_the_dahan_for_aid.png",
     "set": [
       "branch and claw"
     ],
@@ -1737,7 +1618,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Farmers Seek the Dahan for Aid"
   },
   "tight-knit communities": {
-    "image": "https://spiritislandwiki.com/images/a/a6/Tight-Knit_Communities_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738608/events/tight-knit_communities.png",
     "set": [
       "branch and claw"
     ],
@@ -1767,7 +1648,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Tight-Knit Communities"
   },
   "urban development": {
-    "image": "https://spiritislandwiki.com/images/4/44/Urban_Development_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738610/events/urban_development.png",
     "set": [
       "branch and claw"
     ],
@@ -1797,7 +1678,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Urban Development"
   },
   "years of little rain": {
-    "image": "https://spiritislandwiki.com/images/2/2d/Years_of_Little_Rain_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738611/events/years_of_little_rain.png",
     "set": [
       "branch and claw"
     ],
@@ -1822,7 +1703,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Years of Little Rain"
   },
   "civic engagement": {
-    "image": "https://spiritislandwiki.com/images/7/7f/Civic_Engagement_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738612/events/civic_engagement.png",
     "set": [
       "jagged earth"
     ],
@@ -1852,7 +1733,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Civic Engagement"
   },
   "cities rise": {
-    "image": "https://spiritislandwiki.com/images/4/4b/Cities_Rise_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738613/events/cities_rise.png",
     "set": [
       "jagged earth"
     ],
@@ -1882,7 +1763,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Cities Rise"
   },
   "coastal towns multiply": {
-    "image": "https://spiritislandwiki.com/images/b/bf/Coastal_Towns_Multiply_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738614/events/coastal_towns_multiply.png",
     "set": [
       "jagged earth"
     ],
@@ -1912,7 +1793,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Coastal Towns Multiply"
   },
   "pull together in adversity": {
-    "image": "https://spiritislandwiki.com/images/4/44/Pull_Together_in_Adversity_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738615/events/pull_together_in_adversity.png",
     "set": [
       "jagged earth"
     ],
@@ -1942,7 +1823,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Pull Together in Adversity"
   },
   "seek new farmland": {
-    "image": "https://spiritislandwiki.com/images/6/63/Seek_New_Farmland_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738616/events/seek_new_farmland.png",
     "set": [
       "jagged earth"
     ],
@@ -1972,7 +1853,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Seek New Farmland"
   },
   "wave of reconnaissance": {
-    "image": "https://spiritislandwiki.com/images/3/3a/Wave_of_Reconnaissance_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738617/events/wave_of_reconnaissance.png",
     "set": [
       "branch and claw"
     ],
@@ -2002,7 +1883,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Wave of Reconnaissance"
   },
   "hard-working settlers": {
-    "image": "https://spiritislandwiki.com/images/a/a2/Hard-Working_Settlers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738619/events/hard-working_settlers.png",
     "set": [
       "jagged earth"
     ],
@@ -2022,7 +1903,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Hard-Working Settlers"
   },
   "overconfidence": {
-    "image": "https://spiritislandwiki.com/images/f/fd/Overconfidence_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738622/events/overconfidence.png",
     "set": [
       "jagged earth"
     ],
@@ -2052,7 +1933,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Overconfidence"
   },
   "strange tales attract explorers": {
-    "image": "https://spiritislandwiki.com/images/9/90/Strange_Tales_Attract_Explorers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738623/events/strange_tales_attract_explorers.png",
     "set": [
       "branch and claw"
     ],
@@ -2082,7 +1963,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Strange Tales Attract Explorers"
   },
   "slave rebellion": {
-    "image": "https://spiritislandwiki.com/images/e/e1/Slave_Rebellion_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738624/events/slave_rebellion.png",
     "set": [
       "branch and claw"
     ],
@@ -2112,7 +1993,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Slave Rebellion"
   },
   "dahan trade with the invaders": {
-    "image": "https://spiritislandwiki.com/images/4/46/Dahan_Trade_with_the_Invaders_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738625/events/dahan_trade_with_the_invaders.png",
     "set": [
       "jagged earth"
     ],
@@ -2132,7 +2013,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Dahan Trade with the Invaders"
   },
   "fortune-seekers": {
-    "image": "https://spiritislandwiki.com/images/4/4c/Fortune-Seekers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738626/events/fortune-seekers.png",
     "set": [
       "jagged earth"
     ],
@@ -2162,7 +2043,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Fortune-Seekers"
   },
   "wounded lands attract explorers": {
-    "image": "https://spiritislandwiki.com/images/6/6d/Wounded_Lands_Attract_Explorers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738627/events/wounded_lands_attract_explorers.png",
     "set": [
       "jagged earth"
     ],
@@ -2192,7 +2073,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Wounded Lands Attract Explorers"
   },
   "numinous crisis": {
-    "image": "https://spiritislandwiki.com/images/e/e3/Numinous_Crisis_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738628/events/numinous_crisis.png",
     "set": [
       "jagged earth"
     ],
@@ -2217,7 +2098,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Numinous Crisis"
   },
   "outpaced": {
-    "image": "https://spiritislandwiki.com/images/c/c4/Outpaced_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738629/events/outpaced.png",
     "set": [
       "branch and claw"
     ],
@@ -2242,7 +2123,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Outpaced"
   },
   "thriving trade": {
-    "image": "https://spiritislandwiki.com/images/2/29/Thriving_Trade_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738630/events/thriving_trade.png",
     "set": [
       "jagged earth"
     ],
@@ -2272,7 +2153,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Thriving Trade"
   },
   "gradual corruption": {
-    "image": "https://spiritislandwiki.com/images/b/be/Gradual_Corruption_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738632/events/gradual_corruption.png",
     "set": [
       "jagged earth"
     ],
@@ -2302,7 +2183,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Gradual Corruption"
   },
   "eager explorers": {
-    "image": "https://spiritislandwiki.com/images/a/a5/Eager_Explorers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738633/events/eager_explorers.png",
     "set": [
       "jagged earth"
     ],
@@ -2332,7 +2213,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Eager Explorers"
   },
   "sprawl contained by the wilds": {
-    "image": "https://spiritislandwiki.com/images/b/b7/Sprawl_Contained_by_the_Wilds_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738634/events/sprawl_contained_by_the_wilds.png",
     "set": [
       "jagged earth"
     ],
@@ -2362,7 +2243,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Sprawl Contained by the Wilds"
   },
   "accumulated devastation": {
-    "image": "https://spiritislandwiki.com/images/2/28/Accumulated_Devastation_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738637/events/accumulated_devastation.png",
     "set": [
       "nature incarnate"
     ],
@@ -2392,7 +2273,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Accumulated Devastation"
   },
   "resourceful populace": {
-    "image": "https://spiritislandwiki.com/images/d/d2/Resourceful_Populace_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738638/events/resourceful_populace.png",
     "set": [
       "jagged earth"
     ],
@@ -2422,7 +2303,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Resourceful Populace"
   },
   "life's balance tilts": {
-    "image": "https://spiritislandwiki.com/images/4/4b/Life%27s_Balance_Tilts_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738639/events/life%27s_balance_tilts.png",
     "set": [
       "jagged earth"
     ],
@@ -2442,7 +2323,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Life's Balance Tilts"
   },
   "ethereal conjunction": {
-    "image": "https://spiritislandwiki.com/images/5/5d/Ethereal_Conjunction_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738640/events/ethereal_conjunction.png",
     "set": [
       "nature incarnate"
     ],
@@ -2467,7 +2348,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Ethereal Conjunction"
   },
   "far-off wars touch the island": {
-    "image": "https://spiritislandwiki.com/images/e/e0/Far-off_Wars_Touch_the_Island_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738642/events/far-off_wars_touch_the_island.png",
     "set": [
       "nature incarnate"
     ],
@@ -2492,7 +2373,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Far-off Wars Touch the Island"
   },
   "the frontier calls": {
-    "image": "https://spiritislandwiki.com/images/e/e2/The_Frontier_Calls_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738643/events/the_frontier_calls.png",
     "set": [
       "jagged earth"
     ],
@@ -2522,7 +2403,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "The Frontier Calls"
   },
   "an ominous dawn": {
-    "image": "https://spiritislandwiki.com/images/1/13/An_Ominous_Dawn_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738645/events/an_ominous_dawn.png",
     "set": [
       "nature incarnate"
     ],
@@ -2552,7 +2433,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "An Ominous Dawn"
   },
   "a strange madness among the beasts": {
-    "image": "https://spiritislandwiki.com/images/0/0c/A_Strange_Madness_Among_the_Beasts_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738648/events/a_strange_madness_among_the_beasts.png",
     "set": [
       "branch and claw"
     ],
@@ -2577,7 +2458,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "A Strange Madness Among the Beasts"
   },
   "visions out of time": {
-    "image": "https://spiritislandwiki.com/images/c/c3/Visions_Out_of_Time_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738649/events/visions_out_of_time.png",
     "set": [
       "nature incarnate"
     ],
@@ -2602,7 +2483,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Visions Out of Time"
   },
   "war touches the island's shores": {
-    "image": "https://spiritislandwiki.com/images/6/6a/War_Touches_the_Island%27s_Shores_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738650/events/war_touches_the_island%27s_shores.png",
     "set": [
       "branch and claw"
     ],
@@ -2627,7 +2508,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "War Touches the Island's Shores"
   },
   "harvest bounty, harvest dust": {
-    "image": "https://spiritislandwiki.com/images/d/da/Harvest_Bounty%2C_Harvest_Dust_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738651/events/harvest_bounty%2C_harvest_dust.png",
     "set": [
       "jagged earth"
     ],
@@ -2657,7 +2538,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Harvest Bounty, Harvest Dust"
   },
   "focused farming": {
-    "image": "https://spiritislandwiki.com/images/7/72/Focused_Farming_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738652/events/focused_farming.png",
     "set": [
       "nature incarnate"
     ],
@@ -2687,7 +2568,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Focused Farming"
   },
   "influx of settlers": {
-    "image": "https://spiritislandwiki.com/images/6/67/Influx_of_Settlers_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738653/events/influx_of_settlers.png",
     "set": [
       "nature incarnate"
     ],
@@ -2717,7 +2598,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Influx of Settlers"
   },
   "lesser spirits imperiled": {
-    "image": "https://spiritislandwiki.com/images/f/f6/Lesser_Spirits_Imperiled_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738654/events/lesser_spirits_imperiled.png",
     "set": [
       "jagged earth"
     ],
@@ -2742,7 +2623,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Lesser Spirits Imperiled"
   },
   "no bravery without numbers": {
-    "image": "https://spiritislandwiki.com/images/e/e7/No_Bravery_Without_Numbers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738655/events/no_bravery_without_numbers.png",
     "set": [
       "jagged earth"
     ],
@@ -2772,7 +2653,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "No Bravery Without Numbers"
   },
   "smaller ports spring up": {
-    "image": "https://spiritislandwiki.com/images/9/91/Smaller_Ports_Spring_Up_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738656/events/smaller_ports_spring_up.png",
     "set": [
       "jagged earth"
     ],
@@ -2802,7 +2683,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Smaller Ports Spring Up"
   },
   "search for unclaimed land": {
-    "image": "https://spiritislandwiki.com/images/d/d0/Search_for_Unclaimed_Land_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738657/events/search_for_unclaimed_land.png",
     "set": [
       "nature incarnate"
     ],
@@ -2832,7 +2713,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Search for Unclaimed Land"
   },
   "mapmakers chart the wild": {
-    "image": "https://spiritislandwiki.com/images/e/e8/Mapmakers_Chart_the_Wild_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738658/events/mapmakers_chart_the_wild.png",
     "set": [
       "jagged earth"
     ],
@@ -2862,7 +2743,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Mapmakers Chart the Wild"
   },
   "relentless optimism": {
-    "image": "https://spiritislandwiki.com/images/2/2e/Relentless_Optimism_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738659/events/relentless_optimism.png",
     "set": [
       "jagged earth"
     ],
@@ -2892,7 +2773,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Relentless Optimism"
   },
   "terror spikes upwards": {
-    "image": "https://spiritislandwiki.com/images/3/34/Terror_Spikes_Upwards_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738660/events/terror_spikes_upwards.png",
     "set": [
       "nature incarnate"
     ],
@@ -2922,7 +2803,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Terror Spikes Upwards"
   },
   "the struggles of growth": {
-    "image": "https://spiritislandwiki.com/images/4/4d/The_Struggles_of_Growth_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738661/events/the_struggles_of_growth.png",
     "set": [
       "jagged earth"
     ],
@@ -2952,7 +2833,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "The Struggles of Growth"
   },
   "provincial seat": {
-    "image": "https://spiritislandwiki.com/images/e/e7/Provincial_Seat_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738662/events/provincial_seat.png",
     "set": [
       "jagged earth"
     ],
@@ -2982,7 +2863,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Provincial Seat"
   },
   "temporary truce": {
-    "image": "https://spiritislandwiki.com/images/e/e8/Temporary_Truce_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738663/events/temporary_truce.png",
     "set": [
       "jagged earth"
     ],
@@ -3012,7 +2893,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Temporary Truce"
   },
   "well-prepared explorers": {
-    "image": "https://spiritislandwiki.com/images/3/31/Well-Prepared_Explorers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738664/events/well-prepared_explorers.png",
     "set": [
       "branch and claw"
     ],
@@ -3042,7 +2923,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Well-Prepared Explorers"
   },
   "search for new lands": {
-    "image": "https://spiritislandwiki.com/images/9/92/Search_for_New_Lands_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738666/events/search_for_new_lands.png",
     "set": [
       "branch and claw"
     ],
@@ -3072,7 +2953,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Search for New Lands"
   },
   "remnants of a spirit's heart": {
-    "image": "https://spiritislandwiki.com/images/c/ce/Remnants_of_a_Spirit%27s_Heart_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738667/events/remnants_of_a_spirit%27s_heart.png",
     "set": [
       "jagged earth"
     ],
@@ -3097,7 +2978,7 @@ export const EVENTS: Record<string, EventCard> = {
     "caseName": "Remnants of a Spirit's Heart"
   },
   "invested aristocracy": {
-    "image": "https://spiritislandwiki.com/images/4/4d/Invested_Aristocracy_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738668/events/invested_aristocracy.png",
     "set": [
       "jagged earth"
     ],
@@ -3130,7 +3011,7 @@ export const EVENTS: Record<string, EventCard> = {
 
 export const FEAR_CARDS: Record<string, FearCard> = {
   "avoid the dahan": {
-    "image": "https://spiritislandwiki.com/images/7/71/Avoid_the_Dahan_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738727/fear/avoid_the_dahan.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3142,7 +3023,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Avoid the Dahan"
   },
   "dahan raid": {
-    "image": "https://spiritislandwiki.com/images/5/58/Dahan_Raid_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738728/fear/dahan_raid.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3154,7 +3035,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan Raid"
   },
   "belief takes root": {
-    "image": "https://spiritislandwiki.com/images/8/88/Belief_Takes_Root_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738729/fear/belief_takes_root.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3166,7 +3047,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Belief Takes Root"
   },
   "fear of the unseen": {
-    "image": "https://spiritislandwiki.com/images/c/c4/Fear_of_the_Unseen_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738730/fear/fear_of_the_unseen.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3178,7 +3059,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Fear of the Unseen"
   },
   "dahan enheartened": {
-    "image": "https://spiritislandwiki.com/images/1/19/Dahan_Enheartened_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738731/fear/dahan_enheartened.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3190,7 +3071,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan Enheartened"
   },
   "dahan on their guard": {
-    "image": "https://spiritislandwiki.com/images/b/b8/Dahan_on_their_Guard_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738732/fear/dahan_on_their_guard.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3202,7 +3083,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan on their Guard"
   },
   "retreat!": {
-    "image": "https://spiritislandwiki.com/images/5/58/Retreat%21_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738733/fear/retreat%21.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3214,7 +3095,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Retreat!"
   },
   "overseas trade seems safer": {
-    "image": "https://spiritislandwiki.com/images/7/7f/Overseas_Trade_Seems_Safer_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738734/fear/overseas_trade_seems_safer.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3226,7 +3107,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Overseas Trade Seems Safer"
   },
   "emigration accelerates": {
-    "image": "https://spiritislandwiki.com/images/2/2e/Emigration_Accelerates_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738735/fear/emigration_accelerates.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3238,7 +3119,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Emigration Accelerates"
   },
   "trade suffers": {
-    "image": "https://spiritislandwiki.com/images/3/3f/Trade_Suffers_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738736/fear/trade_suffers.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3250,7 +3131,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Trade Suffers"
   },
   "demoralized": {
-    "image": "https://spiritislandwiki.com/images/4/40/Demoralized_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738737/fear/demoralized.png",
     "set": [
       "branch and claw"
     ],
@@ -3261,7 +3142,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Demoralized"
   },
   "unrest": {
-    "image": "https://spiritislandwiki.com/images/9/9e/Unrest_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738738/fear/unrest.png",
     "set": [
       "branch and claw"
     ],
@@ -3272,7 +3153,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Unrest"
   },
   "immigration slows": {
-    "image": "https://spiritislandwiki.com/images/2/27/Immigration_Slows_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738739/fear/immigration_slows.png",
     "set": [
       "branch and claw"
     ],
@@ -3283,7 +3164,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Immigration Slows"
   },
   "panic": {
-    "image": "https://spiritislandwiki.com/images/e/e2/Panic_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738740/fear/panic.png",
     "set": [
       "branch and claw"
     ],
@@ -3294,7 +3175,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Panic"
   },
   "depart the dangerous land": {
-    "image": "https://spiritislandwiki.com/images/f/f7/Depart_the_Dangerous_Land_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738741/fear/depart_the_dangerous_land.png",
     "set": [
       "branch and claw"
     ],
@@ -3305,7 +3186,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Depart the Dangerous Land"
   },
   "quarantine": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Quarantine_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738742/fear/quarantine.png",
     "set": [
       "branch and claw"
     ],
@@ -3316,7 +3197,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Quarantine"
   },
   "scapegoats": {
-    "image": "https://spiritislandwiki.com/images/d/d6/Scapegoats_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738743/fear/scapegoats.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3328,7 +3209,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Scapegoats"
   },
   "flee the pestilent land": {
-    "image": "https://spiritislandwiki.com/images/9/9a/Flee_the_Pestilent_Land_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738744/fear/flee_the_pestilent_land.png",
     "set": [
       "branch and claw"
     ],
@@ -3339,7 +3220,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Flee the Pestilent Land"
   },
   "restlessness": {
-    "image": "https://spiritislandwiki.com/images/2/23/Restlessness_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738745/fear/restlessness.png",
     "set": [
       "nature incarnate"
     ],
@@ -3350,7 +3231,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Restlessness"
   },
   "dahan attack": {
-    "image": "https://spiritislandwiki.com/images/6/6d/Dahan_Attack_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738746/fear/dahan_attack.png",
     "set": [
       "branch and claw"
     ],
@@ -3361,7 +3242,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan Attack"
   },
   "plan for departure": {
-    "image": "https://spiritislandwiki.com/images/a/ad/Plan_for_Departure_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738747/fear/plan_for_departure.png",
     "set": [
       "branch and claw"
     ],
@@ -3372,7 +3253,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Plan for Departure"
   },
   "spreading timidity": {
-    "image": "https://spiritislandwiki.com/images/c/c1/Spreading_Timidity_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738748/fear/spreading_timidity.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -3384,7 +3265,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Spreading Timidity"
   },
   "isolation": {
-    "image": "https://spiritislandwiki.com/images/1/17/Isolation_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738749/fear/isolation.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3396,7 +3277,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Isolation"
   },
   "too many monsters": {
-    "image": "https://spiritislandwiki.com/images/a/ac/Too_Many_Monsters_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738750/fear/too_many_monsters.png",
     "set": [
       "branch and claw"
     ],
@@ -3407,7 +3288,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Too Many Monsters"
   },
   "communities in disarray": {
-    "image": "https://spiritislandwiki.com/images/9/9d/Communities_in_Disarray_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738751/fear/communities_in_disarray.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -3419,7 +3300,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Communities in Disarray"
   },
   "discord": {
-    "image": "https://spiritislandwiki.com/images/5/56/Discord_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738752/fear/discord.png",
     "set": [
       "branch and claw"
     ],
@@ -3430,7 +3311,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Discord"
   },
   "wary of the interior": {
-    "image": "https://spiritislandwiki.com/images/d/d4/Wary_of_the_Interior_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738753/fear/wary_of_the_interior.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3442,7 +3323,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Wary of the Interior"
   },
   "explorers are reluctant": {
-    "image": "https://spiritislandwiki.com/images/8/8e/Explorers_are_Reluctant_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738755/fear/explorers_are_reluctant.png",
     "set": [
       "branch and claw"
     ],
@@ -3453,7 +3334,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Explorers are Reluctant"
   },
   "seek safety": {
-    "image": "https://spiritislandwiki.com/images/1/10/Seek_Safety_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738757/fear/seek_safety.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3465,7 +3346,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Seek Safety"
   },
   "beset by many troubles": {
-    "image": "https://spiritislandwiki.com/images/9/97/Beset_by_Many_Troubles_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738758/fear/beset_by_many_troubles.png",
     "set": [
       "jagged earth"
     ],
@@ -3476,7 +3357,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Beset by Many Troubles"
   },
   "daunted by the dahan": {
-    "image": "https://spiritislandwiki.com/images/6/6b/Daunted_by_the_Dahan_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738759/fear/daunted_by_the_dahan.png",
     "set": [
       "nature incarnate"
     ],
@@ -3487,7 +3368,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Daunted by the Dahan"
   },
   "panicked by wild beasts": {
-    "image": "https://spiritislandwiki.com/images/9/97/Panicked_by_Wild_Beasts_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738761/fear/panicked_by_wild_beasts.png",
     "set": [
       "branch and claw"
     ],
@@ -3498,7 +3379,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Panicked by Wild Beasts"
   },
   "nerves fray": {
-    "image": "https://spiritislandwiki.com/images/b/bc/Nerves_Fray_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738761/fear/nerves_fray.png",
     "set": [
       "jagged earth"
     ],
@@ -3509,7 +3390,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Nerves Fray"
   },
   "dahan reclaim fishing grounds": {
-    "image": "https://spiritislandwiki.com/images/b/b3/Dahan_Reclaim_Fishing_Grounds_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738762/fear/dahan_reclaim_fishing_grounds.png",
     "set": [
       "jagged earth"
     ],
@@ -3520,7 +3401,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan Reclaim Fishing Grounds"
   },
   "sense of dread": {
-    "image": "https://spiritislandwiki.com/images/8/84/Sense_of_Dread_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738764/fear/sense_of_dread.png",
     "set": [
       "jagged earth"
     ],
@@ -3531,7 +3412,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Sense of Dread"
   },
   "unsettled": {
-    "image": "https://spiritislandwiki.com/images/c/cc/Unsettled_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738765/fear/unsettled.png",
     "set": [
       "nature incarnate"
     ],
@@ -3542,7 +3423,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Unsettled"
   },
   "civil unrest": {
-    "image": "https://spiritislandwiki.com/images/f/f5/Civil_Unrest_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738766/fear/civil_unrest.png",
     "set": [
       "nature incarnate"
     ],
@@ -3553,7 +3434,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Civil Unrest"
   },
   "mimic the dahan": {
-    "image": "https://spiritislandwiki.com/images/d/da/Mimic_the_Dahan_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738767/fear/mimic_the_dahan.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -3565,7 +3446,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Mimic the Dahan"
   },
   "struggles over farmland": {
-    "image": "https://spiritislandwiki.com/images/f/fd/Struggles_over_Farmland_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738768/fear/struggles_over_farmland.png",
     "set": [
       "nature incarnate"
     ],
@@ -3576,7 +3457,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Struggles over Farmland"
   },
   "tall tales of savagery": {
-    "image": "https://spiritislandwiki.com/images/8/82/Tall_Tales_of_Savagery_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738769/fear/tall_tales_of_savagery.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3588,7 +3469,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Tall Tales of Savagery"
   },
   "seek company": {
-    "image": "https://spiritislandwiki.com/images/a/a7/Seek_Company_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738770/fear/seek_company.png",
     "set": [
       "nature incarnate"
     ],
@@ -3599,7 +3480,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Seek Company"
   },
   "theological strife": {
-    "image": "https://spiritislandwiki.com/images/1/19/Theological_Strife_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738771/fear/theological_strife.png",
     "set": [
       "jagged earth"
     ],
@@ -3610,7 +3491,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Theological Strife"
   },
   "flee from dangerous lands": {
-    "image": "https://spiritislandwiki.com/images/8/8c/Flee_from_Dangerous_Lands_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738772/fear/flee_from_dangerous_lands.png",
     "set": [
       "jagged earth"
     ],
@@ -3621,7 +3502,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Flee from Dangerous Lands"
   },
   "dahan threaten": {
-    "image": "https://spiritislandwiki.com/images/6/6a/Dahan_Threaten_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738773/fear/dahan_threaten.png",
     "set": [
       "branch and claw"
     ],
@@ -3632,7 +3513,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Dahan Threaten"
   },
   "angry mobs": {
-    "image": "https://spiritislandwiki.com/images/f/fb/Angry_Mobs_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738774/fear/angry_mobs.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -3644,7 +3525,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Angry Mobs"
   },
   "tread carefully": {
-    "image": "https://spiritislandwiki.com/images/1/12/Tread_Carefully_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738775/fear/tread_carefully.png",
     "set": [
       "branch and claw"
     ],
@@ -3655,7 +3536,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Tread Carefully"
   },
   "supply chains abandoned": {
-    "image": "https://spiritislandwiki.com/images/c/cf/Supply_Chains_Abandoned_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738776/fear/supply_chains_abandoned.png",
     "set": [
       "nature incarnate"
     ],
@@ -3666,7 +3547,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Supply Chains Abandoned"
   },
   "distracted by local troubles": {
-    "image": "https://spiritislandwiki.com/images/3/34/Distracted_by_Local_Troubles_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738777/fear/distracted_by_local_troubles.png",
     "set": [
       "nature incarnate"
     ],
@@ -3677,7 +3558,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Distracted by Local Troubles"
   },
   "depopulation": {
-    "image": "https://spiritislandwiki.com/images/0/04/Depopulation_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738778/fear/depopulation.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -3689,7 +3570,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
     "caseName": "Depopulation"
   },
   "dahan gain the edge": {
-    "image": "https://spiritislandwiki.com/images/9/92/Dahan_Gain_the_Edge_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738779/fear/dahan_gain_the_edge.png",
     "set": [
       "nature incarnate"
     ],
@@ -3703,7 +3584,7 @@ export const FEAR_CARDS: Record<string, FearCard> = {
 
 export const POWERS: Record<string, PowerCard> = {
   "call of the dahan ways": {
-    "image": "https://spiritislandwiki.com/images/4/49/Call_of_the_Dahan_Ways_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738814/powers/call_of_the_dahan_ways.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3729,10 +3610,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call of the Dahan Ways",
-    "art": "https://spiritislandwiki.com/images/d/d0/Call_of_the_Dahan_Ways.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740011/powers/call_of_the_dahan_ways.png"
   },
   "drought": {
-    "image": "https://spiritislandwiki.com/images/b/bb/Drought_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738816/powers/drought.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3758,10 +3639,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Drought",
-    "art": "https://spiritislandwiki.com/images/8/89/Drought.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740012/powers/drought.png"
   },
   "delusions of danger": {
-    "image": "https://spiritislandwiki.com/images/b/ba/Delusions_of_Danger_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738819/powers/delusions_of_danger.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3782,10 +3663,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Delusions of Danger",
-    "art": "https://spiritislandwiki.com/images/f/f6/Delusions_of_Danger.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740013/powers/delusions_of_danger.png"
   },
   "call to bloodshed": {
-    "image": "https://spiritislandwiki.com/images/7/78/Call_to_Bloodshed_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738820/powers/call_to_bloodshed.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3806,10 +3687,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Bloodshed",
-    "art": "https://spiritislandwiki.com/images/3/37/Call_to_Bloodshed.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740014/powers/call_to_bloodshed.png"
   },
   "devouring ants": {
-    "image": "https://spiritislandwiki.com/images/8/80/Devouring_Ants_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738822/powers/devouring_ants.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3830,10 +3711,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Devouring Ants",
-    "art": "https://spiritislandwiki.com/images/6/69/Devouring_Ants.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740015/powers/devouring_ants.png"
   },
   "call to migrate": {
-    "image": "https://spiritislandwiki.com/images/9/9d/Call_to_Migrate_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738822/powers/call_to_migrate.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3854,10 +3735,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Migrate",
-    "art": "https://spiritislandwiki.com/images/d/da/Call_to_Migrate.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740016/powers/call_to_migrate.png"
   },
   "call to ferocity": {
-    "image": "https://spiritislandwiki.com/images/0/04/Call_to_Ferocity_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738823/powers/call_to_ferocity.png",
     "set": [
       "branch and claw"
     ],
@@ -3877,10 +3758,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Ferocity",
-    "art": "https://spiritislandwiki.com/images/5/52/Call_to_Ferocity.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740019/powers/call_to_ferocity.png"
   },
   "encompassing ward": {
-    "image": "https://spiritislandwiki.com/images/c/cc/Encompassing_Ward_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738824/powers/encompassing_ward.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3901,10 +3782,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Encompassing Ward",
-    "art": "https://spiritislandwiki.com/images/a/a9/Encompassing_Ward.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740020/powers/encompassing_ward.png"
   },
   "drift down into slumber": {
-    "image": "https://spiritislandwiki.com/images/5/57/Drift_Down_into_Slumber_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738825/powers/drift_down_into_slumber.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3925,10 +3806,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Drift Down into Slumber",
-    "art": "https://spiritislandwiki.com/images/a/a4/Drift_Down_Into_Slumber.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740021/powers/drift_down_into_slumber.png"
   },
   "dark and tangled woods": {
-    "image": "https://spiritislandwiki.com/images/b/bd/Dark_and_Tangled_Woods_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738826/powers/dark_and_tangled_woods.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3949,10 +3830,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Dark and Tangled Woods",
-    "art": "https://spiritislandwiki.com/images/b/bb/Dark_and_Tangled_Woods.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740022/powers/dark_and_tangled_woods.png"
   },
   "enticing splendor": {
-    "image": "https://spiritislandwiki.com/images/2/24/Enticing_Splendor_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738827/powers/enticing_splendor.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3973,10 +3854,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Enticing Splendor",
-    "art": "https://spiritislandwiki.com/images/3/3f/Enticing_Splendor.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740023/powers/enticing_splendor.png"
   },
   "gift of power": {
-    "image": "https://spiritislandwiki.com/images/0/0b/Gift_of_Power_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738828/powers/gift_of_power.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -3998,10 +3879,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gift of Power",
-    "art": "https://spiritislandwiki.com/images/5/5d/Gift_of_Power.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740024/powers/gift_of_power.png"
   },
   "absorb corruption": {
-    "image": "https://spiritislandwiki.com/images/1/1e/Absorb_Corruption_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738830/powers/absorb_corruption.png",
     "set": [
       "branch and claw"
     ],
@@ -4026,10 +3907,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Absorb Corruption",
-    "art": "https://spiritislandwiki.com/images/7/7b/Absorb_Corruption.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740025/powers/absorb_corruption.png"
   },
   "land of haunts and embers": {
-    "image": "https://spiritislandwiki.com/images/9/96/Land_of_Haunts_and_Embers_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738832/powers/land_of_haunts_and_embers.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4050,10 +3931,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Land of Haunts and Embers",
-    "art": "https://spiritislandwiki.com/images/1/1c/Land_of_Haunts_and_Embers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740026/powers/land_of_haunts_and_embers.png"
   },
   "quicken the earth's struggles": {
-    "image": "https://spiritislandwiki.com/images/4/49/Quicken_the_Earth%27s_Struggles_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738833/powers/quicken_the_earth%27s_struggles.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4075,10 +3956,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Quicken the Earth's Struggles",
-    "art": "https://spiritislandwiki.com/images/5/59/Quicken_the_Earth%27s_Struggles.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740028/powers/quicken_the_earth%27s_struggles.png"
   },
   "purifying flame": {
-    "image": "https://spiritislandwiki.com/images/5/57/Purifying_Flame_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738834/powers/purifying_flame.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4100,10 +3981,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Purifying Flame",
-    "art": "https://spiritislandwiki.com/images/b/b2/Purifying_Flame.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740030/powers/purifying_flame.png"
   },
   "pull beneath the hungry earth": {
-    "image": "https://spiritislandwiki.com/images/4/4e/Pull_Beneath_the_Hungry_Earth_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738835/powers/pull_beneath_the_hungry_earth.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4124,10 +4005,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Pull Beneath the Hungry Earth",
-    "art": "https://spiritislandwiki.com/images/c/c0/Pull_Beneath_the_Hungry_Earth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740031/powers/pull_beneath_the_hungry_earth.png"
   },
   "nature's resilience": {
-    "image": "https://spiritislandwiki.com/images/d/d4/Nature%27s_Resilience_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738836/powers/nature%27s_resilience.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4153,10 +4034,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Nature's Resilience",
-    "art": "https://spiritislandwiki.com/images/3/3e/Nature%27s_Resilience.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740032/powers/nature%27s_resilience.png"
   },
   "reaching grasp": {
-    "image": "https://spiritislandwiki.com/images/d/d2/Reaching_Grasp_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738837/powers/reaching_grasp.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4177,10 +4058,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Reaching Grasp",
-    "art": "https://spiritislandwiki.com/images/6/6e/Reaching_Grasp.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740032/powers/reaching_grasp.png"
   },
   "rituals of destruction": {
-    "image": "https://spiritislandwiki.com/images/e/e1/Rituals_of_Destruction_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738838/powers/rituals_of_destruction.png",
     "set": [
       "spirit island"
     ],
@@ -4203,10 +4084,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "vital strength of the earth",
     "caseName": "Rituals of Destruction",
-    "art": "https://spiritislandwiki.com/images/f/fa/Rituals_of_Destruction.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740033/powers/rituals_of_destruction.png"
   },
   "gift of constancy": {
-    "image": "https://spiritislandwiki.com/images/e/e6/Gift_of_Constancy_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738838/powers/gift_of_constancy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4226,10 +4107,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gift of Constancy",
-    "art": "https://spiritislandwiki.com/images/1/14/Gift_of_Constancy.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740035/powers/gift_of_constancy.png"
   },
   "crops wither and fade": {
-    "image": "https://spiritislandwiki.com/images/9/9a/Crops_Wither_and_Fade_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738839/powers/crops_wither_and_fade.png",
     "set": [
       "spirit island"
     ],
@@ -4250,10 +4131,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shadows flicker like flame",
     "caseName": "Crops Wither and Fade",
-    "art": "https://spiritislandwiki.com/images/8/80/Crops_Wither_and_Fade.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740035/powers/crops_wither_and_fade.png"
   },
   "tidal boon": {
-    "image": "https://spiritislandwiki.com/images/9/9f/Tidal_Boon_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738840/powers/tidal_boon.png",
     "set": [
       "spirit island"
     ],
@@ -4274,10 +4155,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "ocean's hungry grasp",
     "caseName": "Tidal Boon",
-    "art": "https://spiritislandwiki.com/images/1/1e/Tidal_Boon.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740036/powers/tidal_boon.png"
   },
   "rain of blood": {
-    "image": "https://spiritislandwiki.com/images/4/46/Rain_of_Blood_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738841/powers/rain_of_blood.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4298,10 +4179,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Rain of Blood",
-    "art": "https://spiritislandwiki.com/images/a/a6/Rain_of_Blood.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740037/powers/rain_of_blood.png"
   },
   "guard the healing land": {
-    "image": "https://spiritislandwiki.com/images/5/53/Guard_the_Healing_Land_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738842/powers/guard_the_healing_land.png",
     "set": [
       "spirit island"
     ],
@@ -4322,10 +4203,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "vital strength of the earth",
     "caseName": "Guard the Healing Land",
-    "art": "https://spiritislandwiki.com/images/b/b3/Guard_the_Healing_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740038/powers/guard_the_healing_land.png"
   },
   "call to isolation": {
-    "image": "https://spiritislandwiki.com/images/7/79/Call_to_Isolation_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738843/powers/call_to_isolation.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4346,10 +4227,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Isolation",
-    "art": "https://spiritislandwiki.com/images/0/09/Call_to_Isolation.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740039/powers/call_to_isolation.png"
   },
   "gnawing rootbiters": {
-    "image": "https://spiritislandwiki.com/images/5/5e/Gnawing_Rootbiters_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738844/powers/gnawing_rootbiters.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4369,10 +4250,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gnawing Rootbiters",
-    "art": "https://spiritislandwiki.com/images/a/aa/Gnawing_Rootbiters.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740041/powers/gnawing_rootbiters.png"
   },
   "shadows of the burning forest": {
-    "image": "https://spiritislandwiki.com/images/f/f8/Shadows_of_the_Burning_Forest_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738845/powers/shadows_of_the_burning_forest.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4393,10 +4274,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Shadows of the Burning Forest",
-    "art": "https://spiritislandwiki.com/images/d/d3/Shadows_of_the_Burning_Forest.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740043/powers/shadows_of_the_burning_forest.png"
   },
   "call to tend": {
-    "image": "https://spiritislandwiki.com/images/3/36/Call_to_Tend_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738845/powers/call_to_tend.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4417,10 +4298,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Tend",
-    "art": "https://spiritislandwiki.com/images/8/81/Call_to_Tend.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740044/powers/call_to_tend.png"
   },
   "wash away": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Wash_Away_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738846/powers/wash_away.png",
     "set": [
       "spirit island"
     ],
@@ -4440,10 +4321,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "river surges in sunlight",
     "caseName": "Wash Away",
-    "art": "https://spiritislandwiki.com/images/3/38/Wash_Away.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740045/powers/wash_away.png"
   },
   "sap the strength of multitudes": {
-    "image": "https://spiritislandwiki.com/images/1/1c/Sap_the_Strength_of_Multitudes_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738847/powers/sap_the_strength_of_multitudes.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4468,10 +4349,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sap the Strength of Multitudes",
-    "art": "https://spiritislandwiki.com/images/c/c2/Sap_the_Strength_of_Multitudes.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740045/powers/sap_the_strength_of_multitudes.png"
   },
   "words of warning": {
-    "image": "https://spiritislandwiki.com/images/5/59/Words_of_Warning_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738848/powers/words_of_warning.png",
     "set": [
       "spirit island"
     ],
@@ -4492,10 +4373,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "thunderspeaker",
     "caseName": "Words of Warning",
-    "art": "https://spiritislandwiki.com/images/6/61/Words_of_Warning.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740047/powers/words_of_warning.png"
   },
   "draw of the fruitful earth": {
-    "image": "https://spiritislandwiki.com/images/9/9f/Draw_of_the_Fruitful_Earth_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738849/powers/draw_of_the_fruitful_earth.png",
     "set": [
       "spirit island"
     ],
@@ -4516,10 +4397,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vital strength of the earth",
     "caseName": "Draw of the Fruitful Earth",
-    "art": "https://spiritislandwiki.com/images/6/60/Draw_of_the_Fruitful_Earth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740047/powers/draw_of_the_fruitful_earth.png"
   },
   "boon of vigor": {
-    "image": "https://spiritislandwiki.com/images/8/87/Boon_of_Vigor_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738850/powers/boon_of_vigor.png",
     "set": [
       "spirit island"
     ],
@@ -4540,10 +4421,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "river surges in sunlight",
     "caseName": "Boon of Vigor",
-    "art": "https://spiritislandwiki.com/images/e/e7/Boon_of_Vigor.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740048/powers/boon_of_vigor.png"
   },
   "lure of the unknown": {
-    "image": "https://spiritislandwiki.com/images/6/65/Lure_of_the_Unknown_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738851/powers/lure_of_the_unknown.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4565,10 +4446,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Lure of the Unknown",
-    "art": "https://spiritislandwiki.com/images/8/87/Lure_of_the_Unknown.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740049/powers/lure_of_the_unknown.png"
   },
   "savage mawbeasts": {
-    "image": "https://spiritislandwiki.com/images/6/6a/Savage_Mawbeasts_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738853/powers/savage_mawbeasts.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4593,10 +4474,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Savage Mawbeasts",
-    "art": "https://spiritislandwiki.com/images/8/89/Savage_Mawbeasts.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740051/powers/savage_mawbeasts.png"
   },
   "manifestation of power and glory": {
-    "image": "https://spiritislandwiki.com/images/4/43/Manifestation_of_Power_and_Glory_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738853/powers/manifestation_of_power_and_glory.png",
     "set": [
       "spirit island"
     ],
@@ -4617,10 +4498,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "thunderspeaker",
     "caseName": "Manifestation of Power and Glory",
-    "art": "https://spiritislandwiki.com/images/2/2a/Manifestation_of_Power_and_Glory.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740053/powers/manifestation_of_power_and_glory.png"
   },
   "tsunami": {
-    "image": "https://spiritislandwiki.com/images/2/22/Tsunami_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738854/powers/tsunami.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4646,10 +4527,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Tsunami",
-    "art": "https://spiritislandwiki.com/images/c/c4/Tsunami.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740054/powers/tsunami.png"
   },
   "concealing shadows": {
-    "image": "https://spiritislandwiki.com/images/d/de/Concealing_Shadows_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738855/powers/concealing_shadows.png",
     "set": [
       "spirit island"
     ],
@@ -4669,10 +4550,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shadows flicker like flame",
     "caseName": "Concealing Shadows",
-    "art": "https://spiritislandwiki.com/images/2/24/Concealing_Shadows.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740055/powers/concealing_shadows.png"
   },
   "paralyzing fright": {
-    "image": "https://spiritislandwiki.com/images/3/35/Paralyzing_Fright_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738856/powers/paralyzing_fright.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4698,10 +4579,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Paralyzing Fright",
-    "art": "https://spiritislandwiki.com/images/a/ab/Paralyzing_Fright.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740056/powers/paralyzing_fright.png"
   },
   "mantle of dread": {
-    "image": "https://spiritislandwiki.com/images/3/35/Mantle_of_Dread_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738857/powers/mantle_of_dread.png",
     "set": [
       "spirit island"
     ],
@@ -4722,10 +4603,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shadows flicker like flame",
     "caseName": "Mantle of Dread",
-    "art": "https://spiritislandwiki.com/images/a/a4/Mantle_of_Dread.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740056/powers/mantle_of_dread.png"
   },
   "portents of disaster": {
-    "image": "https://spiritislandwiki.com/images/e/e5/Portents_of_Disaster_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738858/powers/portents_of_disaster.png",
     "set": [
       "branch and claw"
     ],
@@ -4745,10 +4626,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Portents of Disaster",
-    "art": "https://spiritislandwiki.com/images/b/b0/Portents_of_Disaster.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740057/powers/portents_of_disaster.png"
   },
   "blazing renewal": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Blazing_Renewal_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738860/powers/blazing_renewal.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4776,10 +4657,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Blazing Renewal",
-    "art": "https://spiritislandwiki.com/images/2/2b/Blazing_Renewal.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740058/powers/blazing_renewal.png"
   },
   "rouse the trees and stones": {
-    "image": "https://spiritislandwiki.com/images/5/52/Rouse_the_Trees_and_Stones_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738861/powers/rouse_the_trees_and_stones.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4800,10 +4681,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Rouse the Trees and Stones",
-    "art": "https://spiritislandwiki.com/images/e/ec/Rouse_the_Trees_and_Stones.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740060/powers/rouse_the_trees_and_stones.png"
   },
   "a year of perfect stillness": {
-    "image": "https://spiritislandwiki.com/images/2/2d/A_Year_of_Perfect_Stillness_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738861/powers/a_year_of_perfect_stillness.png",
     "set": [
       "spirit island"
     ],
@@ -4823,10 +4704,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vital strength of the earth",
     "caseName": "A Year of Perfect Stillness",
-    "art": "https://spiritislandwiki.com/images/1/19/A_Year_of_Perfect_Stillness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740061/powers/a_year_of_perfect_stillness.png"
   },
   "dissolve the bonds of kinship": {
-    "image": "https://spiritislandwiki.com/images/6/64/Dissolve_the_Bonds_of_Kinship_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738862/powers/dissolve_the_bonds_of_kinship.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4854,10 +4735,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Dissolve the Bonds of Kinship",
-    "art": "https://spiritislandwiki.com/images/5/57/Dissolve_the_Bonds_of_Kinship.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740064/powers/dissolve_the_bonds_of_kinship.png"
   },
   "veil the night's hunt": {
-    "image": "https://spiritislandwiki.com/images/2/26/Veil_the_Night%27s_Hunt_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738864/powers/veil_the_night%27s_hunt.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4878,10 +4759,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Veil the Night's Hunt",
-    "art": "https://spiritislandwiki.com/images/1/18/Veil_the_Night%27s_Hunt.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740065/powers/veil_the_night%27s_hunt.png"
   },
   "animated wrackroot": {
-    "image": "https://spiritislandwiki.com/images/a/a7/Animated_Wrackroot_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738865/powers/animated_wrackroot.png",
     "set": [
       "branch and claw"
     ],
@@ -4901,10 +4782,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Animated Wrackroot",
-    "art": "https://spiritislandwiki.com/images/3/37/Animated_Wrackroot.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740065/powers/animated_wrackroot.png"
   },
   "infinite vitality": {
-    "image": "https://spiritislandwiki.com/images/6/64/Infinite_Vitality_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738866/powers/infinite_vitality.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4930,10 +4811,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Infinite Vitality",
-    "art": "https://spiritislandwiki.com/images/a/ad/Infinite_Vitality.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740066/powers/infinite_vitality.png"
   },
   "disorienting landscape": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Disorienting_Landscape_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738867/powers/disorienting_landscape.png",
     "set": [
       "branch and claw"
     ],
@@ -4953,10 +4834,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Disorienting Landscape",
-    "art": "https://spiritislandwiki.com/images/8/81/Disorienting_Landscape.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740067/powers/disorienting_landscape.png"
   },
   "cleansing floods": {
-    "image": "https://spiritislandwiki.com/images/1/12/Cleansing_Floods_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738868/powers/cleansing_floods.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -4981,10 +4862,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "wetland",
     "caseName": "Cleansing Floods",
-    "art": "https://spiritislandwiki.com/images/a/ae/Cleansing_Floods.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740068/powers/cleansing_floods.png"
   },
   "indomitable claim": {
-    "image": "https://spiritislandwiki.com/images/c/ce/Indomitable_Claim_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738870/powers/indomitable_claim.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5010,10 +4891,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Indomitable Claim",
-    "art": "https://spiritislandwiki.com/images/3/32/Indomitable_Claim.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740069/powers/indomitable_claim.png"
   },
   "call to trade": {
-    "image": "https://spiritislandwiki.com/images/b/bc/Call_to_Trade_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738871/powers/call_to_trade.png",
     "set": [
       "branch and claw"
     ],
@@ -5034,10 +4915,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Trade",
-    "art": "https://spiritislandwiki.com/images/e/ec/Call_to_Trade.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740070/powers/call_to_trade.png"
   },
   "river's bounty": {
-    "image": "https://spiritislandwiki.com/images/2/27/River%27s_Bounty_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738872/powers/river%27s_bounty.png",
     "set": [
       "spirit island"
     ],
@@ -5058,10 +4939,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "river surges in sunlight",
     "caseName": "River's Bounty",
-    "art": "https://spiritislandwiki.com/images/4/4f/River%27s_Bounty.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740074/powers/river%27s_bounty.png"
   },
   "gold's allure": {
-    "image": "https://spiritislandwiki.com/images/c/c0/Gold%27s_Allure_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738874/powers/gold%27s_allure.png",
     "set": [
       "branch and claw"
     ],
@@ -5081,10 +4962,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gold's Allure",
-    "art": "https://spiritislandwiki.com/images/3/33/Gold%27s_Allure.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740075/powers/gold%27s_allure.png"
   },
   "pillar of living flame": {
-    "image": "https://spiritislandwiki.com/images/5/55/Pillar_of_Living_Flame_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738875/powers/pillar_of_living_flame.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5108,10 +4989,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Pillar of Living Flame",
-    "art": "https://spiritislandwiki.com/images/6/6b/Pillar_of_Living_Flame.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740076/powers/pillar_of_living_flame.png"
   },
   "uncanny melting": {
-    "image": "https://spiritislandwiki.com/images/e/ed/Uncanny_Melting_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738878/powers/uncanny_melting.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5132,10 +5013,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Uncanny Melting",
-    "art": "https://spiritislandwiki.com/images/a/ab/Uncanny_Melting.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740077/powers/uncanny_melting.png"
   },
   "fleshrot fever": {
-    "image": "https://spiritislandwiki.com/images/f/f5/Fleshrot_Fever_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738879/powers/fleshrot_fever.png",
     "set": [
       "branch and claw"
     ],
@@ -5156,10 +5037,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Fleshrot Fever",
-    "art": "https://spiritislandwiki.com/images/c/c6/Fleshrot_Fever.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740078/powers/fleshrot_fever.png"
   },
   "the trees and stones speak of war": {
-    "image": "https://spiritislandwiki.com/images/8/81/The_Trees_and_Stones_Speak_of_War_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738880/powers/the_trees_and_stones_speak_of_war.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5187,10 +5068,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "The Trees and Stones Speak of War",
-    "art": "https://spiritislandwiki.com/images/4/4a/The_Trees_and_Stones_Speak_of_War.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740079/powers/the_trees_and_stones_speak_of_war.png"
   },
   "poisoned land": {
-    "image": "https://spiritislandwiki.com/images/b/ba/Poisoned_Land_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738881/powers/poisoned_land.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5218,10 +5099,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Poisoned Land",
-    "art": "https://spiritislandwiki.com/images/a/aa/Poisoned_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740080/powers/poisoned_land.png"
   },
   "elusive ambushes": {
-    "image": "https://spiritislandwiki.com/images/7/72/Elusive_Ambushes_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738882/powers/elusive_ambushes.png",
     "set": [
       "branch and claw"
     ],
@@ -5241,10 +5122,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Elusive Ambushes",
-    "art": "https://spiritislandwiki.com/images/5/56/Elusive_Ambushes.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740084/powers/elusive_ambushes.png"
   },
   "song of sanctity": {
-    "image": "https://spiritislandwiki.com/images/a/ab/Song_of_Sanctity_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738883/powers/song_of_sanctity.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5265,10 +5146,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Song of Sanctity",
-    "art": "https://spiritislandwiki.com/images/4/4c/Song_of_Sanctity.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740085/powers/song_of_sanctity.png"
   },
   "here there be monsters": {
-    "image": "https://spiritislandwiki.com/images/3/39/Here_There_Be_Monsters_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738885/powers/here_there_be_monsters.png",
     "set": [
       "branch and claw"
     ],
@@ -5288,10 +5169,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Here There Be Monsters",
-    "art": "https://spiritislandwiki.com/images/d/df/Here_There_Be_Monsters.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740086/powers/here_there_be_monsters.png"
   },
   "fire in the sky": {
-    "image": "https://spiritislandwiki.com/images/5/50/Fire_in_the_Sky_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738887/powers/fire_in_the_sky.png",
     "set": [
       "branch and claw"
     ],
@@ -5311,10 +5192,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Fire in the Sky",
-    "art": "https://spiritislandwiki.com/images/a/ae/Fire_in_the_Sky.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740087/powers/fire_in_the_sky.png"
   },
   "steam vents": {
-    "image": "https://spiritislandwiki.com/images/2/2f/Steam_Vents_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738888/powers/steam_vents.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5341,10 +5222,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Steam Vents",
-    "art": "https://spiritislandwiki.com/images/e/e9/Steam_Vents.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740087/powers/steam_vents.png"
   },
   "inflame the fires of life": {
-    "image": "https://spiritislandwiki.com/images/e/e0/Inflame_the_Fires_of_Life_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738889/powers/inflame_the_fires_of_life.png",
     "set": [
       "branch and claw"
     ],
@@ -5370,10 +5251,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Inflame the Fires of Life",
-    "art": "https://spiritislandwiki.com/images/5/51/Inflame_the_Fires_of_Life.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740088/powers/inflame_the_fires_of_life.png"
   },
   "swallow the land-dwellers": {
-    "image": "https://spiritislandwiki.com/images/7/7b/Swallow_the_Land-Dwellers_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738890/powers/swallow_the_land-dwellers.png",
     "set": [
       "spirit island"
     ],
@@ -5393,10 +5274,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "ocean's hungry grasp",
     "caseName": "Swallow the Land-Dwellers",
-    "art": "https://spiritislandwiki.com/images/2/2a/Swallow_the_Land-Dwellers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740089/powers/swallow_the_land-dwellers.png"
   },
   "powerstorm": {
-    "image": "https://spiritislandwiki.com/images/6/63/Powerstorm_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738891/powers/powerstorm.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5424,10 +5305,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Powerstorm",
-    "art": "https://spiritislandwiki.com/images/c/cd/Powerstorm.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740090/powers/powerstorm.png"
   },
   "stem the flow of fresh water": {
-    "image": "https://spiritislandwiki.com/images/2/29/Stem_the_Flow_of_Fresh_Water_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738892/powers/stem_the_flow_of_fresh_water.png",
     "set": [
       "spirit island"
     ],
@@ -5447,10 +5328,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "a spread of rampant green",
     "caseName": "Stem the Flow of Fresh Water",
-    "art": "https://spiritislandwiki.com/images/b/bd/Stem_the_Flow_of_Fresh_Water.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740091/powers/stem_the_flow_of_fresh_water.png"
   },
   "accelerated rot": {
-    "image": "https://spiritislandwiki.com/images/b/b7/Accelerated_Rot_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738893/powers/accelerated_rot.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5478,10 +5359,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Accelerated Rot",
-    "art": "https://spiritislandwiki.com/images/b/be/Accelerated_Rot.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740095/powers/accelerated_rot.png"
   },
   "the land thrashes in furious pain": {
-    "image": "https://spiritislandwiki.com/images/e/eb/The_Land_Thrashes_in_Furious_Pain_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738894/powers/the_land_thrashes_in_furious_pain.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5508,10 +5389,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "The Land Thrashes in Furious Pain",
-    "art": "https://spiritislandwiki.com/images/f/ff/The_Land_Thrashes_in_Furious_Pain.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740096/powers/the_land_thrashes_in_furious_pain.png"
   },
   "confounding mists": {
-    "image": "https://spiritislandwiki.com/images/a/a4/Confounding_Mists_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738895/powers/confounding_mists.png",
     "set": [
       "branch and claw"
     ],
@@ -5530,10 +5411,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Confounding Mists",
-    "art": "https://spiritislandwiki.com/images/2/28/Confounding_Mists.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740097/powers/confounding_mists.png"
   },
   "voracious growth": {
-    "image": "https://spiritislandwiki.com/images/7/7c/Voracious_Growth_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738896/powers/voracious_growth.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5553,10 +5434,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Voracious Growth",
-    "art": "https://spiritislandwiki.com/images/5/52/Voracious_Growth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740097/powers/voracious_growth.png"
   },
   "grant hatred a ravenous form": {
-    "image": "https://spiritislandwiki.com/images/3/31/Grant_Hatred_a_Ravenous_Form_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738897/powers/grant_hatred_a_ravenous_form.png",
     "set": [
       "branch and claw"
     ],
@@ -5581,10 +5462,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Grant Hatred a Ravenous Form",
-    "art": "https://spiritislandwiki.com/images/3/38/Grant_Hatred_a_Ravenous_Form.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740098/powers/grant_hatred_a_ravenous_form.png"
   },
   "cycles of time and tide": {
-    "image": "https://spiritislandwiki.com/images/e/e5/Cycles_of_Time_and_Tide_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738898/powers/cycles_of_time_and_tide.png",
     "set": [
       "branch and claw"
     ],
@@ -5604,10 +5485,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Cycles of Time and Tide",
-    "art": "https://spiritislandwiki.com/images/b/bf/Cycles_of_Time_and_Tide.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740099/powers/cycles_of_time_and_tide.png"
   },
   "entwined power": {
-    "image": "https://spiritislandwiki.com/images/7/73/Entwined_Power_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738899/powers/entwined_power.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5634,10 +5515,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Entwined Power",
-    "art": "https://spiritislandwiki.com/images/4/47/Entwined_Power.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740100/powers/entwined_power.png"
   },
   "razor-sharp undergrowth": {
-    "image": "https://spiritislandwiki.com/images/9/96/Razor-Sharp_Undergrowth_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738900/powers/razor-sharp_undergrowth.png",
     "set": [
       "branch and claw"
     ],
@@ -5656,10 +5537,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Razor-Sharp Undergrowth",
-    "art": "https://spiritislandwiki.com/images/0/01/Razor-Sharp_Undergrowth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740101/powers/razor-sharp_undergrowth.png"
   },
   "visions of fiery doom": {
-    "image": "https://spiritislandwiki.com/images/f/fb/Visions_of_Fiery_Doom_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738901/powers/visions_of_fiery_doom.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5684,10 +5565,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Visions of Fiery Doom",
-    "art": "https://spiritislandwiki.com/images/b/b1/Visions_of_Fiery_Doom.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740103/powers/visions_of_fiery_doom.png"
   },
   "call on midnight's dream": {
-    "image": "https://spiritislandwiki.com/images/c/c3/Call_on_Midnight%27s_Dream_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738902/powers/call_on_midnight%27s_dream.png",
     "set": [
       "spirit island"
     ],
@@ -5707,10 +5588,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "bringer of dreams and nightmares",
     "caseName": "Call on Midnight's Dream",
-    "art": "https://spiritislandwiki.com/images/9/99/Call_on_Midnight%27s_Dream.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740105/powers/call_on_midnight%27s_dream.png"
   },
   "vigor of the breaking dawn": {
-    "image": "https://spiritislandwiki.com/images/e/e9/Vigor_of_the_Breaking_Dawn_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738903/powers/vigor_of_the_breaking_dawn.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5736,10 +5617,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Vigor of the Breaking Dawn",
-    "art": "https://spiritislandwiki.com/images/a/a8/Vigor_of_the_Breaking_Dawn.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740106/powers/vigor_of_the_breaking_dawn.png"
   },
   "fields choked with growth": {
-    "image": "https://spiritislandwiki.com/images/3/39/Fields_Choked_with_Growth_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738904/powers/fields_choked_with_growth.png",
     "set": [
       "spirit island"
     ],
@@ -5760,10 +5641,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "a spread of rampant green",
     "caseName": "Fields Choked with Growth",
-    "art": "https://spiritislandwiki.com/images/f/f6/Fields_Choked_With_Growth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740107/powers/fields_choked_with_growth.png"
   },
   "gift of proliferation": {
-    "image": "https://spiritislandwiki.com/images/8/80/Gift_of_Proliferation_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738905/powers/gift_of_proliferation.png",
     "set": [
       "spirit island"
     ],
@@ -5783,10 +5664,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "a spread of rampant green",
     "caseName": "Gift of Proliferation",
-    "art": "https://spiritislandwiki.com/images/1/13/Gift_of_Proliferation.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740108/powers/gift_of_proliferation.png"
   },
   "terrifying nightmares": {
-    "image": "https://spiritislandwiki.com/images/f/f7/Terrifying_Nightmares_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738906/powers/terrifying_nightmares.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5811,10 +5692,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Terrifying Nightmares",
-    "art": "https://spiritislandwiki.com/images/0/00/Terrifying_Nightmares.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740109/powers/terrifying_nightmares.png"
   },
   "the jungle hungers": {
-    "image": "https://spiritislandwiki.com/images/e/e1/The_Jungle_Hungers_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738907/powers/the_jungle_hungers.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -5840,10 +5721,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "jungle",
     "caseName": "The Jungle Hungers",
-    "art": "https://spiritislandwiki.com/images/9/9b/The_Jungle_Hungers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740110/powers/the_jungle_hungers.png"
   },
   "tormenting rotflies": {
-    "image": "https://spiritislandwiki.com/images/c/cf/Tormenting_Rotflies_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738907/powers/tormenting_rotflies.png",
     "set": [
       "branch and claw"
     ],
@@ -5863,10 +5744,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Tormenting Rotflies",
-    "art": "https://spiritislandwiki.com/images/9/94/Tormenting_Rotflies.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740111/powers/tormenting_rotflies.png"
   },
   "harbingers of the lightning": {
-    "image": "https://spiritislandwiki.com/images/0/0b/Harbingers_of_the_Lightning_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738908/powers/harbingers_of_the_lightning.png",
     "set": [
       "spirit island"
     ],
@@ -5886,10 +5767,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lightning's swift strike",
     "caseName": "Harbingers of the Lightning",
-    "art": "https://spiritislandwiki.com/images/c/c0/Harbingers_of_the_Lightning.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740113/powers/harbingers_of_the_lightning.png"
   },
   "lightning's boon": {
-    "image": "https://spiritislandwiki.com/images/7/7d/Lightning%27s_Boon_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738909/powers/lightning%27s_boon.png",
     "set": [
       "spirit island"
     ],
@@ -5909,10 +5790,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lightning's swift strike",
     "caseName": "Lightning's Boon",
-    "art": "https://spiritislandwiki.com/images/5/5c/Lightning%27s_Boon.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740115/powers/lightning%27s_boon.png"
   },
   "overgrow in a night": {
-    "image": "https://spiritislandwiki.com/images/7/76/Overgrow_in_a_Night_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738910/powers/overgrow_in_a_night.png",
     "set": [
       "spirit island"
     ],
@@ -5932,10 +5813,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "a spread of rampant green",
     "caseName": "Overgrow in a Night",
-    "art": "https://spiritislandwiki.com/images/d/d9/Overgrow_in_a_Night.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740117/powers/overgrow_in_a_night.png"
   },
   "smothering infestation": {
-    "image": "https://spiritislandwiki.com/images/a/a8/Smothering_Infestation_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738911/powers/smothering_infestation.png",
     "set": [
       "branch and claw"
     ],
@@ -5960,10 +5841,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Smothering Infestation",
-    "art": "https://spiritislandwiki.com/images/7/79/Smothering_Infestation.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740118/powers/smothering_infestation.png"
   },
   "dreams of the dahan": {
-    "image": "https://spiritislandwiki.com/images/a/a6/Dreams_of_the_Dahan_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738912/powers/dreams_of_the_dahan.png",
     "set": [
       "spirit island"
     ],
@@ -5983,10 +5864,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "bringer of dreams and nightmares",
     "caseName": "Dreams of the Dahan",
-    "art": "https://spiritislandwiki.com/images/8/80/Dreams_of_the_Dahan.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740119/powers/dreams_of_the_dahan.png"
   },
   "bombard with boulders and stinging seeds": {
-    "image": "https://spiritislandwiki.com/images/3/3b/Bombard_with_Boulders_and_Stinging_Seeds_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738913/powers/bombard_with_boulders_and_stinging_seeds.png",
     "set": [
       "nature incarnate"
     ],
@@ -6016,7 +5897,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "scour the land": {
-    "image": "https://spiritislandwiki.com/images/1/10/Scour_the_Land_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738914/powers/scour_the_land.png",
     "set": [
       "branch and claw"
     ],
@@ -6040,10 +5921,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Scour the Land",
-    "art": "https://spiritislandwiki.com/images/d/dc/Scour_the_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740120/powers/scour_the_land.png"
   },
   "talons of lightning": {
-    "image": "https://spiritislandwiki.com/images/a/aa/Talons_of_Lightning_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738915/powers/talons_of_lightning.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6069,10 +5950,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Talons of Lightning",
-    "art": "https://spiritislandwiki.com/images/e/ed/Talons_of_Lightning.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740121/powers/talons_of_lightning.png"
   },
   "shatter homesteads": {
-    "image": "https://spiritislandwiki.com/images/5/5d/Shatter_Homesteads_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738916/powers/shatter_homesteads.png",
     "set": [
       "spirit island"
     ],
@@ -6092,10 +5973,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "lightning's swift strike",
     "caseName": "Shatter Homesteads",
-    "art": "https://spiritislandwiki.com/images/e/e2/Shatter_Homesteads.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740121/powers/shatter_homesteads.png"
   },
   "mists of oblivion": {
-    "image": "https://spiritislandwiki.com/images/7/7e/Mists_of_Oblivion_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738917/powers/mists_of_oblivion.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6123,10 +6004,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Mists of Oblivion",
-    "art": "https://spiritislandwiki.com/images/7/76/Mists_of_Oblivion.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740123/powers/mists_of_oblivion.png"
   },
   "renewing rain": {
-    "image": "https://spiritislandwiki.com/images/c/ce/Renewing_Rain_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738918/powers/renewing_rain.png",
     "set": [
       "branch and claw"
     ],
@@ -6151,10 +6032,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Renewing Rain",
-    "art": "https://spiritislandwiki.com/images/2/28/Renewing_Rain.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740125/powers/renewing_rain.png"
   },
   "guardian serpents": {
-    "image": "https://spiritislandwiki.com/images/d/dc/Guardian_Serpents_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738920/powers/guardian_serpents.png",
     "set": [
       "branch and claw"
     ],
@@ -6175,10 +6056,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Guardian Serpents",
-    "art": "https://spiritislandwiki.com/images/b/b2/Guardian_Serpents.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740126/powers/guardian_serpents.png"
   },
   "winds of rust and atrophy": {
-    "image": "https://spiritislandwiki.com/images/3/3d/Winds_of_Rust_and_Atrophy_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738922/powers/winds_of_rust_and_atrophy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6206,10 +6087,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Winds of Rust and Atrophy",
-    "art": "https://spiritislandwiki.com/images/9/99/Winds_of_Rust_and_Atrophy.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740127/powers/winds_of_rust_and_atrophy.png"
   },
   "infested aquifers": {
-    "image": "https://spiritislandwiki.com/images/0/0e/Infested_Aquifers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738923/powers/infested_aquifers.png",
     "set": [
       "branch and claw"
     ],
@@ -6230,10 +6111,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Infested Aquifers",
-    "art": "https://spiritislandwiki.com/images/9/9f/Infested_Aquifers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740128/powers/infested_aquifers.png"
   },
   "poisoned dew": {
-    "image": "https://spiritislandwiki.com/images/f/f1/Poisoned_Dew_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738924/powers/poisoned_dew.png",
     "set": [
       "branch and claw"
     ],
@@ -6253,10 +6134,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Poisoned Dew",
-    "art": "https://spiritislandwiki.com/images/b/b7/Poisoned_Dew.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740129/powers/poisoned_dew.png"
   },
   "cast down into the briny deep": {
-    "image": "https://spiritislandwiki.com/images/5/5b/Cast_Down_Into_the_Briny_Deep_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738925/powers/cast_down_into_the_briny_deep.png",
     "set": [
       "branch and claw"
     ],
@@ -6285,10 +6166,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Cast Down Into the Briny Deep",
-    "art": "https://spiritislandwiki.com/images/c/cb/Cast_Down_Into_the_Briny_Deep.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740130/powers/cast_down_into_the_briny_deep.png"
   },
   "swarming wasps": {
-    "image": "https://spiritislandwiki.com/images/6/65/Swarming_Wasps_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738926/powers/swarming_wasps.png",
     "set": [
       "branch and claw"
     ],
@@ -6308,10 +6189,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Swarming Wasps",
-    "art": "https://spiritislandwiki.com/images/7/7f/Swarming_Wasps.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740131/powers/swarming_wasps.png"
   },
   "raging storm": {
-    "image": "https://spiritislandwiki.com/images/c/c8/Raging_Storm_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738927/powers/raging_storm.png",
     "set": [
       "spirit island"
     ],
@@ -6332,10 +6213,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lightning's swift strike",
     "caseName": "Raging Storm",
-    "art": "https://spiritislandwiki.com/images/7/77/Raging_Storm.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740132/powers/raging_storm.png"
   },
   "bloodwrack plague": {
-    "image": "https://spiritislandwiki.com/images/7/73/Bloodwrack_Plague_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738929/powers/bloodwrack_plague.png",
     "set": [
       "branch and claw"
     ],
@@ -6361,10 +6242,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Bloodwrack Plague",
-    "art": "https://spiritislandwiki.com/images/d/db/Bloodwrack_Plague.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740133/powers/bloodwrack_plague.png"
   },
   "pact of the joined hunt": {
-    "image": "https://spiritislandwiki.com/images/e/e4/Pact_of_the_Joined_Hunt_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738930/powers/pact_of_the_joined_hunt.png",
     "set": [
       "branch and claw"
     ],
@@ -6384,10 +6265,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Pact of the Joined Hunt",
-    "art": "https://spiritislandwiki.com/images/d/d5/Pact_of_the_Joined_Hunt.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740135/powers/pact_of_the_joined_hunt.png"
   },
   "bargain of coursing paths": {
-    "image": "https://spiritislandwiki.com/images/a/aa/Bargain_of_Coursing_Paths_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738931/powers/bargain_of_coursing_paths.png",
     "set": [
       "nature incarnate"
     ],
@@ -6418,7 +6299,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "exaltation of the incandescent sky": {
-    "image": "https://spiritislandwiki.com/images/9/99/Exaltation_of_the_Incandescent_Sky_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738932/powers/exaltation_of_the_incandescent_sky.png",
     "set": [
       "nature incarnate"
     ],
@@ -6450,7 +6331,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "sweep into the sea": {
-    "image": "https://spiritislandwiki.com/images/f/f3/Sweep_into_the_Sea_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738932/powers/sweep_into_the_sea.png",
     "set": [
       "branch and claw"
     ],
@@ -6476,10 +6357,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sweep into the Sea",
-    "art": "https://spiritislandwiki.com/images/0/00/Sweep_Into_the_Sea.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740137/powers/sweep_into_the_sea.png"
   },
   "sea monsters": {
-    "image": "https://spiritislandwiki.com/images/4/4a/Sea_Monsters_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738935/powers/sea_monsters.png",
     "set": [
       "branch and claw",
       "jagged earth"
@@ -6505,10 +6386,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sea Monsters",
-    "art": "https://spiritislandwiki.com/images/1/19/Sea_Monsters.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740138/powers/sea_monsters.png"
   },
   "fire and flood": {
-    "image": "https://spiritislandwiki.com/images/8/84/Fire_and_Flood_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738937/powers/fire_and_flood.png",
     "set": [
       "branch and claw"
     ],
@@ -6536,10 +6417,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Fire and Flood",
-    "art": "https://spiritislandwiki.com/images/a/ac/Fire_and_Flood.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740139/powers/fire_and_flood.png"
   },
   "volcanic eruption": {
-    "image": "https://spiritislandwiki.com/images/5/59/Volcanic_Eruption_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738938/powers/volcanic_eruption.png",
     "set": [
       "branch and claw"
     ],
@@ -6564,10 +6445,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "mountain",
     "caseName": "Volcanic Eruption",
-    "art": "https://spiritislandwiki.com/images/4/4d/Volcanic_Eruption.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740140/powers/volcanic_eruption.png"
   },
   "absorb essence": {
-    "image": "https://spiritislandwiki.com/images/a/a5/Absorb_Essence_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738939/powers/absorb_essence.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6590,10 +6471,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "serpent slumbering beneath the island",
     "caseName": "Absorb Essence",
-    "art": "https://spiritislandwiki.com/images/7/77/Absorb_Essence.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740141/powers/absorb_essence.png"
   },
   "unrelenting growth": {
-    "image": "https://spiritislandwiki.com/images/4/4a/Unrelenting_Growth_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738940/powers/unrelenting_growth.png",
     "set": [
       "branch and claw"
     ],
@@ -6620,10 +6501,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Unrelenting Growth",
-    "art": "https://spiritislandwiki.com/images/7/71/Unrelenting_Growth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740142/powers/unrelenting_growth.png"
   },
   "promises of protection": {
-    "image": "https://spiritislandwiki.com/images/3/3f/Promises_of_Protection_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738941/powers/promises_of_protection.png",
     "set": [
       "branch and claw"
     ],
@@ -6643,10 +6524,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Promises of Protection",
-    "art": "https://spiritislandwiki.com/images/8/85/Promises_of_Protection.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740143/powers/promises_of_protection.png"
   },
   "tigers hunting": {
-    "image": "https://spiritislandwiki.com/images/d/d9/Tigers_Hunting_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738942/powers/tigers_hunting.png",
     "set": [
       "branch and claw"
     ],
@@ -6673,10 +6554,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "jungle",
     "caseName": "Tigers Hunting",
-    "art": "https://spiritislandwiki.com/images/8/84/Tigers_Hunting.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740144/powers/tigers_hunting.png"
   },
   "wrap in wings of sunlight": {
-    "image": "https://spiritislandwiki.com/images/9/9c/Wrap_in_Wings_of_Sunlight_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738943/powers/wrap_in_wings_of_sunlight.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -6704,10 +6585,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Wrap in Wings of Sunlight",
-    "art": "https://spiritislandwiki.com/images/6/62/Wrap_in_Wings_of_Sunlight.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740145/powers/wrap_in_wings_of_sunlight.png"
   },
   "insatiable hunger of the swarm": {
-    "image": "https://spiritislandwiki.com/images/c/ce/Insatiable_Hunger_of_the_Swarm_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738944/powers/insatiable_hunger_of_the_swarm.png",
     "set": [
       "branch and claw"
     ],
@@ -6733,10 +6614,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Insatiable Hunger of the Swarm",
-    "art": "https://spiritislandwiki.com/images/0/08/Insatiable_Hunger_of_the_Swarm.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740147/powers/insatiable_hunger_of_the_swarm.png"
   },
   "prowling panthers": {
-    "image": "https://spiritislandwiki.com/images/8/87/Prowling_Panthers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738946/powers/prowling_panthers.png",
     "set": [
       "branch and claw"
     ],
@@ -6756,10 +6637,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Prowling Panthers",
-    "art": "https://spiritislandwiki.com/images/d/d5/Prowling_Panthers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740149/powers/prowling_panthers.png"
   },
   "strangling firevine": {
-    "image": "https://spiritislandwiki.com/images/6/6f/Strangling_Firevine_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738948/powers/strangling_firevine.png",
     "set": [
       "branch and claw"
     ],
@@ -6784,10 +6665,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sands",
     "caseName": "Strangling Firevine",
-    "art": "https://spiritislandwiki.com/images/a/ad/Strangling_Firevine.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740150/powers/strangling_firevine.png"
   },
   "weep for what is lost": {
-    "image": "https://spiritislandwiki.com/images/5/54/Weep_for_What_is_Lost_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738950/powers/weep_for_what_is_lost.png",
     "set": [
       "jagged earth"
     ],
@@ -6807,10 +6688,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Weep for What is Lost",
-    "art": "https://spiritislandwiki.com/images/9/96/Weep_for_What_is_Lost.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740151/powers/weep_for_what_is_lost.png"
   },
   "elemental aegis": {
-    "image": "https://spiritislandwiki.com/images/d/d9/Elemental_Aegis_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738950/powers/elemental_aegis.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6832,10 +6713,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "serpent slumbering beneath the island",
     "caseName": "Elemental Aegis",
-    "art": "https://spiritislandwiki.com/images/f/f3/Elemental_Aegis.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740152/powers/elemental_aegis.png"
   },
   "flocking red-talons": {
-    "image": "https://spiritislandwiki.com/images/9/94/Flocking_Red-Talons_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738951/powers/flocking_red-talons.png",
     "set": [
       "nature incarnate"
     ],
@@ -6866,7 +6747,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "manifest incarnation": {
-    "image": "https://spiritislandwiki.com/images/f/f6/Manifest_Incarnation_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738952/powers/manifest_incarnation.png",
     "set": [
       "branch and claw"
     ],
@@ -6893,10 +6774,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Manifest Incarnation",
-    "art": "https://spiritislandwiki.com/images/c/cd/Manifest_Incarnation.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740153/powers/manifest_incarnation.png"
   },
   "towering wrath": {
-    "image": "https://spiritislandwiki.com/images/d/d6/Towering_Wrath_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738953/powers/towering_wrath.png",
     "set": [
       "branch and claw"
     ],
@@ -6917,10 +6798,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "keeper of the forbidden wilds",
     "caseName": "Towering Wrath",
-    "art": "https://spiritislandwiki.com/images/f/f4/Towering_Wrath.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740154/powers/towering_wrath.png"
   },
   "sucking ooze": {
-    "image": "https://spiritislandwiki.com/images/e/e1/Sucking_Ooze_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738954/powers/sucking_ooze.png",
     "set": [
       "jagged earth"
     ],
@@ -6940,10 +6821,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sucking Ooze",
-    "art": "https://spiritislandwiki.com/images/7/76/Sucking_Ooze.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740155/powers/sucking_ooze.png"
   },
   "forests of living obsidian": {
-    "image": "https://spiritislandwiki.com/images/a/a0/Forests_of_Living_Obsidian_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738955/powers/forests_of_living_obsidian.png",
     "set": [
       "jagged earth"
     ],
@@ -6971,10 +6852,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Forests of Living Obsidian",
-    "art": "https://spiritislandwiki.com/images/6/6f/Forests_of_Living_Obsidian.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740156/powers/forests_of_living_obsidian.png"
   },
   "flame's fury": {
-    "image": "https://spiritislandwiki.com/images/7/7c/Flame%27s_Fury_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738956/powers/flame%27s_fury.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -6996,10 +6877,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "heart of the wildfire",
     "caseName": "Flame's Fury",
-    "art": "https://spiritislandwiki.com/images/d/d9/Flame%27s_Fury.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740156/powers/flame%27s_fury.png"
   },
   "gift of flowing power": {
-    "image": "https://spiritislandwiki.com/images/2/22/Gift_of_Flowing_Power_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738957/powers/gift_of_flowing_power.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -7020,10 +6901,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "serpent slumbering beneath the island",
     "caseName": "Gift of Flowing Power",
-    "art": "https://spiritislandwiki.com/images/9/92/Gift_of_Flowing_Power.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740157/powers/gift_of_flowing_power.png"
   },
   "rites of the land's rejection": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Rites_of_the_Land%27s_Rejection_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738958/powers/rites_of_the_land%27s_rejection.png",
     "set": [
       "branch and claw"
     ],
@@ -7043,10 +6924,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Rites of the Land's Rejection",
-    "art": "https://spiritislandwiki.com/images/f/f6/Rites_of_the_Land%27s_Rejection.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740158/powers/rites_of_the_land%27s_rejection.png"
   },
   "renewing boon": {
-    "image": "https://spiritislandwiki.com/images/3/37/Renewing_Boon_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738960/powers/renewing_boon.png",
     "set": [
       "jagged earth"
     ],
@@ -7066,10 +6947,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Renewing Boon",
-    "art": "https://spiritislandwiki.com/images/9/93/Renewing_Boon.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740159/powers/renewing_boon.png"
   },
   "grasping tide": {
-    "image": "https://spiritislandwiki.com/images/a/ac/Grasping_Tide_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738961/powers/grasping_tide.png",
     "set": [
       "spirit island"
     ],
@@ -7089,10 +6970,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "ocean's hungry grasp",
     "caseName": "Grasping Tide",
-    "art": "https://spiritislandwiki.com/images/b/b4/Grasping_Tide.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740160/powers/grasping_tide.png"
   },
   "asphyxiating smoke": {
-    "image": "https://spiritislandwiki.com/images/3/3c/Asphyxiating_Smoke_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738962/powers/asphyxiating_smoke.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -7114,10 +6995,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "heart of the wildfire",
     "caseName": "Asphyxiating Smoke",
-    "art": "https://spiritislandwiki.com/images/4/4c/Asphyxiating_Smoke.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740161/powers/asphyxiating_smoke.png"
   },
   "predatory nightmares": {
-    "image": "https://spiritislandwiki.com/images/8/8e/Predatory_Nightmares_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738962/powers/predatory_nightmares.png",
     "set": [
       "spirit island"
     ],
@@ -7139,10 +7020,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "bringer of dreams and nightmares",
     "caseName": "Predatory Nightmares",
-    "art": "https://spiritislandwiki.com/images/f/fa/Predatory_Nightmares.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740162/powers/predatory_nightmares.png"
   },
   "strong and constant currents": {
-    "image": "https://spiritislandwiki.com/images/e/e2/Strong_and_Constant_Currents_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738963/powers/strong_and_constant_currents.png",
     "set": [
       "jagged earth"
     ],
@@ -7167,10 +7048,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Strong and Constant Currents",
-    "art": "https://spiritislandwiki.com/images/7/77/Strong_and_Constant_Currents.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740163/powers/strong_and_constant_currents.png"
   },
   "teeth gleam from darkness": {
-    "image": "https://spiritislandwiki.com/images/b/b8/Teeth_Gleam_from_Darkness_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738964/powers/teeth_gleam_from_darkness.png",
     "set": [
       "branch and claw"
     ],
@@ -7191,10 +7072,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "jungle",
     "unique": "sharp fangs behind the leaves",
     "caseName": "Teeth Gleam from Darkness",
-    "art": "https://spiritislandwiki.com/images/8/82/Teeth_Gleam_From_Darkness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740164/powers/teeth_gleam_from_darkness.png"
   },
   "pyroclastic flow": {
-    "image": "https://spiritislandwiki.com/images/f/f2/Pyroclastic_Flow_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738965/powers/pyroclastic_flow.png",
     "set": [
       "branch and claw"
     ],
@@ -7221,10 +7102,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "mountain",
     "caseName": "Pyroclastic Flow",
-    "art": "https://spiritislandwiki.com/images/4/48/Pyroclastic_Flow.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740165/powers/pyroclastic_flow.png"
   },
   "hazards spread across the island": {
-    "image": "https://spiritislandwiki.com/images/f/f8/Hazards_Spread_Across_the_Island_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738967/powers/hazards_spread_across_the_island.png",
     "set": [
       "jagged earth"
     ],
@@ -7245,10 +7126,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Hazards Spread Across the Island",
-    "art": "https://spiritislandwiki.com/images/a/af/Hazards_Spread_Across_the_Island.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740166/powers/hazards_spread_across_the_island.png"
   },
   "birds cry warning": {
-    "image": "https://spiritislandwiki.com/images/6/67/Birds_Cry_Warning_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738968/powers/birds_cry_warning.png",
     "set": [
       "jagged earth"
     ],
@@ -7268,10 +7149,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Birds Cry Warning",
-    "art": "https://spiritislandwiki.com/images/3/38/Birds_Cry_Warning.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740166/powers/birds_cry_warning.png"
   },
   "like calls to like": {
-    "image": "https://spiritislandwiki.com/images/9/92/Like_Calls_to_Like_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738969/powers/like_calls_to_like.png",
     "set": [
       "jagged earth"
     ],
@@ -7291,10 +7172,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Like Calls to Like",
-    "art": "https://spiritislandwiki.com/images/4/4d/Like_Calls_to_Like.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740167/powers/like_calls_to_like.png"
   },
   "flow downriver, blow downwind": {
-    "image": "https://spiritislandwiki.com/images/8/89/Flow_Downriver%2C_Blow_Downwind_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738970/powers/flow_downriver%2C_blow_downwind.png",
     "set": [
       "jagged earth"
     ],
@@ -7314,10 +7195,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Flow Downriver, Blow Downwind",
-    "art": "https://spiritislandwiki.com/images/7/78/Flow_Downriver%2C_Blow_Downwind.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740168/powers/flow_downriver%2C_blow_downwind.png"
   },
   "sacrosanct wilderness": {
-    "image": "https://spiritislandwiki.com/images/e/eb/Sacrosanct_Wilderness_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738971/powers/sacrosanct_wilderness.png",
     "set": [
       "branch and claw"
     ],
@@ -7338,10 +7219,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "keeper of the forbidden wilds",
     "caseName": "Sacrosanct Wilderness",
-    "art": "https://spiritislandwiki.com/images/b/b0/Sacrosanct_Wilderness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740169/powers/sacrosanct_wilderness.png"
   },
   "death falls gently from open blossoms": {
-    "image": "https://spiritislandwiki.com/images/e/e3/Death_Falls_Gently_from_Open_Blossoms_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738972/powers/death_falls_gently_from_open_blossoms.png",
     "set": [
       "branch and claw"
     ],
@@ -7367,10 +7248,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Death Falls Gently from Open Blossoms",
-    "art": "https://spiritislandwiki.com/images/b/ba/Death_Falls_Gently_From_Open_Blossoms.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740170/powers/death_falls_gently_from_open_blossoms.png"
   },
   "sear anger into the wild lands": {
-    "image": "https://spiritislandwiki.com/images/6/63/Sear_Anger_Into_the_Wild_Lands_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738973/powers/sear_anger_into_the_wild_lands.png",
     "set": [
       "jagged earth"
     ],
@@ -7390,10 +7271,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sear Anger Into the Wild Lands",
-    "art": "https://spiritislandwiki.com/images/4/49/Sear_Anger_Into_the_Wild_Lands.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740171/powers/sear_anger_into_the_wild_lands.png"
   },
   "favor of the sun and star-lit dark": {
-    "image": "https://spiritislandwiki.com/images/0/00/Favor_of_the_Sun_and_Star-lit_Dark_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738974/powers/favor_of_the_sun_and_star-lit_dark.png",
     "set": [
       "jagged earth"
     ],
@@ -7418,10 +7299,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Favor of the Sun and Star-lit Dark",
-    "art": "https://spiritislandwiki.com/images/5/5e/Favor_of_the_Sun_and_Star-Lit_Dark.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740172/powers/favor_of_the_sun_and_star-lit_dark.png"
   },
   "flash-fires": {
-    "image": "https://spiritislandwiki.com/images/f/f7/Flash-Fires_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738975/powers/flash-fires.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -7447,10 +7328,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "heart of the wildfire",
     "caseName": "Flash-Fires",
-    "art": "https://spiritislandwiki.com/images/4/4e/Flash-Fires.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740173/powers/flash-fires.png"
   },
   "desiccating winds": {
-    "image": "https://spiritislandwiki.com/images/6/6f/Desiccating_Winds_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738976/powers/desiccating_winds.png",
     "set": [
       "jagged earth"
     ],
@@ -7470,10 +7351,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Desiccating Winds",
-    "art": "https://spiritislandwiki.com/images/a/ab/Desiccating_Winds.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740174/powers/desiccating_winds.png"
   },
   "blur the arc of years": {
-    "image": "https://spiritislandwiki.com/images/c/c1/Blur_the_Arc_of_Years_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738977/powers/blur_the_arc_of_years.png",
     "set": [
       "jagged earth"
     ],
@@ -7494,10 +7375,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fractured days split the sky",
     "caseName": "Blur the Arc of Years",
-    "art": "https://spiritislandwiki.com/images/b/bf/Blur_the_Arc_of_Years.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740175/powers/blur_the_arc_of_years.png"
   },
   "terror turns to madness": {
-    "image": "https://spiritislandwiki.com/images/9/9a/Terror_Turns_to_Madness_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738978/powers/terror_turns_to_madness.png",
     "set": [
       "jagged earth"
     ],
@@ -7517,10 +7398,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Terror Turns to Madness",
-    "art": "https://spiritislandwiki.com/images/f/fd/Terror_Turns_to_Madness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740176/powers/terror_turns_to_madness.png"
   },
   "dry wood explodes in smoldering splinters": {
-    "image": "https://spiritislandwiki.com/images/e/ee/Dry_Wood_Explodes_in_Smoldering_Splinters_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738980/powers/dry_wood_explodes_in_smoldering_splinters.png",
     "set": [
       "jagged earth"
     ],
@@ -7540,10 +7421,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Dry Wood Explodes in Smoldering Splinters",
-    "art": "https://spiritislandwiki.com/images/e/ef/Dry_Wood_Explodes_in_Smoldering_Splinters.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740176/powers/dry_wood_explodes_in_smoldering_splinters.png"
   },
   "unlock the gates of deepest power": {
-    "image": "https://spiritislandwiki.com/images/0/0d/Unlock_the_Gates_of_Deepest_Power_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738981/powers/unlock_the_gates_of_deepest_power.png",
     "set": [
       "branch and claw"
     ],
@@ -7580,10 +7461,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Unlock the Gates of Deepest Power",
-    "art": "https://spiritislandwiki.com/images/a/ad/Unlock_the_Gates_of_Deepest_Power.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740177/powers/unlock_the_gates_of_deepest_power.png"
   },
   "treacherous waterways": {
-    "image": "https://spiritislandwiki.com/images/8/84/Treacherous_Waterways_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738982/powers/treacherous_waterways.png",
     "set": [
       "jagged earth"
     ],
@@ -7603,10 +7484,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Treacherous Waterways",
-    "art": "https://spiritislandwiki.com/images/b/b2/Treacherous_Waterways.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740178/powers/treacherous_waterways.png"
   },
   "vengeance of the dead": {
-    "image": "https://spiritislandwiki.com/images/b/bc/Vengeance_of_the_Dead_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738983/powers/vengeance_of_the_dead.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -7632,10 +7513,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Vengeance of the Dead",
-    "art": "https://spiritislandwiki.com/images/7/74/Vengeance_of_the_Dead.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740180/powers/vengeance_of_the_dead.png"
   },
   "bargains of power and protection": {
-    "image": "https://spiritislandwiki.com/images/8/85/Bargains_of_Power_and_Protection_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738985/powers/bargains_of_power_and_protection.png",
     "set": [
       "jagged earth"
     ],
@@ -7663,10 +7544,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Bargains of Power and Protection",
-    "art": "https://spiritislandwiki.com/images/7/74/Bargains_of_Power_and_Protection.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740181/powers/bargains_of_power_and_protection.png"
   },
   "skies herald the season of return": {
-    "image": "https://spiritislandwiki.com/images/b/b2/Skies_Herald_the_Season_of_Return_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738986/powers/skies_herald_the_season_of_return.png",
     "set": [
       "jagged earth"
     ],
@@ -7687,10 +7568,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Skies Herald the Season of Return",
-    "art": "https://spiritislandwiki.com/images/b/bf/Skies_Herald_the_Season_of_Return.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740182/powers/skies_herald_the_season_of_return.png"
   },
   "mesmerized tranquility": {
-    "image": "https://spiritislandwiki.com/images/f/fe/Mesmerized_Tranquility_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738987/powers/mesmerized_tranquility.png",
     "set": [
       "jagged earth"
     ],
@@ -7710,10 +7591,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Mesmerized Tranquility",
-    "art": "https://spiritislandwiki.com/images/2/23/Mesmerized_Tranquility.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740183/powers/mesmerized_tranquility.png"
   },
   "irresistible call": {
-    "image": "https://spiritislandwiki.com/images/4/44/Irresistible_Call_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738988/powers/irresistible_call.png",
     "set": [
       "jagged earth"
     ],
@@ -7740,10 +7621,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Irresistible Call",
-    "art": "https://spiritislandwiki.com/images/5/53/Irresistible_Call.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740184/powers/irresistible_call.png"
   },
   "twisted flowers murmur ultimatums": {
-    "image": "https://spiritislandwiki.com/images/e/e2/Twisted_Flowers_Murmur_Ultimatums_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738989/powers/twisted_flowers_murmur_ultimatums.png",
     "set": [
       "branch and claw"
     ],
@@ -7772,10 +7653,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Twisted Flowers Murmur Ultimatums",
-    "art": "https://spiritislandwiki.com/images/0/04/Twisted_Flowers_Murmur_Ultimatums.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740184/powers/twisted_flowers_murmur_ultimatums.png"
   },
   "transform to a murderous darkness": {
-    "image": "https://spiritislandwiki.com/images/6/66/Transform_to_a_Murderous_Darkness_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738990/powers/transform_to_a_murderous_darkness.png",
     "set": [
       "jagged earth"
     ],
@@ -7804,10 +7685,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Transform to a Murderous Darkness",
-    "art": "https://spiritislandwiki.com/images/f/f6/Transform_to_a_Murderous_Darkness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740185/powers/transform_to_a_murderous_darkness.png"
   },
   "terrifying chase": {
-    "image": "https://spiritislandwiki.com/images/d/d4/Terrifying_Chase_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738991/powers/terrifying_chase.png",
     "set": [
       "branch and claw"
     ],
@@ -7827,10 +7708,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "sharp fangs behind the leaves",
     "caseName": "Terrifying Chase",
-    "art": "https://spiritislandwiki.com/images/2/2d/Terrifying_Chase.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740186/powers/terrifying_chase.png"
   },
   "entrap the forces of corruption": {
-    "image": "https://spiritislandwiki.com/images/6/6c/Entrap_the_Forces_of_Corruption_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738992/powers/entrap_the_forces_of_corruption.png",
     "set": [
       "jagged earth"
     ],
@@ -7850,10 +7731,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Entrap the Forces of Corruption",
-    "art": "https://spiritislandwiki.com/images/6/63/Entrap_the_Forces_of_Corruption.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740187/powers/entrap_the_forces_of_corruption.png"
   },
   "flow like water, reach like air": {
-    "image": "https://spiritislandwiki.com/images/b/bd/Flow_like_Water%2C_Reach_like_Air_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738993/powers/flow_like_water%2C_reach_like_air.png",
     "set": [
       "branch and claw"
     ],
@@ -7878,10 +7759,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Flow like Water, Reach like Air",
-    "art": "https://spiritislandwiki.com/images/3/35/Flow_Like_Water%2C_Reach_Like_Air.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740188/powers/flow_like_water%2C_reach_like_air.png"
   },
   "unleash a torrent of the self's own essence": {
-    "image": "https://spiritislandwiki.com/images/3/37/Unleash_a_Torrent_of_the_Self%27s_Own_Essence_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738996/powers/unleash_a_torrent_of_the_self%27s_own_essence.png",
     "set": [
       "jagged earth"
     ],
@@ -7908,10 +7789,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Unleash a Torrent of the Self's Own Essence",
-    "art": "https://spiritislandwiki.com/images/7/74/Unleash_a_Torrent_of_the_Self%27s_Own_Essence.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740189/powers/unleash_a_torrent_of_the_self%27s_own_essence.png"
   },
   "walls of rock and thorn": {
-    "image": "https://spiritislandwiki.com/images/1/10/Walls_of_Rock_and_Thorn_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738998/powers/walls_of_rock_and_thorn.png",
     "set": [
       "jagged earth"
     ],
@@ -7937,10 +7818,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Walls of Rock and Thorn",
-    "art": "https://spiritislandwiki.com/images/5/54/Walls_of_Rock_and_Thorn.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740190/powers/walls_of_rock_and_thorn.png"
   },
   "the past returns again": {
-    "image": "https://spiritislandwiki.com/images/9/9d/The_Past_Returns_Again_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738998/powers/the_past_returns_again.png",
     "set": [
       "jagged earth"
     ],
@@ -7960,10 +7841,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fractured days split the sky",
     "caseName": "The Past Returns Again",
-    "art": "https://spiritislandwiki.com/images/2/20/The_Past_Returns_Again.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740191/powers/the_past_returns_again.png"
   },
   "pour time sideways": {
-    "image": "https://spiritislandwiki.com/images/c/c6/Pour_Time_Sideways_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738999/powers/pour_time_sideways.png",
     "set": [
       "jagged earth"
     ],
@@ -7984,10 +7865,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fractured days split the sky",
     "caseName": "Pour Time Sideways",
-    "art": "https://spiritislandwiki.com/images/5/51/Pour_Time_Sideways.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740192/powers/pour_time_sideways.png"
   },
   "too near the jungle": {
-    "image": "https://spiritislandwiki.com/images/8/82/Too_Near_the_Jungle_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739000/powers/too_near_the_jungle.png",
     "set": [
       "branch and claw"
     ],
@@ -8007,10 +7888,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "jungle",
     "unique": "sharp fangs behind the leaves",
     "caseName": "Too Near the Jungle",
-    "art": "https://spiritislandwiki.com/images/d/d1/Too_Near_the_Jungle.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740193/powers/too_near_the_jungle.png"
   },
   "bats scout for raids by darkness": {
-    "image": "https://spiritislandwiki.com/images/8/89/Bats_Scout_for_Raids_by_Darkness_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739001/powers/bats_scout_for_raids_by_darkness.png",
     "set": [
       "jagged earth"
     ],
@@ -8030,10 +7911,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Bats Scout for Raids by Darkness",
-    "art": "https://spiritislandwiki.com/images/9/9a/Bats_Scout_for_Raids_by_Darkness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740197/powers/bats_scout_for_raids_by_darkness.png"
   },
   "unquenchable flames": {
-    "image": "https://spiritislandwiki.com/images/1/18/Unquenchable_Flames_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739004/powers/unquenchable_flames.png",
     "set": [
       "jagged earth"
     ],
@@ -8058,10 +7939,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Unquenchable Flames",
-    "art": "https://spiritislandwiki.com/images/3/30/Unquenchable_Flames.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740198/powers/unquenchable_flames.png"
   },
   "dream of the untouched land": {
-    "image": "https://spiritislandwiki.com/images/d/d2/Dream_of_the_Untouched_Land_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739006/powers/dream_of_the_untouched_land.png",
     "set": [
       "jagged earth"
     ],
@@ -8091,10 +7972,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Dream of the Untouched Land",
-    "art": "https://spiritislandwiki.com/images/1/19/Dream_of_the_Untouched_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740199/powers/dream_of_the_untouched_land.png"
   },
   "gift of the primordial deeps": {
-    "image": "https://spiritislandwiki.com/images/6/60/Gift_of_the_Primordial_Deeps_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739009/powers/gift_of_the_primordial_deeps.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -8115,10 +7996,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "serpent slumbering beneath the island",
     "caseName": "Gift of the Primordial Deeps",
-    "art": "https://spiritislandwiki.com/images/9/90/Gift_of_the_Primordial_Deeps.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740201/powers/gift_of_the_primordial_deeps.png"
   },
   "territorial strife": {
-    "image": "https://spiritislandwiki.com/images/4/43/Territorial_Strife_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739010/powers/territorial_strife.png",
     "set": [
       "jagged earth"
     ],
@@ -8138,10 +8019,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Territorial Strife",
-    "art": "https://spiritislandwiki.com/images/a/a4/Territorial_Strife.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740202/powers/territorial_strife.png"
   },
   "carapaced land": {
-    "image": "https://spiritislandwiki.com/images/e/e0/Carapaced_Land_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739011/powers/carapaced_land.png",
     "set": [
       "jagged earth"
     ],
@@ -8166,10 +8047,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Carapaced Land",
-    "art": "https://spiritislandwiki.com/images/e/e8/Carapaced_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740203/powers/carapaced_land.png"
   },
   "thriving chokefungus": {
-    "image": "https://spiritislandwiki.com/images/d/d6/Thriving_Chokefungus_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739012/powers/thriving_chokefungus.png",
     "set": [
       "jagged earth"
     ],
@@ -8189,10 +8070,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Thriving Chokefungus",
-    "art": "https://spiritislandwiki.com/images/b/be/Thriving_Chokefungus.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740204/powers/thriving_chokefungus.png"
   },
   "softly beckon ever inward": {
-    "image": "https://spiritislandwiki.com/images/9/99/Softly_Beckon_Ever_Inward_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739013/powers/softly_beckon_ever_inward.png",
     "set": [
       "jagged earth"
     ],
@@ -8212,10 +8093,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lure of the deep wilderness",
     "caseName": "Softly Beckon Ever Inward",
-    "art": "https://spiritislandwiki.com/images/9/9e/Softly_Beckon_Ever_Inward.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740205/powers/softly_beckon_ever_inward.png"
   },
   "sleep and never waken": {
-    "image": "https://spiritislandwiki.com/images/0/04/Sleep_and_Never_Waken_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739014/powers/sleep_and_never_waken.png",
     "set": [
       "jagged earth"
     ],
@@ -8243,10 +8124,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sands",
     "caseName": "Sleep and Never Waken",
-    "art": "https://spiritislandwiki.com/images/8/83/Sleep_and_Never_Waken.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740206/powers/sleep_and_never_waken.png"
   },
   "thickets erupt with every touch of breeze": {
-    "image": "https://spiritislandwiki.com/images/d/da/Thickets_Erupt_with_Every_Touch_of_Breeze_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739015/powers/thickets_erupt_with_every_touch_of_breeze.png",
     "set": [
       "jagged earth"
     ],
@@ -8270,10 +8151,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Thickets Erupt with Every Touch of Breeze",
-    "art": "https://spiritislandwiki.com/images/8/84/Thickets_Erupt_With_Every_Touch_of_Breeze.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740207/powers/thickets_erupt_with_every_touch_of_breeze.png"
   },
   "gift of the untamed wild": {
-    "image": "https://spiritislandwiki.com/images/a/a6/Gift_of_the_Untamed_Wild_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739016/powers/gift_of_the_untamed_wild.png",
     "set": [
       "jagged earth"
     ],
@@ -8295,10 +8176,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lure of the deep wilderness",
     "caseName": "Gift of the Untamed Wild",
-    "art": "https://spiritislandwiki.com/images/f/f3/Gift_of_the_Untamed_Wild.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740208/powers/gift_of_the_untamed_wild.png"
   },
   "the shore seethes with hatred": {
-    "image": "https://spiritislandwiki.com/images/a/a2/The_Shore_Seethes_with_Hatred_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739017/powers/the_shore_seethes_with_hatred.png",
     "set": [
       "jagged earth"
     ],
@@ -8319,10 +8200,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "The Shore Seethes with Hatred",
-    "art": "https://spiritislandwiki.com/images/2/23/The_Shore_Seethes_With_Hatred.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740209/powers/the_shore_seethes_with_hatred.png"
   },
   "angry bears": {
-    "image": "https://spiritislandwiki.com/images/9/9d/Angry_Bears_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739018/powers/angry_bears.png",
     "set": [
       "jagged earth"
     ],
@@ -8348,10 +8229,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Angry Bears",
-    "art": "https://spiritislandwiki.com/images/e/e2/Angry_Bears.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740210/powers/angry_bears.png"
   },
   "settle into hunting-grounds": {
-    "image": "https://spiritislandwiki.com/images/2/23/Settle_Into_Hunting-Grounds_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739019/powers/settle_into_hunting-grounds.png",
     "set": [
       "jagged earth"
     ],
@@ -8378,10 +8259,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Settle Into Hunting-Grounds",
-    "art": "https://spiritislandwiki.com/images/4/4d/Settle_Into_Hunting-Grounds.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740210/powers/settle_into_hunting-grounds.png"
   },
   "incite the mob": {
-    "image": "https://spiritislandwiki.com/images/1/1c/Incite_the_Mob_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739020/powers/incite_the_mob.png",
     "set": [
       "jagged earth"
     ],
@@ -8403,10 +8284,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "grinning trickster stirs up trouble",
     "caseName": "Incite the Mob",
-    "art": "https://spiritislandwiki.com/images/0/0f/Incite_the_Mob.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740211/powers/incite_the_mob.png"
   },
   "scream disease into the wind": {
-    "image": "https://spiritislandwiki.com/images/0/04/Scream_Disease_Into_the_Wind_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739021/powers/scream_disease_into_the_wind.png",
     "set": [
       "jagged earth"
     ],
@@ -8426,10 +8307,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Scream Disease Into the Wind",
-    "art": "https://spiritislandwiki.com/images/0/02/Scream_Disease_Into_the_Wind.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740212/powers/scream_disease_into_the_wind.png"
   },
   "domesticated animals go berserk": {
-    "image": "https://spiritislandwiki.com/images/b/b4/Domesticated_Animals_Go_Berserk_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739022/powers/domesticated_animals_go_berserk.png",
     "set": [
       "jagged earth"
     ],
@@ -8454,10 +8335,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Domesticated Animals Go Berserk",
-    "art": "https://spiritislandwiki.com/images/5/5e/Domesticated_Animals_Go_Berserk.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740213/powers/domesticated_animals_go_berserk.png"
   },
   "sunset's fire flows across the land": {
-    "image": "https://spiritislandwiki.com/images/4/4a/Sunset%27s_Fire_Flows_Across_the_Land_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739023/powers/sunset%27s_fire_flows_across_the_land.png",
     "set": [
       "jagged earth"
     ],
@@ -8478,10 +8359,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Sunset's Fire Flows Across the Land",
-    "art": "https://spiritislandwiki.com/images/2/2d/Sunset%27s_Fire_Flows_Across_the_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740214/powers/sunset%27s_fire_flows_across_the_land.png"
   },
   "set them on an ever-twisting trail": {
-    "image": "https://spiritislandwiki.com/images/e/ea/Set_Them_on_an_Ever-Twisting_Trail_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739024/powers/set_them_on_an_ever-twisting_trail.png",
     "set": [
       "jagged earth"
     ],
@@ -8501,10 +8382,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Set Them on an Ever-Twisting Trail",
-    "art": "https://spiritislandwiki.com/images/5/5f/Set_Them_on_an_Ever-Twisting_Trail.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740215/powers/set_them_on_an_ever-twisting_trail.png"
   },
   "melt earth into quicksand": {
-    "image": "https://spiritislandwiki.com/images/2/24/Melt_Earth_Into_Quicksand_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739025/powers/melt_earth_into_quicksand.png",
     "set": [
       "jagged earth"
     ],
@@ -8531,10 +8412,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Melt Earth Into Quicksand",
-    "art": "https://spiritislandwiki.com/images/e/e1/Melt_Earth_Into_Quicksand.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740216/powers/melt_earth_into_quicksand.png"
   },
   "dread apparitions": {
-    "image": "https://spiritislandwiki.com/images/1/11/Dread_Apparitions_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739026/powers/dread_apparitions.png",
     "set": [
       "spirit island"
     ],
@@ -8554,10 +8435,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "bringer of dreams and nightmares",
     "caseName": "Dread Apparitions",
-    "art": "https://spiritislandwiki.com/images/c/c6/Dread_Apparitions.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740217/powers/dread_apparitions.png"
   },
   "vanish softly away, forgotten by all": {
-    "image": "https://spiritislandwiki.com/images/2/23/Vanish_Softly_Away%2C_Forgotten_by_All_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739027/powers/vanish_softly_away%2C_forgotten_by_all.png",
     "set": [
       "jagged earth"
     ],
@@ -8582,10 +8463,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Vanish Softly Away, Forgotten by All",
-    "art": "https://spiritislandwiki.com/images/c/c1/Vanish_Softly_Away%2C_Forgotten_by_All.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740217/powers/vanish_softly_away%2C_forgotten_by_all.png"
   },
   "overenthusiastic arson": {
-    "image": "https://spiritislandwiki.com/images/d/d7/Overenthusiastic_Arson_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739029/powers/overenthusiastic_arson.png",
     "set": [
       "jagged earth"
     ],
@@ -8605,10 +8486,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "grinning trickster stirs up trouble",
     "caseName": "Overenthusiastic Arson",
-    "art": "https://spiritislandwiki.com/images/5/5b/Overenthusiastic_Arson.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740218/powers/overenthusiastic_arson.png"
   },
   "perils of the deepest island": {
-    "image": "https://spiritislandwiki.com/images/a/a3/Perils_of_the_Deepest_Island_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739030/powers/perils_of_the_deepest_island.png",
     "set": [
       "jagged earth"
     ],
@@ -8629,10 +8510,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lure of the deep wilderness",
     "caseName": "Perils of the Deepest Island",
-    "art": "https://spiritislandwiki.com/images/0/0e/Perils_of_the_Deepest_Island.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740219/powers/perils_of_the_deepest_island.png"
   },
   "voice of command": {
-    "image": "https://spiritislandwiki.com/images/0/0e/Voice_of_Command_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739031/powers/voice_of_command.png",
     "set": [
       "jagged earth"
     ],
@@ -8657,10 +8538,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Voice of Command",
-    "art": "https://spiritislandwiki.com/images/4/44/Voice_of_Command.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740220/powers/voice_of_command.png"
   },
   "impersonate authority": {
-    "image": "https://spiritislandwiki.com/images/3/3b/Impersonate_Authority_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739032/powers/impersonate_authority.png",
     "set": [
       "jagged earth"
     ],
@@ -8681,10 +8562,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "grinning trickster stirs up trouble",
     "caseName": "Impersonate Authority",
-    "art": "https://spiritislandwiki.com/images/2/20/Impersonate_Authority.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740221/powers/impersonate_authority.png"
   },
   "elemental teachings": {
-    "image": "https://spiritislandwiki.com/images/2/2c/Elemental_Teachings_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739033/powers/elemental_teachings.png",
     "set": [
       "jagged earth"
     ],
@@ -8705,10 +8586,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shifting memory of ages",
     "caseName": "Elemental Teachings",
-    "art": "https://spiritislandwiki.com/images/7/7a/Elemental_Teachings.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740222/powers/elemental_teachings.png"
   },
   "pursue with scratches, pecks, and stings": {
-    "image": "https://spiritislandwiki.com/images/7/7e/Pursue_with_Scratches%2C_Pecks%2C_and_Stings_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739034/powers/pursue_with_scratches%2C_pecks%2C_and_stings.png",
     "set": [
       "jagged earth"
     ],
@@ -8730,10 +8611,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "many minds move as one",
     "caseName": "Pursue with Scratches, Pecks, and Stings",
-    "art": "https://spiritislandwiki.com/images/b/b7/Pursue_With_Scratches%2C_Pecks%2C_and_Stings.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740223/powers/pursue_with_scratches%2C_pecks%2C_and_stings.png"
   },
   "dark skies loose a stinging rain": {
-    "image": "https://spiritislandwiki.com/images/f/ff/Dark_Skies_Loose_a_Stinging_Rain_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739035/powers/dark_skies_loose_a_stinging_rain.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -8755,10 +8636,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "wetland",
     "unique": "downpour drenches the world",
     "caseName": "Dark Skies Loose a Stinging Rain",
-    "art": "https://spiritislandwiki.com/images/b/b2/Dark_Skies_Loose_a_Stinging_Rain.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740224/powers/dark_skies_loose_a_stinging_rain.png"
   },
   "guide the way on feathered wings": {
-    "image": "https://spiritislandwiki.com/images/f/f0/Guide_the_Way_on_Feathered_Wings_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739036/powers/guide_the_way_on_feathered_wings.png",
     "set": [
       "jagged earth"
     ],
@@ -8779,10 +8660,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "many minds move as one",
     "caseName": "Guide the Way on Feathered Wings",
-    "art": "https://spiritislandwiki.com/images/5/5a/Guide_the_Way_on_Feathered_Wings.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740226/powers/guide_the_way_on_feathered_wings.png"
   },
   "the wounded wild turns on its assailants": {
-    "image": "https://spiritislandwiki.com/images/2/26/The_Wounded_Wild_Turns_on_its_Assailants_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739037/powers/the_wounded_wild_turns_on_its_assailants.png",
     "set": [
       "jagged earth"
     ],
@@ -8809,10 +8690,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "The Wounded Wild Turns on its Assailants",
-    "art": "https://spiritislandwiki.com/images/4/4a/The_Wounded_Wild_Turns_on_Its_Assailants.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740226/powers/the_wounded_wild_turns_on_its_assailants.png"
   },
   "study the invaders' fears": {
-    "image": "https://spiritislandwiki.com/images/3/39/Study_the_Invaders%27_Fears_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739038/powers/study_the_invaders%27_fears.png",
     "set": [
       "jagged earth"
     ],
@@ -8833,10 +8714,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shifting memory of ages",
     "caseName": "Study the Invaders' Fears",
-    "art": "https://spiritislandwiki.com/images/9/96/Study_the_Invaders%27_Fears.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740227/powers/study_the_invaders%27_fears.png"
   },
   "call to guard": {
-    "image": "https://spiritislandwiki.com/images/c/ca/Call_to_Guard_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739040/powers/call_to_guard.png",
     "set": [
       "jagged earth"
     ],
@@ -8856,10 +8737,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Call to Guard",
-    "art": "https://spiritislandwiki.com/images/0/0b/Call_to_Guard.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740228/powers/call_to_guard.png"
   },
   "boon of ancient memories": {
-    "image": "https://spiritislandwiki.com/images/2/2f/Boon_of_Ancient_Memories_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739041/powers/boon_of_ancient_memories.png",
     "set": [
       "jagged earth"
     ],
@@ -8881,10 +8762,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shifting memory of ages",
     "caseName": "Boon of Ancient Memories",
-    "art": "https://spiritislandwiki.com/images/b/bc/Boon_of_Ancient_Memories.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740229/powers/boon_of_ancient_memories.png"
   },
   "trees radiate celestial brilliance": {
-    "image": "https://spiritislandwiki.com/images/6/65/Trees_Radiate_Celestial_Brilliance_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739042/powers/trees_radiate_celestial_brilliance.png",
     "set": [
       "jagged earth"
     ],
@@ -8911,10 +8792,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Trees Radiate Celestial Brilliance",
-    "art": "https://spiritislandwiki.com/images/c/c1/Trees_Radiate_Celestial_Brilliance.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740230/powers/trees_radiate_celestial_brilliance.png"
   },
   "unnerving pall": {
-    "image": "https://spiritislandwiki.com/images/2/22/Unnerving_Pall_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739043/powers/unnerving_pall.png",
     "set": [
       "jagged earth"
     ],
@@ -8935,10 +8816,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shroud of silent mist",
     "caseName": "Unnerving Pall",
-    "art": "https://spiritislandwiki.com/images/f/f2/Unnerving_Pall.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740231/powers/unnerving_pall.png"
   },
   "utter a curse of dread and bone": {
-    "image": "https://spiritislandwiki.com/images/2/22/Utter_a_Curse_of_Dread_and_Bone_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739044/powers/utter_a_curse_of_dread_and_bone.png",
     "set": [
       "jagged earth"
     ],
@@ -8963,10 +8844,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Utter a Curse of Dread and Bone",
-    "art": "https://spiritislandwiki.com/images/7/7f/Utter_a_Curse_of_Dread_and_Bone.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740232/powers/utter_a_curse_of_dread_and_bone.png"
   },
   "gather the scattered light of stars": {
-    "image": "https://spiritislandwiki.com/images/f/f0/Gather_the_Scattered_Light_of_Stars_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739045/powers/gather_the_scattered_light_of_stars.png",
     "set": [
       "jagged earth"
     ],
@@ -8985,10 +8866,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "starlight seeks its form",
     "caseName": "Gather the Scattered Light of Stars",
-    "art": "https://spiritislandwiki.com/images/0/0e/Gather_the_Scattered_Light_of_Stars.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740232/powers/gather_the_scattered_light_of_stars.png"
   },
   "storm-swath": {
-    "image": "https://spiritislandwiki.com/images/4/40/Storm-Swath_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739046/powers/storm-swath.png",
     "set": [
       "jagged earth"
     ],
@@ -9015,10 +8896,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Storm-Swath",
-    "art": "https://spiritislandwiki.com/images/3/3d/Storm-Swath.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740233/powers/storm-swath.png"
   },
   "boon of reimagining": {
-    "image": "https://spiritislandwiki.com/images/d/d6/Boon_of_Reimagining_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739047/powers/boon_of_reimagining.png",
     "set": [
       "jagged earth"
     ],
@@ -9037,10 +8918,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "starlight seeks its form",
     "caseName": "Boon of Reimagining",
-    "art": "https://spiritislandwiki.com/images/6/61/Boon_of_Reimagining.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740234/powers/boon_of_reimagining.png"
   },
   "weave together the fabric of place": {
-    "image": "https://spiritislandwiki.com/images/c/c2/Weave_Together_the_Fabric_of_Place_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739048/powers/weave_together_the_fabric_of_place.png",
     "set": [
       "jagged earth"
     ],
@@ -9067,10 +8948,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Weave Together the Fabric of Place",
-    "art": "https://spiritislandwiki.com/images/1/1b/Weave_Together_the_Fabric_of_Place.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740235/powers/weave_together_the_fabric_of_place.png"
   },
   "shape the self anew": {
-    "image": "https://spiritislandwiki.com/images/2/24/Shape_the_Self_Anew_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739049/powers/shape_the_self_anew.png",
     "set": [
       "jagged earth"
     ],
@@ -9094,10 +8975,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "starlight seeks its form",
     "caseName": "Shape the Self Anew",
-    "art": "https://spiritislandwiki.com/images/3/34/Shape_the_Self_Anew.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740236/powers/shape_the_self_anew.png"
   },
   "share secrets of survival": {
-    "image": "https://spiritislandwiki.com/images/d/d4/Share_Secrets_of_Survival_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739050/powers/share_secrets_of_survival.png",
     "set": [
       "jagged earth"
     ],
@@ -9123,10 +9004,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "shifting memory of ages",
     "caseName": "Share Secrets of Survival",
-    "art": "https://spiritislandwiki.com/images/e/e9/Share_Secrets_of_Survival.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740237/powers/share_secrets_of_survival.png"
   },
   "strike low with sudden fevers": {
-    "image": "https://spiritislandwiki.com/images/3/3f/Strike_Low_with_Sudden_Fevers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739051/powers/strike_low_with_sudden_fevers.png",
     "set": [
       "jagged earth"
     ],
@@ -9148,10 +9029,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vengeance as a burning plague",
     "caseName": "Strike Low with Sudden Fevers",
-    "art": "https://spiritislandwiki.com/images/f/f8/Strike_Low_With_Sudden_Fevers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740238/powers/strike_low_with_sudden_fevers.png"
   },
   "a dreadful tide of scurrying flesh": {
-    "image": "https://spiritislandwiki.com/images/c/c1/A_Dreadful_Tide_of_Scurrying_Flesh_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739052/powers/a_dreadful_tide_of_scurrying_flesh.png",
     "set": [
       "jagged earth"
     ],
@@ -9173,10 +9054,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "many minds move as one",
     "caseName": "A Dreadful Tide of Scurrying Flesh",
-    "art": "https://spiritislandwiki.com/images/5/57/A_Dreadful_Tide_of_Scurrying_Flesh.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740239/powers/a_dreadful_tide_of_scurrying_flesh.png"
   },
   "unexpected tigers": {
-    "image": "https://spiritislandwiki.com/images/2/23/Unexpected_Tigers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739053/powers/unexpected_tigers.png",
     "set": [
       "jagged earth"
     ],
@@ -9197,10 +9078,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "grinning trickster stirs up trouble",
     "caseName": "Unexpected Tigers",
-    "art": "https://spiritislandwiki.com/images/e/e9/Unexpected_Tigers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740240/powers/unexpected_tigers.png"
   },
   "peace of the nighttime sky": {
-    "image": "https://spiritislandwiki.com/images/8/85/Peace_of_the_Nighttime_Sky_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739054/powers/peace_of_the_nighttime_sky.png",
     "set": [
       "jagged earth"
     ],
@@ -9219,10 +9100,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "starlight seeks its form",
     "caseName": "Peace of the Nighttime Sky",
-    "art": "https://spiritislandwiki.com/images/8/8e/Peace_of_the_Nighttime_Sky.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740240/powers/peace_of_the_nighttime_sky.png"
   },
   "focus the land's anguish": {
-    "image": "https://spiritislandwiki.com/images/2/2b/Focus_the_Land%27s_Anguish_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739057/powers/focus_the_land%27s_anguish.png",
     "set": [
       "jagged earth"
     ],
@@ -9245,10 +9126,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Focus the Land's Anguish",
-    "art": "https://spiritislandwiki.com/images/d/dd/Focus_the_Land%27s_Anguish.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740241/powers/focus_the_land%27s_anguish.png"
   },
   "boon of swarming bedevilment": {
-    "image": "https://spiritislandwiki.com/images/e/e3/Boon_of_Swarming_Bedevilment_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739059/powers/boon_of_swarming_bedevilment.png",
     "set": [
       "jagged earth"
     ],
@@ -9269,10 +9150,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "many minds move as one",
     "caseName": "Boon of Swarming Bedevilment",
-    "art": "https://spiritislandwiki.com/images/e/e8/Boon_of_Swarming_Bedevilment.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740242/powers/boon_of_swarming_bedevilment.png"
   },
   "spur on with words of fire": {
-    "image": "https://spiritislandwiki.com/images/a/ad/Spur_on_with_Words_of_Fire_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739059/powers/spur_on_with_words_of_fire.png",
     "set": [
       "branch and claw"
     ],
@@ -9292,10 +9173,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Spur on with Words of Fire",
-    "art": "https://spiritislandwiki.com/images/2/2f/Spur_on_With_Words_of_Fire.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740243/powers/spur_on_with_words_of_fire.png"
   },
   "aid from the spirit-speakers": {
-    "image": "https://spiritislandwiki.com/images/c/cf/Aid_from_the_Spirit-Speakers_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739061/powers/aid_from_the_spirit-speakers.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9318,10 +9199,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "Aid from the Spirit-Speakers",
-    "art": "https://spiritislandwiki.com/images/b/b9/Aid_From_the_Spirit-Speakers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740244/powers/aid_from_the_spirit-speakers.png"
   },
   "swallowed by the wilderness": {
-    "image": "https://spiritislandwiki.com/images/2/2d/Swallowed_by_the_Wilderness_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739062/powers/swallowed_by_the_wilderness.png",
     "set": [
       "jagged earth"
     ],
@@ -9343,10 +9224,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "lure of the deep wilderness",
     "caseName": "Swallowed by the Wilderness",
-    "art": "https://spiritislandwiki.com/images/0/03/Swallowed_by_the_Wilderness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740245/powers/swallowed_by_the_wilderness.png"
   },
   "stubborn solidity": {
-    "image": "https://spiritislandwiki.com/images/2/2d/Stubborn_Solidity_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739062/powers/stubborn_solidity.png",
     "set": [
       "jagged earth"
     ],
@@ -9367,10 +9248,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "stone's unyielding defiance",
     "caseName": "Stubborn Solidity",
-    "art": "https://spiritislandwiki.com/images/7/73/Stubborn_Solidity.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740246/powers/stubborn_solidity.png"
   },
   "paths tied by nature": {
-    "image": "https://spiritislandwiki.com/images/b/b9/Paths_Tied_by_Nature_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739064/powers/paths_tied_by_nature.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9393,10 +9274,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "Paths Tied by Nature",
-    "art": "https://spiritislandwiki.com/images/9/98/Paths_Tied_by_Nature.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740247/powers/paths_tied_by_nature.png"
   },
   "sky stretches to shore": {
-    "image": "https://spiritislandwiki.com/images/4/44/Sky_Stretches_to_Shore_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739067/powers/sky_stretches_to_shore.png",
     "set": [
       "branch and claw"
     ],
@@ -9417,10 +9298,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Sky Stretches to Shore",
-    "art": "https://spiritislandwiki.com/images/e/ed/Sky_Stretches_to_Shore.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740248/powers/sky_stretches_to_shore.png"
   },
   "intractable thickets and thorns": {
-    "image": "https://spiritislandwiki.com/images/9/92/Intractable_Thickets_and_Thorns_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739068/powers/intractable_thickets_and_thorns.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9442,10 +9323,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fathomless mud of the swamp",
     "caseName": "Intractable Thickets and Thorns",
-    "art": "https://spiritislandwiki.com/images/8/86/Intractable_Thickets_and_Thorns.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740249/powers/intractable_thickets_and_thorns.png"
   },
   "rain of ash": {
-    "image": "https://spiritislandwiki.com/images/8/83/Rain_of_Ash_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739069/powers/rain_of_ash.png",
     "set": [
       "jagged earth"
     ],
@@ -9466,10 +9347,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "volcano looming high",
     "caseName": "Rain of Ash",
-    "art": "https://spiritislandwiki.com/images/4/4b/Rain_of_Ash.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740250/powers/rain_of_ash.png"
   },
   "the fog closes in": {
-    "image": "https://spiritislandwiki.com/images/d/d8/The_Fog_Closes_In_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739071/powers/the_fog_closes_in.png",
     "set": [
       "jagged earth"
     ],
@@ -9490,10 +9371,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shroud of silent mist",
     "caseName": "The Fog Closes In",
-    "art": "https://spiritislandwiki.com/images/1/1a/The_Fog_Closes_In.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740251/powers/the_fog_closes_in.png"
   },
   "flowing and silent forms dart by": {
-    "image": "https://spiritislandwiki.com/images/d/d0/Flowing_and_Silent_Forms_Dart_By_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739072/powers/flowing_and_silent_forms_dart_by.png",
     "set": [
       "jagged earth"
     ],
@@ -9514,10 +9395,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shroud of silent mist",
     "caseName": "Flowing and Silent Forms Dart By",
-    "art": "https://spiritislandwiki.com/images/a/a2/Flowing_and_Silent_Forms_Dart_By.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740252/powers/flowing_and_silent_forms_dart_by.png"
   },
   "plows shatter on rocky ground": {
-    "image": "https://spiritislandwiki.com/images/b/b6/Plows_Shatter_on_Rocky_Ground_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739073/powers/plows_shatter_on_rocky_ground.png",
     "set": [
       "jagged earth"
     ],
@@ -9536,10 +9417,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "stone's unyielding defiance",
     "caseName": "Plows Shatter on Rocky Ground",
-    "art": "https://spiritislandwiki.com/images/4/4e/Plows_Shatter_on_Rocky_Ground.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740253/powers/plows_shatter_on_rocky_ground.png"
   },
   "instruments of their own ruin": {
-    "image": "https://spiritislandwiki.com/images/9/98/Instruments_of_Their_Own_Ruin_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739074/powers/instruments_of_their_own_ruin.png",
     "set": [
       "branch and claw"
     ],
@@ -9567,10 +9448,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Instruments of Their Own Ruin",
-    "art": "https://spiritislandwiki.com/images/a/aa/Instruments_of_Their_Own_Ruin.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740255/powers/instruments_of_their_own_ruin.png"
   },
   "gift of searing heat": {
-    "image": "https://spiritislandwiki.com/images/d/db/Gift_of_Searing_Heat_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739075/powers/gift_of_searing_heat.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9591,10 +9472,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "rising heat of stone and sand",
     "caseName": "Gift of Searing Heat",
-    "art": "https://spiritislandwiki.com/images/b/b3/Gift_of_Searing_Heat.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740257/powers/gift_of_searing_heat.png"
   },
   "eerie noises and moving trees": {
-    "image": "https://spiritislandwiki.com/images/8/8a/Eerie_Noises_and_Moving_Trees_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739075/powers/eerie_noises_and_moving_trees.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9615,10 +9496,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "eyes watch from the trees",
     "caseName": "Eerie Noises and Moving Trees",
-    "art": "https://spiritislandwiki.com/images/e/e9/Eerie_Noises_and_Moving_Trees.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740258/powers/eerie_noises_and_moving_trees.png"
   },
   "savage transformation": {
-    "image": "https://spiritislandwiki.com/images/e/e4/Savage_Transformation_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739076/powers/savage_transformation.png",
     "set": [
       "branch and claw"
     ],
@@ -9643,10 +9524,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Savage Transformation",
-    "art": "https://spiritislandwiki.com/images/5/5f/Savage_Transformation.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740259/powers/savage_transformation.png"
   },
   "teeming rivers": {
-    "image": "https://spiritislandwiki.com/images/8/8b/Teeming_Rivers_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739077/powers/teeming_rivers.png",
     "set": [
       "branch and claw"
     ],
@@ -9667,10 +9548,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Teeming Rivers",
-    "art": "https://spiritislandwiki.com/images/9/98/Teeming_Rivers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740260/powers/teeming_rivers.png"
   },
   "swallowed by the endless dark": {
-    "image": "https://spiritislandwiki.com/images/7/77/Swallowed_by_the_Endless_Dark_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739078/powers/swallowed_by_the_endless_dark.png",
     "set": [
       "nature incarnate"
     ],
@@ -9700,7 +9581,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "absolute stasis": {
-    "image": "https://spiritislandwiki.com/images/1/1b/Absolute_Stasis_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739078/powers/absolute_stasis.png",
     "set": [
       "jagged earth"
     ],
@@ -9721,10 +9602,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "fractured days split the sky",
     "caseName": "Absolute Stasis",
-    "art": "https://spiritislandwiki.com/images/0/0b/Absolute_Stasis.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740261/powers/absolute_stasis.png"
   },
   "plaguebearers": {
-    "image": "https://spiritislandwiki.com/images/5/5b/Plaguebearers_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739079/powers/plaguebearers.png",
     "set": [
       "jagged earth"
     ],
@@ -9745,10 +9626,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vengeance as a burning plague",
     "caseName": "Plaguebearers",
-    "art": "https://spiritislandwiki.com/images/6/69/Plaguebearers.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740262/powers/plaguebearers.png"
   },
   "pent-up calamity": {
-    "image": "https://spiritislandwiki.com/images/d/dc/Pent-Up_Calamity_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739081/powers/pent-up_calamity.png",
     "set": [
       "branch and claw"
     ],
@@ -9776,10 +9657,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Pent-Up Calamity",
-    "art": "https://spiritislandwiki.com/images/2/27/Pent-Up_Calamity.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740262/powers/pent-up_calamity.png"
   },
   "infestation of venomous spiders": {
-    "image": "https://spiritislandwiki.com/images/9/9e/Infestation_of_Venomous_Spiders_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739082/powers/infestation_of_venomous_spiders.png",
     "set": [
       "jagged earth"
     ],
@@ -9807,10 +9688,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Infestation of Venomous Spiders",
-    "art": "https://spiritislandwiki.com/images/7/73/Infestation_of_Venomous_Spiders.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740263/powers/infestation_of_venomous_spiders.png"
   },
   "foundations sink into mud": {
-    "image": "https://spiritislandwiki.com/images/a/a6/Foundations_Sink_into_Mud_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739083/powers/foundations_sink_into_mud.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -9831,10 +9712,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "downpour drenches the world",
     "caseName": "Foundations Sink into Mud",
-    "art": "https://spiritislandwiki.com/images/2/26/Foundations_Sink_Into_Mud.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740264/powers/foundations_sink_into_mud.png"
   },
   "frightful keening": {
-    "image": "https://spiritislandwiki.com/images/5/5e/Frightful_Keening_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739084/powers/frightful_keening.png",
     "set": [
       "nature incarnate"
     ],
@@ -9858,7 +9739,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "dissolving vapors": {
-    "image": "https://spiritislandwiki.com/images/4/40/Dissolving_Vapors_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739085/powers/dissolving_vapors.png",
     "set": [
       "jagged earth"
     ],
@@ -9878,10 +9759,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shroud of silent mist",
     "caseName": "Dissolving Vapors",
-    "art": "https://spiritislandwiki.com/images/d/d0/Dissolving_Vapors.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740268/powers/dissolving_vapors.png"
   },
   "gift of twinned days": {
-    "image": "https://spiritislandwiki.com/images/f/f2/Gift_of_Twinned_Days_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739086/powers/gift_of_twinned_days.png",
     "set": [
       "jagged earth"
     ],
@@ -9900,10 +9781,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gift of Twinned Days",
-    "art": "https://spiritislandwiki.com/images/5/5e/Gift_of_Twinned_Days.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740269/powers/gift_of_twinned_days.png"
   },
   "lava flows": {
-    "image": "https://spiritislandwiki.com/images/2/29/Lava_Flows_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739087/powers/lava_flows.png",
     "set": [
       "jagged earth"
     ],
@@ -9923,10 +9804,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "volcano looming high",
     "caseName": "Lava Flows",
-    "art": "https://spiritislandwiki.com/images/3/38/Lava_Flows.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740270/powers/lava_flows.png"
   },
   "rumbling earthquakes": {
-    "image": "https://spiritislandwiki.com/images/4/48/Rumbling_Earthquakes_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739088/powers/rumbling_earthquakes.png",
     "set": [
       "nature incarnate"
     ],
@@ -9953,7 +9834,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "foul vapors and fetid muck": {
-    "image": "https://spiritislandwiki.com/images/9/91/Foul_Vapors_and_Fetid_Muck_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739089/powers/foul_vapors_and_fetid_muck.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -9975,10 +9856,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "fathomless mud of the swamp",
     "caseName": "Foul Vapors and Fetid Muck",
-    "art": "https://spiritislandwiki.com/images/6/60/Foul_Vapors_and_Fetid_Muck.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740270/powers/foul_vapors_and_fetid_muck.png"
   },
   "blinding glare": {
-    "image": "https://spiritislandwiki.com/images/5/55/Blinding_Glare_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739090/powers/blinding_glare.png",
     "set": [
       "nature incarnate"
     ],
@@ -10006,7 +9887,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "fetid breath spreads infection": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Fetid_Breath_Spreads_Infection_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739092/powers/fetid_breath_spreads_infection.png",
     "set": [
       "jagged earth"
     ],
@@ -10027,10 +9908,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vengeance as a burning plague",
     "caseName": "Fetid Breath Spreads Infection",
-    "art": "https://spiritislandwiki.com/images/2/2f/Fetid_Breath_Spreads_Infection.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740271/powers/fetid_breath_spreads_infection.png"
   },
   "gift of furious might": {
-    "image": "https://spiritislandwiki.com/images/a/a3/Gift_of_Furious_Might_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739093/powers/gift_of_furious_might.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10051,10 +9932,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "devouring teeth lurk underfoot",
     "caseName": "Gift of Furious Might",
-    "art": "https://spiritislandwiki.com/images/3/32/Gift_of_Furious_Might.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740272/powers/gift_of_furious_might.png"
   },
   "herd towards the lurking maw": {
-    "image": "https://spiritislandwiki.com/images/f/f5/Herd_Towards_the_Lurking_Maw_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739094/powers/herd_towards_the_lurking_maw.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10075,10 +9956,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "devouring teeth lurk underfoot",
     "caseName": "Herd Towards the Lurking Maw",
-    "art": "https://spiritislandwiki.com/images/e/e1/Herd_Towards_the_Lurking_Maw.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740273/powers/herd_towards_the_lurking_maw.png"
   },
   "unbearable gaze": {
-    "image": "https://spiritislandwiki.com/images/c/cb/Unbearable_Gaze_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739094/powers/unbearable_gaze.png",
     "set": [
       "nature incarnate"
     ],
@@ -10101,7 +9982,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "blazing intimidation": {
-    "image": "https://spiritislandwiki.com/images/d/df/Blazing_Intimidation_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739095/powers/blazing_intimidation.png",
     "set": [
       "nature incarnate"
     ],
@@ -10125,7 +10006,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "rumblings portend a greater quake": {
-    "image": "https://spiritislandwiki.com/images/1/1e/Rumblings_Portend_a_Greater_Quake_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739096/powers/rumblings_portend_a_greater_quake.png",
     "set": [
       "nature incarnate"
     ],
@@ -10150,7 +10031,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "growth through sacrifice": {
-    "image": "https://spiritislandwiki.com/images/9/97/Growth_Through_Sacrifice_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739097/powers/growth_through_sacrifice.png",
     "set": [
       "branch and claw"
     ],
@@ -10176,10 +10057,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "replaced",
     "from": null,
     "caseName": "Growth Through Sacrifice",
-    "art": "https://spiritislandwiki.com/images/c/c1/Growth_Through_Sacrifice.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740274/powers/growth_through_sacrifice.png"
   },
   "radiating tremors": {
-    "image": "https://spiritislandwiki.com/images/7/7a/Radiating_Tremors_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739098/powers/radiating_tremors.png",
     "set": [
       "nature incarnate"
     ],
@@ -10203,7 +10084,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "entwine the fates of all": {
-    "image": "https://spiritislandwiki.com/images/9/9a/Entwine_the_Fates_of_All_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739099/powers/entwine_the_fates_of_all.png",
     "set": [
       "nature incarnate"
     ],
@@ -10228,7 +10109,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "coordinated raid": {
-    "image": "https://spiritislandwiki.com/images/f/fc/Coordinated_Raid_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739100/powers/coordinated_raid.png",
     "set": [
       "nature incarnate"
     ],
@@ -10252,7 +10133,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "focus the sun's rays": {
-    "image": "https://spiritislandwiki.com/images/b/b9/Focus_the_Sun%27s_Rays_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739101/powers/focus_the_sun%27s_rays.png",
     "set": [
       "nature incarnate"
     ],
@@ -10276,7 +10157,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "inspire a winding dance": {
-    "image": "https://spiritislandwiki.com/images/d/d1/Inspire_a_Winding_Dance_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739101/powers/inspire_a_winding_dance.png",
     "set": [
       "nature incarnate"
     ],
@@ -10301,7 +10182,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "draw to the water's edge": {
-    "image": "https://spiritislandwiki.com/images/1/10/Draw_to_the_Water%27s_Edge_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739102/powers/draw_to_the_water%27s_edge.png",
     "set": [
       "nature incarnate"
     ],
@@ -10325,7 +10206,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "unbearable deluge": {
-    "image": "https://spiritislandwiki.com/images/a/a2/Unbearable_Deluge_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739104/powers/unbearable_deluge.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -10347,10 +10228,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "downpour drenches the world",
     "caseName": "Unbearable Deluge",
-    "art": "https://spiritislandwiki.com/images/6/6f/Unbearable_Deluge.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740275/powers/unbearable_deluge.png"
   },
   "solidify echoes of majesty past": {
-    "image": "https://spiritislandwiki.com/images/5/53/Solidify_Echoes_of_Majesty_Past_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739105/powers/solidify_echoes_of_majesty_past.png",
     "set": [
       "nature incarnate"
     ],
@@ -10381,7 +10262,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "wrack with pain and grief": {
-    "image": "https://spiritislandwiki.com/images/f/f1/Wrack_with_Pain_and_Grief_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739106/powers/wrack_with_pain_and_grief.png",
     "set": [
       "nature incarnate"
     ],
@@ -10405,7 +10286,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "plague ships sail to distant ports": {
-    "image": "https://spiritislandwiki.com/images/e/ea/Plague_Ships_Sail_to_Distant_Ports_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739107/powers/plague_ships_sail_to_distant_ports.png",
     "set": [
       "nature incarnate"
     ],
@@ -10436,7 +10317,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of living energy": {
-    "image": "https://spiritislandwiki.com/images/8/85/Gift_of_Living_Energy_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739108/powers/gift_of_living_energy.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -10457,10 +10338,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Gift of Living Energy",
-    "art": "https://spiritislandwiki.com/images/1/1a/Gift_of_Living_Energy.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740276/powers/gift_of_living_energy.png"
   },
   "ravaged undergrowth slithers back to life": {
-    "image": "https://spiritislandwiki.com/images/7/78/Ravaged_Undergrowth_Slithers_Back_to_Life_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739109/powers/ravaged_undergrowth_slithers_back_to_life.png",
     "set": [
       "nature incarnate"
     ],
@@ -10489,7 +10370,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "boon of resilient power": {
-    "image": "https://spiritislandwiki.com/images/c/c8/Boon_of_Resilient_Power_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739110/powers/boon_of_resilient_power.png",
     "set": [
       "nature incarnate"
     ],
@@ -10514,7 +10395,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "flash floods": {
-    "image": "https://spiritislandwiki.com/images/8/89/Flash_Floods_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739112/powers/flash_floods.png",
     "set": [
       "spirit island"
     ],
@@ -10534,10 +10415,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "river surges in sunlight",
     "caseName": "Flash Floods",
-    "art": "https://spiritislandwiki.com/images/2/20/Flash_Floods.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740277/powers/flash_floods.png"
   },
   "exhale confusion and delirium": {
-    "image": "https://spiritislandwiki.com/images/1/15/Exhale_Confusion_and_Delirium_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739113/powers/exhale_confusion_and_delirium.png",
     "set": [
       "nature incarnate"
     ],
@@ -10562,7 +10443,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "roiling bog and snagging thorn": {
-    "image": "https://spiritislandwiki.com/images/7/73/Roiling_Bog_and_Snagging_Thorn_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739114/powers/roiling_bog_and_snagging_thorn.png",
     "set": [
       "nature incarnate"
     ],
@@ -10586,7 +10467,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "whispered guidance through the night": {
-    "image": "https://spiritislandwiki.com/images/3/34/Whispered_Guidance_Through_the_Night_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739115/powers/whispered_guidance_through_the_night.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10607,10 +10488,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "jungle",
     "unique": "eyes watch from the trees",
     "caseName": "Whispered Guidance Through the Night",
-    "art": "https://spiritislandwiki.com/images/c/ce/Whispered_Guidance_Through_the_Night.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740278/powers/whispered_guidance_through_the_night.png"
   },
   "boon of growing power": {
-    "image": "https://spiritislandwiki.com/images/8/89/Boon_of_Growing_Power_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739119/powers/boon_of_growing_power.png",
     "set": [
       "branch and claw"
     ],
@@ -10631,10 +10512,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "keeper of the forbidden wilds",
     "caseName": "Boon of Growing Power",
-    "art": "https://spiritislandwiki.com/images/9/90/Boon_of_Growing_Power.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740279/powers/boon_of_growing_power.png"
   },
   "wither bodies, scar stones": {
-    "image": "https://spiritislandwiki.com/images/5/57/Wither_Bodies%2C_Scar_Stones_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739120/powers/wither_bodies%2C_scar_stones.png",
     "set": [
       "nature incarnate"
     ],
@@ -10658,7 +10539,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "turmoil's touch": {
-    "image": "https://spiritislandwiki.com/images/2/23/Turmoil%27s_Touch_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739121/powers/turmoil%27s_touch.png",
     "set": [
       "nature incarnate"
     ],
@@ -10683,7 +10564,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "dire metamorphosis": {
-    "image": "https://spiritislandwiki.com/images/4/49/Dire_Metamorphosis_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739122/powers/dire_metamorphosis.png",
     "set": [
       "jagged earth"
     ],
@@ -10704,10 +10585,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Dire Metamorphosis",
-    "art": "https://spiritislandwiki.com/images/f/f9/Dire_Metamorphosis.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740280/powers/dire_metamorphosis.png"
   },
   "ferocious rampage": {
-    "image": "https://spiritislandwiki.com/images/e/e8/Ferocious_Rampage_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739123/powers/ferocious_rampage.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10727,10 +10608,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "devouring teeth lurk underfoot",
     "caseName": "Ferocious Rampage",
-    "art": "https://spiritislandwiki.com/images/9/92/Ferocious_Rampage.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740281/powers/ferocious_rampage.png"
   },
   "spill bitterness into the earth": {
-    "image": "https://spiritislandwiki.com/images/5/53/Spill_Bitterness_Into_the_Earth_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739123/powers/spill_bitterness_into_the_earth.png",
     "set": [
       "jagged earth"
     ],
@@ -10756,10 +10637,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Spill Bitterness Into the Earth",
-    "art": "https://spiritislandwiki.com/images/0/08/Spill_Bitterness_Into_the_Earth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740282/powers/spill_bitterness_into_the_earth.png"
   },
   "surging lahar": {
-    "image": "https://spiritislandwiki.com/images/3/35/Surging_Lahar_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739124/powers/surging_lahar.png",
     "set": [
       "nature incarnate"
     ],
@@ -10783,7 +10664,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "fiery vengeance": {
-    "image": "https://spiritislandwiki.com/images/3/3e/Fiery_Vengeance_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739129/powers/fiery_vengeance.png",
     "set": [
       "jagged earth"
     ],
@@ -10803,10 +10684,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "vengeance as a burning plague",
     "caseName": "Fiery Vengeance",
-    "art": "https://spiritislandwiki.com/images/a/aa/Fiery_Vengeance.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740282/powers/fiery_vengeance.png"
   },
   "haunted by primal memories": {
-    "image": "https://spiritislandwiki.com/images/e/e1/Haunted_by_Primal_Memories_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739130/powers/haunted_by_primal_memories.png",
     "set": [
       "jagged earth"
     ],
@@ -10826,10 +10707,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": "sacred site",
     "caseName": "Haunted by Primal Memories",
-    "art": "https://spiritislandwiki.com/images/0/05/Haunted_by_Primal_Memories.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740283/powers/haunted_by_primal_memories.png"
   },
   "sudden ambush": {
-    "image": "https://spiritislandwiki.com/images/8/89/Sudden_Ambush_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739131/powers/sudden_ambush.png",
     "set": [
       "spirit island"
     ],
@@ -10850,10 +10731,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "thunderspeaker",
     "caseName": "Sudden Ambush",
-    "art": "https://spiritislandwiki.com/images/e/e9/Sudden_Ambush.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740284/powers/sudden_ambush.png"
   },
   "resounding footfalls sow dismay": {
-    "image": "https://spiritislandwiki.com/images/c/c5/Resounding_Footfalls_Sow_Dismay_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739132/powers/resounding_footfalls_sow_dismay.png",
     "set": [
       "nature incarnate"
     ],
@@ -10877,7 +10758,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "mysterious abductions": {
-    "image": "https://spiritislandwiki.com/images/6/66/Mysterious_Abductions_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739134/powers/mysterious_abductions.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10898,10 +10779,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "eyes watch from the trees",
     "caseName": "Mysterious Abductions",
-    "art": "https://spiritislandwiki.com/images/c/ce/Mysterious_Abductions.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740285/powers/mysterious_abductions.png"
   },
   "unearth a beast of wrathful stone": {
-    "image": "https://spiritislandwiki.com/images/a/a6/Unearth_a_Beast_of_Wrathful_Stone_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739134/powers/unearth_a_beast_of_wrathful_stone.png",
     "set": [
       "nature incarnate"
     ],
@@ -10932,7 +10813,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "open shifting waterways": {
-    "image": "https://spiritislandwiki.com/images/3/31/Open_Shifting_Waterways_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739136/powers/open_shifting_waterways.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -10953,10 +10834,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fathomless mud of the swamp",
     "caseName": "Open Shifting Waterways",
-    "art": "https://spiritislandwiki.com/images/1/17/Open_Shifting_Waterways.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740286/powers/open_shifting_waterways.png"
   },
   "surrounded by the dahan": {
-    "image": "https://spiritislandwiki.com/images/2/23/Surrounded_by_the_Dahan_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739137/powers/surrounded_by_the_dahan.png",
     "set": [
       "nature incarnate"
     ],
@@ -10980,7 +10861,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "sweltering exhaustion": {
-    "image": "https://spiritislandwiki.com/images/4/4a/Sweltering_Exhaustion_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739139/powers/sweltering_exhaustion.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11000,10 +10881,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "rising heat of stone and sand",
     "caseName": "Sweltering Exhaustion",
-    "art": "https://spiritislandwiki.com/images/f/fe/Sweltering_Exhaustion.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740286/powers/sweltering_exhaustion.png"
   },
   "fragments of yesteryear": {
-    "image": "https://spiritislandwiki.com/images/1/1a/Fragments_of_Yesteryear_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739139/powers/fragments_of_yesteryear.png",
     "set": [
       "nature incarnate"
     ],
@@ -11030,7 +10911,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of the sunlit air": {
-    "image": "https://spiritislandwiki.com/images/0/02/Gift_of_the_Sunlit_Air_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739141/powers/gift_of_the_sunlit_air.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11051,10 +10932,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "sun-bright whirlwind",
     "caseName": "Gift of the Sunlit Air",
-    "art": "https://spiritislandwiki.com/images/e/e1/Gift_of_the_Sunlit_Air.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740287/powers/gift_of_the_sunlit_air.png"
   },
   "traveler's boon": {
-    "image": "https://spiritislandwiki.com/images/d/df/Traveler%27s_Boon_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739142/powers/traveler%27s_boon.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11076,10 +10957,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "Traveler's Boon",
-    "art": "https://spiritislandwiki.com/images/5/5c/Traveler%27s_Boon.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740289/powers/traveler%27s_boon.png"
   },
   "exaltation of molten stone": {
-    "image": "https://spiritislandwiki.com/images/d/d2/Exaltation_of_Molten_Stone_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739143/powers/exaltation_of_molten_stone.png",
     "set": [
       "jagged earth"
     ],
@@ -11100,10 +10981,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "volcano looming high",
     "caseName": "Exaltation of Molten Stone",
-    "art": "https://spiritislandwiki.com/images/3/39/Exaltation_of_Molten_Stone.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740289/powers/exaltation_of_molten_stone.png"
   },
   "exaltation of tangled growth": {
-    "image": "https://spiritislandwiki.com/images/9/97/Exaltation_of_Tangled_Growth_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739144/powers/exaltation_of_tangled_growth.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11124,10 +11005,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "fathomless mud of the swamp",
     "caseName": "Exaltation of Tangled Growth",
-    "art": "https://spiritislandwiki.com/images/8/87/Exaltation_of_Tangled_Growth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740290/powers/exaltation_of_tangled_growth.png"
   },
   "blood water and bloodlust": {
-    "image": "https://spiritislandwiki.com/images/6/61/Blood_Water_and_Bloodlust_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739145/powers/blood_water_and_bloodlust.png",
     "set": [
       "nature incarnate"
     ],
@@ -11151,7 +11032,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "boon of watchful guarding": {
-    "image": "https://spiritislandwiki.com/images/6/69/Boon_of_Watchful_Guarding_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739146/powers/boon_of_watchful_guarding.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11172,10 +11053,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "eyes watch from the trees",
     "caseName": "Boon of Watchful Guarding",
-    "art": "https://spiritislandwiki.com/images/0/08/Boon_of_Watchful_Guarding.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740291/powers/boon_of_watchful_guarding.png"
   },
   "emerge from the dread night wind": {
-    "image": "https://spiritislandwiki.com/images/5/56/Emerge_from_the_Dread_Night_Wind_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739147/powers/emerge_from_the_dread_night_wind.png",
     "set": [
       "nature incarnate"
     ],
@@ -11198,7 +11079,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "jagged shards push from the earth": {
-    "image": "https://spiritislandwiki.com/images/7/7d/Jagged_Shards_Push_from_the_Earth_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739147/powers/jagged_shards_push_from_the_earth.png",
     "set": [
       "jagged earth"
     ],
@@ -11218,10 +11099,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "stone's unyielding defiance",
     "caseName": "Jagged Shards Push from the Earth",
-    "art": "https://spiritislandwiki.com/images/4/4f/Jagged_Shards_Push_From_the_Earth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740292/powers/jagged_shards_push_from_the_earth.png"
   },
   "blooming of the rocks and trees": {
-    "image": "https://spiritislandwiki.com/images/f/fa/Blooming_of_the_Rocks_and_Trees_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739148/powers/blooming_of_the_rocks_and_trees.png",
     "set": [
       "nature incarnate"
     ],
@@ -11251,7 +11132,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "offer passage between worlds": {
-    "image": "https://spiritislandwiki.com/images/0/00/Offer_Passage_Between_Worlds_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739149/powers/offer_passage_between_worlds.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11273,10 +11154,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "Offer Passage Between Worlds",
-    "art": "https://spiritislandwiki.com/images/b/bb/Offer_Passage_Between_Worlds.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740293/powers/offer_passage_between_worlds.png"
   },
   "twist perceptions": {
-    "image": "https://spiritislandwiki.com/images/9/9d/Twist_Perceptions_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739150/powers/twist_perceptions.png",
     "set": [
       "nature incarnate"
     ],
@@ -11300,7 +11181,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "exaltation of echoed steps": {
-    "image": "https://spiritislandwiki.com/images/d/d7/Exaltation_of_Echoed_Steps_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739151/powers/exaltation_of_echoed_steps.png",
     "set": [
       "nature incarnate"
     ],
@@ -11324,7 +11205,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "call on herders for aid": {
-    "image": "https://spiritislandwiki.com/images/f/f6/Call_on_Herders_for_Aid_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739152/powers/call_on_herders_for_aid.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11346,10 +11227,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "rising heat of stone and sand",
     "caseName": "Call on Herders for Aid",
-    "art": "https://spiritislandwiki.com/images/c/ce/Call_on_Herders_for_Aid.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740294/powers/call_on_herders_for_aid.png"
   },
   "a circuitous and wending journey": {
-    "image": "https://spiritislandwiki.com/images/1/1a/A_Circuitous_and_Wending_Journey_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739153/powers/a_circuitous_and_wending_journey.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11370,10 +11251,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "A Circuitous and Wending Journey",
-    "art": "https://spiritislandwiki.com/images/2/28/A_Circuitous_and_Wending_Journey.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740295/powers/a_circuitous_and_wending_journey.png"
   },
   "pyroclastic bombardment": {
-    "image": "https://spiritislandwiki.com/images/b/b3/Pyroclastic_Bombardment_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739154/powers/pyroclastic_bombardment.png",
     "set": [
       "jagged earth"
     ],
@@ -11394,10 +11275,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "volcano looming high",
     "caseName": "Pyroclastic Bombardment",
-    "art": "https://spiritislandwiki.com/images/a/ad/Pyroclastic_Bombardment.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740296/powers/pyroclastic_bombardment.png"
   },
   "favors of story and season": {
-    "image": "https://spiritislandwiki.com/images/5/5f/Favors_of_Story_and_Season_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739155/powers/favors_of_story_and_season.png",
     "set": [
       "nature incarnate"
     ],
@@ -11422,7 +11303,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "radiant and hallowed grove": {
-    "image": "https://spiritislandwiki.com/images/b/bb/Radiant_and_Hallowed_Grove_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739156/powers/radiant_and_hallowed_grove.png",
     "set": [
       "nature incarnate"
     ],
@@ -11447,7 +11328,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of abundance": {
-    "image": "https://spiritislandwiki.com/images/0/04/Gift_of_Abundance_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739157/powers/gift_of_abundance.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11470,10 +11351,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "downpour drenches the world",
     "caseName": "Gift of Abundance",
-    "art": "https://spiritislandwiki.com/images/7/70/Gift_of_Abundance.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740296/powers/gift_of_abundance.png"
   },
   "boon of corrupted blood": {
-    "image": "https://spiritislandwiki.com/images/7/7e/Boon_of_Corrupted_Blood_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739158/powers/boon_of_corrupted_blood.png",
     "set": [
       "nature incarnate"
     ],
@@ -11497,7 +11378,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of seismic energy": {
-    "image": "https://spiritislandwiki.com/images/9/97/Gift_of_Seismic_Energy_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739159/powers/gift_of_seismic_energy.png",
     "set": [
       "nature incarnate"
     ],
@@ -11522,7 +11403,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "blood draws predators": {
-    "image": "https://spiritislandwiki.com/images/3/35/Blood_Draws_Predators_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739160/powers/blood_draws_predators.png",
     "set": [
       "jagged earth"
     ],
@@ -11543,10 +11424,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Blood Draws Predators",
-    "art": "https://spiritislandwiki.com/images/0/0f/Blood_Draws_Predators.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740298/powers/blood_draws_predators.png"
   },
   "stinging sandstorm": {
-    "image": "https://spiritislandwiki.com/images/c/ca/Stinging_Sandstorm_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739161/powers/stinging_sandstorm.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11567,10 +11448,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "rising heat of stone and sand",
     "caseName": "Stinging Sandstorm",
-    "art": "https://spiritislandwiki.com/images/e/e3/Stinging_Sandstorm.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740299/powers/stinging_sandstorm.png"
   },
   "exaltation of grasping roots": {
-    "image": "https://spiritislandwiki.com/images/7/7b/Exaltation_of_Grasping_Roots_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739162/powers/exaltation_of_grasping_roots.png",
     "set": [
       "nature incarnate"
     ],
@@ -11595,7 +11476,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "tempest of leaves and branches": {
-    "image": "https://spiritislandwiki.com/images/0/05/Tempest_of_Leaves_and_Branches_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739163/powers/tempest_of_leaves_and_branches.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11616,10 +11497,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "sun-bright whirlwind",
     "caseName": "Tempest of Leaves and Branches",
-    "art": "https://spiritislandwiki.com/images/7/7b/Tempest_of_Leaves_and_Branches.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740299/powers/tempest_of_leaves_and_branches.png"
   },
   "voice of thunder": {
-    "image": "https://spiritislandwiki.com/images/f/f2/Voice_of_Thunder_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739165/powers/voice_of_thunder.png",
     "set": [
       "spirit island"
     ],
@@ -11639,10 +11520,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "thunderspeaker",
     "caseName": "Voice of Thunder",
-    "art": "https://spiritislandwiki.com/images/b/b9/Voice_of_Thunder.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740300/powers/voice_of_thunder.png"
   },
   "regrow from roots": {
-    "image": "https://spiritislandwiki.com/images/f/f4/Regrow_from_Roots_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739166/powers/regrow_from_roots.png",
     "set": [
       "branch and claw"
     ],
@@ -11663,10 +11544,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "keeper of the forbidden wilds",
     "caseName": "Regrow from Roots",
-    "art": "https://spiritislandwiki.com/images/d/d1/Regrow_From_Roots.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740301/powers/regrow_from_roots.png"
   },
   "call of the deeps": {
-    "image": "https://spiritislandwiki.com/images/2/23/Call_of_the_Deeps_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739167/powers/call_of_the_deeps.png",
     "set": [
       "spirit island"
     ],
@@ -11687,10 +11568,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "ocean's hungry grasp",
     "caseName": "Call of the Deeps",
-    "art": "https://spiritislandwiki.com/images/5/54/Call_of_the_Deeps.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740302/powers/call_of_the_deeps.png"
   },
   "inspire the release of stolen lands": {
-    "image": "https://spiritislandwiki.com/images/5/53/Inspire_the_Release_of_Stolen_Lands_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739168/powers/inspire_the_release_of_stolen_lands.png",
     "set": [
       "nature incarnate"
     ],
@@ -11721,7 +11602,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "entrancing apparitions": {
-    "image": "https://spiritislandwiki.com/images/6/6f/Entrancing_Apparitions_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739169/powers/entrancing_apparitions.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -11742,10 +11623,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Entrancing Apparitions",
-    "art": "https://spiritislandwiki.com/images/b/b3/Entrancing_Apparitions.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740303/powers/entrancing_apparitions.png"
   },
   "call to vigilance": {
-    "image": "https://spiritislandwiki.com/images/6/60/Call_to_Vigilance_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739170/powers/call_to_vigilance.png",
     "set": [
       "nature incarnate"
     ],
@@ -11769,7 +11650,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "scarred and stony land": {
-    "image": "https://spiritislandwiki.com/images/b/ba/Scarred_and_Stony_Land_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739170/powers/scarred_and_stony_land.png",
     "set": [
       "jagged earth"
     ],
@@ -11789,10 +11670,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": "sacred site",
     "unique": "stone's unyielding defiance",
     "caseName": "Scarred and Stony Land",
-    "art": "https://spiritislandwiki.com/images/1/1d/Scarred_and_Stony_Land.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740304/powers/scarred_and_stony_land.png"
   },
   "ways of shore and heartland": {
-    "image": "https://spiritislandwiki.com/images/e/eb/Ways_of_Shore_and_Heartland_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739171/powers/ways_of_shore_and_heartland.png",
     "set": [
       "promo pack 2",
       "feather and flame"
@@ -11814,10 +11695,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "finder of paths unseen",
     "caseName": "Ways of Shore and Heartland",
-    "art": "https://spiritislandwiki.com/images/3/39/Ways_of_Shore_and_Heartland.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740305/powers/ways_of_shore_and_heartland.png"
   },
   "ever-multiplying swarm": {
-    "image": "https://spiritislandwiki.com/images/5/51/Ever-Multiplying_Swarm_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739173/powers/ever-multiplying_swarm.png",
     "set": [
       "jagged earth"
     ],
@@ -11838,10 +11719,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "many minds move as one",
     "caseName": "Ever-Multiplying Swarm",
-    "art": "https://spiritislandwiki.com/images/3/35/Ever-Multiplying_Swarm.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740307/powers/ever-multiplying_swarm.png"
   },
   "mark territory with scars and teeth": {
-    "image": "https://spiritislandwiki.com/images/3/3c/Mark_Territory_with_Scars_and_Teeth_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739175/powers/mark_territory_with_scars_and_teeth.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11862,10 +11743,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "devouring teeth lurk underfoot",
     "caseName": "Mark Territory with Scars and Teeth",
-    "art": "https://spiritislandwiki.com/images/3/30/Mark_Territory_with_Scars_and_Teeth.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740308/powers/mark_territory_with_scars_and_teeth.png"
   },
   "reach from the infinite darkness": {
-    "image": "https://spiritislandwiki.com/images/3/31/Reach_from_the_Infinite_Darkness_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739178/powers/reach_from_the_infinite_darkness.png",
     "set": [
       "nature incarnate"
     ],
@@ -11889,7 +11770,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "prey on the builders": {
-    "image": "https://spiritislandwiki.com/images/8/83/Prey_on_the_Builders_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739179/powers/prey_on_the_builders.png",
     "set": [
       "branch and claw"
     ],
@@ -11910,10 +11791,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "sharp fangs behind the leaves",
     "caseName": "Prey on the Builders",
-    "art": "https://spiritislandwiki.com/images/f/f2/Prey_on_the_Builders.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740309/powers/prey_on_the_builders.png"
   },
   "scatter to the winds": {
-    "image": "https://spiritislandwiki.com/images/2/2c/Scatter_to_the_Winds_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739180/powers/scatter_to_the_winds.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -11934,10 +11815,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "sun-bright whirlwind",
     "caseName": "Scatter to the Winds",
-    "art": "https://spiritislandwiki.com/images/8/81/Scatter_to_the_Winds.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740310/powers/scatter_to_the_winds.png"
   },
   "threatening flames": {
-    "image": "https://spiritislandwiki.com/images/d/d0/Threatening_Flames_%28ff%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739181/powers/threatening_flames.png",
     "set": [
       "promo pack 1",
       "feather and flame"
@@ -11958,10 +11839,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "heart of the wildfire",
     "caseName": "Threatening Flames",
-    "art": "https://spiritislandwiki.com/images/8/88/Threatening_Flames.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740311/powers/threatening_flames.png"
   },
   "twilight fog brings madness": {
-    "image": "https://spiritislandwiki.com/images/0/06/Twilight_Fog_Brings_Madness_%28bc%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739182/powers/twilight_fog_brings_madness.png",
     "set": [
       "branch and claw"
     ],
@@ -11982,10 +11863,10 @@ export const POWERS: Record<string, PowerCard> = {
     "status": "active",
     "from": null,
     "caseName": "Twilight Fog Brings Madness",
-    "art": "https://spiritislandwiki.com/images/a/ad/Twilight_Fog_Brings_Madness.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740312/powers/twilight_fog_brings_madness.png"
   },
   "transformative sacrifice": {
-    "image": "https://spiritislandwiki.com/images/1/18/Transformative_Sacrifice_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739183/powers/transformative_sacrifice.png",
     "set": [
       "nature incarnate"
     ],
@@ -12016,7 +11897,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "favors called due": {
-    "image": "https://spiritislandwiki.com/images/a/af/Favors_Called_Due_%28base%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739184/powers/favors_called_due.png",
     "set": [
       "spirit island"
     ],
@@ -12037,10 +11918,10 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "shadows flicker like flame",
     "caseName": "Favors Called Due",
-    "art": "https://spiritislandwiki.com/images/a/ae/Favors_Called_Due.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740313/powers/favors_called_due.png"
   },
   "terrifying rampage": {
-    "image": "https://spiritislandwiki.com/images/e/e5/Terrifying_Rampage_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739185/powers/terrifying_rampage.png",
     "set": [
       "nature incarnate"
     ],
@@ -12064,7 +11945,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "terror of the hunted": {
-    "image": "https://spiritislandwiki.com/images/9/91/Terror_of_the_Hunted_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739185/powers/terror_of_the_hunted.png",
     "set": [
       "nature incarnate"
     ],
@@ -12088,7 +11969,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "belligerent and aggressive crops": {
-    "image": "https://spiritislandwiki.com/images/3/3c/Belligerent_and_Aggressive_Crops_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739186/powers/belligerent_and_aggressive_crops.png",
     "set": [
       "nature incarnate"
     ],
@@ -12112,7 +11993,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "smite the land with fulmination": {
-    "image": "https://spiritislandwiki.com/images/2/2f/Smite_the_Land_with_Fulmination_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739187/powers/smite_the_land_with_fulmination.png",
     "set": [
       "nature incarnate"
     ],
@@ -12136,7 +12017,7 @@ export const POWERS: Record<string, PowerCard> = {
     "art": null
   },
   "gift of wind-sped steps": {
-    "image": "https://spiritislandwiki.com/images/d/d8/Gift_of_Wind-Sped_Steps_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739188/powers/gift_of_wind-sped_steps.png",
     "set": [
       "horizons of spirit island"
     ],
@@ -12157,11 +12038,11 @@ export const POWERS: Record<string, PowerCard> = {
     "from": null,
     "unique": "sun-bright whirlwind",
     "caseName": "Gift of Wind-Sped Steps",
-    "art": "https://spiritislandwiki.com/images/4/49/Gift_of_Wind-Sped_Steps.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740313/powers/gift_of_wind-sped_steps.png"
   },
   "draw towards a consuming void": {
     "caseName": "Draw Towards a Consuming Void",
-    "image": "https://spiritislandwiki.com/images/f/f4/Draw_Towards_a_Consuming_Void_%28ni%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739189/powers/draw_towards_a_consuming_void.png",
     "set": [
       "jagged earth",
       "nature incarnate"
@@ -12181,11 +12062,11 @@ export const POWERS: Record<string, PowerCard> = {
     "artist": "Joshua Wright",
     "status": "active",
     "from": null,
-    "art": "https://spiritislandwiki.com/images/0/0a/Draw_Towards_a_Consuming_Void.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740314/powers/draw_towards_a_consuming_void.png"
   },
   "elemental boon": {
     "caseName": "Elemental Boon",
-    "image": "https://spiritislandwiki.com/images/f/f2/Elemental_Boon_%28hosi%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739191/powers/elemental_boon.png",
     "set": [
       "spirit island",
       "horizons of spirit island"
@@ -12201,11 +12082,11 @@ export const POWERS: Record<string, PowerCard> = {
     "artist": "Moro Rogers",
     "status": "active",
     "from": null,
-    "art": "https://spiritislandwiki.com/images/5/5c/Elemental_Boon.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740315/powers/elemental_boon.png"
   },
   "gift of nature's connection": {
     "caseName": "Gift of Nature's Connection",
-    "image": "https://spiritislandwiki.com/images/f/f5/Gift_of_Nature%27s_Connection_%28je%29.png",
+    "image": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739193/powers/gift_of_nature%27s_connection.png",
     "set": [
       "jagged earth"
     ],
@@ -12220,7 +12101,7 @@ export const POWERS: Record<string, PowerCard> = {
     "artist": "Moro Rogers",
     "status": "active",
     "from": null,
-    "art": "https://spiritislandwiki.com/images/2/2a/Gift_of_Nature%27s_Connection.png"
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756740318/powers/gift_of_nature%27s_connection.png"
   }
 }
 

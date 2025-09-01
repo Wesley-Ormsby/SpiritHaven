@@ -110,7 +110,7 @@ function endPull() {
       <h1>Drawn Toward a Consuming Void</h1>
       <p>The void draws in all things—sound, memory, and your request.</p>
       <img
-        src="https://spiritislandwiki.com/images/0/0a/Draw_Towards_a_Consuming_Void.png"
+        src="https://res.cloudinary.com/du1bjnkar/image/upload/v1756739189/powers/draw_towards_a_consuming_void.png"
         ref="voidImage"
         alt="Consuming Void"
         :class="{'img-animation':pulling}"

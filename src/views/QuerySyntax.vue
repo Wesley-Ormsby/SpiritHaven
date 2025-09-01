@@ -510,7 +510,7 @@ function scrollTo(id: string) {
             <ul>
               <li>
                 The flourishing <i>Or</i> (<img
-                  src="https://spiritislandwiki.com/images/2/26/Or.svg"
+                  src="https://res.cloudinary.com/du1bjnkar/image/upload/v1756739839/Or_rmsxbc.svg"
                 />) is changed to <code>-or-</code>
               </li>
               <li>New lines are replaced with spaces</li>

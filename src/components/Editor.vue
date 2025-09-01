@@ -200,7 +200,7 @@ function addInlineEffect(markdown: string) {
 function insertMarkdownLink(type: 'image' | 'link') {
   const defaults = {
     image: {
-      url: 'https://spiritislandwiki.com/images/f/ff/River_Surges_in_Sunlight.png',
+      url: 'https://res.cloudinary.com/du1bjnkar/image/upload/v1756733058/river_surges_in_sunlight_u1sbpe.png',
       alt: 'River',
     },
     link: {

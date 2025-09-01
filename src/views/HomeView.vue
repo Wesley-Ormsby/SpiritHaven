@@ -23,7 +23,7 @@ const updatedArticles = computed(() => {
 })
 const allArticles = ref<ArticleData[]>([])
 onMounted(async () => {
-  const { data, error } = await supabase.from('articles').select().eq('access', 'public')
+  const { data, error } = await supabase.rpc('get_articles_with_like_counts').eq('access', 'public')
   if (!error) {
     allArticles.value = data
   } else {
