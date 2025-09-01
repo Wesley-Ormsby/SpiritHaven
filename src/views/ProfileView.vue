@@ -39,7 +39,7 @@ const filteredArticles  = computed(()=>{
 const isMyPage = computed(() => userData.value != null && userData.value.id == profileData.id)
 
 async function loadArticles() {
-  const { data, error } = await supabase.from('articles').select().eq('user', profileData.id)
+  const { data, error } = await supabase.rpc('get_articles_with_like_counts').eq('user', profileData.id)
   if(error) {
     setSupabaseError(error)
   } else {

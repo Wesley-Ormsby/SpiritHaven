@@ -10,6 +10,7 @@ export const useGlobalStore = {
     username: '',
     description: '',
   }),
+  userLikes: ref<string[]>([]),
   userData: ref<UserData | null>(null),
   articleData: reactive<ArticleData>({
     id: '',
@@ -22,6 +23,7 @@ export const useGlobalStore = {
     access: 'private',
     published: '',
     updated: '',
+    likes: 0
   }),
   notFoundPage: ref<string>(''),
   allUsers: ref<UserData[]>([]),

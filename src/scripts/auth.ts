@@ -4,7 +4,7 @@ import { setupThemeAndDisplay } from './themeDisplay'
 import type { UserData } from './types'
 import {useGlobalStore} from './globalStore'
 import { setSupabaseError } from './supabaseErrors'
-const { preLoading, userData } = useGlobalStore
+const { preLoading, userData,userLikes } = useGlobalStore
 export const user = ref<User | null>(null)
 
 export const supabase = createClient(import.meta.env.VITE_API_URL, import.meta.env.VITE_API_KEY)
@@ -33,6 +33,13 @@ export async function setupUser() {
     } else {
       setSupabaseError(error)
     }
+    // Load likes
+    const { data:likedArticles, error: likedArticlesError } = await supabase.from('likes').select('article').eq('user', user.value.id)
+    if(!likedArticlesError) {
+      userLikes.value = likedArticles.map((articleObj=>articleObj.article))
+    } else {
+      setSupabaseError(likedArticlesError)
+    }
   }
   setupThemeAndDisplay()
   preLoading.value = false
@@ -41,6 +48,7 @@ export async function setupUser() {
 export async function signOut() {
   const { error } = await supabase.auth.signOut()
   if (error) setSupabaseError(error)
+  userLikes.value = []
   localStorage.setItem('signedOut', Date.now().toString())
   window.location.reload()
 }

@@ -67,6 +67,7 @@ export interface ArticleData {
   access: Access
   published: string
   updated: string
+  likes: number
 }
 
 // Game Asset Types

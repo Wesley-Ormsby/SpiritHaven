@@ -28,7 +28,7 @@ import { setSupabaseError } from '@/scripts/supabaseErrors'
 
 const router = useRouter()
 const route = useRoute()
-const { userData } = useGlobalStore
+const { userData, userLikes } = useGlobalStore
 
 const input = ref('')
 const allArticles = ref<ArticleData[]>([])
@@ -56,6 +56,10 @@ const sortOptions = ref([
     items: [
       {
         label: 'name',
+        category: 'sortBy',
+      },
+      { 
+        label: 'likes',
         category: 'sortBy',
       },
       {
@@ -87,7 +91,7 @@ const openSortMenu = (event: Event) => {
   menu?.value?.toggle(event)
 }
 
-const tabs = ref(['all articles', 'your articles'])
+const tabs = ref(['all articles', 'your articles', 'liked articles'])
 const selectedTab = ref('all articles')
 function selectTab(tab: string) {
   selectedTab.value = tab
@@ -103,6 +107,9 @@ const sortFunction: Record<string, (a: ArticleData, b: ArticleData) => number> =
   },
   'recently published': function (a: ArticleData, b: ArticleData) {
     return new Date(b.published).getTime() - new Date(a.published).getTime()
+  },
+  'likes': function (a: ArticleData, b: ArticleData) {
+    return b.likes - a.likes
   },
 }
 
@@ -175,7 +182,7 @@ async function setupData() {
   const sortParam = params.get('sort')
   if (
     sortParam != null &&
-    ['recently updated', 'recently published', 'name'].includes(sortParam.toLowerCase())
+    ['recently updated', 'recently published', 'name', 'likes'].includes(sortParam.toLowerCase())
   ) {
     sortBy.value = sortParam.toLowerCase()
   }
@@ -207,12 +214,16 @@ async function setupData() {
   let error = null
   if (selectedTab.value == 'your articles') {
     if (userData.value != null) {
-      let result = await supabase.from('articles').select().eq('user', userData.value.id)
+      let result = await supabase.rpc('get_articles_with_like_counts').eq('user', userData.value.id)
       data = result.data as ArticleData[]
       error = result.error
     }
+  } else if(selectedTab.value == 'liked articles') {
+    let result = await supabase.rpc('get_articles_with_like_counts').eq('access', 'public')
+    data = (result.data as ArticleData[]).filter((article)=>userLikes.value.includes(article.id))
+    error = result.error
   } else {
-    let result = await supabase.from('articles').select().eq('access', 'public')
+    let result = await supabase.rpc('get_articles_with_like_counts').eq('access', 'public')
     data = result.data as ArticleData[]
     error = result.error
   }

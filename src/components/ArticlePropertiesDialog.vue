@@ -222,6 +222,7 @@ async function openNewArticle() {
       .eq('id', articleData.id)
       .select()
     if (!error) {
+      // Likes should be retained becuase they are not overwritten
       Object.assign(useGlobalStore.articleData, data[0] as ArticleData)
       emit('save')
     } else {

@@ -3,14 +3,15 @@ import type { ArticleData, UserData } from '@/scripts/types'
 import Card from 'primevue/card'
 import { onMounted, ref, computed, watch } from 'vue'
 import { supabase } from '@/scripts/auth'
-import SpiritAvatar from './SpiritAvatar.vue'
 import Tag from './Tag.vue'
 import Skeleton from 'primevue/skeleton'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
 import Loader from './Loader.vue'
 import UserAvatarLink from './UserAvatarLink.vue'
+import Like from './Like.vue'
 
 const { article } = defineProps<{ article: ArticleData | null }>()
+const likes = ref(0)
 const articleAuthorData = ref<UserData | null>()
 const showAllTags = ref(false)
 const moreTags = ref(false)
@@ -20,7 +21,7 @@ const articleTags = computed(() =>
 const src = computed(
   () =>
     article?.img ||
-    'https://spiritislandwiki.com/images/thumb/f/f5/Spirit_Island_box.png/300px-Spirit_Island_box.png',
+    'https://res.cloudinary.com/du1bjnkar/image/upload/v1756739709/300px-Spirit_Island_box_ib9kka.png',
 )
 const loadingHeaderImg = ref(true)
 
@@ -31,6 +32,7 @@ async function updateOtherArticleData() {
   if (article == null) {
     return
   }
+  likes.value = article.likes
   const { data, error } = await supabase.from('Users').select().eq('id', article.user)
   if (!error) {
     articleAuthorData.value = data[0] as UserData
@@ -94,7 +96,7 @@ const timeAgo = computed<string>(() => {
           <Loader></Loader>
         </div>
         <div class="img-container" v-show="!loadingHeaderImg">
-          <img alt="Article Image" :src class="article-card-img" @load="loadingHeaderImg = false"/>
+          <img alt="Article Image" :src class="article-card-img" @load="loadingHeaderImg = false" />
         </div>
       </RouterLink>
     </template>
@@ -116,6 +118,9 @@ const timeAgo = computed<string>(() => {
       <div class="flex-row">
         <UserAvatarLink :profile="articleAuthorData"></UserAvatarLink>
         <span>|</span><span> {{ timeAgo }}</span>
+      </div>
+      <div class="flex-right">
+        <Like v-model:likes="likes" :articleData="article"></Like>
       </div>
     </template>
     <template #footer> </template>
@@ -147,10 +152,10 @@ const timeAgo = computed<string>(() => {
 .img-container-loading {
   width: 100%;
   height: 150px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  color:var(--p-surface-500)
+  color: var(--p-surface-500);
 }
 .title {
   font-weight: 600;
@@ -186,6 +191,10 @@ p {
 }
 .more-tags:hover {
   filter: brightness(1.5);
+}
+.flex-right {
+  display: flex;
+  justify-content: right;
 }
 
 @media only screen and (max-width: 780px) {

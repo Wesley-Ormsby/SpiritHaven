@@ -6,7 +6,7 @@ import router from '@/router'
 
 export async function loadArticle(id: string | string[]) {
   preLoading.value = true
-  const { data, error } = await supabase.from('articles').select().eq('id', id)
+  const { data, error } = await supabase.rpc('get_articles_with_like_counts').eq('id', id)
   if (!error) {
     Object.assign(useGlobalStore.articleData, data[0] as ArticleData)
     const searchResult = await supabase.from('Users').select().eq('id', articleData.user)

@@ -2,7 +2,6 @@
 import { useGlobalStore } from '@/scripts/globalStore'
 import { renderMarkdown } from '@/scripts/markdown'
 import { watch, ref, onMounted, computed, nextTick, useTemplateRef, onUnmounted } from 'vue'
-import SpiritAvatar from './SpiritAvatar.vue'
 import Tag from './Tag.vue'
 import { computePosition, autoPlacement, shift, offset } from '@floating-ui/vue'
 import { BOARDS, CARD_ARTS, LARGE_COMPONENTS_ARTS, TAGS } from '@/scripts/data'
@@ -11,6 +10,7 @@ import Footer from './Footer.vue'
 import type { HeaderData } from '@/scripts/types'
 import TableOfContentsSection from './TableOfContentsSection.vue'
 import UserAvatarLink from './UserAvatarLink.vue'
+import Like from './Like.vue'
 
 const { articleData, profileData } = useGlobalStore
 const { showFooter } = defineProps<{ showFooter: boolean }>()
@@ -18,10 +18,11 @@ const tableOfContentsData = ref<HeaderData[]>([])
 const screenSize = ref(0)
 const showSideTableOfContents = computed(() => screenSize.value > 1100 && showFooter)
 const emptyTableOfContents = computed(() => tableOfContentsData.value.length == 0)
-
+const likes = ref(0)
 const markdownHTML = ref('')
 onMounted(() => {
   syncArticle()
+  likes.value = articleData.likes
   window.addEventListener('resize', updateScreenSize)
   updateScreenSize()
 })
@@ -139,9 +140,12 @@ function hideTooltip() {
       </div>
       <div class="article">
         <div class="title" id="title">{{ articleData.title }}</div>
-        <div class="flex-row">
-          <UserAvatarLink :profile="profileData"></UserAvatarLink>
-          <span>|</span><span class="last-changed">Last Changed {{ updatedDate }}</span>
+        <div class="article-details">
+          <div class="flex-row">
+            <UserAvatarLink :profile="profileData"></UserAvatarLink>
+            <span>|</span><span class="last-changed">Last Changed {{ updatedDate }}</span>
+          </div>
+          <Like v-model:likes="likes" :articleData="articleData"></Like>
         </div>
         <div class="flex-row wrap">
           <Tag v-for="tag in validTags" :tag="tag" size="normal"></Tag>
@@ -212,6 +216,11 @@ function hideTooltip() {
   gap: 10px;
   margin: 10px 0px;
   flex-wrap: wrap;
+}
+.article-details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 .wrap {
   flex-wrap: wrap;
