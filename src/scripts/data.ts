@@ -460,7 +460,7 @@ export const SPIRITS: Record<string, SpiritData> = {
 	},
 	"wounded waters bleeding": {
 		"img_small": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756732697/wounded_waters_bleeding_g91g4r.png",
-		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733079/wandering_voice_keens_delirium_egdave.png",
+		"img_large": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756733081/wounded_waters_bleeding_da1gp1.png",
 		"image": "/Wounded_Waters_Bleeding_SpiritBoard.png",
 		"caseName": "Wounded Waters Bleeding"
 	}
@@ -524,7 +524,7 @@ export const SCENARIOS: Record<string, Scenario> = {
     "caseName": "Destiny Unfolds"
   },
   "surges of colonization": {
-    "art": null,
+    "art": "https://res.cloudinary.com/du1bjnkar/image/upload/v1757254868/Surges_of_Colonization_j2qrmf.png",
     "caseName": "Surges of Colonization"
   }
 }
