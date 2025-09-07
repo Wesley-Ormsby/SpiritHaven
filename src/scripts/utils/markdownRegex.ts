@@ -8,7 +8,7 @@ const largeComponentNames = Object.keys(LARGE_COMPONENTS_ARTS)
 const allComponentNames = [...cardNames, ...largeComponentNames]
 
 const escapedSymbols = ALL_SYMBOLS.map(escapeRegex).join('|')
-const escapedAllComponentNames = allComponentNames.map(escapeRegex).join('|')
+export const escapedAllComponentNames = allComponentNames.map(escapeRegex).join('|')
 
 export const escapedCardNames = cardNames.map(escapeRegex).join('|')
 export const escapedLargeComponentNames = largeComponentNames.map(escapeRegex).join('|')

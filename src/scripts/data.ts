@@ -530,29 +530,29 @@ export const SCENARIOS: Record<string, Scenario> = {
 }
 
 export const ADVESARIES: Record<string, Adversary> = {
-  "brandenburg-prussia": {
+  "the kingdom of brandenburg-prussia": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737991/scenarios/brandenburg-prussia.png",
     "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738342/advesaries/brandenburg-prussia.png",
     "image": "/The_Kingdom_of_Brandenburg-Prussia_Adversary.png",
-    "caseName": "Brandenburg-Prussia"
+    "caseName": "The Kingdom of Brandenburg-Prussia"
   },
-  "england": {
+  "the kingdom of england": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737992/scenarios/england.png",
     "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738343/advesaries/england.png",
-    "image": "The_Kingdom_of_England_Adversary.png",
-    "caseName": "England"
+    "image": "/The_Kingdom_of_England_Adversary.png",
+    "caseName": "The Kingdom of England"
   },
-  "sweden": {
+  "the kingdom of sweden": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737992/scenarios/sweden.png",
     "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738345/advesaries/sweden.png",
-    "image": "The_Kingdom_of_Sweden_Adversary.png",
-    "caseName": "Sweden"
+    "image": "/The_Kingdom_of_Sweden_Adversary.png",
+    "caseName": "The Kingdom of Sweden"
   },
   "france (plantation colony)": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737993/scenarios/france_%28plantation_colony%29.png",
     "map": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756738347/advesaries/france_%28plantation_colony%29.png",
-    "image": "The_Kingdom_of_France_(Plantation_Colony)_Adversary.png",
-    "caseName": "France"
+    "image": "/The_Kingdom_of_France_(Plantation_Colony)_Adversary.png",
+    "caseName": "France (Plantation Colony)"
   },
   "habsburg monarchy (livestock colony)": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737994/scenarios/habsburg_monarchy_%28livestock_colony%29.png",
@@ -560,17 +560,17 @@ export const ADVESARIES: Record<string, Adversary> = {
     "image": "/The_Habsburg_Monarchy_(Livestock_Colony)_Adversary.png",
     "caseName": "Habsburg Monarchy (Livestock Colony)"
   },
-  "russia": {
+  "the tsardom of russia": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737994/scenarios/russia.png",
     "map": null,
     "image": "/The_Tsardom_of_Russia_Adversary.png",
-    "caseName": "Russia"
+    "caseName": "The Tsardom of Russia"
   },
-  "scotland": {
+  "the kingdom of scotland": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737995/scenarios/scotland.png",
     "map": null,
     "image": "/The_Kingdom_of_Scotland_Adversary.png",
-    "caseName": "Scotland"
+    "caseName": "The Kingdom of Scotland"
   },
   "habsburg mining expedition": {
     "flag": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756737995/scenarios/habsburg_mining_expedition.png",

@@ -319,6 +319,7 @@ function hideTooltip() {
 ::v-deep(.hoverlink) {
   cursor: pointer;
   color: var(--p-primary-500);
+  display: inline-block;
 }
 .tooltip {
   display: none;

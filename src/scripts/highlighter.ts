@@ -1,5 +1,5 @@
 import hljs from 'highlight.js/lib/core'
-import { escapedCardNames, symbolScanRegex,allNamesRegex,escapedLargeComponentNames } from './utils/markdownRegex'
+import { escapedCardNames, symbolScanRegex,allNamesRegex,escapedLargeComponentNames, escapedAllComponentNames } from './utils/markdownRegex'
 
 /*
 Altered markdown with new rules for custom components
@@ -183,7 +183,7 @@ function markdown(hljs: any) {
     className: 'hoverlink',
     variants: [
       {
-        begin: [new RegExp(`\\[\\[\\s*(${escapedCardNames})`), /\s*\|/, /.*?/, /\]\]/],
+        begin: [new RegExp(`\\[\\[\\s*(${escapedAllComponentNames})`), /\s*\|/, /.*?/, /\]\]/],
         beginScope: {
           3: 'hoverlink-nickname',
         },
