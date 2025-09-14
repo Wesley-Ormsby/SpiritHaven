@@ -31,7 +31,7 @@ async function deleteArticle() {
     :draggable="false"
   >
     <template #closebutton="{ closeCallback }">
-      <X class="close-x" @click="closeCallback"></X>
+      <X class="close-x" @click="closeCallback" role="button"></X>
     </template>
     <div>
       <p>Deleting an article is a permanent action that cannot be reverted.</p>

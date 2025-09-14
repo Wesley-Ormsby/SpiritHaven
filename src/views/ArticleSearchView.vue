@@ -244,6 +244,7 @@ async function setupData() {
         <div
           v-for="tab of tabs"
           @click="selectTab(tab)"
+          role="button"
           class="tab"
           :class="{ selectedTab: selectedTab == tab }"
         >
@@ -260,14 +261,14 @@ async function setupData() {
             size="small"
           />
           <InputGroupAddon>
-            <Button @click="search('q', input)" size="small"><Search></Search></Button>
+            <Button @click="search('q', input)" size="small" aria-label="search"><Search></Search></Button>
           </InputGroupAddon>
         </InputGroup>
         <div class="filter-buttons-container">
           <Button size="small" label="More Filters" @click="filterDialogVisible = true"
             ><template #icon> <ListFilter></ListFilter> </template
           ></Button>
-          <Button size="small" label="Sort" aria-controls="order_menu" @click="openSortMenu"
+          <Button size="small" label="Sort" aria-controls="order_menu"  aria-haspopup="true"@click="openSortMenu"
             ><template #icon> <ArrowDownWideNarrow></ArrowDownWideNarrow> </template
           ></Button>
           <RouterLink to="/search/article"
@@ -281,6 +282,7 @@ async function setupData() {
               style="padding: 2px"
               v-if="item.category == 'sortBy'"
               @click="search('sort', item.label as string)"
+              role="button"
             >
               <RadioButton v-model="sortBy" :value="item.label" />
               {{ item.label }}
@@ -290,6 +292,7 @@ async function setupData() {
                 v-model="sortDirection"
                 :value="item.label"
                 @click="search('direction', item.label as string)"
+                role="button"
               />
               {{ item.label }}
             </label>
@@ -311,17 +314,17 @@ async function setupData() {
       ></ArticleCard>
     </div>
     <div class="paginator" v-if="filteredArticles.length > 0 && !pageError">
-      <Button rounded @click="changePage(1)" :disabled="p == 1">
+      <Button rounded @click="changePage(1)" :disabled="p == 1" aria-label="Go to first page">
         <template #icon> <ChevronsLeft /> </template
       ></Button>
-      <Button rounded @click="changePage(p - 1)" :disabled="p == 1">
+      <Button rounded @click="changePage(p - 1)" :disabled="p == 1" aria-label="Go to previous page">
         <template #icon> <ChevronLeft /> </template
       ></Button>
       <div>Showing {{ lowerbound + 1 }} to {{ upperbound }} of {{ filteredArticles.length }}</div>
-      <Button rounded @click="changePage(p + 1)" :disabled="p == pages">
+      <Button rounded @click="changePage(p + 1)" :disabled="p == pages" aria-label="Go to next page">
         <template #icon> <ChevronRight /> </template
       ></Button>
-      <Button rounded @click="changePage(pages)" :disabled="p == pages">
+      <Button rounded @click="changePage(pages)" :disabled="p == pages" aria-label="Go to last page">
         <template #icon> <ChevronsRight /> </template
       ></Button>
     </div>

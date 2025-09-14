@@ -133,7 +133,7 @@ const openSortMenu = (event: Event) => {
     <div class="text-input-container">
       <InputGroup>
         <InputGroupAddon>
-          <Button aria-controls="order_menu" @click="openSortMenu"
+          <Button aria-controls="order_menu" aria-haspopup="true" aria-label="Sort" @click="openSortMenu"
             ><template #icon> <ArrowDownWideNarrow></ArrowDownWideNarrow> </template
           ></Button>
           <Menu ref="sortMenu" id="order_menu" :model="sortOptions" :popup="true">
@@ -142,6 +142,7 @@ const openSortMenu = (event: Event) => {
                 style="padding: 2px"
                 v-if="item.category == 'sortBy'"
                 @click="updateQuery({ s: item.label as CardSearchOrders })"
+                role="button"
               >
                 <RadioButton v-model="sortBy" :value="item.label" />
                 {{ item.label }}
@@ -151,6 +152,7 @@ const openSortMenu = (event: Event) => {
                   v-model="sortDirection"
                   :value="item.label"
                   @click="updateQuery({ o: item.label as Direction })"
+                  role="button"
                 />
                 {{ item.label }}
               </label>

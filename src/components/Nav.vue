@@ -124,6 +124,7 @@ const toggleProfileDropdown = (event: Event) => {
       <div
         class="nav-button"
         @click="changeDisplay"
+        role="button"
         v-tooltip="{
           value: display,
           showDelay: 1000,
@@ -135,8 +136,14 @@ const toggleProfileDropdown = (event: Event) => {
         <Moon v-else-if="display == 'dark'"></Moon>
         <SunMoon v-else></SunMoon>
       </div>
-      <div class="nav-button" @click="toggleElementMenu" aria-controls="element_menu">
-        <img :src="SYMBOL_DATA[elementLongForm[theme]]" :alt="elementLongForm[theme]"/>
+      <div
+        class="nav-button"
+        @click="toggleElementMenu"
+        aria-haspopup="true"
+        aria-controls="element_menu"
+        role="button"
+      >
+        <img :src="SYMBOL_DATA[elementLongForm[theme]]" :alt="elementLongForm[theme]" />
       </div>
       <Menu ref="elementMenu" id="element_menu" :model="elementMenuItems" :popup="true">
         <template #item="{ item }">
@@ -147,7 +154,13 @@ const toggleProfileDropdown = (event: Event) => {
         </template>
       </Menu>
       <div class="nav-links">
-        <div class="nav-button" @click="toggleSearchDropdown" aria-controls="search_dropdown_menu">
+        <div
+          class="nav-button"
+          @click="toggleSearchDropdown"
+          aria-haspopup="true"
+          aria-controls="search_dropdown_menu"
+          role="button"
+        >
           <Search style="fill: none"> </Search>
           <div>Search</div>
         </div>
@@ -164,7 +177,13 @@ const toggleProfileDropdown = (event: Event) => {
             <span v-else class="p-menu-item-link">{{ item.label }}</span>
           </template>
         </Menu>
-        <div class="nav-button" @click="toggleHelpDropdown" aria-controls="help_dropdown_menu">
+        <div
+          class="nav-button"
+          @click="toggleHelpDropdown"
+          aria-controls="help_dropdown_menu"
+          aria-haspopup="true"
+          role="button"
+        >
           <div>Help</div>
         </div>
         <Menu
@@ -180,7 +199,7 @@ const toggleProfileDropdown = (event: Event) => {
             <span v-else class="p-menu-item-link">{{ item.label }}</span>
           </template>
         </Menu>
-        <div v-if="userData == null" class="nav-button" @click="signInWithDiscord">
+        <div v-if="userData == null" class="nav-button" @click="signInWithDiscord" role="button">
           Sign In / Sign Up
         </div>
         <div
@@ -188,8 +207,14 @@ const toggleProfileDropdown = (event: Event) => {
           class="nav-button"
           @click="toggleProfileDropdown"
           aria-controls="profile_dropdown_menu"
+          aria-haspopup="true"
+          role="button"
         >
-          <div class="profile-image-container">
+          <div
+            class="profile-image-container"
+            aria-controls="profile_dropdown_menu"
+            aria-haspopup="true"
+          >
             <SpiritAvatar :spirit="userData.spirit"></SpiritAvatar>
           </div>
           Profile
@@ -209,7 +234,13 @@ const toggleProfileDropdown = (event: Event) => {
         </Menu>
       </div>
       <div class="menu-dropdown">
-        <div class="nav-button" @click="toggleDropdown" aria-controls="dropdown_menu">
+        <div
+          class="nav-button"
+          @click="toggleDropdown"
+          aria-controls="dropdown_menu"
+          aria-haspopup="true"
+          role="button"
+        >
           <IconMenu></IconMenu>
         </div>
         <Menu ref="navDropdownMenu" id="dropdown_menu" :model="dropdownMenuItems" :popup="true">

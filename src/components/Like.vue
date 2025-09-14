@@ -34,7 +34,7 @@ async function like() {
 <template>
   <div class="flex-row">
     <span>{{ likes }}</span>
-    <button v-if="!singedIn || articleData.user == userData?.id" disabled="true"><Heart /></button>
+    <button v-if="!singedIn || articleData.user == userData?.id" disabled="true" :aria-label="`Click to Like or Unlike}`"><Heart /></button>
     <button
       v-else
       @click="like"
@@ -44,6 +44,7 @@ async function like() {
         showDelay: 1000,
         pt: { text: { style: { 'font-size': '10px', padding: '4px' } } },
       }"
+      :aria-label="`Click to ${liked ? 'Unlike' : 'Like'}`"
     >
       <Heart :class="{ liked }"></Heart>
     </button>

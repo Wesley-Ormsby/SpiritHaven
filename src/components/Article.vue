@@ -277,6 +277,7 @@ function hideTooltip() {
   margin: 10px;
   border: 0.5px solid var(--p-surface-300);
   border-left: 2px solid var(--p-primary-300);
+  overflow-wrap: break-word;
 }
 ::v-deep(pre),
 ::v-deep(code) {

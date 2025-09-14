@@ -62,7 +62,7 @@ async function loadArticles() {
       ></Button>
     </div>
     <div class="image-wrapper">
-      <img :src="SPIRITS[profileData.spirit].img_large" class="hero-image" />
+      <img :src="SPIRITS[profileData.spirit].img_large" class="hero-image" :alt="profileData.spirit" />
     </div>
   </div>
   <div class="articles">

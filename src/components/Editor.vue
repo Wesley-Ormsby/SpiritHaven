@@ -471,21 +471,25 @@ const ribbonButtons = ref([
     is: markRaw(SymbolSVG),
     function: toggleSymbolPopover,
     tooltip: 'add symbol',
+    ariaControls: 'symbol_popover'
   },
   {
     is: markRaw(ComponentSVG),
     function: toggleComponentPopover,
     tooltip: 'add hover link',
+    ariaControls: 'hoverlink_popover'
   },
   {
     is: markRaw(LargeComponentSVG),
     function: toggleLCDPopover,
     tooltip: 'add large component display',
+    ariaControls: 'large_component_popover'
   },
   {
     is: markRaw(CenterDisplaySVG),
     function: toggleCenteredPopover,
     tooltip: 'add card display',
+    ariaControls: 'card_display_popover'
   },
 ])
 </script>
@@ -511,6 +515,9 @@ const ribbonButtons = ref([
         v-for="(button, i) in ribbonButtons"
         class="ribbon-button"
         :key="i"
+        :aria-label="button.tooltip"
+        :aria-haspopup="button.ariaControls != undefined" 
+        :aria-controls="button.ariaControls"
         @mousedown.prevent="button.function"
         v-tooltip.bottom="{
           value: button.tooltip,
@@ -521,7 +528,7 @@ const ribbonButtons = ref([
         <Component :is="button.is"></Component>
       </Button>
       <!-- RIBBON POPOVERS -->
-      <Popover ref="symbolPopover" @show="symbolFilterInput = ''">
+      <Popover ref="symbolPopover" @show="symbolFilterInput = ''" id="symbol_popover">
         <div class="popover">
           <div class="popover-heading">Add Symbol</div>
           <InputText
@@ -539,12 +546,13 @@ const ribbonButtons = ref([
               :alt="symbol"
               :src="SYMBOL_DATA[symbol]"
               @click="insertSymbol(symbol)"
+              role="button"
             />
           </div>
           <div v-else>No results for filter</div>
         </div>
       </Popover>
-      <Popover ref="componentPopover" @show="resetComponentPopover">
+      <Popover ref="componentPopover" @show="resetComponentPopover" id="hoverlink_popover">
         <div class="popover">
           <div class="popover-heading">Hover Link</div>
           <div class="form">
@@ -599,7 +607,7 @@ const ribbonButtons = ref([
           </div>
         </div>
       </Popover>
-      <Popover ref="LCDPopover" @show="resetLCDPopover">
+      <Popover ref="LCDPopover" @show="resetLCDPopover" id="large_component_popover">
         <div class="popover">
           <div class="popover-heading">Large Component Display</div>
           <div class="form">
@@ -629,7 +637,7 @@ const ribbonButtons = ref([
           </div>
         </div>
       </Popover>
-      <Popover ref="cardDisplayPopover" @show="resetCenteredPopover">
+      <Popover ref="cardDisplayPopover" @show="resetCenteredPopover" id="card_display_popover">
         <div class="popover">
           <div class="popover-heading">Card Display</div>
           <div class="form">
@@ -698,7 +706,7 @@ const ribbonButtons = ref([
         </div>
       </Popover>
     </div>
-    <div class="typeing-area ignore-smooth-scroll">
+    <div class="typeing-area">
       <textarea
         ref="textarea"
         spellcheck="false"

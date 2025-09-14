@@ -25,7 +25,7 @@ const loaded = ref(false)
         <div v-if="!loaded" class="loader-container">
           <Loader></Loader>
         </div>
-        <div @click="closeCallback" class="close-button">
+        <div @click="closeCallback" class="close-button" role="button">
           <X></X>
         </div>
       </div>

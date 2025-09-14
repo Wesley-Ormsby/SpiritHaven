@@ -78,7 +78,7 @@ async function saveSettings() {
     @show="open"
   >
     <template #closebutton="{ closeCallback }">
-      <X class="close-x" @click="closeCallback"></X>
+      <X class="close-x" @click="closeCallback" role="button"></X>
     </template>
     <div class="form">
       <label>

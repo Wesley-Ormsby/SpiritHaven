@@ -509,7 +509,7 @@ function scrollTo(id: string) {
             <p>The text content for cards has been generalized:</p>
             <ul>
               <li>
-                The flourishing <i>Or</i> (<img
+                The flourishing <i>Or</i> (<img alt="or"
                   src="https://res.cloudinary.com/du1bjnkar/image/upload/v1756739839/Or_rmsxbc.svg"
                 />) is changed to <code>-or-</code>
               </li>

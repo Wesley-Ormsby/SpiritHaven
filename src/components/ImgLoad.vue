@@ -45,7 +45,7 @@ function clickFunction() {
 }
 </script>
 <template>
-  <div class="loading-container" :class="{ preview: props.preview }" @click="clickFunction">
+  <div class="loading-container" :class="{ preview: props.preview }" @click="clickFunction" role="button">
     <img class="img" :src="props.src || ''" @load="onLoad" v-show="!loading" :alt="props.alt" />
     <Eye class="preview-icon"></Eye>
     <svg

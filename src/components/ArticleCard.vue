@@ -111,7 +111,7 @@ const timeAgo = computed<string>(() => {
       </p>
       <div class="flex-row tag-container">
         <Tag v-for="tag in articleTags" :tag="tag" size="small"></Tag>
-        <span class="more-tags" v-if="moreTags && !showAllTags" @click="showAllTags = true"
+        <span class="more-tags" v-if="moreTags && !showAllTags" @click="showAllTags = true" role="button"
           >See More</span
         >
       </div>

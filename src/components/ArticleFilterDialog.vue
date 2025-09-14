@@ -70,7 +70,7 @@ function saveFilters() {
     @show="open"
   >
     <template #closebutton="{ closeCallback }">
-      <X class="close-x" @click="closeCallback"></X>
+      <X class="close-x" @click="closeCallback" role="button"></X>
     </template>
     <div class="form">
       <label>
@@ -103,7 +103,7 @@ function saveFilters() {
                 <div class="f-select-option-image"><SpiritAvatar :spirit="slotProps.value.spirit"></SpiritAvatar></div>
                 <div class="text">{{ slotProps.value.username }}</div>
               </div>
-              <X @click.prevent="author = null" class="removeAuthor"></X>
+              <X @click.prevent="author = null" class="removeAuthor" role="button"></X>
             </div>
             <span v-else class="author-value">
               {{ slotProps.placeholder }}

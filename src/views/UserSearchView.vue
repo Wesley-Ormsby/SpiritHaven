@@ -90,7 +90,7 @@ function updateQuery(params: Record<string, string>) {
       <InputGroup>
         <InputText type="text" v-model="input" placeholder="Search for a user" @keypress.enter="search"/>
         <InputGroupAddon>
-          <Button @click="search"><Search></Search></Button>
+          <Button @click="search" aria-label="search"><Search></Search></Button>
         </InputGroupAddon>
       </InputGroup>
     </div>
@@ -104,17 +104,17 @@ function updateQuery(params: Record<string, string>) {
       <UserCard v-else-if="allUsers.length" v-for="user in pageUsers" :data="user"></UserCard>
     </div>
     <div class="paginator" v-if="filteredUsers.length>0 && !pageError">
-      <Button rounded @click="changePage(1)" :disabled="p == 1">
+      <Button rounded @click="changePage(1)" :disabled="p == 1" aria-label="Go to first page">
         <template #icon> <ChevronsLeft /> </template
       ></Button>
-      <Button rounded @click="changePage(p - 1)" :disabled="p == 1">
+      <Button rounded @click="changePage(p - 1)" :disabled="p == 1" aria-label="Go to next page">
         <template #icon> <ChevronLeft /> </template
       ></Button>
       <div>Showing {{ lowerbound + 1 }} to {{ upperbound }} of {{ filteredUsers.length }}</div>
-      <Button rounded @click="changePage(p + 1)" :disabled="p == pages">
+      <Button rounded @click="changePage(p + 1)" :disabled="p == pages" aria-label="Go to previous page">
         <template #icon> <ChevronRight /> </template
       ></Button>
-      <Button rounded @click="changePage(pages)" :disabled="p == pages">
+      <Button rounded @click="changePage(pages)" :disabled="p == pages" aria-label="Go to last page">
         <template #icon> <ChevronsRight /> </template
       ></Button>
     </div>

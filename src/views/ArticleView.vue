@@ -64,6 +64,7 @@ const showFooter = computed(() => display.value == 'preview')
     </div>
     <div class="layout-swapper" v-if="isOwner">
       <Button
+        aria-label="Editor View"
         v-if="display != 'editor'"
         @click="display = 'editor'"
         v-tooltip.top="{
@@ -75,6 +76,7 @@ const showFooter = computed(() => display.value == 'preview')
         <Pencil></Pencil>
       </Button>
       <Button
+        aria-label="Split View"
         v-if="display != 'split' && splitSizingPossible"
         @click="display = 'split'"
         v-tooltip.top="{
@@ -86,6 +88,7 @@ const showFooter = computed(() => display.value == 'preview')
         <SquareSplitHorizontal></SquareSplitHorizontal>
       </Button>
       <Button
+        aria-label="Preview View"
         v-if="display != 'preview'"
         @click="display = 'preview'"
         v-tooltip.top="{
