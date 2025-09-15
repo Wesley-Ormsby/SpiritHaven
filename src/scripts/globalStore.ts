@@ -25,7 +25,6 @@ export const useGlobalStore = {
     updated: '',
     likes: 0
   }),
-  notFoundPage: ref<string>(''),
   allUsers: ref<UserData[]>([]),
   preLoading: ref(false),
 }

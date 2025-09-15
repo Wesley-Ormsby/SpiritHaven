@@ -83,9 +83,9 @@ function checkTab(event: KeyboardEvent) {
   let value = textarea.value.value
   if (event.key == 'Tab') {
     event.preventDefault() // stop normal event
-    let before_tab = value.slice(0, textarea.value.selectionStart) // text before tab
-    let after_tab = value.slice(textarea.value.selectionEnd, textarea.value.value.length) // text after tab
-    let cursor_pos = textarea.value.selectionStart + 1 // where cursor moves after tab - moving forward by 1 char to after tab
+    let before_tab = value.slice(0, textarea.value.selectionStart) 
+    let after_tab = value.slice(textarea.value.selectionEnd, textarea.value.value.length) 
+    let cursor_pos = textarea.value.selectionStart + 1
     textarea.value.value = before_tab + '\t' + after_tab // add tab char
     // move cursor
     textarea.value.selectionStart = cursor_pos
@@ -174,13 +174,11 @@ function addInlineEffect(markdown: string) {
     const selected = value.slice(start, end)
     if (start === end) {
       // No selection, so insert empty markdown and place cursor in middle
-      const newValue = value.slice(0, start) + markdown + markdown + value.slice(end)
-      el.value = newValue
+      el.value = value.slice(0, start) + markdown + markdown + value.slice(end)
       el.selectionStart = el.selectionEnd = start + markdown.length
     } else {
       // Wrap selected text
-      const newValue = value.slice(0, start) + markdown + selected + markdown + value.slice(end)
-      el.value = newValue
+      el.value = value.slice(0, start) + markdown + selected + markdown + value.slice(end)
       el.selectionStart = start + markdown.length
       el.selectionEnd = end + markdown.length
     }

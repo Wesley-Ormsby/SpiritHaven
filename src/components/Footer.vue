@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="footer">
+  <footer>
     <div class="footer-content">
       <!--<p>
         Eric: I agree to the terms for creating Spirit Island game elements
@@ -24,11 +24,11 @@
       </p>
       <p>All other content © 2025 Wesley Ormsby • View source on <a href="https://github.com/Wesley-Ormsby/SpiritHaven" target="_blank">GitHub</a></p>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
-.footer {
+footer {
   margin-top: 20px;
   padding: 20px;
   border-top: 0.5px solid var(--p-surface-300);

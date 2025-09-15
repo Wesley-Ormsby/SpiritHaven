@@ -35,29 +35,34 @@ const nullArray = Array(7).fill(null)
 </script>
 
 <template>
-  <h1>Spirit<span class="primary">Haven</span></h1>
-  <div class="subheading">Your sanctuary for Spirit Island tactics, tales, news, and more!</div>
-
-  <h2>New Articles</h2>
-  <div class="articles">
-    <ArticleCard
-      v-for="article in newArticles.length ? newArticles : nullArray"
-      :article="article"
-    />
-  </div>
-  <RouterLink class="router-link" to="/search/article?sort=recently+published"
-    ><Button variant="outlined" class="centered-button">View More</Button></RouterLink
-  >
-  <h2>Recently Updated Articles</h2>
-  <div class="articles">
-    <ArticleCard
-      v-for="article in updatedArticles.length ? updatedArticles : nullArray"
-      :article="article"
-    />
-  </div>
-  <RouterLink class="router-link" to="/search/article?sort=recently+updated"
-    ><Button variant="outlined" class="centered-button">View More</Button></RouterLink
-  >
+  <header>
+    <h1>Spirit<span class="primary">Haven</span></h1>
+    <div class="subheading">Your sanctuary for Spirit Island tactics, tales, news, and more!</div>
+  </header>
+  <section>
+    <h2>New Articles</h2>
+    <div class="articles">
+      <ArticleCard
+        v-for="article in newArticles.length ? newArticles : nullArray"
+        :article="article"
+      />
+    </div>
+    <RouterLink class="router-link" to="/search/article?sort=recently+published"
+      ><Button variant="outlined" class="centered-button">View More</Button></RouterLink
+    >
+  </section>
+  <section>
+    <h2>Recently Updated Articles</h2>
+    <div class="articles">
+      <ArticleCard
+        v-for="article in updatedArticles.length ? updatedArticles : nullArray"
+        :article="article"
+      />
+    </div>
+    <RouterLink class="router-link" to="/search/article?sort=recently+updated"
+      ><Button variant="outlined" class="centered-button">View More</Button></RouterLink
+    >
+  </section>
   <Footer></Footer>
 </template>
 

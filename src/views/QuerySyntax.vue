@@ -453,7 +453,7 @@ function scrollTo(id: string) {
     </div>
 
     <div class="sections">
-      <div class="section" id="SyntaxOverview">
+      <section id="SyntaxOverview">
         <h2>Syntax Overview</h2>
         <div class="section-content">
           <div class="text-content">
@@ -548,8 +548,8 @@ function scrollTo(id: string) {
             ></QueryLinkBlockquote>
           </div>
         </div>
-      </div>
-      <div v-for="section in sections" class="section" :id="toId(section.title)">
+      </section>
+      <section v-for="section in sections" :id="toId(section.title)">
         <h2>{{ section.title }}</h2>
         <div class="section-content">
           <div class="text-content">
@@ -578,7 +578,7 @@ function scrollTo(id: string) {
             ></QueryLinkBlockquote>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
   <Footer></Footer>
@@ -623,7 +623,7 @@ function scrollTo(id: string) {
 ::v-deep(pre code) {
   padding: 0px;
 }
-.section * {
+section * {
   color: var(--p-surface-800);
 }
 ::v-deep(table),
@@ -640,14 +640,14 @@ function scrollTo(id: string) {
 }
 
 /* Section styles */
-.section {
+section {
   max-width: 1200px;
   margin: auto;
   padding: 20px 40px;
   border-bottom: 1px solid var(--p-surface-300);
   scroll-margin-top: 80px;
 }
-.section:last-child {
+section:last-child {
   border-bottom: 0px;
 }
 .section-content {

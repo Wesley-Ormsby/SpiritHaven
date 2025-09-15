@@ -87,7 +87,7 @@ export const SYMBOL_DATA: Record<string, string> = {
   "sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739506/symbols/sands.svg",
   "wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739507/symbols/wetland.svg",
   "mountain_jungle": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739509/symbols/mountain_jungle.svg",
-  "mountaion_sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739510/symbols/mountaion_sands.png",
+  "mountain_sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739510/symbols/mountaion_sands.png",
   "mountain_wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739511/symbols/mountain_wetland.png",
   "jungle_sands": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739512/symbols/jungle_sands.svg",
   "jungle_wetland": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739513/symbols/jungle_wetland.png",

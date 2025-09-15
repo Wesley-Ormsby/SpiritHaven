@@ -1,6 +1,6 @@
 import { supabase } from '../auth'
 import { useGlobalStore } from '../globalStore'
-const { profileData, notFoundPage, preLoading } = useGlobalStore
+const { profileData, preLoading } = useGlobalStore
 import router from '@/router'
 
 export async function loadProfile(id: string | string[]) {
@@ -10,7 +10,6 @@ export async function loadProfile(id: string | string[]) {
     Object.assign(useGlobalStore.profileData, data[0])
     document.title = profileData.username + ' ⋅ SpiritHaven'
   } else {
-    notFoundPage.value = window.location.href
     preLoading.value = false
     router.push('/NotFound')
   }

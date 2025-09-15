@@ -1,7 +1,7 @@
 import { supabase } from '../auth'
 import type { ArticleData } from '../types'
 import { useGlobalStore } from '../globalStore'
-const { articleData, notFoundPage, preLoading } = useGlobalStore
+const { articleData, preLoading } = useGlobalStore
 import router from '@/router'
 
 export async function loadArticle(id: string | string[]) {
@@ -24,7 +24,6 @@ export async function loadArticle(id: string | string[]) {
 }
 
 function pageNotFound() {
-  notFoundPage.value = window.location.href
   preLoading.value = false
   router.push('/NotFound')
 }

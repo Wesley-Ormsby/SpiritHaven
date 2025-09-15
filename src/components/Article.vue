@@ -133,12 +133,12 @@ function hideTooltip() {
 <template>
   <div class="article-preview-wrapper">
     <div class="article-wrapper">
-      <div class="table-of-contents side" v-if="showSideTableOfContents && !emptyTableOfContents">
+      <aside class="table-of-contents side" v-if="showSideTableOfContents && !emptyTableOfContents">
         <div class="contents-title">Table of Contents</div>
         <a class="to-top" href="#title">Go to Top</a>
         <TableOfContentsSection :section="tableOfContentsData"></TableOfContentsSection>
-      </div>
-      <div class="article">
+      </aside>
+      <article>
         <div class="title" id="title">{{ articleData.title }}</div>
         <div class="article-details">
           <div class="flex-row">
@@ -170,7 +170,7 @@ function hideTooltip() {
             alt="Preview image"
           />
         </div>
-      </div>
+      </article>
     </div>
     <ImageDialog v-model:visible="imageDialogVisible" :src="clickedURL"></ImageDialog>
     <Footer v-if="showFooter"></Footer>
@@ -185,7 +185,7 @@ function hideTooltip() {
   display: flex;
   flex-direction: row;
 }
-.article {
+article {
   padding: 10px 30px;
   overflow-x: hidden;
   max-width: 900px;

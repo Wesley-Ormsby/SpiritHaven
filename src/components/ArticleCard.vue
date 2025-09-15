@@ -115,6 +115,8 @@ const timeAgo = computed<string>(() => {
           >See More</span
         >
       </div>
+    </template>
+    <template #footer> 
       <div class="flex-row">
         <UserAvatarLink :profile="articleAuthorData"></UserAvatarLink>
         <span>|</span><span> {{ timeAgo }}</span>
@@ -123,7 +125,6 @@ const timeAgo = computed<string>(() => {
         <Like v-model:likes="likes" :articleData="article"></Like>
       </div>
     </template>
-    <template #footer> </template>
   </Card>
   <Skeleton v-else class="skelleton"> </Skeleton>
 </template>
