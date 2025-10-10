@@ -11,10 +11,9 @@ import type {
   Scenario,
 } from './types'
 
-// Card plays 1-9?
+//https://spiritislandwiki.com/index.php?title=Category:Template
 // Energy 1-12, reclaim 1, elements + any
 // Energy + elements/reclaim/any.../prepare element marker
-// gain energy 1-12: looks like +x
 // Range 0-5 + any, I need the arrow
 //    Range can also have an icon like dahan (thunderspeeker) above it
 //    It can also have COSTAL or INVADERS or YOURSELF or INLAND or encarna + INVADERS
@@ -29,8 +28,6 @@ import type {
 //    - It has a reclaim 1 with a 5 card plays
 // Stone's unyeilding defience:
 //    - it has some double elements like and element + reclaim 1
-// WILDFIRE:
-//   - Fire/Plant energy (https://spiritislandwiki.com/images/thumb/9/92/Fireplantenergy.png/120px-Fireplantenergy.png)
 // Mist: Move 1 precesnse
 // STARLIGHT: spots have +1 and remember Element star
 // FINDER: has ignor range check: (https://spiritislandwiki.com/images/thumb/5/5a/Checkmark.png/36px-Checkmark.png)
@@ -45,11 +42,6 @@ import type {
 // RELENTLESS GAZE OF SUN:
 //    it has 3 things ontop of a range
 //    x2 energy spot
-// WANDERING VOICE:
-//    On element track, it has sun or mooon (https://spiritislandwiki.com/images/thumb/d/d1/Sunormoon.png/108px-Sunormoon.png)
-// WOUNDED WATERS:
-//     - has energy/cardplay on same track spance
-//     - Has Energy of 4 plus a fire/PlaneTakeoff
 // DANCES UP EARTHQUAKES
 //    - has +/- above impending card
 //    - has move presense in energy slot
@@ -75,7 +67,7 @@ export const SYMBOL_DATA: Record<string, string> = {
   "plant": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739498/symbols/plant.png",
   "animal": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739498/symbols/animal.png",
   "any": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739499/symbols/any.png",
-  "element": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739500/symbols/element.png",
+  "star": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739500/symbols/element.png",
   "card_1": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739501/symbols/card_1.png",
   "card_2": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739501/symbols/card_2.png",
   "card_3": "https://res.cloudinary.com/du1bjnkar/image/upload/v1756739502/symbols/card_3.png",

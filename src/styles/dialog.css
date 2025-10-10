@@ -4,7 +4,9 @@
   justify-content: flex-end;
   gap: 10px;
   margin-top: 10px;
+  width:100%;
 }
+
 .secondary {
   background-color: var(--p-surface-300) !important;
   border-color: var(--p-surface-300) !important;

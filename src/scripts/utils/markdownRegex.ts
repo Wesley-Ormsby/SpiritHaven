@@ -1,4 +1,5 @@
 import { ALL_SYMBOLS, CARD_ARTS, LARGE_COMPONENTS_ARTS } from "../data"
+import { CUSTOM_SYMBOLS } from "./symbols"
 function escapeRegex(str: string): string {
   return str.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&')
 }
@@ -15,6 +16,9 @@ export const escapedLargeComponentNames = largeComponentNames.map(escapeRegex).j
 
 export const symbolScanRegex = new RegExp(`\\{\\{\\s*(${escapedSymbols})\\s*\\}\\}`)
 export const symbolScanStartsWith = RegExp('^' + symbolScanRegex.source, 'i')
+export const allCustomSymbolRegexes = Object.values(CUSTOM_SYMBOLS).map(s=>s.regex).join("|")
+export const customSymbolScanRegex = new RegExp(`\\{\\{\\s*(${allCustomSymbolRegexes})\\s*\\}\\}`)
+export const customSymbolScanStartsWith = RegExp('^' + customSymbolScanRegex.source, 'i')
 export const allNamesRegex = new RegExp(`(\\[\\[\\s*(${escapedAllComponentNames})\\s*(\\:.+\\s*)?\\]\\])`)
 
 const cardRegex = `(\\[\\[\\s*(${escapedAllComponentNames})\\s*(\\|.+?\\s*)?\\]\\])`

@@ -12,7 +12,10 @@ import {
   hoverlinkRegex,
   startsWithHoverlinkRegex,
   startsWithName,
+  customSymbolScanStartsWith,
+  customSymbolScanRegex,
 } from './utils/markdownRegex'
+import { makeSymbolDataFromRegex } from './utils/symbols'
 
 function createToken(type: string, content: string, Token: any, props: Record<string, any> = {}) {
   const token = new Token(type, '', 0)
@@ -27,20 +30,14 @@ function splitTextToken(text: any, Token: any) {
   let textNodeContent = ''
   while (text.length >= 1) {
     const symbolMatch = text.match(symbolScanStartsWith)
+    const customSymbolMatch = text.match(customSymbolScanStartsWith)
     const cardMatch = text.match(startsWithHoverlinkRegex)
-    if (symbolMatch != null || cardMatch != null) {
+    if (symbolMatch != null || cardMatch != null || customSymbolMatch != null) {
       if (textNodeContent.length >= 1) {
         nodes.push(createToken('text', textNodeContent, Token))
         textNodeContent = ''
       }
-      if (symbolMatch != null) {
-        // Symbol
-        const symbolName = symbolMatch[0].replace(/^\{\{\s*|\s*\}\}$/g, '').toLowerCase() // Extract anme
-        nodes.push(
-          createToken('symbol', symbolMatch[0], Token, { markup: symbolName.toLowerCase() }),
-        )
-        text = text.slice(symbolMatch[0].length)
-      } else {
+      if (cardMatch != null) {
         // Hoverlink
         const strip = cardMatch[0].replace(/^\[\[\s*|\s*\]\]$/g, '')
         const [name, rawNick = ''] = strip.split(/\s*\|(.*)/)
@@ -49,6 +46,14 @@ function splitTextToken(text: any, Token: any) {
         const token = createToken('hoverlink', cardMatch[0],Token,{markup:name,nickName,componentType})
         nodes.push(token)
         text = text.slice(cardMatch[0].length)
+      } else {
+        // Symbol
+        const symbol = symbolMatch ? symbolMatch[0] : customSymbolMatch[0]
+        const symbolName = symbol.replace(/^\{\{\s*|\s*\}\}$/g, '').toLowerCase() // Extract name
+        nodes.push(
+          createToken('symbol', symbol, Token, { markup: symbolName.toLowerCase(), basic:symbolMatch !=null }),
+        )
+        text = text.slice(symbol.length)
       }
     } else {
       // Text
@@ -83,7 +88,7 @@ function inlineReplace(md: any) {
         const token = tokens[i]
         if (
           token.type === 'text' &&
-          (symbolScanRegex.test(token.content) || hoverlinkRegex.test(token.content))
+          (symbolScanRegex.test(token.content) || hoverlinkRegex.test(token.content) || customSymbolScanRegex.test(token.content))
         ) {
           // replace current node
           blockTokens[j].children = tokens = arrayReplaceAt(
@@ -246,7 +251,14 @@ function inline_plugin(md: any) {
   // Set rule for hoverlinks + symbols
   md.renderer.rules.symbol = function (token: any, idx: any) {
     let name = token[idx].markup
-    return `<img class="symbol ${INVERTABLE_SYMBOLS.includes(name) ? 'invert' : ''}" alt="${name}" src="${SYMBOL_DATA[name]}"></img>`
+    if(token[idx].basic) {
+        return `<img class="symbol ${INVERTABLE_SYMBOLS.includes(name) ? 'invert' : ''}" alt="${name}" src="${SYMBOL_DATA[name]}"></img>`
+    } else {
+      const data = makeSymbolDataFromRegex(name)
+      console.log(data)
+      return `<span class="custom-symbol" data='${JSON.stringify(data)}'>Custom Symbol</span>`
+    }
+    
   }
   md.renderer.rules.hoverlink = function (token: any, idx: any) {
     const inlineComponentType = token[idx].componentType

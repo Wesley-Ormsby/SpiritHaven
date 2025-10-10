@@ -46,6 +46,8 @@ import { searchCards } from '@/scripts/HavenDSL/search'
 import type { QueryResult } from '@/scripts/HavenDSL/types'
 import { setSupabaseError } from '@/scripts/supabaseErrors'
 import Loader from './Loader.vue'
+import CustomSymbol from './customSymbols/CustomSymbol.vue'
+import CustomSymbolDialog from './customSymbols/CustomSymbolDialog.vue'
 const { articleData } = useGlobalStore
 const toast = useToast()
 
@@ -264,6 +266,7 @@ function handleShortcuts(event: KeyboardEvent) {
 
 // Symbols
 const symbolPopover = useTemplateRef('symbolPopover')
+const customSymbolDialogVisibility = ref(false)
 const symbolFilterInput = ref('')
 const filteredSymbols = computed(() => {
   const search = symbolFilterInput.value.trim().toLowerCase()
@@ -548,8 +551,12 @@ const ribbonButtons = ref([
             />
           </div>
           <div v-else>No results for filter</div>
+          <div class="popover-footer">
+          <Button @click="customSymbolDialogVisibility = true">See Custom Symbols</Button>
+          </div>
         </div>
       </Popover>
+      <CustomSymbolDialog v-model:visible="customSymbolDialogVisibility" :insertSymbol="insertSymbol"></CustomSymbolDialog>
       <Popover ref="componentPopover" @show="resetComponentPopover" id="hoverlink_popover">
         <div class="popover">
           <div class="popover-heading">Hover Link</div>

@@ -19,7 +19,10 @@ body {
     sans-serif;
   line-height: 1.6;
 }
-
+@font-face {
+    font-family: DK;
+    src: url("../fonts/DK\ Snemand.otf") format("opentype");
+}
 * {
   text-decoration: none;
 }

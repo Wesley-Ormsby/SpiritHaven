@@ -1,5 +1,12 @@
 import hljs from 'highlight.js/lib/core'
-import { escapedCardNames, symbolScanRegex,allNamesRegex,escapedLargeComponentNames, escapedAllComponentNames } from './utils/markdownRegex'
+import {
+  escapedCardNames,
+  symbolScanRegex,
+  allNamesRegex,
+  escapedLargeComponentNames,
+  escapedAllComponentNames,
+  customSymbolScanRegex,
+} from './utils/markdownRegex'
 
 /*
 Altered markdown with new rules for custom components
@@ -177,7 +184,7 @@ function markdown(hljs: any) {
   // Custom rules
   const SYMBOL = {
     className: 'symbol',
-    match: symbolScanRegex,
+    variants: [{ match: symbolScanRegex }, { match: customSymbolScanRegex }],
   }
   const HOVERLINK = {
     className: 'hoverlink',

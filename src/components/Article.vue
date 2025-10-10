@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/scripts/globalStore'
 import { renderMarkdown } from '@/scripts/markdown'
-import { watch, ref, onMounted, computed, nextTick, useTemplateRef, onUnmounted } from 'vue'
+import { watch, ref, onMounted, computed, nextTick, useTemplateRef, onUnmounted, createApp } from 'vue'
 import Tag from './Tag.vue'
 import { computePosition, autoPlacement, shift, offset } from '@floating-ui/vue'
 import { BOARDS, CARD_ARTS, LARGE_COMPONENTS_ARTS, TAGS } from '@/scripts/data'
@@ -11,6 +11,7 @@ import type { HeaderData } from '@/scripts/types'
 import TableOfContentsSection from './TableOfContentsSection.vue'
 import UserAvatarLink from './UserAvatarLink.vue'
 import Like from './Like.vue'
+import CustomSymbol from './customSymbols/CustomSymbol.vue'
 
 const { articleData, profileData } = useGlobalStore
 const { showFooter } = defineProps<{ showFooter: boolean }>()
@@ -82,6 +83,15 @@ function makeGameComponentsInteractable() {
       clickedURL.value = el.getAttribute('src') as string
       imageDialogVisible.value = true
     })
+  })
+
+  // Also render custom symbols
+  document.querySelectorAll('.custom-symbol').forEach((el) => {
+    const symbolData = JSON.parse(el.getAttribute("data") as string)
+    const symbolEl = createApp(CustomSymbol,{data:symbolData})
+    const wrapper = document.createElement("span")
+    symbolEl.mount(wrapper)
+    el.replaceWith(wrapper)
   })
 }
 
@@ -303,7 +313,7 @@ article {
 ::v-deep(td) {
   padding: 5px 10px;
 }
-.content ::v-deep(img):not(.symbol) {
+.content ::v-deep(img):not(.symbol):not(.symbol *) {
   display: block;
   max-width: 50%;
   margin: auto;
